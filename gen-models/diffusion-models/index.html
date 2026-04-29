@@ -1,0 +1,1546 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zh">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="ML Security / Generative Models / 动漫摄影旅游杂谈" name="description"/>
+<meta content="Kaor1" name="author"/>
+<link href="https://megumikaor1.github.io/Blog/gen-models/diffusion-models/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../llm/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Diffusion Models - Kaor1's World</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#diffusion-models-a-unified-perspective">
+          跳转至
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="页眉" class="md-header__inner md-grid">
+<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Kaor1's World
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Diffusion Models
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="切换到深色模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="切换到深色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"></path></svg>
+</label>
+<input aria-label="切换到浅色模式" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="切换到浅色模式">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="搜索" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="搜索" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="查找" class="md-search__options">
+<a aria-label="分享" class="md-search__icon md-icon" data-clipboard="" data-clipboard-text="" data-md-component="search-share" href="javascript:void(0)" tabindex="-1" title="分享">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"></path></svg>
+</a>
+<button aria-label="清空当前内容" class="md-search__icon md-icon" tabindex="-1" title="清空当前内容" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<nav aria-label="标签" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+        
+  
+  
+    
+  
+  🏠 首页
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../ml-security/">
+          
+  
+  
+    
+  
+  🔒 ML Security
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
+          
+  
+  
+    
+  
+  🧠 Generative Models
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../ai-math/">
+          
+  
+  
+    
+  
+  📐 AI 数学基础
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../papers/">
+          
+  
+  
+    
+  
+  📝 论文阅读
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../life/">
+          
+  
+  
+    
+  
+  📸 生活
+
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
+</a>
+    Kaor1's World
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    
+  
+    🏠 首页
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../ml-security/">
+<span class="md-ellipsis">
+    
+  
+    🔒 ML Security
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    🔒 ML Security
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/machine-unlearning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Unlearning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/backdoor-attacks/">
+<span class="md-ellipsis">
+    
+  
+    Backdoor Attacks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/data-poisoning/">
+<span class="md-ellipsis">
+    
+  
+    Data Poisoning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/model-editing/">
+<span class="md-ellipsis">
+    
+  
+    Model Editing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/adversarial-attacks/">
+<span class="md-ellipsis">
+    
+  
+    Adversarial Attacks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ml-security/robust-evaluation/">
+<span class="md-ellipsis">
+    
+  
+    Robust Evaluation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    🧠 Generative Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    🧠 Generative Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Diffusion Models
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Diffusion Models
+  
+
+    
+  </span>
+</a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vae">
+<span class="md-ellipsis">
+      
+        一、统一视角：从 VAE 到扩散模型
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elbo-vae">
+<span class="md-ellipsis">
+      
+        二、背景知识：ELBO 与 VAE
+      
+    </span>
+</a>
+<nav aria-label="二、背景知识：ELBO 与 VAE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-evidence-lower-bound-elbo">
+<span class="md-ellipsis">
+      
+        2.1 Evidence Lower Bound (ELBO)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-variational-autoencoder-vae">
+<span class="md-ellipsis">
+      
+        2.2 Variational Autoencoder (VAE)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vae_1">
+<span class="md-ellipsis">
+      
+        三、层级 VAE → 变分扩散模型
+      
+    </span>
+</a>
+<nav aria-label="三、层级 VAE → 变分扩散模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-markovian-hierarchical-vae">
+<span class="md-ellipsis">
+      
+        3.1 Markovian Hierarchical VAE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-vdm">
+<span class="md-ellipsis">
+      
+        3.2 VDM 的三个关键约束
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33">
+<span class="md-ellipsis">
+      
+        3.3 前向过程
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#34-elbo">
+<span class="md-ellipsis">
+      
+        3.4 逆向过程与 ELBO 推导
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        四、三种等价参数化
+      
+    </span>
+</a>
+<nav aria-label="四、三种等价参数化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-mathbfx_0">
+<span class="md-ellipsis">
+      
+        4.1 预测 \(\mathbf{x}_0\)（原始图像）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-boldsymbolepsilonddpm">
+<span class="md-ellipsis">
+      
+        4.2 预测噪声 \(\boldsymbol{\epsilon}\)（DDPM 方式）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#43-scorescore-based">
+<span class="md-ellipsis">
+      
+        4.3 预测 Score（Score-based 模型）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        五、学习噪声调度参数
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ddpm-score-sde">
+<span class="md-ellipsis">
+      
+        六、从 DDPM 到 Score SDE：连续极限
+      
+    </span>
+</a>
+<nav aria-label="六、从 DDPM 到 Score SDE：连续极限" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#61">
+<span class="md-ellipsis">
+      
+        6.1 离散 → 连续
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#62-vp-sde-ve-sde">
+<span class="md-ellipsis">
+      
+        6.2 VP-SDE 和 VE-SDE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidance">
+<span class="md-ellipsis">
+      
+        七、Guidance：控制生成内容
+      
+    </span>
+</a>
+<nav aria-label="七、Guidance：控制生成内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71-classifier-guidance">
+<span class="md-ellipsis">
+      
+        7.1 Classifier Guidance
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72-classifier-free-guidance">
+<span class="md-ellipsis">
+      
+        7.2 Classifier-Free Guidance（无需分类器的引导）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        八、统一视角总结
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        九、扩散模型安全
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        十、💭 个人理解与延伸思考
+      
+    </span>
+</a>
+<nav aria-label="十、💭 个人理解与延伸思考" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#101-l2-loss-kl">
+<span class="md-ellipsis">
+      
+        10.1 为什么代码里算 L2 Loss 就行？—— KL 退化的精妙之处
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#102-tweedies-formula">
+<span class="md-ellipsis">
+      
+        10.2 Tweedie's Formula：桥梁公式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#103-cfg">
+<span class="md-ellipsis">
+      
+        10.3 CFG 的优雅一行
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#104-vdm-latent-diffusion">
+<span class="md-ellipsis">
+      
+        10.4 从 VDM 到 Latent Diffusion：科研发展的顺理成章
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#105">
+<span class="md-ellipsis">
+      
+        10.5 未解决的问题
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      
+        参考论文
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../llm/">
+<span class="md-ellipsis">
+    
+  
+    Large Language Models
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../autoregressive/">
+<span class="md-ellipsis">
+    
+  
+    Autoregressive Models
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../ai-math/">
+<span class="md-ellipsis">
+    
+  
+    📐 AI 数学基础
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    📐 AI 数学基础
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai-math/linear-algebra/">
+<span class="md-ellipsis">
+    
+  
+    必修 · 线性代数
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai-math/calculus/">
+<span class="md-ellipsis">
+    
+  
+    必修 · 微积分
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai-math/probability/">
+<span class="md-ellipsis">
+    
+  
+    必修 · 概率论与数理统计
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai-math/optimization/">
+<span class="md-ellipsis">
+    
+  
+    选修 · 最优化理论
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai-math/information-theory/">
+<span class="md-ellipsis">
+    
+  
+    选修 · 信息论
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../papers/">
+<span class="md-ellipsis">
+    
+  
+    📝 论文阅读
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    📝 论文阅读
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../life/">
+<span class="md-ellipsis">
+    
+  
+    📸 生活
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_6_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    📸 生活
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../life/archive/">
+<span class="md-ellipsis">
+    
+  
+    归档
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vae">
+<span class="md-ellipsis">
+      
+        一、统一视角：从 VAE 到扩散模型
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#elbo-vae">
+<span class="md-ellipsis">
+      
+        二、背景知识：ELBO 与 VAE
+      
+    </span>
+</a>
+<nav aria-label="二、背景知识：ELBO 与 VAE" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#21-evidence-lower-bound-elbo">
+<span class="md-ellipsis">
+      
+        2.1 Evidence Lower Bound (ELBO)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#22-variational-autoencoder-vae">
+<span class="md-ellipsis">
+      
+        2.2 Variational Autoencoder (VAE)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vae_1">
+<span class="md-ellipsis">
+      
+        三、层级 VAE → 变分扩散模型
+      
+    </span>
+</a>
+<nav aria-label="三、层级 VAE → 变分扩散模型" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-markovian-hierarchical-vae">
+<span class="md-ellipsis">
+      
+        3.1 Markovian Hierarchical VAE
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-vdm">
+<span class="md-ellipsis">
+      
+        3.2 VDM 的三个关键约束
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33">
+<span class="md-ellipsis">
+      
+        3.3 前向过程
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#34-elbo">
+<span class="md-ellipsis">
+      
+        3.4 逆向过程与 ELBO 推导
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        四、三种等价参数化
+      
+    </span>
+</a>
+<nav aria-label="四、三种等价参数化" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-mathbfx_0">
+<span class="md-ellipsis">
+      
+        4.1 预测 \(\mathbf{x}_0\)（原始图像）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-boldsymbolepsilonddpm">
+<span class="md-ellipsis">
+      
+        4.2 预测噪声 \(\boldsymbol{\epsilon}\)（DDPM 方式）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#43-scorescore-based">
+<span class="md-ellipsis">
+      
+        4.3 预测 Score（Score-based 模型）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        五、学习噪声调度参数
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ddpm-score-sde">
+<span class="md-ellipsis">
+      
+        六、从 DDPM 到 Score SDE：连续极限
+      
+    </span>
+</a>
+<nav aria-label="六、从 DDPM 到 Score SDE：连续极限" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#61">
+<span class="md-ellipsis">
+      
+        6.1 离散 → 连续
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#62-vp-sde-ve-sde">
+<span class="md-ellipsis">
+      
+        6.2 VP-SDE 和 VE-SDE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#guidance">
+<span class="md-ellipsis">
+      
+        七、Guidance：控制生成内容
+      
+    </span>
+</a>
+<nav aria-label="七、Guidance：控制生成内容" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71-classifier-guidance">
+<span class="md-ellipsis">
+      
+        7.1 Classifier Guidance
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72-classifier-free-guidance">
+<span class="md-ellipsis">
+      
+        7.2 Classifier-Free Guidance（无需分类器的引导）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        八、统一视角总结
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        九、扩散模型安全
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        十、💭 个人理解与延伸思考
+      
+    </span>
+</a>
+<nav aria-label="十、💭 个人理解与延伸思考" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#101-l2-loss-kl">
+<span class="md-ellipsis">
+      
+        10.1 为什么代码里算 L2 Loss 就行？—— KL 退化的精妙之处
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#102-tweedies-formula">
+<span class="md-ellipsis">
+      
+        10.2 Tweedie's Formula：桥梁公式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#103-cfg">
+<span class="md-ellipsis">
+      
+        10.3 CFG 的优雅一行
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#104-vdm-latent-diffusion">
+<span class="md-ellipsis">
+      
+        10.4 从 VDM 到 Latent Diffusion：科研发展的顺理成章
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#105">
+<span class="md-ellipsis">
+      
+        10.5 未解决的问题
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_6">
+<span class="md-ellipsis">
+      
+        参考论文
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="diffusion-models-a-unified-perspective">Diffusion Models: A Unified Perspective<a class="headerlink" href="#diffusion-models-a-unified-perspective" title="锚点链接">¶</a></h1>
+<blockquote>
+<p>基于 Luo (2022) "Understanding Diffusion Models: A Unified Perspective" 的学习笔记。
+本文从 VAE → 层级 VAE → 变分扩散模型 (VDM) → Score-based 模型的统一视角出发，
+系统梳理扩散模型的数学推导、三种等价解释和引导方法。</p>
+</blockquote>
+<hr/>
+<h2 id="vae">一、统一视角：从 VAE 到扩散模型<a class="headerlink" href="#vae" title="锚点链接">¶</a></h2>
+<p>Luo (2022) 的核心洞见：<strong>扩散模型本质上是一个具有三个特殊约束的马尔可夫层级变分自编码器 (Markovian HVAE)。</strong></p>
+<pre class="mermaid"><code>graph TD
+    A["VAE&lt;br/&gt;单层潜变量"] --&gt; B["层级 VAE (HVAE)&lt;br/&gt;多层潜变量"]
+    B --&gt; C["Markovian HVAE&lt;br/&gt;马尔可夫层级结构"]
+    C --&gt; D["Variational Diffusion Model&lt;br/&gt;VDM = 三个约束"]
+    D --&gt; E["DDPM&lt;br/&gt;去噪扩散概率模型"]
+    D --&gt; F["Score-based Model&lt;br/&gt;评分匹配视角"]
+    E --&gt; G["统一：都是预测噪声 / 评分 / x₀"]
+    F --&gt; G</code></pre>
+<hr/>
+<h2 id="elbo-vae">二、背景知识：ELBO 与 VAE<a class="headerlink" href="#elbo-vae" title="锚点链接">¶</a></h2>
+<h3 id="21-evidence-lower-bound-elbo">2.1 Evidence Lower Bound (ELBO)<a class="headerlink" href="#21-evidence-lower-bound-elbo" title="锚点链接">¶</a></h3>
+<p>对于观测数据 <span class="arithmatex">\(\mathbf{x}\)</span> 和潜变量 <span class="arithmatex">\(\mathbf{z}\)</span>，我们想最大化似然 <span class="arithmatex">\(p(\mathbf{x})\)</span>，但直接计算需要边际化：</p>
+<div class="arithmatex">\[p(\mathbf{x}) = \int p(\mathbf{x}, \mathbf{z})\, d\mathbf{z}\]</div>
+<p>引入变分分布 <span class="arithmatex">\(q_\phi(\mathbf{z}|\mathbf{x})\)</span>，通过 Jensen 不等式得到 ELBO：</p>
+<div class="arithmatex">\[\log p(\mathbf{x}) \geq \mathbb{E}_{q_\phi(\mathbf{z}|\mathbf{x})}\left[\log\frac{p(\mathbf{x}, \mathbf{z})}{q_\phi(\mathbf{z}|\mathbf{x})}\right] = \text{ELBO}\]</div>
+<p>ELBO 可以分解为两项：</p>
+<div class="arithmatex">\[\mathbb{E}_{q_\phi(\mathbf{z}|\mathbf{x})}\left[\log\frac{p_\theta(\mathbf{x}, \mathbf{z})}{q_\phi(\mathbf{z}|\mathbf{x})}\right] = \underbrace{\mathbb{E}_{q_\phi}[\log p_\theta(\mathbf{x}|\mathbf{z})]}_{\text{重建项}} - \underbrace{D_\text{KL}(q_\phi(\mathbf{z}|\mathbf{x}) \| p(\mathbf{z}))}_{\text{先验匹配项}}\]</div>
+<p><strong>直觉</strong>：第一项鼓励好的重建，第二项鼓励潜变量分布接近先验（通常是标准高斯）。</p>
+<h3 id="22-variational-autoencoder-vae">2.2 Variational Autoencoder (VAE)<a class="headerlink" href="#22-variational-autoencoder-vae" title="锚点链接">¶</a></h3>
+<p>在标准 VAE 中：
+- 编码器：<span class="arithmatex">\(q_\phi(\mathbf{z}|\mathbf{x}) = \mathcal{N}(\mathbf{z}; \mu_\phi(\mathbf{x}), \sigma_\phi^2(\mathbf{x})\mathbf{I})\)</span>
+- 解码器：<span class="arithmatex">\(p_\theta(\mathbf{x}|\mathbf{z})\)</span>（从潜变量重建数据）
+- 先验：<span class="arithmatex">\(p(\mathbf{z}) = \mathcal{N}(\mathbf{z}; \mathbf{0}, \mathbf{I})\)</span></p>
+<hr/>
+<h2 id="vae_1">三、层级 VAE → 变分扩散模型<a class="headerlink" href="#vae_1" title="锚点链接">¶</a></h2>
+<h3 id="31-markovian-hierarchical-vae">3.1 Markovian Hierarchical VAE<a class="headerlink" href="#31-markovian-hierarchical-vae" title="锚点链接">¶</a></h3>
+<p>层级 VAE 在 VAE 的基础上引入多层潜变量 <span class="arithmatex">\(\mathbf{z}_1, \mathbf{z}_2, \ldots, \mathbf{z}_T\)</span>。Markovian HVAE 进一步假设：</p>
+<div class="arithmatex">\[q_\phi(\mathbf{z}_{1:T}|\mathbf{x}) = \prod_{t=1}^T q_\phi(\mathbf{z}_t|\mathbf{z}_{t-1})\]</div>
+<p>即每一层潜变量只依赖上一层。</p>
+<h3 id="32-vdm">3.2 VDM 的三个关键约束<a class="headerlink" href="#32-vdm" title="锚点链接">¶</a></h3>
+<p>Luo 指出，VDM 就是在 Markovian HVAE 上施加三个约束：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>约束</th>
+<th>数学含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>维度相等</strong></td>
+<td>潜变量维度 = 数据维度。记 <span class="arithmatex">\(\mathbf{x}_t\)</span> 替代 <span class="arithmatex">\(\mathbf{z}_t\)</span></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>编码器固定</strong></td>
+<td>$q(\mathbf{x}_t</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>终态为标准高斯</strong></td>
+<td><span class="arithmatex">\(p(\mathbf{x}_T) = \mathcal{N}(\mathbf{x}_T; \mathbf{0}, \mathbf{I})\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>直观理解</strong>：这三个约束描述了一个<strong>渐进的加噪过程</strong>——逐步向图像注入高斯噪声，直到 <span class="arithmatex">\(T\)</span> 步后完全变成纯噪声。</p>
+<pre class="mermaid"><code>graph LR
+    x0["🖼️ x₀&lt;br/&gt;真实图像"] --&gt;|"q(x₁|x₀)"| x1["🌫️ x₁&lt;br/&gt;轻度噪声"]
+    x1 --&gt;|"q(x₂|x₁)"| x2["🌫️ x₂&lt;br/&gt;中度噪声"]
+    x2 --&gt;|"..."| dots["..."]
+    dots --&gt;|"q(x_T|x_{T-1})"| xT["💨 x_T&lt;br/&gt;纯高斯噪声"]
+
+    xT -.-&gt;|"p_θ(x_{T-1}|x_T)"| xTm1["去噪"]
+    xTm1 -.-&gt;|"p_θ"| dots2["..."]
+    dots2 -.-&gt;|"p_θ(x₀|x₁)"| x0_2["🖼️ x₀&lt;br/&gt;生成图像"]
+
+    style x0 fill:#4caf50,color:#fff
+    style xT fill:#f44336,color:#fff
+    style x0_2 fill:#4caf50,color:#fff</code></pre>
+<h3 id="33">3.3 前向过程<a class="headerlink" href="#33" title="锚点链接">¶</a></h3>
+<p>利用约束 2，前向加噪过程定义为：</p>
+<div class="arithmatex">\[q(\mathbf{x}_t | \mathbf{x}_{t-1}) = \mathcal{N}(\mathbf{x}_t; \sqrt{\alpha_t}\mathbf{x}_{t-1}, (1-\alpha_t)\mathbf{I})\]</div>
+<p>利用重参数化技巧和独立高斯可加性，可以直接从 <span class="arithmatex">\(\mathbf{x}_0\)</span> 推导到任意 <span class="arithmatex">\(\mathbf{x}_t\)</span>：</p>
+<div class="arithmatex">\[q(\mathbf{x}_t | \mathbf{x}_0) = \mathcal{N}(\mathbf{x}_t; \sqrt{\bar{\alpha}_t}\mathbf{x}_0, (1-\bar{\alpha}_t)\mathbf{I})\]</div>
+<p>其中 <span class="arithmatex">\(\bar{\alpha}_t = \prod_{i=1}^t \alpha_i\)</span>。重参数化形式为：</p>
+<div class="arithmatex">\[\mathbf{x}_t = \sqrt{\bar{\alpha}_t}\mathbf{x}_0 + \sqrt{1-\bar{\alpha}_t}\,\boldsymbol{\epsilon},\quad \boldsymbol{\epsilon}\sim\mathcal{N}(\mathbf{0},\mathbf{I})\]</div>
+<h3 id="34-elbo">3.4 逆向过程与 ELBO 推导<a class="headerlink" href="#34-elbo" title="锚点链接">¶</a></h3>
+<p>逆向去噪过程是我们要学习的：</p>
+<div class="arithmatex">\[p_\theta(\mathbf{x}_{0:T}) = p(\mathbf{x}_T)\prod_{t=1}^T p_\theta(\mathbf{x}_{t-1}|\mathbf{x}_t)\]</div>
+<p>对 VDM 最大化 ELBO，经过推导得到：</p>
+<div class="arithmatex">\[\text{ELBO} = \mathbb{E}_{q}\left[\log\frac{p(\mathbf{x}_T)p_\theta(\mathbf{x}_0|\mathbf{x}_1)\prod_{t=2}^T p_\theta(\mathbf{x}_{t-1}|\mathbf{x}_t)}{q(\mathbf{x}_T|\mathbf{x}_{T-1})\prod_{t=1}^{T-1}q(\mathbf{x}_t|\mathbf{x}_{t-1})}\right]\]</div>
+<p>进一步展开为：</p>
+<div class="arithmatex">\[\mathbb{E}_{q(\mathbf{x}_1|\mathbf{x}_0)}[\log p_\theta(\mathbf{x}_0|\mathbf{x}_1)] - D_\text{KL}(q(\mathbf{x}_T|\mathbf{x}_0) \| p(\mathbf{x}_T)) - \sum_{t=2}^T \mathbb{E}_{q(\mathbf{x}_t|\mathbf{x}_0)}[D_\text{KL}(q(\mathbf{x}_{t-1}|\mathbf{x}_t,\mathbf{x}_0) \| p_\theta(\mathbf{x}_{t-1}|\mathbf{x}_t))]\]</div>
+<p>三项的直觉：
+- <strong>第一项</strong>：重建项——从 <span class="arithmatex">\(\mathbf{x}_1\)</span> 恢复 <span class="arithmatex">\(\mathbf{x}_0\)</span>
+- <strong>第二项</strong>：先验匹配项——确保 <span class="arithmatex">\(\mathbf{x}_T\)</span> 接近标准高斯（通常可忽略）
+- <strong>第三项</strong>：去噪匹配项——每一步去噪都和最优后验一致（<strong>核心训练项</strong>）</p>
+<hr/>
+<h2 id="_1">四、三种等价参数化<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
+<p>VDM 的核心训练目标可以等价地表达为以下三种形式——这是 Luo (2022) 论文中最重要的统一视角。</p>
+<pre class="mermaid"><code>graph TD
+    center["去噪目标"]
+    center --&gt; A["1️⃣ 预测 x₀&lt;br/&gt;从 x_t 预测原始图像"]
+    center --&gt; B["2️⃣ 预测噪声 ε&lt;br/&gt;从 x_t 预测加入的噪声"]
+    center --&gt; C["3️⃣ 预测 Score&lt;br/&gt;从 x_t 预测数据分布的梯度 ∇log p(x_t)"]
+
+    A --&gt; A1["训练网络: x̂_θ(x_t, t)"]
+    B --&gt; B1["训练网络: ε̂_θ(x_t, t)"]
+    C --&gt; C1["训练网络: s_θ(x_t, t)"]
+
+    A1 --&gt; eq["数学等价&lt;br/&gt;通过 Tweedie's Formula 联系"]
+    B1 --&gt; eq
+    C1 --&gt; eq</code></pre>
+<h3 id="41-mathbfx_0">4.1 预测 <span class="arithmatex">\(\mathbf{x}_0\)</span>（原始图像）<a class="headerlink" href="#41-mathbfx_0" title="锚点链接">¶</a></h3>
+<p>最直观的方式：训练网络直接从噪声图像预测原始图像。</p>
+<div class="arithmatex">\[\arg\min_\theta\; D_\text{KL}(q(\mathbf{x}_{t-1}|\mathbf{x}_t,\mathbf{x}_0) \| p_\theta(\mathbf{x}_{t-1}|\mathbf{x}_t))\]</div>
+<p>去噪均值设置为：</p>
+<div class="arithmatex">\[\boldsymbol{\mu}_\theta(\mathbf{x}_t, t) = \frac{\sqrt{\alpha_t}(1-\bar{\alpha}_{t-1})\mathbf{x}_t + \sqrt{\bar{\alpha}_{t-1}}(1-\alpha_t)\hat{\mathbf{x}}_\theta(\mathbf{x}_t, t)}{1-\bar{\alpha}_t}\]</div>
+<h3 id="42-boldsymbolepsilonddpm">4.2 预测噪声 <span class="arithmatex">\(\boldsymbol{\epsilon}\)</span>（DDPM 方式）<a class="headerlink" href="#42-boldsymbolepsilonddpm" title="锚点链接">¶</a></h3>
+<p>利用重参数化技巧：<span class="arithmatex">\(\mathbf{x}_0 = (\mathbf{x}_t - \sqrt{1-\bar{\alpha}_t}\boldsymbol{\epsilon}_0) / \sqrt{\bar{\alpha}_t}\)</span>，可以转换为预测噪声：</p>
+<div class="arithmatex">\[\boldsymbol{\mu}_\theta(\mathbf{x}_t, t) = \frac{1}{\sqrt{\alpha_t}}\mathbf{x}_t - \frac{1-\alpha_t}{\sqrt{1-\bar{\alpha}_t}\sqrt{\alpha_t}}\hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t)\]</div>
+<p>对应的<strong>简化训练目标</strong>（Ho et al. 2020 发现简化后效果更好）：</p>
+<div class="arithmatex">\[\mathcal{L}_{\text{simple}} = \mathbb{E}_{t, \mathbf{x}_0, \boldsymbol{\epsilon}}\left[\|\boldsymbol{\epsilon} - \hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t)\|^2\right]\]</div>
+<blockquote>
+<p><strong>这就是 DDPM 中著名的"预测噪声"训练方式，已经被证明在实践中效果最好。</strong></p>
+</blockquote>
+<h3 id="43-scorescore-based">4.3 预测 Score（Score-based 模型）<a class="headerlink" href="#43-scorescore-based" title="锚点链接">¶</a></h3>
+<p>通过 <strong>Tweedie's Formula</strong>：</p>
+<div class="arithmatex">\[\mathbb{E}[\boldsymbol{\mu}_x | \mathbf{x}_z] = \mathbf{x}_z + \Sigma_z \nabla_{\mathbf{x}_z} \log p(\mathbf{x}_z)\]</div>
+<p>可证明去噪过程和评分函数（Score Function）的等价关系：</p>
+<div class="arithmatex">\[\nabla_{\mathbf{x}_t} \log p(\mathbf{x}_t) = -\frac{1}{\sqrt{1-\bar{\alpha}_t}}\boldsymbol{\epsilon}_0\]</div>
+<p>因此，<strong>预测噪声等价于学习数据分布的评分函数</strong>（梯度场）。</p>
+<p>这意味着：
+- <strong>VDM 学习去噪 → 等同于学习 score function</strong>
+- <strong>采样过程 → 等同于 Langevin 动力学沿着 score 方向移动</strong>
+- <strong>DDPM 和 Score SDE 本质上是同一事物的两种表述！</strong></p>
+<hr/>
+<h2 id="_2">五、学习噪声调度参数<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
+<p>在基础 VDM 中，<span class="arithmatex">\(\alpha_t\)</span>（控制加噪速度）可以是预设超参数。但 Luo 指出，<span class="arithmatex">\(\alpha_t\)</span> 也可以作为<strong>可学习参数</strong>联合优化：</p>
+<div class="arithmatex">\[\nabla_{\alpha_t} \text{ELBO}\]</div>
+<p>这允许模型自适应地学习最优的噪声调度策略，使得去噪任务在不同时间步之间达到平衡。</p>
+<hr/>
+<h2 id="ddpm-score-sde">六、从 DDPM 到 Score SDE：连续极限<a class="headerlink" href="#ddpm-score-sde" title="锚点链接">¶</a></h2>
+<h3 id="61">6.1 离散 → 连续<a class="headerlink" href="#61" title="锚点链接">¶</a></h3>
+<p>当 <span class="arithmatex">\(T \to \infty\)</span>，离散的扩散过程变为连续时间随机过程。前向过程对应 <strong>SDE</strong>：</p>
+<div class="arithmatex">\[d\mathbf{x} = \underbrace{f(\mathbf{x}, t)}_{\text{漂移项}} dt + \underbrace{g(t)}_{\text{扩散项}} d\mathbf{w}\]</div>
+<p>逆向过程对应 <strong>reverse-time SDE</strong>：</p>
+<div class="arithmatex">\[d\mathbf{x} = \left[f(\mathbf{x}, t) - g(t)^2 \nabla_\mathbf{x} \log p_t(\mathbf{x})\right] dt + g(t) d\bar{\mathbf{w}}\]</div>
+<p><strong>核心洞察</strong>：逆向 SDE 中唯一需要学习的是评分函数 <span class="arithmatex">\(\nabla_\mathbf{x} \log p_t(\mathbf{x})\)</span>——这与 VDM 预测噪声完全等价！</p>
+<h3 id="62-vp-sde-ve-sde">6.2 VP-SDE 和 VE-SDE<a class="headerlink" href="#62-vp-sde-ve-sde" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>SDE 形式</th>
+<th>对应模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VP-SDE</strong> (Variance Preserving)</td>
+<td><span class="arithmatex">\(d\mathbf{x} = -\frac{1}{2}\beta(t)\mathbf{x}dt + \sqrt{\beta(t)}d\mathbf{w}\)</span></td>
+<td>DDPM</td>
+</tr>
+<tr>
+<td><strong>VE-SDE</strong> (Variance Exploding)</td>
+<td><span class="arithmatex">\(d\mathbf{x} = \sqrt{d[\sigma^2(t)]/dt}\,d\mathbf{w}\)</span></td>
+<td>Score SDE (Song et al.)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="guidance">七、Guidance：控制生成内容<a class="headerlink" href="#guidance" title="锚点链接">¶</a></h2>
+<p>仅仅无条件生成是不够的，我们常需要<strong>引导模型生成特定类别或满足文本描述的图像</strong>。</p>
+<h3 id="71-classifier-guidance">7.1 Classifier Guidance<a class="headerlink" href="#71-classifier-guidance" title="锚点链接">¶</a></h3>
+<p>在采样时，利用一个预训练的分类器 <span class="arithmatex">\(p_\phi(y|\mathbf{x}_t)\)</span> 来引导生成方向。关键是修改评分函数：</p>
+<div class="arithmatex">\[\nabla_{\mathbf{x}_t} \log p(\mathbf{x}_t | y) = \underbrace{\nabla_{\mathbf{x}_t} \log p(\mathbf{x}_t)}_{\text{无条件评分}} + \gamma \underbrace{\nabla_{\mathbf{x}_t} \log p_\phi(y | \mathbf{x}_t)}_{\text{分类器梯度}}\]</div>
+<p>将修改后的评分代入去噪均值：</p>
+<div class="arithmatex">\[\hat{\boldsymbol{\mu}}_\theta(\mathbf{x}_t, t) = \boldsymbol{\mu}_\theta(\mathbf{x}_t, t) + s \cdot \Sigma_\theta(\mathbf{x}_t, t) \nabla_{\mathbf{x}_t} \log p_\phi(y | \mathbf{x}_t)\]</div>
+<p>其中 <span class="arithmatex">\(s\)</span> 控制引导强度：
+- <span class="arithmatex">\(s=0\)</span>：无条件生成
+- <span class="arithmatex">\(s&gt;0\)</span>：引导强度增大 → 生成质量提升但多样性下降
+- <span class="arithmatex">\(s\)</span> 过大 → 对抗效应（adversarial effect）</p>
+<h3 id="72-classifier-free-guidance">7.2 Classifier-Free Guidance（无需分类器的引导）<a class="headerlink" href="#72-classifier-free-guidance" title="锚点链接">¶</a></h3>
+<p>Classifier-Free Guidance 不需要额外的分类器，而是<strong>联合训练条件模型和无条件模型</strong>：</p>
+<p>训练时随机丢弃条件 <span class="arithmatex">\(c\)</span>（通常是文本 prompt），使模型同时学习：</p>
+<div class="arithmatex">\[\hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t) \quad\text{和}\quad \hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t, c)\]</div>
+<p>采样时，将条件评分和无条件评分做外推：</p>
+<div class="arithmatex">\[\hat{\boldsymbol{\epsilon}} = \underbrace{\hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t)}_{\text{无条件预测}} + w \cdot \underbrace{(\hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t, c) - \hat{\boldsymbol{\epsilon}}_\theta(\mathbf{x}_t, t))}_{\text{条件修正方向}}\]</div>
+<p>其中 <span class="arithmatex">\(w\)</span> 为引导权重。</p>
+<p><strong>这是 Stable Diffusion、DALL·E 2、Imagen 等主流文生图模型使用的核心技术。</strong></p>
+<hr/>
+<h2 id="_3">八、统一视角总结<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
+<pre class="mermaid"><code>graph TD
+    subgraph "生成模型谱系"
+        VAE["VAE&lt;br/&gt;单层潜变量 + ELBO"]
+        HVAE["层级 VAE&lt;br/&gt;多层潜变量"]
+        MHVAE["Markovian HVAE&lt;br/&gt;马尔可夫层级"]
+        VDM["Variational Diffusion Model&lt;br/&gt;三维约束 → 扩散模型"]
+        DDPM["DDPM&lt;br/&gt;预测噪声 ε"]
+        SCORE["Score SDE&lt;br/&gt;评分函数视角"]
+        CFG["Classifier-Free Guidance&lt;br/&gt;条件生成"]
+    end
+
+    VAE --&gt; HVAE --&gt; MHVAE --&gt; VDM
+    VDM --&gt; DDPM
+    VDM --&gt; SCORE
+    DDPM -.-&gt;|"Tweedie's Formula&lt;br/&gt;等价"| SCORE
+    DDPM --&gt; CFG
+    SCORE --&gt; CFG
+
+    style VDM fill:#1565c0,color:#fff
+    style DDPM fill:#e65100,color:#fff
+    style SCORE fill:#2e7d32,color:#fff
+    style CFG fill:#6a1b9a,color:#fff</code></pre>
+<table>
+<thead>
+<tr>
+<th>解读视角</th>
+<th>训练目标</th>
+<th>采样方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>VAE 视角</strong></td>
+<td>最大化 ELBO</td>
+<td>层级解码</td>
+</tr>
+<tr>
+<td><strong>DDPM 视角</strong></td>
+<td>预测噪声 <span class="arithmatex">\(\boldsymbol{\epsilon}\)</span></td>
+<td>迭代去噪</td>
+</tr>
+<tr>
+<td><strong>Score 视角</strong></td>
+<td>学习评分函数 <span class="arithmatex">\(\nabla\log p\)</span></td>
+<td>Langevin 动力学 / SDE 求解</td>
+</tr>
+<tr>
+<td><strong>Guidance 视角</strong></td>
+<td>条件评分修正</td>
+<td>引导采样</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_4">九、扩散模型安全<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
+<p>与我的研究方向交叉：</p>
+<ul>
+<li><strong>扩散模型能否被 unlearn？</strong> 概念擦除（Concept Erasure）与遗忘是否等价？</li>
+<li><strong>后门攻击</strong>：在扩散模型的加噪/去噪过程中植入 trigger</li>
+<li><strong>成员推理攻击</strong>：扩散模型是否比 GAN 更容易泄露训练数据？</li>
+<li><strong>鲁棒评测</strong>：扩散模型生成内容的安全和质量评测框架</li>
+</ul>
+<hr/>
+<h2 id="_5">十、💭 个人理解与延伸思考<a class="headerlink" href="#_5" title="锚点链接">¶</a></h2>
+<blockquote>
+<p>读 Luo (2022) 的过程中，以下是我觉得最有收获的几个洞察。</p>
+</blockquote>
+<h3 id="101-l2-loss-kl">10.1 为什么代码里算 L2 Loss 就行？—— KL 退化的精妙之处<a class="headerlink" href="#101-l2-loss-kl" title="锚点链接">¶</a></h3>
+<p>实际写 DDPM 代码时，Loss 就是拿网络输出跟噪声 <span class="arithmatex">\(\boldsymbol{\epsilon}\)</span> 做 MSE。但为什么可以这么简单？Luo 的公式 (87) → (130) 给出了严格推导：</p>
+<ol>
+<li><strong>真实去噪分布的方差已知</strong>（由 <span class="arithmatex">\(\alpha_t\)</span> 确定），不依赖网络学习</li>
+<li>因此 <span class="arithmatex">\(D_{\text{KL}}\)</span> <strong>退化成了对均值的 L2 距离</strong></li>
+<li>均值预测又通过<strong>重参数化</strong>等价于噪声预测</li>
+</ol>
+<div class="arithmatex">\[D_{\text{KL}}(q(\mathbf{x}_{t-1}|\mathbf{x}_t,\mathbf{x}_0) \| p_\theta(\mathbf{x}_{t-1}|\mathbf{x}_t)) = \frac{1}{2\sigma_q^2}\|\boldsymbol{\mu}_q - \boldsymbol{\mu}_\theta\|^2\]</div>
+<p><strong>这条推导链打通了"数学上的 ELBO"和"代码里的 MSE"之间的壁垒，不再靠信仰编程。</strong></p>
+<h3 id="102-tweedies-formula">10.2 Tweedie's Formula：桥梁公式<a class="headerlink" href="#102-tweedies-formula" title="锚点链接">¶</a></h3>
+<div class="arithmatex">\[\mathbb{E}[\boldsymbol{\mu}_x | \mathbf{x}_z] = \mathbf{x}_z + \Sigma_z \nabla_{\mathbf{x}_z} \log p(\mathbf{x}_z)\]</div>
+<blockquote>
+<p>Tweedie's Formula 是串联「预测原图 <span class="arithmatex">\(\hat{\mathbf{x}}_0\)</span>」和「估计 Score <span class="arithmatex">\(\nabla\log p\)</span>」的核心枢纽。</p>
+</blockquote>
+<p>它的直觉：如果你有一个带噪声的观测，想估计真实信号，可以用<strong>噪声的方差</strong>乘以<strong>概率密度的梯度</strong>来修正。</p>
+<p>正是这条公式，让 VDM 的「去噪」和 Score-based 的「梯度场」在数学上严格等价——这是整个统一视角中<strong>最关键的一步推导</strong>。</p>
+<h3 id="103-cfg">10.3 CFG 的优雅一行<a class="headerlink" href="#103-cfg" title="锚点链接">¶</a></h3>
+<p>Classifier-Free Guidance 的数学本质<strong>极其简单</strong>：</p>
+<div class="arithmatex">\[\hat{\boldsymbol{\epsilon}} = \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t) + w \cdot (\boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t, c) - \boldsymbol{\epsilon}_\theta(\mathbf{x}_t, t))\]</div>
+<p>理解：<strong>沿着条件方向走一步，再额外朝远离无条件方向走 <span class="arithmatex">\(w-1\)</span> 步</strong>。</p>
+<ul>
+<li><span class="arithmatex">\(w=1\)</span> → 普通条件生成</li>
+<li><span class="arithmatex">\(w=7.5\)</span>（Stable Diffusion 默认）→ <strong>增强 prompt 对齐，但牺牲多样性</strong></li>
+<li>训练时的随机 dropout 让同一个网络学会两种预测</li>
+</ul>
+<h3 id="104-vdm-latent-diffusion">10.4 从 VDM 到 Latent Diffusion：科研发展的顺理成章<a class="headerlink" href="#104-vdm-latent-diffusion" title="锚点链接">¶</a></h3>
+<p>Luo 在 Shortcomings 中明确指出：<strong>VDM 的隐变量和原图维度一样，不具备数据压缩和抽象特征提取能力</strong>。</p>
+<p>这完美解释了为什么后来出现了 <strong>Latent Diffusion Models (Stable Diffusion)</strong>：
+1. 先用一个 VAE 把图像压缩到低维 Latent 空间
+2. 在这个低维空间里做扩散
+3. 大幅降低计算成本 + 获得可解释的语义隐空间</p>
+<blockquote>
+<p>把 Luo (2022) 和 Rombach et al. (2022) 连起来读，会发现科研发展的脉络<strong>草蛇灰线、顺理成章</strong>——这对以后找 Motivation 非常有启发。</p>
+</blockquote>
+<h3 id="105">10.5 未解决的问题<a class="headerlink" href="#105" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SDE 离散化</strong></td>
+<td>如何将连续 SDE 离散化为极少步的 ODE 求解器（DDIM、DPM-Solver）？这是工程落地的关键</td>
+</tr>
+<tr>
+<td><strong>SNR 学习</strong></td>
+<td>Luo 提到的 SNR 网络动态学习 <span class="arithmatex">\(\alpha_t\)</span> 的方案，为什么没成为主流？（实践中都用预设的 cosine/linear schedule）</td>
+</tr>
+<tr>
+<td><strong>隐空间质量</strong></td>
+<td>LDM 的 VAE 编码器本身也需要被「遗忘」——如果 VAE 泄露了训练数据怎么办？</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_6">参考论文<a class="headerlink" href="#_6" title="锚点链接">¶</a></h2>
+<ol>
+<li>
+<p><strong>Luo, C.</strong> (2022). <em>Understanding Diffusion Models: A Unified Perspective.</em> arXiv:2208.11970.<br/>
+   → 本文的主要参考来源，从 VAE → HVAE → VDM → Score SDE 的统一数学推导。</p>
+</li>
+<li>
+<p><strong>Ho, J., Jain, A., &amp; Abbeel, P.</strong> (2020). <em>Denoising Diffusion Probabilistic Models.</em> NeurIPS 2020.<br/>
+   → DDPM 原始论文，提出预测噪声的简化训练目标 <span class="arithmatex">\(\mathcal{L}_{\text{simple}}\)</span>。</p>
+</li>
+<li>
+<p><strong>Song, J., Meng, C., &amp; Ermon, S.</strong> (2021). <em>Denoising Diffusion Implicit Models.</em> ICLR 2021.<br/>
+   → DDIM：确定性采样，大幅加速生成过程。</p>
+</li>
+<li>
+<p><strong>Song, Y., Sohl-Dickstein, J., et al.</strong> (2021). <em>Score-Based Generative Modeling through Stochastic Differential Equations.</em> ICLR 2021.<br/>
+   → Score SDE 统一框架，将 DDPM 推广到连续时间。</p>
+</li>
+<li>
+<p><strong>Kingma, D. P., &amp; Welling, M.</strong> (2014). <em>Auto-Encoding Variational Bayes.</em> ICLR 2014.<br/>
+   → VAE 原始论文，ELBO 的经典推导。</p>
+</li>
+<li>
+<p><strong>Sohl-Dickstein, J., et al.</strong> (2015). <em>Deep Unsupervised Learning using Nonequilibrium Thermodynamics.</em> ICML 2015.<br/>
+   → 扩散模型的起源——非平衡热力学的深度学习应用。</p>
+</li>
+<li>
+<p><strong>Dhariwal, P., &amp; Nichol, A.</strong> (2021). <em>Diffusion Models Beat GANs on Image Synthesis.</em> NeurIPS 2021.<br/>
+   → Classifier Guidance，展示扩散模型在图像生成上超越 GAN。</p>
+</li>
+<li>
+<p><strong>Ho, J., &amp; Salimans, T.</strong> (2021). <em>Classifier-Free Diffusion Guidance.</em> NeurIPS 2021 Workshop.<br/>
+   → Classifier-Free Guidance 原始论文。</p>
+</li>
+<li>
+<p><strong>Nichol, A., &amp; Dhariwal, P.</strong> (2021). <em>Improved Denoising Diffusion Probabilistic Models.</em> ICML 2021.<br/>
+   → 改进的 DDPM：学习 <span class="arithmatex">\(\Sigma_\theta\)</span> 和最优噪声调度。</p>
+</li>
+<li>
+<p><strong>Rombach, R., et al.</strong> (2022). <em>High-Resolution Image Synthesis with Latent Diffusion Models.</em> CVPR 2022.<br/>
+    → Stable Diffusion / Latent Diffusion：在潜空间做扩散，大幅降低计算成本。</p>
+</li>
+</ol>
+<!-- Giscus 评论区 —— 每页底部自动加载 -->
+<hr style="margin-top: 3rem;"/>
+<h2 id="__comments">💬 评论区</h2>
+<p style="color: var(--md-default-fg-color--light);">
+    欢迎留言讨论！使用 GitHub 账号登录即可评论与点赞 👍
+  </p>
+<script async="" crossorigin="anonymous" data-category="Announcements" data-category-id="DIC_kwDOSP2XVM4C79sB" data-emit-metadata="0" data-input-position="top" data-lang="zh-CN" data-mapping="pathname" data-reactions-enabled="1" data-repo="MegumiKaor1/Blog" data-repo-id="R_kgDOSP2XVA" data-strict="0" data-theme="preferred_color_scheme" src="https://giscus.app/client.js">
+</script>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  回到页面顶部
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<script src="../../assets/katex-render.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+</body>
+</html>

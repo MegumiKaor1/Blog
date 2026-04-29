@@ -688,12 +688,25 @@
       flex-direction: row !important;
       flex-wrap: wrap !important;
       justify-content: center !important;
+      align-items: center !important;
       gap: 8px !important;
     }
     .wl-reaction-item {
-      display: flex !important;
+      display: inline-flex !important;
       flex-direction: row !important;
       align-items: center !important;
+      justify-content: center !important;
+      line-height: 1 !important;
+      white-space: nowrap !important;
+      min-height: unset !important;
+    }
+    .wl-reaction-item .wl-emoji {
+      vertical-align: middle !important;
+      line-height: 1 !important;
+    }
+    .wl-reaction-item .wl-count {
+      line-height: 1 !important;
+      vertical-align: middle !important;
     }
   </style>
 <!-- Waline JS -->

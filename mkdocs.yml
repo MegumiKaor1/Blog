@@ -1,0 +1,111 @@
+site_name: Kaor1's World
+site_description: ML Security / Generative Models / 动漫摄影旅游杂谈
+site_author: Kaor1
+site_url: https://megumikaor1.github.io/Blog
+
+theme:
+  name: material
+  language: zh
+  icon:
+    logo: material/bookshelf
+  features:
+    - navigation.tabs          # 顶部标签栏
+    - navigation.tabs.sticky   # 标签栏固定
+    - navigation.indexes       # 目录页可点击
+    - navigation.tracking      # URL 跟踪当前位置
+    - navigation.top           # 返回顶部按钮
+    - toc.follow               # 右侧目录跟随滚动
+    - toc.integrate            # 目录融入导航
+    - search.suggest           # 搜索建议
+    - search.highlight         # 搜索高亮
+    - search.share             # 搜索分享
+    - content.code.copy        # 代码复制按钮
+    - content.code.annotate    # 代码注释
+  palette:
+    # 浅色模式
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换到深色模式
+    # 深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换到浅色模式
+
+# 数学公式支持
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      permalink_title: 锚点链接
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.keys
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+plugins:
+  - search
+  - mermaid2
+
+# 额外 CSS/JS
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js
+  - https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js
+  - assets/katex-render.js
+  - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
+
+# 导航结构 —— 学术笔记用 Wiki 树，生活杂谈用 Blog
+nav:
+  - 🏠 首页: index.md
+  - 🔒 ML Security:
+      - ml-security/index.md
+      - Machine Unlearning: ml-security/machine-unlearning.md
+      - Backdoor Attacks: ml-security/backdoor-attacks.md
+      - Data Poisoning: ml-security/data-poisoning.md
+      - Model Editing: ml-security/model-editing.md
+      - Adversarial Attacks: ml-security/adversarial-attacks.md
+      - Robust Evaluation: ml-security/robust-evaluation.md
+  - 🧠 Generative Models:
+      - gen-models/index.md
+      - Diffusion Models: gen-models/diffusion-models.md
+      - Large Language Models: gen-models/llm.md
+      - Autoregressive Models: gen-models/autoregressive.md
+  - 📝 论文阅读:
+      - papers/index.md
+  - 📸 生活:
+      - life/index.md
+      - 归档: life/archive.md

@@ -103,6 +103,13 @@ nav:
       - Diffusion Models: gen-models/diffusion-models.md
       - Large Language Models: gen-models/llm.md
       - Autoregressive Models: gen-models/autoregressive.md
+  - 📐 AI 数学基础:
+      - ai-math/index.md
+      - 必修 · 线性代数: ai-math/linear-algebra.md
+      - 必修 · 微积分: ai-math/calculus.md
+      - 必修 · 概率论与数理统计: ai-math/probability.md
+      - 选修 · 最优化理论: ai-math/optimization.md
+      - 选修 · 信息论: ai-math/information-theory.md
   - 📝 论文阅读:
       - papers/index.md
   - 📸 生活:

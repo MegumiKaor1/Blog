@@ -627,6 +627,27 @@
 <div id="waline-comments"></div>
 <!-- Waline CSS -->
 <link href="https://unpkg.com/@waline/client@v3/dist/waline.css" rel="stylesheet">
+<!-- Waline 样式修复：反应按钮横排 -->
+<style>
+    .wl-reaction {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      justify-content: center !important;
+      gap: 8px !important;
+    }
+    .wl-reaction-list {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: wrap !important;
+      gap: 8px !important;
+    }
+    .wl-reaction-item {
+      display: flex !important;
+      flex-direction: row !important;
+      align-items: center !important;
+    }
+  </style>
 <!-- Waline JS -->
 <script type="module">
     import { init } from 'https://unpkg.com/@waline/client@v3/dist/waline.js';

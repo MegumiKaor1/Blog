@@ -15,7 +15,6 @@ theme:
     - navigation.tracking      # URL 跟踪当前位置
     - navigation.top           # 返回顶部按钮
     - toc.follow               # 右侧目录跟随滚动
-    - toc.integrate            # 目录融入导航
     - search.suggest           # 搜索建议
     - search.highlight         # 搜索高亮
     - search.share             # 搜索分享

@@ -7,25 +7,26 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ML Security / Generative Models / 动漫摄影旅游杂谈" name="description"/>
 <meta content="Kaor1" name="author"/>
-<link href="https://megumikaor1.github.io/Blog/" rel="canonical"/>
-<link href="ml-security/" rel="next"/>
-<link href="assets/images/favicon.png" rel="icon"/>
+<link href="https://megumikaor1.github.io/Blog/tech-practice/infra/" rel="canonical"/>
+<link href="../docs-share/" rel="prev"/>
+<link href="distributed-training/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Kaor1's World</title>
-<link href="assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<title>🏗️ AI Infra - Kaor1's World</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#kaor1s-world">
+<a class="md-skip" href="#ai-infra">
           跳转至
         </a>
 </div>
@@ -33,7 +34,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -49,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              🏠 首页
+              🏗️ AI Infra
             
           </span>
 </div>
@@ -104,8 +105,8 @@
 <nav aria-label="标签" class="md-tabs" data-md-component="tabs">
 <div class="md-grid">
 <ul class="md-tabs__list">
-<li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href=".">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         
   
   
@@ -116,7 +117,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="ml-security/">
+<a class="md-tabs__link" href="../../ml-security/">
           
   
   
@@ -127,7 +128,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="gen-models/">
+<a class="md-tabs__link" href="../../gen-models/">
           
   
   
@@ -138,7 +139,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="ai-math/">
+<a class="md-tabs__link" href="../../ai-math/">
           
   
   
@@ -148,8 +149,8 @@
 
         </a>
 </li>
-<li class="md-tabs__item">
-<a class="md-tabs__link" href="tech-practice/">
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../">
           
   
   
@@ -160,7 +161,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="papers/">
+<a class="md-tabs__link" href="../../papers/">
           
   
   
@@ -171,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="life/">
+<a class="md-tabs__link" href="../../life/">
           
   
   
@@ -193,26 +194,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
     Kaor1's World
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    🏠 首页
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href=".">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
 <span class="md-ellipsis">
     
   
@@ -222,37 +211,11 @@
     
   </span>
 </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
-<span class="md-ellipsis">
-      
-        快速导航
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      
-        最近更新
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="ml-security/">
+<a class="md-nav__link" href="../../ml-security/">
 <span class="md-ellipsis">
     
   
@@ -277,7 +240,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/machine-unlearning/">
+<a class="md-nav__link" href="../../ml-security/machine-unlearning/">
 <span class="md-ellipsis">
     
   
@@ -289,7 +252,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/backdoor-attacks/">
+<a class="md-nav__link" href="../../ml-security/backdoor-attacks/">
 <span class="md-ellipsis">
     
   
@@ -301,7 +264,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/data-poisoning/">
+<a class="md-nav__link" href="../../ml-security/data-poisoning/">
 <span class="md-ellipsis">
     
   
@@ -313,7 +276,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/model-editing/">
+<a class="md-nav__link" href="../../ml-security/model-editing/">
 <span class="md-ellipsis">
     
   
@@ -325,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/adversarial-attacks/">
+<a class="md-nav__link" href="../../ml-security/adversarial-attacks/">
 <span class="md-ellipsis">
     
   
@@ -337,7 +300,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ml-security/robust-evaluation/">
+<a class="md-nav__link" href="../../ml-security/robust-evaluation/">
 <span class="md-ellipsis">
     
   
@@ -354,7 +317,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="gen-models/">
+<a class="md-nav__link" href="../../gen-models/">
 <span class="md-ellipsis">
     
   
@@ -379,7 +342,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="gen-models/diffusion-models/">
+<a class="md-nav__link" href="../../gen-models/diffusion-models/">
 <span class="md-ellipsis">
     
   
@@ -391,7 +354,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="gen-models/llm/">
+<a class="md-nav__link" href="../../gen-models/llm/">
 <span class="md-ellipsis">
     
   
@@ -403,7 +366,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="gen-models/autoregressive/">
+<a class="md-nav__link" href="../../gen-models/autoregressive/">
 <span class="md-ellipsis">
     
   
@@ -420,7 +383,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="ai-math/">
+<a class="md-nav__link" href="../../ai-math/">
 <span class="md-ellipsis">
     
   
@@ -445,7 +408,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="ai-math/linear-algebra/">
+<a class="md-nav__link" href="../../ai-math/linear-algebra/">
 <span class="md-ellipsis">
     
   
@@ -457,7 +420,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ai-math/calculus/">
+<a class="md-nav__link" href="../../ai-math/calculus/">
 <span class="md-ellipsis">
     
   
@@ -469,7 +432,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ai-math/probability/">
+<a class="md-nav__link" href="../../ai-math/probability/">
 <span class="md-ellipsis">
     
   
@@ -481,7 +444,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ai-math/optimization/">
+<a class="md-nav__link" href="../../ai-math/optimization/">
 <span class="md-ellipsis">
     
   
@@ -493,7 +456,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="ai-math/information-theory/">
+<a class="md-nav__link" href="../../ai-math/information-theory/">
 <span class="md-ellipsis">
     
   
@@ -507,10 +470,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="tech-practice/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -520,11 +483,11 @@
     
   </span>
 </a>
-<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<nav aria-expanded="true" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
 <label class="md-nav__title" for="__nav_5">
 <span class="md-nav__icon md-icon"></span>
             
@@ -537,7 +500,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="tech-practice/setup/">
+<a class="md-nav__link" href="../setup/">
 <span class="md-ellipsis">
     
   
@@ -562,7 +525,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/setup/python/">
+<a class="md-nav__link" href="../setup/python/">
 <span class="md-ellipsis">
     
   
@@ -574,7 +537,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/setup/anaconda/">
+<a class="md-nav__link" href="../setup/anaconda/">
 <span class="md-ellipsis">
     
   
@@ -586,7 +549,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/setup/pytorch/">
+<a class="md-nav__link" href="../setup/pytorch/">
 <span class="md-ellipsis">
     
   
@@ -598,7 +561,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/setup/cuda/">
+<a class="md-nav__link" href="../setup/cuda/">
 <span class="md-ellipsis">
     
   
@@ -615,7 +578,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="tech-practice/ai-tools/">
+<a class="md-nav__link" href="../ai-tools/">
 <span class="md-ellipsis">
     
   
@@ -640,7 +603,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/hermes-agent/">
+<a class="md-nav__link" href="../ai-tools/hermes-agent/">
 <span class="md-ellipsis">
     
   
@@ -654,7 +617,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/">
 <span class="md-ellipsis">
     
   
@@ -679,7 +642,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/llm/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/llm/">
 <span class="md-ellipsis">
     
   
@@ -691,7 +654,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/prompt-engineering/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/prompt-engineering/">
 <span class="md-ellipsis">
     
   
@@ -703,7 +666,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/fine-tuning/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/fine-tuning/">
 <span class="md-ellipsis">
     
   
@@ -715,7 +678,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/rag/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/rag/">
 <span class="md-ellipsis">
     
   
@@ -727,7 +690,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/function-calling/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/function-calling/">
 <span class="md-ellipsis">
     
   
@@ -739,7 +702,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/mcp/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/mcp/">
 <span class="md-ellipsis">
     
   
@@ -751,7 +714,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/agent/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/agent/">
 <span class="md-ellipsis">
     
   
@@ -763,7 +726,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/multi-agent/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/multi-agent/">
 <span class="md-ellipsis">
     
   
@@ -775,7 +738,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/agent-tech/context-engineering/">
+<a class="md-nav__link" href="../ai-tools/agent-tech/context-engineering/">
 <span class="md-ellipsis">
     
   
@@ -790,7 +753,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/skill-dev/">
+<a class="md-nav__link" href="../ai-tools/skill-dev/">
 <span class="md-ellipsis">
     
   
@@ -802,7 +765,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/openclaw/">
+<a class="md-nav__link" href="../ai-tools/openclaw/">
 <span class="md-ellipsis">
     
   
@@ -814,7 +777,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/ai-tools/harness/">
+<a class="md-nav__link" href="../ai-tools/harness/">
 <span class="md-ellipsis">
     
   
@@ -829,7 +792,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/docs-share/">
+<a class="md-nav__link" href="../docs-share/">
 <span class="md-ellipsis">
     
   
@@ -840,10 +803,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="tech-practice/infra/">
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -853,11 +816,11 @@
     
   </span>
 </a>
-<label class="md-nav__link" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
+<label class="md-nav__link md-nav__link--active" for="__nav_5_5" id="__nav_5_5_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_5_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_5_5">
 <span class="md-nav__icon md-icon"></span>
             
@@ -868,7 +831,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/infra/distributed-training/">
+<a class="md-nav__link" href="distributed-training/">
 <span class="md-ellipsis">
     
   
@@ -880,7 +843,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/infra/inference-optimization/">
+<a class="md-nav__link" href="inference-optimization/">
 <span class="md-ellipsis">
     
   
@@ -892,7 +855,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/infra/model-serving/">
+<a class="md-nav__link" href="model-serving/">
 <span class="md-ellipsis">
     
   
@@ -904,7 +867,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="tech-practice/infra/data-pipeline/">
+<a class="md-nav__link" href="data-pipeline/">
 <span class="md-ellipsis">
     
   
@@ -924,7 +887,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="papers/">
+<a class="md-nav__link" href="../../papers/">
 <span class="md-ellipsis">
     
   
@@ -951,7 +914,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="life/">
+<a class="md-nav__link" href="../../life/">
 <span class="md-ellipsis">
     
   
@@ -976,7 +939,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="life/archive/">
+<a class="md-nav__link" href="../../life/archive/">
 <span class="md-ellipsis">
     
   
@@ -1008,16 +971,16 @@
 <a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        快速导航
+        板块结构
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#ai-infra_1">
 <span class="md-ellipsis">
       
-        最近更新
+        为什么学 AI Infra？
       
     </span>
 </a>
@@ -1029,51 +992,47 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="kaor1s-world">🌲 Kaor1's World<a class="headerlink" href="#kaor1s-world" title="锚点链接">¶</a></h1>
-<p>欢迎！这里是我探索世界的记录——分两半：</p>
-<ul>
-<li><strong>左半边</strong>：机器学习安全、生成式模型的研究笔记，像一本持续更新的技术手册</li>
-<li><strong>右半边</strong>：动漫、摄影、旅游的碎碎念，像一本按时间翻的相册</li>
-</ul>
+<h1 id="ai-infra">🏗️ AI Infra<a class="headerlink" href="#ai-infra" title="锚点链接">¶</a></h1>
+<blockquote>
+<p>AI Infrastructure：模型训练、推理、部署的底层工程体系。</p>
+</blockquote>
+<p>AI Infra 是连接「算法研究」与「生产落地」的桥梁。做 ML 安全实验时你会频繁遇到：多卡训练怎么配、显存爆了怎么调、怎么高效跑 100 次鲁棒评测。</p>
 <hr/>
-<h2 id="_1">快速导航<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
+<h2 id="_1">板块结构<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>研究笔记</th>
-<th>生活记录</th>
+<th>章节</th>
+<th>内容</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="ml-security/">🔒 ML Security</a></td>
-<td><a href="life/">📸 生活 Blog</a></td>
+<td><a href="distributed-training/">分布式训练</a></td>
+<td>多卡并行（DP/DDP/FSDP）、混合精度、DeepSpeed</td>
 </tr>
 <tr>
-<td><a href="gen-models/">🧠 Generative Models</a></td>
-<td>—</td>
+<td><a href="inference-optimization/">推理优化</a></td>
+<td>vLLM、量化（GPTQ/AWQ）、KV Cache</td>
 </tr>
 <tr>
-<td><a href="ai-math/">📐 AI 数学基础</a></td>
-<td>—</td>
+<td><a href="model-serving/">模型服务化</a></td>
+<td>API 部署、负载均衡、监控</td>
 </tr>
 <tr>
-<td><a href="tech-practice/">🛠️ 技术实践</a></td>
-<td>—</td>
-</tr>
-<tr>
-<td><a href="tech-practice/infra/">🏗️ AI Infra</a></td>
-<td>—</td>
-</tr>
-<tr>
-<td><a href="papers/">📝 论文阅读</a></td>
-<td>—</td>
+<td><a href="data-pipeline/">存储与数据管线</a></td>
+<td>数据加载优化、向量数据库</td>
 </tr>
 </tbody>
 </table>
 <hr/>
-<h2 id="_2">最近更新<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
-<p>（Blog 区域会自动展示最新文章 👉 点上方「生活」标签查看）</p>
+<h2 id="ai-infra_1">为什么学 AI Infra？<a class="headerlink" href="#ai-infra_1" title="锚点链接">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>你现在的状态：
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>「这个攻击方法要跑 50 组对照实验，一张卡跑了两天还没出完」
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>学了 Infra 之后：
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>「配好 4 卡 FSDP，半小时跑完 50 组实验，结果已经画好图了」
+</span></code></pre></div>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>
@@ -1109,11 +1068,11 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
-<script src="assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="assets/katex-render.js"></script>
+<script src="../../assets/katex-render.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </body>
 </html>

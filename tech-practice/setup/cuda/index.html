@@ -550,6 +550,17 @@
 </li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    CUDA 与 GPU 环境
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
@@ -560,6 +571,188 @@
     
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        前置知识
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#macos">
+<span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
+</a>
+<nav aria-label="macOS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apple-silicon-m1m2m3">
+<span class="md-ellipsis">
+      
+        Apple Silicon (M1/M2/M3)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-mac">
+<span class="md-ellipsis">
+      
+        Intel Mac（有独显的旧款）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">
+<span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+</a>
+<nav aria-label="Windows" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia">
+<span class="md-ellipsis">
+      
+        第 1 步：确认你有 NVIDIA 显卡
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-nvidia">
+<span class="md-ellipsis">
+      
+        第 2 步：装 NVIDIA 驱动
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-pytorch-cuda">
+<span class="md-ellipsis">
+      
+        第 3 步：装 PyTorch（自带 CUDA）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4">
+<span class="md-ellipsis">
+      
+        第 4 步：验证
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows_1">
+<span class="md-ellipsis">
+      
+        Windows 常见坑
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux-ubuntudebian">
+<span class="md-ellipsis">
+      
+        Linux (Ubuntu/Debian)
+      
+    </span>
+</a>
+<nav aria-label="Linux (Ubuntu/Debian)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia_1">
+<span class="md-ellipsis">
+      
+        第 1 步：装 NVIDIA 驱动
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-pytorch">
+<span class="md-ellipsis">
+      
+        第 2 步：装 PyTorch
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+<span class="md-ellipsis">
+      
+        第 3 步：验证
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        服务器常用操作
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        三平台对比
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        验证一切都配好了
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        下一步
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -747,6 +940,186 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        前置知识
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#macos">
+<span class="md-ellipsis">
+      
+        macOS
+      
+    </span>
+</a>
+<nav aria-label="macOS" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#apple-silicon-m1m2m3">
+<span class="md-ellipsis">
+      
+        Apple Silicon (M1/M2/M3)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#intel-mac">
+<span class="md-ellipsis">
+      
+        Intel Mac（有独显的旧款）
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows">
+<span class="md-ellipsis">
+      
+        Windows
+      
+    </span>
+</a>
+<nav aria-label="Windows" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia">
+<span class="md-ellipsis">
+      
+        第 1 步：确认你有 NVIDIA 显卡
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-nvidia">
+<span class="md-ellipsis">
+      
+        第 2 步：装 NVIDIA 驱动
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-pytorch-cuda">
+<span class="md-ellipsis">
+      
+        第 3 步：装 PyTorch（自带 CUDA）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4">
+<span class="md-ellipsis">
+      
+        第 4 步：验证
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#windows_1">
+<span class="md-ellipsis">
+      
+        Windows 常见坑
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linux-ubuntudebian">
+<span class="md-ellipsis">
+      
+        Linux (Ubuntu/Debian)
+      
+    </span>
+</a>
+<nav aria-label="Linux (Ubuntu/Debian)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-nvidia_1">
+<span class="md-ellipsis">
+      
+        第 1 步：装 NVIDIA 驱动
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-pytorch">
+<span class="md-ellipsis">
+      
+        第 2 步：装 PyTorch
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3">
+<span class="md-ellipsis">
+      
+        第 3 步：验证
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        服务器常用操作
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        三平台对比
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        验证一切都配好了
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
+<span class="md-ellipsis">
+      
+        下一步
+      
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
@@ -754,7 +1127,201 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="cuda-gpu">CUDA 与 GPU 环境配置<a class="headerlink" href="#cuda-gpu" title="锚点链接">¶</a></h1>
-<p>（待补充）</p>
+<p>深度学习不跑 GPU 就跟开跑车挂一档一样。这篇从零把你的显卡配到能跑 PyTorch。</p>
+<hr/>
+<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>概念</th>
+<th>是什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NVIDIA 驱动</strong></td>
+<td>操作系统和显卡之间的桥梁，识别你的 GPU</td>
+</tr>
+<tr>
+<td><strong>CUDA Toolkit</strong></td>
+<td>NVIDIA 的并行计算平台，PyTorch 靠它调用 GPU</td>
+</tr>
+<tr>
+<td><strong>cuDNN</strong></td>
+<td>NVIDIA 的深度神经网络加速库，训练/推理更快</td>
+</tr>
+<tr>
+<td><strong>PyTorch CUDA 版本</strong></td>
+<td>PyTorch 内置了精简版 CUDA，不必单独装</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>重要</strong>：现代 PyTorch（≥ 2.0）自带 CUDA 运行时，<strong>不需要</strong>单独安装 CUDA Toolkit。 只装显卡驱动就行。</p>
+</blockquote>
+<hr/>
+<h2 id="macos">macOS<a class="headerlink" href="#macos" title="锚点链接">¶</a></h2>
+<p>Apple Silicon 用户看这里。</p>
+<h3 id="apple-silicon-m1m2m3">Apple Silicon (M1/M2/M3)<a class="headerlink" href="#apple-silicon-m1m2m3" title="锚点链接">¶</a></h3>
+<p><strong>不需要 CUDA，不需要 NVIDIA 驱动。</strong> PyTorch 直接用 MPS 后端：</p>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>  <span class="c1"># 应输出 True</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 把 tensor 放到 "GPU" 上</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"mps"</span><span class="p">)</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span></code></pre></div>
+<p>安装 PyTorch 时选 MPS 版本（见 <a href="../pytorch/">PyTorch 篇</a>）。</p>
+<h3 id="intel-mac">Intel Mac（有独显的旧款）<a class="headerlink" href="#intel-mac" title="锚点链接">¶</a></h3>
+<p>少数 Intel Mac 有 AMD 独显，<strong>不支持 CUDA</strong>，只能用 CPU 跑或外接 eGPU（极其不推荐）。</p>
+<hr/>
+<h2 id="windows">Windows<a class="headerlink" href="#windows" title="锚点链接">¶</a></h2>
+<p>Windows 配 GPU 环境最折腾，按顺序来。</p>
+<h3 id="1-nvidia">第 1 步：确认你有 NVIDIA 显卡<a class="headerlink" href="#1-nvidia" title="锚点链接">¶</a></h3>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c"># PowerShell</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">nvidia-smi</span>
+</span></code></pre></div>
+<p>如果显示显卡型号和驱动版本 → ✅ 驱动已装。
+如果报错 → 继续下一步。</p>
+<h3 id="2-nvidia">第 2 步：装 NVIDIA 驱动<a class="headerlink" href="#2-nvidia" title="锚点链接">¶</a></h3>
+<ol>
+<li>打开 https://www.nvidia.com/download/index.aspx</li>
+<li>选你的显卡型号 → 下载 Game Ready 驱动 → 安装</li>
+<li>重启 → 再跑 <code>nvidia-smi</code> → 应该看到类似：</li>
+</ol>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>+-----------------------------------------------------------------------------+
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>| NVIDIA-SMI 555.xx       Driver Version: 555.xx       CUDA Version: 12.5     |
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>+-----------------------------------------------------------------------------+
+</span></code></pre></div>
+<h3 id="3-pytorch-cuda">第 3 步：装 PyTorch（自带 CUDA）<a class="headerlink" href="#3-pytorch-cuda" title="锚点链接">¶</a></h3>
+<p><strong>不要</strong>单独装 CUDA Toolkit。直接在 PyTorch 官网选对应版本：</p>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span> <span class="n">torchvision</span> <span class="n">torchaudio</span> <span class="p">-</span><span class="n">-index-url</span> <span class="n">https</span><span class="p">://</span><span class="n">download</span><span class="p">.</span><span class="n">pytorch</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">whl</span><span class="p">/</span><span class="n">cu124</span>
+</span></code></pre></div>
+<h3 id="4">第 4 步：验证<a class="headerlink" href="#4" title="锚点链接">¶</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>  <span class="c1"># True</span>
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># 你的显卡型号</span>
+</span></code></pre></div>
+<h3 id="windows_1">Windows 常见坑<a class="headerlink" href="#windows_1" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>解决</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>nvidia-smi</code> 不识别</td>
+<td>驱动没装好，重装</td>
+</tr>
+<tr>
+<td>PyTorch 说 CUDA 不可用</td>
+<td>PyTorch 版本装错了，确认你装的 <code>cu124</code> 而不是 <code>cpu</code></td>
+</tr>
+<tr>
+<td>显存不足</td>
+<td>减小 batch_size 或用 <code>torch.cuda.empty_cache()</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="linux-ubuntudebian">Linux (Ubuntu/Debian)<a class="headerlink" href="#linux-ubuntudebian" title="锚点链接">¶</a></h2>
+<h3 id="1-nvidia_1">第 1 步：装 NVIDIA 驱动<a class="headerlink" href="#1-nvidia_1" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># 查看推荐驱动版本</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>ubuntu-drivers<span class="w"> </span>devices
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 自动安装推荐版本</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>autoinstall
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 重启</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>sudo<span class="w"> </span>reboot
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># 验证</span>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>nvidia-smi
+</span></code></pre></div>
+<blockquote>
+<p>如果 <code>ubuntu-drivers</code> 不可用：<code>sudo apt install ubuntu-drivers-common</code></p>
+</blockquote>
+<h3 id="2-pytorch">第 2 步：装 PyTorch<a class="headerlink" href="#2-pytorch" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio
+</span></code></pre></div>
+<p>PyTorch 自动带 CUDA，不需要额外步骤。</p>
+<h3 id="3">第 3 步：验证<a class="headerlink" href="#3" title="锚点链接">¶</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>  <span class="c1"># 多卡服务器会显示 &gt;1</span>
+</span></code></pre></div>
+<h3 id="_2">服务器常用操作<a class="headerlink" href="#_2" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># 查看 GPU 状态</span>
+</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>nvidia-smi
+</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 实时监控（每秒刷新）</span>
+</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>nvidia-smi
+</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
+</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># 指定用哪张卡</span>
+</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>python<span class="w"> </span>train.py<span class="w">  </span><span class="c1"># 只用 0 号和 1 号卡</span>
+</span></code></pre></div>
+<hr/>
+<h2 id="_3">三平台对比<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>GPU 后端</th>
+<th>需要单独装的东西</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>macOS (Apple Silicon)</td>
+<td>MPS</td>
+<td>无，PyTorch 直接用</td>
+</tr>
+<tr>
+<td>macOS (Intel)</td>
+<td>无</td>
+<td>无，只能用 CPU</td>
+</tr>
+<tr>
+<td>Windows (NVIDIA)</td>
+<td>CUDA</td>
+<td>NVIDIA 驱动</td>
+</tr>
+<tr>
+<td>Linux (NVIDIA)</td>
+<td>CUDA</td>
+<td>NVIDIA 驱动</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_4">验证一切都配好了<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
+</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PyTorch 版本: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>
+</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># macOS MPS</span>
+</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"✅ MPS 可用（Apple GPU）"</span><span class="p">)</span>
+</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"mps"</span><span class="p">)</span>
+</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>
+</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="c1"># CUDA</span>
+</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="k">elif</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
+</span><span id="__span-9-12"><a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ CUDA 可用 (</span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+</span><span id="__span-9-13"><a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+</span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>
+</span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="k">else</span><span class="p">:</span>
+</span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"⚠️ 只用 CPU，速度会比较慢"</span><span class="p">)</span>
+</span><span id="__span-9-17"><a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</span><span id="__span-9-18"><a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>
+</span><span id="__span-9-19"><a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</span></code></pre></div>
+<hr/>
+<h2 id="_5">下一步<a class="headerlink" href="#_5" title="锚点链接">¶</a></h2>
+<ul>
+<li>GPU 配好了 → 装 PyTorch 跑第一个模型：<a href="../pytorch/">PyTorch 安装与入门</a></li>
+</ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>

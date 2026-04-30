@@ -7,26 +7,26 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ML Security / Generative Models / 动漫摄影旅游杂谈" name="description"/>
 <meta content="Kaor1" name="author"/>
-<link href="https://megumikaor1.github.io/Blog/tech-practice/ai-tools/" rel="canonical"/>
-<link href="../setup/cuda/" rel="prev"/>
-<link href="hermes-agent/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://megumikaor1.github.io/Blog/tech-practice/ai-tools/agent-tech/mcp/" rel="canonical"/>
+<link href="../function-calling/" rel="prev"/>
+<link href="../agent/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>🤖 AI 工具链 - Kaor1's World</title>
-<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<title>6. MCP 协议 - Kaor1's World</title>
+<link href="../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ai">
+<a class="md-skip" href="#6-mcpmodel-context-protocol">
           跳转至
         </a>
 </div>
@@ -34,7 +34,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              🤖 AI 工具链
+              6. MCP 协议
             
           </span>
 </div>
@@ -106,7 +106,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../../..">
         
   
   
@@ -117,7 +117,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ml-security/">
+<a class="md-tabs__link" href="../../../../ml-security/">
           
   
   
@@ -128,7 +128,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../gen-models/">
+<a class="md-tabs__link" href="../../../../gen-models/">
           
   
   
@@ -139,7 +139,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ai-math/">
+<a class="md-tabs__link" href="../../../../ai-math/">
           
   
   
@@ -150,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<a class="md-tabs__link" href="../../../">
           
   
   
@@ -161,7 +161,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../papers/">
+<a class="md-tabs__link" href="../../../../papers/">
           
   
   
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../life/">
+<a class="md-tabs__link" href="../../../../life/">
           
   
   
@@ -194,14 +194,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
     Kaor1's World
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../../..">
 <span class="md-ellipsis">
     
   
@@ -215,7 +215,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../ml-security/">
+<a class="md-nav__link" href="../../../../ml-security/">
 <span class="md-ellipsis">
     
   
@@ -240,7 +240,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/machine-unlearning/">
+<a class="md-nav__link" href="../../../../ml-security/machine-unlearning/">
 <span class="md-ellipsis">
     
   
@@ -252,7 +252,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/backdoor-attacks/">
+<a class="md-nav__link" href="../../../../ml-security/backdoor-attacks/">
 <span class="md-ellipsis">
     
   
@@ -264,7 +264,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/data-poisoning/">
+<a class="md-nav__link" href="../../../../ml-security/data-poisoning/">
 <span class="md-ellipsis">
     
   
@@ -276,7 +276,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/model-editing/">
+<a class="md-nav__link" href="../../../../ml-security/model-editing/">
 <span class="md-ellipsis">
     
   
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/adversarial-attacks/">
+<a class="md-nav__link" href="../../../../ml-security/adversarial-attacks/">
 <span class="md-ellipsis">
     
   
@@ -300,7 +300,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/robust-evaluation/">
+<a class="md-nav__link" href="../../../../ml-security/robust-evaluation/">
 <span class="md-ellipsis">
     
   
@@ -317,7 +317,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../gen-models/">
+<a class="md-nav__link" href="../../../../gen-models/">
 <span class="md-ellipsis">
     
   
@@ -342,7 +342,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/diffusion-models/">
+<a class="md-nav__link" href="../../../../gen-models/diffusion-models/">
 <span class="md-ellipsis">
     
   
@@ -354,7 +354,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/llm/">
+<a class="md-nav__link" href="../../../../gen-models/llm/">
 <span class="md-ellipsis">
     
   
@@ -366,7 +366,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/autoregressive/">
+<a class="md-nav__link" href="../../../../gen-models/autoregressive/">
 <span class="md-ellipsis">
     
   
@@ -383,7 +383,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../ai-math/">
+<a class="md-nav__link" href="../../../../ai-math/">
 <span class="md-ellipsis">
     
   
@@ -408,7 +408,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/linear-algebra/">
+<a class="md-nav__link" href="../../../../ai-math/linear-algebra/">
 <span class="md-ellipsis">
     
   
@@ -420,7 +420,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/calculus/">
+<a class="md-nav__link" href="../../../../ai-math/calculus/">
 <span class="md-ellipsis">
     
   
@@ -432,7 +432,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/probability/">
+<a class="md-nav__link" href="../../../../ai-math/probability/">
 <span class="md-ellipsis">
     
   
@@ -444,7 +444,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/optimization/">
+<a class="md-nav__link" href="../../../../ai-math/optimization/">
 <span class="md-ellipsis">
     
   
@@ -456,7 +456,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/information-theory/">
+<a class="md-nav__link" href="../../../../ai-math/information-theory/">
 <span class="md-ellipsis">
     
   
@@ -473,7 +473,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../../">
 <span class="md-ellipsis">
     
   
@@ -500,7 +500,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../setup/">
+<a class="md-nav__link" href="../../../setup/">
 <span class="md-ellipsis">
     
   
@@ -525,7 +525,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/python/">
+<a class="md-nav__link" href="../../../setup/python/">
 <span class="md-ellipsis">
     
   
@@ -537,7 +537,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/anaconda/">
+<a class="md-nav__link" href="../../../setup/anaconda/">
 <span class="md-ellipsis">
     
   
@@ -549,7 +549,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/pytorch/">
+<a class="md-nav__link" href="../../../setup/pytorch/">
 <span class="md-ellipsis">
     
   
@@ -561,7 +561,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/cuda/">
+<a class="md-nav__link" href="../../../setup/cuda/">
 <span class="md-ellipsis">
     
   
@@ -578,7 +578,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     
   
@@ -588,7 +588,7 @@
     
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
@@ -603,7 +603,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="hermes-agent/">
+<a class="md-nav__link" href="../../hermes-agent/">
 <span class="md-ellipsis">
     
   
@@ -614,10 +614,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="agent-tech/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -631,7 +631,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_5_3_3">
 <span class="md-nav__icon md-icon"></span>
             
@@ -642,7 +642,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/llm/">
+<a class="md-nav__link" href="../llm/">
 <span class="md-ellipsis">
     
   
@@ -654,7 +654,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/prompt-engineering/">
+<a class="md-nav__link" href="../prompt-engineering/">
 <span class="md-ellipsis">
     
   
@@ -666,7 +666,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/fine-tuning/">
+<a class="md-nav__link" href="../fine-tuning/">
 <span class="md-ellipsis">
     
   
@@ -678,7 +678,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/rag/">
+<a class="md-nav__link" href="../rag/">
 <span class="md-ellipsis">
     
   
@@ -690,7 +690,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/function-calling/">
+<a class="md-nav__link" href="../function-calling/">
 <span class="md-ellipsis">
     
   
@@ -701,8 +701,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/mcp/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    6. MCP 协议
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -712,9 +724,115 @@
     
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp">
+<span class="md-ellipsis">
+      
+        什么是 MCP
+      
+    </span>
+</a>
+<nav aria-label="什么是 MCP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        核心问题
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/agent/">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        核心概念
+      
+    </span>
+</a>
+<nav aria-label="核心概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-server">
+<span class="md-ellipsis">
+      
+        MCP Server
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-client">
+<span class="md-ellipsis">
+      
+        MCP Client
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        传输方式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-server_1">
+<span class="md-ellipsis">
+      
+        一个 MCP Server 的最小实现
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp_1">
+<span class="md-ellipsis">
+      
+        MCP 生态
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-vs-function-calling">
+<span class="md-ellipsis">
+      
+        MCP vs 传统 Function Calling
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../agent/">
 <span class="md-ellipsis">
     
   
@@ -726,7 +844,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/multi-agent/">
+<a class="md-nav__link" href="../multi-agent/">
 <span class="md-ellipsis">
     
   
@@ -738,7 +856,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/context-engineering/">
+<a class="md-nav__link" href="../context-engineering/">
 <span class="md-ellipsis">
     
   
@@ -753,7 +871,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="skill-dev/">
+<a class="md-nav__link" href="../../skill-dev/">
 <span class="md-ellipsis">
     
   
@@ -765,7 +883,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="openclaw/">
+<a class="md-nav__link" href="../../openclaw/">
 <span class="md-ellipsis">
     
   
@@ -777,7 +895,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="harness/">
+<a class="md-nav__link" href="../../harness/">
 <span class="md-ellipsis">
     
   
@@ -792,7 +910,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../docs-share/">
+<a class="md-nav__link" href="../../../docs-share/">
 <span class="md-ellipsis">
     
   
@@ -809,7 +927,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../papers/">
+<a class="md-nav__link" href="../../../../papers/">
 <span class="md-ellipsis">
     
   
@@ -836,7 +954,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../life/">
+<a class="md-nav__link" href="../../../../life/">
 <span class="md-ellipsis">
     
   
@@ -861,7 +979,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../life/archive/">
+<a class="md-nav__link" href="../../../../life/archive/">
 <span class="md-ellipsis">
     
   
@@ -884,44 +1002,268 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp">
+<span class="md-ellipsis">
+      
+        什么是 MCP
+      
+    </span>
+</a>
+<nav aria-label="什么是 MCP" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        核心问题
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_2">
+<span class="md-ellipsis">
+      
+        核心概念
+      
+    </span>
+</a>
+<nav aria-label="核心概念" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-server">
+<span class="md-ellipsis">
+      
+        MCP Server
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-client">
+<span class="md-ellipsis">
+      
+        MCP Client
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_3">
+<span class="md-ellipsis">
+      
+        传输方式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-server_1">
+<span class="md-ellipsis">
+      
+        一个 MCP Server 的最小实现
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp_1">
+<span class="md-ellipsis">
+      
+        MCP 生态
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mcp-vs-function-calling">
+<span class="md-ellipsis">
+      
+        MCP vs 传统 Function Calling
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="ai">🤖 AI 工具链<a class="headerlink" href="#ai" title="锚点链接">¶</a></h1>
-<p>近年 AI Agent 与工具生态速览。</p>
+<h1 id="6-mcpmodel-context-protocol">6. MCP：Model Context Protocol<a class="headerlink" href="#6-mcpmodel-context-protocol" title="锚点链接">¶</a></h1>
+<blockquote>
+<p>让模型以<strong>统一标准</strong>连接任何外部工具和数据源。</p>
+</blockquote>
+<p><strong>官方文档</strong>：<a href="https://modelcontextprotocol.info/docs/introduction/">MCP Introduction</a></p>
+<hr/>
+<h2 id="mcp">什么是 MCP<a class="headerlink" href="#mcp" title="锚点链接">¶</a></h2>
+<p>MCP（Model Context Protocol）是一种<strong>开放标准协议</strong>，由 Anthropic 提出，旨在让 AI 模型以统一的方式连接外部工具、数据源和服务。</p>
+<h3 id="_1">核心问题<a class="headerlink" href="#_1" title="锚点链接">¶</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>传统方式：每个工具单独写胶水代码
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>  LLM → 代码 A → 工具 A
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>  LLM → 代码 B → 工具 B    ← 每个工具都要写一遍
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>  LLM → 代码 C → 工具 C
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>MCP 方式：
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>  工具 A → MCP Server ↘
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>  工具 B → MCP Server → MCP Client → 任何 AI 应用
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>  工具 C → MCP Server ↗
+</span></code></pre></div>
+<p><strong>最重要的贡献</strong>：使工具可以跨 AI 应用复用。一个 MCP Server 写好后，Claude Desktop、Hermes Agent、Cursor 都可以用。</p>
+<hr/>
+<h2 id="_2">核心概念<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
+<h3 id="mcp-server">MCP Server<a class="headerlink" href="#mcp-server" title="锚点链接">¶</a></h3>
+<p>提供工具/资源的一方。例如：</p>
 <table>
 <thead>
 <tr>
-<th>文章</th>
-<th>简介</th>
+<th>MCP Server</th>
+<th>提供的工具</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="hermes-agent/">Hermes Agent 完全指南</a></td>
-<td>安装、配置、技能开发、双机架构</td>
+<td><code>@anthropic/mcp-server-filesystem</code></td>
+<td>文件读写、目录操作</td>
 </tr>
 <tr>
-<td><a href="agent-tech/">Agent 技术串讲</a></td>
-<td>Agent 框架盘点与对比</td>
+<td><code>@anthropic/mcp-server-puppeteer</code></td>
+<td>浏览器操控</td>
 </tr>
 <tr>
-<td><a href="skill-dev/">Skill 机制与开发</a></td>
-<td>Skill 原理、编写与调试</td>
+<td><code>@modelcontextprotocol/server-github</code></td>
+<td>GitHub Issues/PR/Repo</td>
 </tr>
 <tr>
-<td><a href="openclaw/">OpenClaw 入门</a></td>
-<td>OpenClaw 工具使用</td>
-</tr>
-<tr>
-<td><a href="harness/">Harness 评测框架</a></td>
-<td>lm-evaluation-harness 配置与使用</td>
+<td><code>mcp-server-feishu</code></td>
+<td>飞书文档读写</td>
 </tr>
 </tbody>
 </table>
+<h3 id="mcp-client">MCP Client<a class="headerlink" href="#mcp-client" title="锚点链接">¶</a></h3>
+<p>使用工具的一方 —— AI 应用（Claude Desktop、Hermes、Cursor 等）。</p>
+<h3 id="_3">传输方式<a class="headerlink" href="#_3" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>stdio</strong></td>
+<td>标准输入输出，本地进程通信</td>
+</tr>
+<tr>
+<td><strong>HTTP + SSE</strong></td>
+<td>远程服务，支持 Server-Sent Events</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mcp-server_1">一个 MCP Server 的最小实现<a class="headerlink" href="#mcp-server_1" title="锚点链接">¶</a></h3>
+<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># server.py</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mcp.server</span><span class="w"> </span><span class="kn">import</span> <span class="n">Server</span><span class="p">,</span> <span class="n">stdio_server</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">mcp.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tool</span><span class="p">,</span> <span class="n">TextContent</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">server</span> <span class="o">=</span> <span class="n">Server</span><span class="p">(</span><span class="s2">"my-server"</span><span class="p">)</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="nd">@server</span><span class="o">.</span><span class="n">tool</span><span class="p">()</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">hello</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">TextContent</span><span class="p">]:</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">TextContent</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"text"</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Hello, </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">!"</span><span class="p">)]</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">stdio_server</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+</span></code></pre></div>
+<hr/>
+<h2 id="mcp_1">MCP 生态<a class="headerlink" href="#mcp_1" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>资源</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>官方规范</td>
+<td>https://modelcontextprotocol.info/</td>
+</tr>
+<tr>
+<td>官方 Server 列表</td>
+<td>https://github.com/modelcontextprotocol/servers</td>
+</tr>
+<tr>
+<td>MCP Hub (社区)</td>
+<td>https://mcp.so/</td>
+</tr>
+<tr>
+<td>Hermes MCP 集成</td>
+<td>见 <a href="../../hermes-agent/">Hermes Agent 完全指南</a></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="mcp-vs-function-calling">MCP vs 传统 Function Calling<a class="headerlink" href="#mcp-vs-function-calling" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Function Calling</th>
+<th>MCP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>标准化</td>
+<td>各家 API 格式不同</td>
+<td>统一协议</td>
+</tr>
+<tr>
+<td>可复用</td>
+<td>每个应用单独集成</td>
+<td>一次开发到处用</td>
+</tr>
+<tr>
+<td>动态发现</td>
+<td>工具列表写死在代码里</td>
+<td>Server 启动时自动注册</td>
+</tr>
+<tr>
+<td>生态</td>
+<td>各自为战</td>
+<td>社区贡献 Server</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_4">延伸阅读<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
+<ul>
+<li><a href="https://modelcontextprotocol.info/docs/">MCP 官方文档</a></li>
+<li><a href="https://www.anthropic.com/news/model-context-protocol">Anthropic MCP Blog</a></li>
+<li><a href="https://modelcontextprotocol.info/docs/developers/">Building MCP Servers</a></li>
+</ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>
@@ -957,11 +1299,11 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+<script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="../../assets/katex-render.js"></script>
+<script src="../../../../assets/katex-render.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </body>
 </html>

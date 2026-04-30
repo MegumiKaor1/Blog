@@ -7,26 +7,26 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ML Security / Generative Models / 动漫摄影旅游杂谈" name="description"/>
 <meta content="Kaor1" name="author"/>
-<link href="https://megumikaor1.github.io/Blog/tech-practice/ai-tools/" rel="canonical"/>
-<link href="../setup/cuda/" rel="prev"/>
-<link href="hermes-agent/" rel="next"/>
-<link href="../../assets/images/favicon.png" rel="icon"/>
+<link href="https://megumikaor1.github.io/Blog/tech-practice/ai-tools/agent-tech/agent/" rel="canonical"/>
+<link href="../mcp/" rel="prev"/>
+<link href="../multi-agent/" rel="next"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>🤖 AI 工具链 - Kaor1's World</title>
-<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<title>7. Agent 智能体 - Kaor1's World</title>
+<link href="../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 </head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#ai">
+<a class="md-skip" href="#7-agent">
           跳转至
         </a>
 </div>
@@ -34,7 +34,7 @@
 </div>
 <header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
 <nav aria-label="页眉" class="md-header__inner md-grid">
-<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              🤖 AI 工具链
+              7. Agent 智能体
             
           </span>
 </div>
@@ -106,7 +106,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../..">
+<a class="md-tabs__link" href="../../../..">
         
   
   
@@ -117,7 +117,7 @@
       </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ml-security/">
+<a class="md-tabs__link" href="../../../../ml-security/">
           
   
   
@@ -128,7 +128,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../gen-models/">
+<a class="md-tabs__link" href="../../../../gen-models/">
           
   
   
@@ -139,7 +139,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../ai-math/">
+<a class="md-tabs__link" href="../../../../ai-math/">
           
   
   
@@ -150,7 +150,7 @@
         </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../">
+<a class="md-tabs__link" href="../../../">
           
   
   
@@ -161,7 +161,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../papers/">
+<a class="md-tabs__link" href="../../../../papers/">
           
   
   
@@ -172,7 +172,7 @@
         </a>
 </li>
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../life/">
+<a class="md-tabs__link" href="../../../../life/">
           
   
   
@@ -194,14 +194,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="导航栏" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Kaor1's World">
+<a aria-label="Kaor1's World" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Kaor1's World">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9 3v15h3V3zm3 2 4 13 3-1-4-13zM5 5v13h3V5zM3 19v2h18v-2z"></path></svg>
 </a>
     Kaor1's World
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../..">
+<a class="md-nav__link" href="../../../..">
 <span class="md-ellipsis">
     
   
@@ -215,7 +215,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../ml-security/">
+<a class="md-nav__link" href="../../../../ml-security/">
 <span class="md-ellipsis">
     
   
@@ -240,7 +240,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/machine-unlearning/">
+<a class="md-nav__link" href="../../../../ml-security/machine-unlearning/">
 <span class="md-ellipsis">
     
   
@@ -252,7 +252,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/backdoor-attacks/">
+<a class="md-nav__link" href="../../../../ml-security/backdoor-attacks/">
 <span class="md-ellipsis">
     
   
@@ -264,7 +264,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/data-poisoning/">
+<a class="md-nav__link" href="../../../../ml-security/data-poisoning/">
 <span class="md-ellipsis">
     
   
@@ -276,7 +276,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/model-editing/">
+<a class="md-nav__link" href="../../../../ml-security/model-editing/">
 <span class="md-ellipsis">
     
   
@@ -288,7 +288,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/adversarial-attacks/">
+<a class="md-nav__link" href="../../../../ml-security/adversarial-attacks/">
 <span class="md-ellipsis">
     
   
@@ -300,7 +300,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ml-security/robust-evaluation/">
+<a class="md-nav__link" href="../../../../ml-security/robust-evaluation/">
 <span class="md-ellipsis">
     
   
@@ -317,7 +317,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../gen-models/">
+<a class="md-nav__link" href="../../../../gen-models/">
 <span class="md-ellipsis">
     
   
@@ -342,7 +342,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/diffusion-models/">
+<a class="md-nav__link" href="../../../../gen-models/diffusion-models/">
 <span class="md-ellipsis">
     
   
@@ -354,7 +354,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/llm/">
+<a class="md-nav__link" href="../../../../gen-models/llm/">
 <span class="md-ellipsis">
     
   
@@ -366,7 +366,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../gen-models/autoregressive/">
+<a class="md-nav__link" href="../../../../gen-models/autoregressive/">
 <span class="md-ellipsis">
     
   
@@ -383,7 +383,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../ai-math/">
+<a class="md-nav__link" href="../../../../ai-math/">
 <span class="md-ellipsis">
     
   
@@ -408,7 +408,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/linear-algebra/">
+<a class="md-nav__link" href="../../../../ai-math/linear-algebra/">
 <span class="md-ellipsis">
     
   
@@ -420,7 +420,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/calculus/">
+<a class="md-nav__link" href="../../../../ai-math/calculus/">
 <span class="md-ellipsis">
     
   
@@ -432,7 +432,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/probability/">
+<a class="md-nav__link" href="../../../../ai-math/probability/">
 <span class="md-ellipsis">
     
   
@@ -444,7 +444,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/optimization/">
+<a class="md-nav__link" href="../../../../ai-math/optimization/">
 <span class="md-ellipsis">
     
   
@@ -456,7 +456,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../ai-math/information-theory/">
+<a class="md-nav__link" href="../../../../ai-math/information-theory/">
 <span class="md-ellipsis">
     
   
@@ -473,7 +473,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../../">
 <span class="md-ellipsis">
     
   
@@ -500,7 +500,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../setup/">
+<a class="md-nav__link" href="../../../setup/">
 <span class="md-ellipsis">
     
   
@@ -525,7 +525,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/python/">
+<a class="md-nav__link" href="../../../setup/python/">
 <span class="md-ellipsis">
     
   
@@ -537,7 +537,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/anaconda/">
+<a class="md-nav__link" href="../../../setup/anaconda/">
 <span class="md-ellipsis">
     
   
@@ -549,7 +549,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/pytorch/">
+<a class="md-nav__link" href="../../../setup/pytorch/">
 <span class="md-ellipsis">
     
   
@@ -561,7 +561,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../setup/cuda/">
+<a class="md-nav__link" href="../../../setup/cuda/">
 <span class="md-ellipsis">
     
   
@@ -578,7 +578,7 @@
 <li class="md-nav__item md-nav__item--active md-nav__item--nested">
 <input checked="" class="md-nav__toggle md-toggle" id="__nav_5_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link md-nav__link--active" href="./">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     
   
@@ -588,7 +588,7 @@
     
   </span>
 </a>
-<label class="md-nav__link md-nav__link--active" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
+<label class="md-nav__link" for="__nav_5_3" id="__nav_5_3_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
@@ -603,7 +603,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="hermes-agent/">
+<a class="md-nav__link" href="../../hermes-agent/">
 <span class="md-ellipsis">
     
   
@@ -614,10 +614,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_5_3_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="agent-tech/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -631,7 +631,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_5_3_3_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_5_3_3">
 <span class="md-nav__icon md-icon"></span>
             
@@ -642,7 +642,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/llm/">
+<a class="md-nav__link" href="../llm/">
 <span class="md-ellipsis">
     
   
@@ -654,7 +654,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/prompt-engineering/">
+<a class="md-nav__link" href="../prompt-engineering/">
 <span class="md-ellipsis">
     
   
@@ -666,7 +666,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/fine-tuning/">
+<a class="md-nav__link" href="../fine-tuning/">
 <span class="md-ellipsis">
     
   
@@ -678,7 +678,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/rag/">
+<a class="md-nav__link" href="../rag/">
 <span class="md-ellipsis">
     
   
@@ -690,7 +690,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/function-calling/">
+<a class="md-nav__link" href="../function-calling/">
 <span class="md-ellipsis">
     
   
@@ -702,7 +702,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/mcp/">
+<a class="md-nav__link" href="../mcp/">
 <span class="md-ellipsis">
     
   
@@ -713,8 +713,20 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/agent/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    7. Agent 智能体
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -724,9 +736,133 @@
     
   </span>
 </a>
+<nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+<span class="md-ellipsis">
+      
+        什么是 Agent
+      
+    </span>
+</a>
+<nav aria-label="什么是 Agent" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chatbot">
+<span class="md-ellipsis">
+      
+        与 Chatbot 的区别
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/multi-agent/">
+<a class="md-nav__link" href="#think-act-observe">
+<span class="md-ellipsis">
+      
+        核心循环：Think → Act → Observe
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_1">
+<span class="md-ellipsis">
+      
+        最小 Agent 公式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_2">
+<span class="md-ellipsis">
+      
+        Agent 设计模式
+      
+    </span>
+</a>
+<nav aria-label="Agent 设计模式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reactreasoning-acting">
+<span class="md-ellipsis">
+      
+        ReAct（Reasoning + Acting）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plan-execute">
+<span class="md-ellipsis">
+      
+        Plan &amp; Execute
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reflection">
+<span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tool-use">
+<span class="md-ellipsis">
+      
+        Tool Use
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#routing">
+<span class="md-ellipsis">
+      
+        Routing
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_3">
+<span class="md-ellipsis">
+      
+        Agent 框架对比
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../multi-agent/">
 <span class="md-ellipsis">
     
   
@@ -738,7 +874,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="agent-tech/context-engineering/">
+<a class="md-nav__link" href="../context-engineering/">
 <span class="md-ellipsis">
     
   
@@ -753,7 +889,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="skill-dev/">
+<a class="md-nav__link" href="../../skill-dev/">
 <span class="md-ellipsis">
     
   
@@ -765,7 +901,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="openclaw/">
+<a class="md-nav__link" href="../../openclaw/">
 <span class="md-ellipsis">
     
   
@@ -777,7 +913,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="harness/">
+<a class="md-nav__link" href="../../harness/">
 <span class="md-ellipsis">
     
   
@@ -792,7 +928,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../docs-share/">
+<a class="md-nav__link" href="../../../docs-share/">
 <span class="md-ellipsis">
     
   
@@ -809,7 +945,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_6" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../papers/">
+<a class="md-nav__link" href="../../../../papers/">
 <span class="md-ellipsis">
     
   
@@ -836,7 +972,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_7" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../life/">
+<a class="md-nav__link" href="../../../../life/">
 <span class="md-ellipsis">
     
   
@@ -861,7 +997,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../life/archive/">
+<a class="md-nav__link" href="../../../../life/archive/">
 <span class="md-ellipsis">
     
   
@@ -884,44 +1020,281 @@
 <div class="md-sidebar__scrollwrap">
 <div class="md-sidebar__inner">
 <nav aria-label="目录" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent">
+<span class="md-ellipsis">
+      
+        什么是 Agent
+      
+    </span>
+</a>
+<nav aria-label="什么是 Agent" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chatbot">
+<span class="md-ellipsis">
+      
+        与 Chatbot 的区别
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#think-act-observe">
+<span class="md-ellipsis">
+      
+        核心循环：Think → Act → Observe
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_1">
+<span class="md-ellipsis">
+      
+        最小 Agent 公式
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_2">
+<span class="md-ellipsis">
+      
+        Agent 设计模式
+      
+    </span>
+</a>
+<nav aria-label="Agent 设计模式" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reactreasoning-acting">
+<span class="md-ellipsis">
+      
+        ReAct（Reasoning + Acting）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plan-execute">
+<span class="md-ellipsis">
+      
+        Plan &amp; Execute
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#reflection">
+<span class="md-ellipsis">
+      
+        Reflection
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tool-use">
+<span class="md-ellipsis">
+      
+        Tool Use
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#routing">
+<span class="md-ellipsis">
+      
+        Routing
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#agent_3">
+<span class="md-ellipsis">
+      
+        Agent 框架对比
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_1">
+<span class="md-ellipsis">
+      
+        延伸阅读
+      
+    </span>
+</a>
+</li>
+</ul>
 </nav>
 </div>
 </div>
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="ai">🤖 AI 工具链<a class="headerlink" href="#ai" title="锚点链接">¶</a></h1>
-<p>近年 AI Agent 与工具生态速览。</p>
+<h1 id="7-agent">7. Agent：智能体<a class="headerlink" href="#7-agent" title="锚点链接">¶</a></h1>
+<blockquote>
+<p>从「一问一答」到「自主完成复杂任务」。</p>
+</blockquote>
+<p><strong>核心论文</strong>：<a href="https://arxiv.org/abs/2210.03629">ReAct: Synergizing Reasoning and Acting in Language Models</a>（Yao et al., 2022）</p>
+<hr/>
+<h2 id="agent">什么是 Agent<a class="headerlink" href="#agent" title="锚点链接">¶</a></h2>
+<p>Agent 是一种能够基于目标进行「<strong>思考 → 行动 → 观察</strong>」循环、能够自主调用工具来完成复杂任务的智能系统。</p>
+<h3 id="chatbot">与 Chatbot 的区别<a class="headerlink" href="#chatbot" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
-<th>文章</th>
-<th>简介</th>
+<th></th>
+<th>Chatbot</th>
+<th>Agent</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><a href="hermes-agent/">Hermes Agent 完全指南</a></td>
-<td>安装、配置、技能开发、双机架构</td>
+<td>交互模式</td>
+<td>一问一答</td>
+<td>自主多步循环</td>
 </tr>
 <tr>
-<td><a href="agent-tech/">Agent 技术串讲</a></td>
-<td>Agent 框架盘点与对比</td>
+<td>工具使用</td>
+<td>无</td>
+<td>调用外部工具</td>
 </tr>
 <tr>
-<td><a href="skill-dev/">Skill 机制与开发</a></td>
-<td>Skill 原理、编写与调试</td>
+<td>任务复杂度</td>
+<td>单轮对话</td>
+<td>多步复杂任务</td>
 </tr>
 <tr>
-<td><a href="openclaw/">OpenClaw 入门</a></td>
-<td>OpenClaw 工具使用</td>
-</tr>
-<tr>
-<td><a href="harness/">Harness 评测框架</a></td>
-<td>lm-evaluation-harness 配置与使用</td>
+<td>自主性</td>
+<td>被动响应</td>
+<td>主动规划和执行</td>
 </tr>
 </tbody>
 </table>
+<hr/>
+<h2 id="think-act-observe">核心循环：Think → Act → Observe<a class="headerlink" href="#think-act-observe" title="锚点链接">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>     ┌──────────┐
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>     │  思考    │ ← 分析当前状态，决定下一步
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>     │ (Think)  │
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>     └────┬─────┘
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>          ↓
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>     ┌──────────┐
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>     │  行动    │ ← 调用工具、执行操作
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>     │  (Act)   │
+</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>     └────┬─────┘
+</span><span id="__span-0-10"><a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>          ↓
+</span><span id="__span-0-11"><a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>     ┌──────────┐
+</span><span id="__span-0-12"><a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>     │  观察    │ ← 获取工具返回结果
+</span><span id="__span-0-13"><a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>     │(Observe) │
+</span><span id="__span-0-14"><a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>     └────┬─────┘
+</span><span id="__span-0-15"><a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>          ↓
+</span><span id="__span-0-16"><a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>     回到「思考」（直到任务完成或达到最大步数）
+</span></code></pre></div>
+<hr/>
+<h2 id="agent_1">最小 Agent 公式<a class="headerlink" href="#agent_1" title="锚点链接">¶</a></h2>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>提示词 + LLM + Tools = Agent
+</span></code></pre></div>
+<p>三条缺一不可：</p>
+<ul>
+<li><strong>提示词</strong>：定义目标、角色、行为规则</li>
+<li><strong>LLM</strong>：推理和决策引擎</li>
+<li><strong>Tools</strong>：与外部世界交互的能力</li>
+</ul>
+<hr/>
+<h2 id="agent_2">Agent 设计模式<a class="headerlink" href="#agent_2" title="锚点链接">¶</a></h2>
+<p>参考 <a href="https://medium.com/binome/ai-agent-workflow-design-patterns-an-overview-cf9e1f609696">AI Agent Workflow Design Patterns</a>：</p>
+<h3 id="reactreasoning-acting">ReAct（Reasoning + Acting）<a class="headerlink" href="#reactreasoning-acting" title="锚点链接">¶</a></h3>
+<p>交替进行推理和行动。最经典的模式。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>Thought: 我需要知道今天天气才能建议穿衣
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>Action: get_weather("北京")
+</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>Observation: 晴，22°C
+</span><span id="__span-2-4"><a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>Thought: 晴天且 22°C，建议穿薄外套
+</span><span id="__span-2-5"><a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>Final Answer: 今天北京晴，22°C，建议穿薄外套
+</span></code></pre></div>
+<h3 id="plan-execute">Plan &amp; Execute<a class="headerlink" href="#plan-execute" title="锚点链接">¶</a></h3>
+<p>先制定完整计划，再逐步执行。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>Plan:
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>  1. 搜索目标公司信息
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>  2. 读取财报 PDF
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>  3. 分析关键指标
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>  4. 生成分析报告
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>Execute: 1 → 2 → 3 → 4
+</span></code></pre></div>
+<p><strong>优势</strong>：整体规划避免跑偏；<strong>劣势</strong>：计划可能一开始就有误。</p>
+<h3 id="reflection">Reflection<a class="headerlink" href="#reflection" title="锚点链接">¶</a></h3>
+<p>执行后反思自己的输出，自我改进。</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>生成初稿 → 自我评价 → 发现问题 → 修正 → 再评价 → 最终输出
+</span></code></pre></div>
+<h3 id="tool-use">Tool Use<a class="headerlink" href="#tool-use" title="锚点链接">¶</a></h3>
+<p>核心不是「什么时候用工具」，而是「用什么工具 + 怎么组合」。</p>
+<h3 id="routing">Routing<a class="headerlink" href="#routing" title="锚点链接">¶</a></h3>
+<p>根据用户意图，动态分发给不同的处理流程：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>用户输入 → Router → 技术问题？→ 技术 Agent
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>                   → 闲聊？  → 闲聊 Agent
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>                   → 代码？  → 代码 Agent
+</span></code></pre></div>
+<hr/>
+<h2 id="agent_3">Agent 框架对比<a class="headerlink" href="#agent_3" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>框架</th>
+<th>特点</th>
+<th>适合</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>LangChain / LangGraph</strong></td>
+<td>图结构编排，生态最全</td>
+<td>复杂工作流</td>
+</tr>
+<tr>
+<td><strong>OpenAI Agents SDK</strong></td>
+<td>轻量，原生支持 Swarm</td>
+<td>快速原型</td>
+</tr>
+<tr>
+<td><strong>CrewAI</strong></td>
+<td>角色分工，简单上手</td>
+<td>多 Agent 团队</td>
+</tr>
+<tr>
+<td><strong>Hermes Agent</strong></td>
+<td>自我进化，记忆分层</td>
+<td>长期陪伴型</td>
+</tr>
+<tr>
+<td><strong>AutoGen</strong></td>
+<td>微软出品，对话驱动</td>
+<td>多 Agent 对话</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_1">延伸阅读<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
+<ul>
+<li><a href="https://arxiv.org/abs/2210.03629">ReAct 论文</a></li>
+<li><a href="https://www.anthropic.com/engineering/building-effective-agents">Building Effective Agents</a>（Anthropic）</li>
+<li><a href="https://medium.com/binome/ai-agent-workflow-design-patterns-an-overview-cf9e1f609696">Agent Design Patterns</a></li>
+</ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>
@@ -957,11 +1330,11 @@
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
-<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.indexes", "navigation.tracking", "navigation.top", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+<script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<script src="../../assets/katex-render.js"></script>
+<script src="../../../../assets/katex-render.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 </body>
 </html>

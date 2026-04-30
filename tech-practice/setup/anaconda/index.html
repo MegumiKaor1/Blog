@@ -7,12 +7,12 @@
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="ML Security / Generative Models / 动漫摄影旅游杂谈" name="description"/>
 <meta content="Kaor1" name="author"/>
-<link href="https://megumikaor1.github.io/Blog/tech-practice/setup/cuda/" rel="canonical"/>
-<link href="../pytorch/" rel="prev"/>
-<link href="../../ai-tools/" rel="next"/>
+<link href="https://megumikaor1.github.io/Blog/tech-practice/setup/anaconda/" rel="canonical"/>
+<link href="../python/" rel="prev"/>
+<link href="../pytorch/" rel="next"/>
 <link href="../../../assets/images/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>CUDA 与 GPU 环境 - Kaor1's World</title>
+<title>Anaconda 配置 - Kaor1's World</title>
 <link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -26,7 +26,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#cuda-gpu">
+<a class="md-skip" href="#anaconda-miniconda">
           跳转至
         </a>
 </div>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              CUDA 与 GPU 环境
+              Anaconda 配置
             
           </span>
 </div>
@@ -536,37 +536,13 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../anaconda/">
-<span class="md-ellipsis">
-    
-  
-    Anaconda 配置
-  
-
-    
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../pytorch/">
-<span class="md-ellipsis">
-    
-  
-    PyTorch 安装与入门
-  
-
-    
-  </span>
-</a>
-</li>
 <li class="md-nav__item md-nav__item--active">
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
     
   
-    CUDA 与 GPU 环境
+    Anaconda 配置
   
 
     
@@ -577,7 +553,7 @@
 <span class="md-ellipsis">
     
   
-    CUDA 与 GPU 环境
+    Anaconda 配置
   
 
     
@@ -590,10 +566,10 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#anaconda-vs-miniconda">
 <span class="md-ellipsis">
       
-        前置知识
+        Anaconda vs Miniconda
       
     </span>
 </a>
@@ -609,19 +585,19 @@
 <nav aria-label="macOS" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#apple-silicon-m1m2m3">
+<a class="md-nav__link" href="#miniconda">
 <span class="md-ellipsis">
       
-        Apple Silicon (M1/M2/M3)
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#intel-mac">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        Intel Mac（有独显的旧款）
+        日常操作
       
     </span>
 </a>
@@ -640,46 +616,19 @@
 <nav aria-label="Windows" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-nvidia">
+<a class="md-nav__link" href="#miniconda_1">
 <span class="md-ellipsis">
       
-        第 1 步：确认你有 NVIDIA 显卡
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-nvidia">
+<a class="md-nav__link" href="#macos_1">
 <span class="md-ellipsis">
       
-        第 2 步：装 NVIDIA 驱动
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-pytorch-cuda">
-<span class="md-ellipsis">
-      
-        第 3 步：装 PyTorch（自带 CUDA）
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4">
-<span class="md-ellipsis">
-      
-        第 4 步：验证
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#windows_1">
-<span class="md-ellipsis">
-      
-        Windows 常见坑
+        日常操作（和 macOS 完全相同）
       
     </span>
 </a>
@@ -688,38 +637,29 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#linux-ubuntudebian">
+<a class="md-nav__link" href="#linux">
 <span class="md-ellipsis">
       
-        Linux (Ubuntu/Debian)
+        Linux
       
     </span>
 </a>
-<nav aria-label="Linux (Ubuntu/Debian)" class="md-nav">
+<nav aria-label="Linux" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-nvidia_1">
+<a class="md-nav__link" href="#miniconda_2">
 <span class="md-ellipsis">
       
-        第 1 步：装 NVIDIA 驱动
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-pytorch">
+<a class="md-nav__link" href="#gui">
 <span class="md-ellipsis">
       
-        第 2 步：装 PyTorch
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3">
-<span class="md-ellipsis">
-      
-        第 3 步：验证
+        服务器无 GUI 安装
       
     </span>
 </a>
@@ -728,7 +668,7 @@
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        服务器常用操作
+        日常操作
       
     </span>
 </a>
@@ -737,25 +677,34 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#conda-vs-venv">
+<span class="md-ellipsis">
+      
+        Conda vs venv 怎么选
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conda">
+<span class="md-ellipsis">
+      
+        Conda 常用命令速查
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        三平台对比
+        常见坑
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      
-        验证一切都配好了
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       
         下一步
@@ -765,6 +714,30 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pytorch/">
+<span class="md-ellipsis">
+    
+  
+    PyTorch 安装与入门
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cuda/">
+<span class="md-ellipsis">
+    
+  
+    CUDA 与 GPU 环境
+  
+
+    
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -958,10 +931,10 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="#anaconda-vs-miniconda">
 <span class="md-ellipsis">
       
-        前置知识
+        Anaconda vs Miniconda
       
     </span>
 </a>
@@ -977,19 +950,19 @@
 <nav aria-label="macOS" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#apple-silicon-m1m2m3">
+<a class="md-nav__link" href="#miniconda">
 <span class="md-ellipsis">
       
-        Apple Silicon (M1/M2/M3)
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#intel-mac">
+<a class="md-nav__link" href="#_1">
 <span class="md-ellipsis">
       
-        Intel Mac（有独显的旧款）
+        日常操作
       
     </span>
 </a>
@@ -1008,46 +981,19 @@
 <nav aria-label="Windows" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-nvidia">
+<a class="md-nav__link" href="#miniconda_1">
 <span class="md-ellipsis">
       
-        第 1 步：确认你有 NVIDIA 显卡
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-nvidia">
+<a class="md-nav__link" href="#macos_1">
 <span class="md-ellipsis">
       
-        第 2 步：装 NVIDIA 驱动
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-pytorch-cuda">
-<span class="md-ellipsis">
-      
-        第 3 步：装 PyTorch（自带 CUDA）
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4">
-<span class="md-ellipsis">
-      
-        第 4 步：验证
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#windows_1">
-<span class="md-ellipsis">
-      
-        Windows 常见坑
+        日常操作（和 macOS 完全相同）
       
     </span>
 </a>
@@ -1056,38 +1002,29 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#linux-ubuntudebian">
+<a class="md-nav__link" href="#linux">
 <span class="md-ellipsis">
       
-        Linux (Ubuntu/Debian)
+        Linux
       
     </span>
 </a>
-<nav aria-label="Linux (Ubuntu/Debian)" class="md-nav">
+<nav aria-label="Linux" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#1-nvidia_1">
+<a class="md-nav__link" href="#miniconda_2">
 <span class="md-ellipsis">
       
-        第 1 步：装 NVIDIA 驱动
+        安装 Miniconda
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#2-pytorch">
+<a class="md-nav__link" href="#gui">
 <span class="md-ellipsis">
       
-        第 2 步：装 PyTorch
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3">
-<span class="md-ellipsis">
-      
-        第 3 步：验证
+        服务器无 GUI 安装
       
     </span>
 </a>
@@ -1096,7 +1033,7 @@
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        服务器常用操作
+        日常操作
       
     </span>
 </a>
@@ -1105,25 +1042,34 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#conda-vs-venv">
+<span class="md-ellipsis">
+      
+        Conda vs venv 怎么选
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conda">
+<span class="md-ellipsis">
+      
+        Conda 常用命令速查
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        三平台对比
+        常见坑
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_4">
-<span class="md-ellipsis">
-      
-        验证一切都配好了
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       
         下一步
@@ -1138,83 +1084,224 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="cuda-gpu">CUDA 与 GPU 环境配置<a class="headerlink" href="#cuda-gpu" title="锚点链接">¶</a></h1>
-<p>深度学习不跑 GPU 就跟开跑车挂一档一样。这篇从零把你的显卡配到能跑 PyTorch。</p>
+<h1 id="anaconda-miniconda">Anaconda / Miniconda 环境配置<a class="headerlink" href="#anaconda-miniconda" title="锚点链接">¶</a></h1>
+<p>Anaconda 是 Python 发行版 + 虚拟环境管理器 + 预装科学计算包的合体方案，AI 入门的经典选择。</p>
 <hr/>
-<h2 id="_1">前置知识<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
+<h2 id="anaconda-vs-miniconda">Anaconda vs Miniconda<a class="headerlink" href="#anaconda-vs-miniconda" title="锚点链接">¶</a></h2>
 <table>
 <thead>
 <tr>
-<th>概念</th>
-<th>是什么</th>
+<th></th>
+<th>Anaconda</th>
+<th>Miniconda</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>NVIDIA 驱动</strong></td>
-<td>操作系统和显卡之间的桥梁，识别你的 GPU</td>
+<td>大小</td>
+<td>~3 GB</td>
+<td>~50 MB</td>
 </tr>
 <tr>
-<td><strong>CUDA Toolkit</strong></td>
-<td>NVIDIA 的并行计算平台，PyTorch 靠它调用 GPU</td>
+<td>预装包</td>
+<td>numpy, scipy, pandas, jupyter 等 250+ 包</td>
+<td>只装 conda + Python</td>
 </tr>
 <tr>
-<td><strong>cuDNN</strong></td>
-<td>NVIDIA 的深度神经网络加速库，训练/推理更快</td>
+<td>适合</td>
+<td>新手、数据科学入门</td>
+<td>有经验的开发者</td>
 </tr>
 <tr>
-<td><strong>PyTorch CUDA 版本</strong></td>
-<td>PyTorch 内置了精简版 CUDA，不必单独装</td>
+<td><strong>推荐</strong></td>
+<td>🔰 新手</td>
+<td>✅ 开发者</td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p><strong>重要</strong>：现代 PyTorch（≥ 2.0）自带 CUDA 运行时，<strong>不需要</strong>单独安装 CUDA Toolkit。 只装显卡驱动就行。</p>
+<p>Miniconda 更轻量，需要什么自己装。推荐用它。</p>
 </blockquote>
 <hr/>
 <h2 id="macos">macOS<a class="headerlink" href="#macos" title="锚点链接">¶</a></h2>
-<p>Apple Silicon 用户看这里。</p>
-<h3 id="apple-silicon-m1m2m3">Apple Silicon (M1/M2/M3)<a class="headerlink" href="#apple-silicon-m1m2m3" title="锚点链接">¶</a></h3>
-<p><strong>不需要 CUDA，不需要 NVIDIA 驱动。</strong> PyTorch 直接用 MPS 后端：</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>  <span class="c1"># 应输出 True</span>
+<h3 id="miniconda">安装 Miniconda<a class="headerlink" href="#miniconda" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># 下载安装脚本</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>curl<span class="w"> </span>-O<span class="w"> </span>https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-arm64.sh
 </span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 把 tensor 放到 "GPU" 上</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"mps"</span><span class="p">)</span>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># 运行（Apple Silicon）</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>bash<span class="w"> </span>Miniconda3-latest-MacOSX-arm64.sh
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Intel Mac 用这个：</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># bash Miniconda3-latest-MacOSX-x86_64.sh</span>
 </span></code></pre></div>
-<p>安装 PyTorch 时选 MPS 版本（见 <a href="../pytorch/">PyTorch 篇</a>）。</p>
-<h3 id="intel-mac">Intel Mac（有独显的旧款）<a class="headerlink" href="#intel-mac" title="锚点链接">¶</a></h3>
-<p>少数 Intel Mac 有 AMD 独显，<strong>不支持 CUDA</strong>，只能用 CPU 跑或外接 eGPU（极其不推荐）。</p>
+<p>按提示回车，<code>yes</code> 同意协议，最后选 <code>yes</code> 让 conda 自动初始化 shell。</p>
+<p>装完后<strong>关掉终端重开</strong>，或执行：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">source</span><span class="w"> </span>~/.zshrc
+</span></code></pre></div>
+<p>验证：</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>conda<span class="w"> </span>--version
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># conda 24.x.x</span>
+</span></code></pre></div>
+<h3 id="_1">日常操作<a class="headerlink" href="#_1" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># 创建环境（指定 Python 版本）</span>
+</span><span id="__span-3-2"><a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myproject<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+</span><span id="__span-3-3"><a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
+</span><span id="__span-3-4"><a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># 激活</span>
+</span><span id="__span-3-5"><a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>conda<span class="w"> </span>activate<span class="w"> </span>myproject
+</span><span id="__span-3-6"><a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
+</span><span id="__span-3-7"><a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># 装包（优先 conda，不行再 pip）</span>
+</span><span id="__span-3-8"><a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>pandas<span class="w"> </span>matplotlib
+</span><span id="__span-3-9"><a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision
+</span><span id="__span-3-10"><a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1"># 导出环境</span>
+</span><span id="__span-3-12"><a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>conda<span class="w"> </span>env<span class="w"> </span><span class="nb">export</span><span class="w"> </span>&gt;<span class="w"> </span>environment.yml
+</span><span id="__span-3-13"><a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>
+</span><span id="__span-3-14"><a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="c1"># 还原环境</span>
+</span><span id="__span-3-15"><a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-f<span class="w"> </span>environment.yml
+</span><span id="__span-3-16"><a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>
+</span><span id="__span-3-17"><a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1"># 列出所有环境</span>
+</span><span id="__span-3-18"><a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>conda<span class="w"> </span>env<span class="w"> </span>list
+</span><span id="__span-3-19"><a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>
+</span><span id="__span-3-20"><a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="c1"># 退出环境</span>
+</span><span id="__span-3-21"><a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>conda<span class="w"> </span>deactivate
+</span><span id="__span-3-22"><a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>
+</span><span id="__span-3-23"><a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="c1"># 删除环境</span>
+</span><span id="__span-3-24"><a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>-n<span class="w"> </span>myproject
+</span></code></pre></div>
 <hr/>
 <h2 id="windows">Windows<a class="headerlink" href="#windows" title="锚点链接">¶</a></h2>
-<p>Windows 配 GPU 环境最折腾，按顺序来。</p>
-<h3 id="1-nvidia">第 1 步：确认你有 NVIDIA 显卡<a class="headerlink" href="#1-nvidia" title="锚点链接">¶</a></h3>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c"># PowerShell</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">nvidia-smi</span>
-</span></code></pre></div>
-<p>如果显示显卡型号和驱动版本 → ✅ 驱动已装。
-如果报错 → 继续下一步。</p>
-<h3 id="2-nvidia">第 2 步：装 NVIDIA 驱动<a class="headerlink" href="#2-nvidia" title="锚点链接">¶</a></h3>
+<h3 id="miniconda_1">安装 Miniconda<a class="headerlink" href="#miniconda_1" title="锚点链接">¶</a></h3>
 <ol>
-<li>打开 https://www.nvidia.com/download/index.aspx</li>
-<li>选你的显卡型号 → 下载 Game Ready 驱动 → 安装</li>
-<li>重启 → 再跑 <code>nvidia-smi</code> → 应该看到类似：</li>
+<li>打开 https://docs.anaconda.com/miniconda/</li>
+<li>下载 <strong>Windows 64-bit</strong> 安装包</li>
+<li>双击运行 → 一路 Next</li>
+<li>安装选项选 <strong>Just Me</strong>（不要选 All Users）</li>
+<li>⚠️ <strong>不要勾选 "Add to PATH"</strong>（安装程序会警告说最好不勾——听它的）</li>
+<li>装完后从<strong>开始菜单</strong>打开 <strong>Anaconda Prompt (Miniconda3)</strong></li>
 </ol>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>+-----------------------------------------------------------------------------+
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>| NVIDIA-SMI 555.xx       Driver Version: 555.xx       CUDA Version: 12.5     |
-</span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>+-----------------------------------------------------------------------------+
+<blockquote>
+<p>始终用 Anaconda Prompt 操作，不要用普通 CMD 或 PowerShell——它配置好了 conda 的环境变量。</p>
+</blockquote>
+<h3 id="macos_1">日常操作（和 macOS 完全相同）<a class="headerlink" href="#macos_1" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myproject<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>myproject
+</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>pandas
+</span><span id="__span-4-4"><a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>pip<span class="w"> </span>install<span class="w"> </span>torch
 </span></code></pre></div>
-<h3 id="3-pytorch-cuda">第 3 步：装 PyTorch（自带 CUDA）<a class="headerlink" href="#3-pytorch-cuda" title="锚点链接">¶</a></h3>
-<p><strong>不要</strong>单独装 CUDA Toolkit。直接在 PyTorch 官网选对应版本：</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-3-1"><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="n">pip</span> <span class="n">install</span> <span class="n">torch</span> <span class="n">torchvision</span> <span class="n">torchaudio</span> <span class="p">-</span><span class="n">-index-url</span> <span class="n">https</span><span class="p">://</span><span class="n">download</span><span class="p">.</span><span class="n">pytorch</span><span class="p">.</span><span class="n">org</span><span class="p">/</span><span class="n">whl</span><span class="p">/</span><span class="n">cu124</span>
+<hr/>
+<h2 id="linux">Linux<a class="headerlink" href="#linux" title="锚点链接">¶</a></h2>
+<h3 id="miniconda_2">安装 Miniconda<a class="headerlink" href="#miniconda_2" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># 下载</span>
+</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>wget<span class="w"> </span>https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
+</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 安装</span>
+</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>bash<span class="w"> </span>Miniconda3-latest-Linux-x86_64.sh
+</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 初始化（安装脚本最后会问，选 yes）</span>
+</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="c1"># 手动初始化：</span>
+</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>~/miniconda3/bin/conda<span class="w"> </span>init<span class="w"> </span>bash
+</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
+</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="c1"># 重载配置</span>
+</span><span id="__span-5-12"><a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div>
-<h3 id="4">第 4 步：验证<a class="headerlink" href="#4" title="锚点链接">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-4-1"><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-4-2"><a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>  <span class="c1"># True</span>
-</span><span id="__span-4-3"><a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>  <span class="c1"># 你的显卡型号</span>
+<h3 id="gui">服务器无 GUI 安装<a class="headerlink" href="#gui" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># 静默安装，跳过所有交互</span>
+</span><span id="__span-6-2"><a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>bash<span class="w"> </span>Miniconda3-latest-Linux-x86_64.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span><span class="nv">$HOME</span>/miniconda3
+</span><span id="__span-6-3"><a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="nv">$HOME</span>/miniconda3/bin/conda<span class="w"> </span>init<span class="w"> </span>bash
+</span><span id="__span-6-4"><a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="nb">source</span><span class="w"> </span>~/.bashrc
 </span></code></pre></div>
-<h3 id="windows_1">Windows 常见坑<a class="headerlink" href="#windows_1" title="锚点链接">¶</a></h3>
+<h3 id="_2">日常操作<a class="headerlink" href="#_2" title="锚点链接">¶</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>myproject<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11
+</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>myproject
+</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>conda<span class="w"> </span>install<span class="w"> </span>numpy<span class="w"> </span>pandas
+</span><span id="__span-7-4"><a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>pip<span class="w"> </span>install<span class="w"> </span>torch
+</span></code></pre></div>
+<hr/>
+<h2 id="conda-vs-venv">Conda vs venv 怎么选<a class="headerlink" href="#conda-vs-venv" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>场景</th>
+<th>推荐</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>刚学 Python，装东西总报错</td>
+<td><strong>Anaconda</strong>——自带常用包，开箱即用</td>
+</tr>
+<tr>
+<td>已经装了 Python，只想隔离项目</td>
+<td><strong>venv</strong>——轻量够用</td>
+</tr>
+<tr>
+<td>数据科学 / 科学计算</td>
+<td><strong>Anaconda</strong>——conda 处理二进制依赖更稳</td>
+</tr>
+<tr>
+<td>服务器部署 / Docker</td>
+<td><strong>venv</strong>——更小更快</td>
+</tr>
+<tr>
+<td>PyTorch / CUDA 项目</td>
+<td><strong>都可以</strong>——conda 能装 cudatoolkit，但 pip 装 torch 也自带 CUDA</td>
+</tr>
+<tr>
+<td>两者混用</td>
+<td><strong>可以共存</strong>——但不要在同一个项目里 conda 和 venv 混用</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="conda">Conda 常用命令速查<a class="headerlink" href="#conda" title="锚点链接">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>命令</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>创建环境</td>
+<td><code>conda create -n 名字 python=3.11</code></td>
+</tr>
+<tr>
+<td>激活</td>
+<td><code>conda activate 名字</code></td>
+</tr>
+<tr>
+<td>退出</td>
+<td><code>conda deactivate</code></td>
+</tr>
+<tr>
+<td>装包</td>
+<td><code>conda install 包名</code></td>
+</tr>
+<tr>
+<td>pip 装包</td>
+<td><code>pip install 包名</code>（在激活的 conda 环境里）</td>
+</tr>
+<tr>
+<td>列出环境</td>
+<td><code>conda env list</code></td>
+</tr>
+<tr>
+<td>导出</td>
+<td><code>conda env export &gt; environment.yml</code></td>
+</tr>
+<tr>
+<td>删除环境</td>
+<td><code>conda env remove -n 名字</code></td>
+</tr>
+<tr>
+<td>更新 conda</td>
+<td><code>conda update conda</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="_3">常见坑<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
 <table>
 <thead>
 <tr>
@@ -1224,115 +1311,32 @@
 </thead>
 <tbody>
 <tr>
-<td><code>nvidia-smi</code> 不识别</td>
-<td>驱动没装好，重装</td>
+<td><code>conda</code> 命令找不到</td>
+<td>没初始化 shell：跑 <code>conda init</code> 然后重开终端</td>
 </tr>
 <tr>
-<td>PyTorch 说 CUDA 不可用</td>
-<td>PyTorch 版本装错了，确认你装的 <code>cu124</code> 而不是 <code>cpu</code></td>
+<td><code>conda activate</code> 报错</td>
+<td>Windows 用 Anaconda Prompt，别用普通 CMD</td>
 </tr>
 <tr>
-<td>显存不足</td>
-<td>减小 batch_size 或用 <code>torch.cuda.empty_cache()</code></td>
+<td>装包很慢</td>
+<td>换清华源：<code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</code></td>
+</tr>
+<tr>
+<td>conda 和 pip 混着装冲突</td>
+<td>尽量用 conda 装，pip 只作为补充。先 conda 后 pip</td>
+</tr>
+<tr>
+<td>环境太多占空间</td>
+<td><code>conda clean --all</code> 清理缓存</td>
 </tr>
 </tbody>
 </table>
 <hr/>
-<h2 id="linux-ubuntudebian">Linux (Ubuntu/Debian)<a class="headerlink" href="#linux-ubuntudebian" title="锚点链接">¶</a></h2>
-<h3 id="1-nvidia_1">第 1 步：装 NVIDIA 驱动<a class="headerlink" href="#1-nvidia_1" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># 查看推荐驱动版本</span>
-</span><span id="__span-5-2"><a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>ubuntu-drivers<span class="w"> </span>devices
-</span><span id="__span-5-3"><a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-</span><span id="__span-5-4"><a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># 自动安装推荐版本</span>
-</span><span id="__span-5-5"><a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>ubuntu-drivers<span class="w"> </span>autoinstall
-</span><span id="__span-5-6"><a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
-</span><span id="__span-5-7"><a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># 重启</span>
-</span><span id="__span-5-8"><a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>sudo<span class="w"> </span>reboot
-</span><span id="__span-5-9"><a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
-</span><span id="__span-5-10"><a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># 验证</span>
-</span><span id="__span-5-11"><a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>nvidia-smi
-</span></code></pre></div>
-<blockquote>
-<p>如果 <code>ubuntu-drivers</code> 不可用：<code>sudo apt install ubuntu-drivers-common</code></p>
-</blockquote>
-<h3 id="2-pytorch">第 2 步：装 PyTorch<a class="headerlink" href="#2-pytorch" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>pip<span class="w"> </span>install<span class="w"> </span>torch<span class="w"> </span>torchvision<span class="w"> </span>torchaudio
-</span></code></pre></div>
-<p>PyTorch 自动带 CUDA，不需要额外步骤。</p>
-<h3 id="3">第 3 步：验证<a class="headerlink" href="#3" title="锚点链接">¶</a></h3>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-7-1"><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-7-2"><a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
-</span><span id="__span-7-3"><a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">())</span>  <span class="c1"># 多卡服务器会显示 &gt;1</span>
-</span></code></pre></div>
-<h3 id="_2">服务器常用操作<a class="headerlink" href="#_2" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># 查看 GPU 状态</span>
-</span><span id="__span-8-2"><a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>nvidia-smi
-</span><span id="__span-8-3"><a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
-</span><span id="__span-8-4"><a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># 实时监控（每秒刷新）</span>
-</span><span id="__span-8-5"><a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>watch<span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span>nvidia-smi
-</span><span id="__span-8-6"><a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
-</span><span id="__span-8-7"><a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># 指定用哪张卡</span>
-</span><span id="__span-8-8"><a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="nv">CUDA_VISIBLE_DEVICES</span><span class="o">=</span><span class="m">0</span>,1<span class="w"> </span>python<span class="w"> </span>train.py<span class="w">  </span><span class="c1"># 只用 0 号和 1 号卡</span>
-</span></code></pre></div>
-<hr/>
-<h2 id="_3">三平台对比<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
-<table>
-<thead>
-<tr>
-<th>平台</th>
-<th>GPU 后端</th>
-<th>需要单独装的东西</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>macOS (Apple Silicon)</td>
-<td>MPS</td>
-<td>无，PyTorch 直接用</td>
-</tr>
-<tr>
-<td>macOS (Intel)</td>
-<td>无</td>
-<td>无，只能用 CPU</td>
-</tr>
-<tr>
-<td>Windows (NVIDIA)</td>
-<td>CUDA</td>
-<td>NVIDIA 驱动</td>
-</tr>
-<tr>
-<td>Linux (NVIDIA)</td>
-<td>CUDA</td>
-<td>NVIDIA 驱动</td>
-</tr>
-</tbody>
-</table>
-<hr/>
-<h2 id="_4">验证一切都配好了<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-9-1"><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-</span><span id="__span-9-2"><a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-</span><span id="__span-9-3"><a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"PyTorch 版本: </span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</span><span id="__span-9-4"><a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>
-</span><span id="__span-9-5"><a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># macOS MPS</span>
-</span><span id="__span-9-6"><a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">mps</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-</span><span id="__span-9-7"><a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"✅ MPS 可用（Apple GPU）"</span><span class="p">)</span>
-</span><span id="__span-9-8"><a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"mps"</span><span class="p">)</span>
-</span><span id="__span-9-9"><a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a>
-</span><span id="__span-9-10"><a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="c1"># CUDA</span>
-</span><span id="__span-9-11"><a href="#__codelineno-9-11" id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="k">elif</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">():</span>
-</span><span id="__span-9-12"><a href="#__codelineno-9-12" id="__codelineno-9-12" name="__codelineno-9-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ CUDA 可用 (</span><span class="si">{</span><span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-</span><span id="__span-9-13"><a href="#__codelineno-9-13" id="__codelineno-9-13" name="__codelineno-9-13"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-</span><span id="__span-9-14"><a href="#__codelineno-9-14" id="__codelineno-9-14" name="__codelineno-9-14"></a>
-</span><span id="__span-9-15"><a href="#__codelineno-9-15" id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="k">else</span><span class="p">:</span>
-</span><span id="__span-9-16"><a href="#__codelineno-9-16" id="__codelineno-9-16" name="__codelineno-9-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"⚠️ 只用 CPU，速度会比较慢"</span><span class="p">)</span>
-</span><span id="__span-9-17"><a href="#__codelineno-9-17" id="__codelineno-9-17" name="__codelineno-9-17"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</span><span id="__span-9-18"><a href="#__codelineno-9-18" id="__codelineno-9-18" name="__codelineno-9-18"></a>
-</span><span id="__span-9-19"><a href="#__codelineno-9-19" id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</span></code></pre></div>
-<hr/>
-<h2 id="_5">下一步<a class="headerlink" href="#_5" title="锚点链接">¶</a></h2>
+<h2 id="_4">下一步<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
 <ul>
-<li>GPU 配好了 → 装 PyTorch 跑第一个模型：<a href="../pytorch/">PyTorch 安装与入门</a></li>
+<li>环境配好了 → <a href="../pytorch/">PyTorch 安装与入门</a></li>
+<li>更喜欢轻量方案 → <a href="../python/">Python 环境配置 (venv)</a></li>
 </ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

@@ -9,9 +9,9 @@
 
 ## 快速导航
 
-| 研究笔记 | 生活记录 |
+| 研究笔记 | 随笔 |
 |----------|----------|
-| [🔒 ML Security](ml-security/index.md) | [📸 生活 Blog](life/index.md) |
+| [🔒 ML Security](ml-security/index.md) | [📝 随笔](life/index.md) |
 | [🧠 Generative Models](gen-models/index.md) | — |
 | [📐 AI 数学基础](ai-math/index.md) | — |
 | [🛠️ 技术实践](tech-practice/index.md) | — |

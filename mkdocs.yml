@@ -90,7 +90,7 @@ extra_javascript:
   - assets/katex-render.js
   - https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js
 
-# 导航结构 —— 学术笔记用 Wiki 树，生活杂谈用 Blog
+# 导航结构 —— 学术笔记用 Wiki 树，随笔用 Blog
 nav:
   - 🏠 首页: index.md
   - 🔒 ML Security:
@@ -154,6 +154,6 @@ nav:
           - tech-practice/docs-share/index.md
   - 📝 论文阅读:
       - papers/index.md
-  - 📸 生活:
+  - 📝 随笔:
       - life/index.md
       - 归档: life/archive.md

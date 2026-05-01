@@ -57,7 +57,7 @@ mkdocs gh-deploy --force
     │   ├── infra/          # AI Infra (4 篇)
     │   └── docs-share/     # 文档分享 (1 篇)
     ├── papers/             # 论文阅读 (1 篇索引)
-    ├── life/               # 生活博客 (2 篇)
+    ├── life/               # 随笔 (2 篇)
     └── assets/             # JS/CSS 资源
 ```
 
@@ -73,7 +73,7 @@ mkdocs gh-deploy --force
 4. 📐 AI 数学基础 → `ai-math/`（5 个话题 + 索引）
 5. 🛠️ 技术实践 → `tech-practice/`（4 个子板块）
 6. 📝 论文阅读 → `papers/`
-7. 📸 生活 → `life/`
+7. 📝 随笔 → `life/`
 
 ---
 

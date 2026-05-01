@@ -1078,6 +1078,15 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        需要的预备知识
+      
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1093,47 +1102,54 @@
 <h2 id="_2">从一段话理解线性代数<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
 <p>先说人话，再说公式。</p>
 <p><strong>向量</strong> 是一串数。一张图的像素、一句话的 embedding、一个 batch 的样本——全是向量。</p>
-<p><strong>矩阵</strong> 是一个「变换器」。给它一个向量，它吐出一个新向量。神经网络里 <code>nn.Linear(768, 3072)</code> 就是一个 <span class="arithmatex">\(3072 \times 768\)</span> 的矩阵，把 768 维的输入变成 3072 维的输出。</p>
+<p><strong>矩阵</strong> 是一个「变换器」。给它一个向量，它吐出一个新向量。<code>nn.Linear(768, 3072)</code> 就是一个 <span class="arithmatex">\(3072 \times 768\)</span> 的矩阵，把 768 维的输入变成 3072 维的输出。</p>
 <p><strong>线性代数</strong> 就是研究「向量被矩阵变换之后发生了什么」的学问。哪些方向只被拉伸？哪些方向被压扁到零？能不能把矩阵拆成更简单的几块？这些问题的答案，正是 PCA、LoRA、Attention 的数学基础。</p>
 <hr/>
 <h2 id="_3">阅读顺序<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
-<p>从 0 开始，按这个顺序读：</p>
+<p>从 0 开始，按这个顺序读。每篇末尾都有「下一步」链接。</p>
 <table>
 <thead>
 <tr>
 <th>章节</th>
-<th>内容</th>
-<th>核心问题</th>
+<th>核心内容</th>
+<th>回答的问题</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><a href="vectors-to-rank/">一、从向量到秩</a></td>
-<td>向量 · 线性组合 · 矩阵 · 无关/基/维数 · <strong>秩</strong></td>
+<td>向量运算 · 线性组合 · 矩阵乘法 · 线性无关/基/维数 · <strong>秩</strong></td>
 <td>矩阵到底在几个方向上「真正起作用」？</td>
 </tr>
 <tr>
 <td><a href="elimination-and-subspaces/">二、方程与子空间</a></td>
-<td>消元与 LU · 四个基本子空间 · 正交与最小二乘</td>
-<td><span class="arithmatex">\(Ax=b\)</span> 什么时候有解？解长什么样？</td>
+<td>消元与 <span class="arithmatex">\(LU\)</span> 分解 · 四个基本子空间 · 正交投影 · 最小二乘</td>
+<td><span class="arithmatex">\(Ax=b\)</span> 什么时候有解？有多少解？</td>
 </tr>
 <tr>
 <td><a href="determinant-eigen-svd/">三、行列式、特征值与 SVD</a></td>
-<td>行列式 · 特征值 · 奇异值分解</td>
-<td>怎么把矩阵「拆开」看到它的本质？</td>
+<td>行列式 · 特征值与对角化 · 正定性 · 奇异值分解 · PCA</td>
+<td>怎么把矩阵「拆开」看到它的内在结构？</td>
 </tr>
 <tr>
 <td><a href="basis-and-neural-networks/">四、基变换与神经网络</a></td>
-<td>基变换 · Embedding · 网络的前向/反向</td>
-<td>这些和 AI 到底什么关系？</td>
+<td>基变换 · Embedding · 前向传播 · ReLU · 反向传播</td>
+<td>这些数学和你的 PyTorch 代码有什么关系？</td>
 </tr>
 <tr>
 <td><a href="insights-and-resources/">💭 个人理解与资源</a></td>
-<td>学习心得 · 几何直觉 · 相关链接</td>
+<td>学习心得 · 直觉培养 · 进阶方向 · 相关链接</td>
 <td>学完了，然后呢？</td>
 </tr>
 </tbody>
 </table>
+<hr/>
+<h2 id="_4">需要的预备知识<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
+<ul>
+<li>高中数学（会解方程、知道函数）</li>
+<li>会写一点 Python（能在脑子里想象矩阵运算）</li>
+</ul>
+<p><strong>不需要</strong>：大学数学系的先修课、抽象代数、数学分析。这篇教程就是为 ML 工程师写的。</p>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>

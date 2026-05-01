@@ -515,16 +515,16 @@
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        线性代数是一门「结构」的语言
+        线性代数是一门「关系」的语言
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#gilbert-strang">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        Gilbert Strang 的洞见：先看见，再算
+        为什么「先看见再算」是对的
       
     </span>
 </a>
@@ -539,7 +539,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        如果你想继续深入
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       
         相关链接
@@ -1120,16 +1129,16 @@
 <a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        线性代数是一门「结构」的语言
+        线性代数是一门「关系」的语言
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#gilbert-strang">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
-        Gilbert Strang 的洞见：先看见，再算
+        为什么「先看见再算」是对的
       
     </span>
 </a>
@@ -1144,7 +1153,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_3">
+<a class="md-nav__link" href="#_4">
+<span class="md-ellipsis">
+      
+        如果你想继续深入
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#_5">
 <span class="md-ellipsis">
       
         相关链接
@@ -1160,28 +1178,87 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1">💭 个人理解与资源<a class="headerlink" href="#_1" title="锚点链接">¶</a></h1>
-<h2 id="_2">线性代数是一门「结构」的语言<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
-<p>学完线代之后回头看 AI，你会发现所有东西都是同一个主题的变奏：</p>
-<ul>
-<li>梯度下降 = 在高维参数空间里沿着最陡的方向往下滚</li>
-<li>Attention = 在度量向量之间的夹角（内积）</li>
-<li>PCA = 找到数据方差最大的方向（最大特征值对应的特征向量）</li>
-<li>LoRA = 微调时只动矩阵的「低秩部分」</li>
-<li>Embedding = 选一个好的基来表示离散对象</li>
-</ul>
-<h2 id="gilbert-strang">Gilbert Strang 的洞见：先看见，再算<a class="headerlink" href="#gilbert-strang" title="锚点链接">¶</a></h2>
-<p>线性代数的教学通常有两种极端：一种是纯计算（行列式展开、矩阵求逆，算到怀疑人生），一种是纯抽象（从公理体系开始，定义完就证定理）。Gilbert Strang 的 MIT 18.06 走了第三条路——<strong>先让你看见，再让你算</strong>。</p>
-<p>他花了半辈子推广一个简单的视角：矩阵乘法不是「行乘列」，而是「列的线性组合」。只要你能在脑子里把 <span class="arithmatex">\(Ax\)</span> 看成「<span class="arithmatex">\(A\)</span> 各列的加权和」，你就会发现神经网络的前向传播、PCA 的投影、Attention 的加权求和，是同一件事的不同面目。</p>
-<p>3Blue1Brown 把这个视角做成了动画——强烈推荐花一个下午刷完「线性代数的本质」系列。有些东西看十遍公式不一定能穿透，看一遍动画就通了。</p>
+<h2 id="_2">线性代数是一门「关系」的语言<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
+<p>学完线代回头看 AI，所有东西都是同一个主题的变奏：</p>
+<table>
+<thead>
+<tr>
+<th>AI 概念</th>
+<th>线代本质</th>
+<th>一句话</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>梯度下降</td>
+<td>在参数空间中沿负梯度方向移动</td>
+<td>最陡下山方向 = 负梯度</td>
+</tr>
+<tr>
+<td>Attention</td>
+<td><span class="arithmatex">\(QK^T\)</span> = 内积矩阵，用 softmax 归一化后加权求和</td>
+<td>谁和谁关系近，就给谁更多权重</td>
+</tr>
+<tr>
+<td>PCA</td>
+<td>数据矩阵的截断 SVD</td>
+<td>找到方差最大的方向，丢掉噪音</td>
+</tr>
+<tr>
+<td>LoRA</td>
+<td>对权重矩阵做低秩修正 <span class="arithmatex">\(\Delta W = BA\)</span></td>
+<td>只动几个最重要的「方向」</td>
+</tr>
+<tr>
+<td>Embedding</td>
+<td>为离散对象选一个好的基</td>
+<td>让语义关系变成向量运算</td>
+</tr>
+<tr>
+<td>LayerNorm</td>
+<td>投影到单位球面</td>
+<td>规范化向量的「方向」，忽略「长度」</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_3">为什么「先看见再算」是对的<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
+<p>线性代数有两种教学极端：一种死算（行列式展开、求逆矩阵，算到怀疑人生），一种纯抽象（从域和公理开始，学到第三章还不知道这和现实有什么关系）。</p>
+<p>MIT 的 Gilbert Strang 走了第三条路——他的 18.06 课从第一分钟起就在画图。矩阵乘法不是「行乘列」，而是「列的线性组合」。<span class="arithmatex">\(2 \times 2\)</span> 的小例子他能讲半小时，因为他要确保你<strong>看见</strong>几列向量是怎么拼出结果的，看见消元在几何上到底改变了什么，看见四个子空间是怎么从同一个矩阵里长出来的。</p>
+<p>3Blue1Brown 把这种「看见」做到了极致——动画里一条条向量被扭来扭去，一个正方形被扯成平行四边形，行列式就是面积缩放了多少。有些东西你看十遍公式不一定能穿透，看一遍动画就通了。</p>
+<p>这两者结合是我试过的最有效的学习路径：</p>
+<ol>
+<li>看 3Blue1Brown 建立<strong>几何直觉</strong>（「噢，原来是这么回事！」）</li>
+<li>读 Strang 的教材或看他的视频，建立<strong>系统性的知识结构</strong>（「原来这些概念是这样串起来的」）</li>
+<li>翻开 PyTorch 文档，看到 <code>nn.Linear</code> 不再是一团黑，而是一个矩阵在等着做线性变换</li>
+</ol>
 <h2 id="ml">为什么线代让你变成更好的 ML 工程师<a class="headerlink" href="#ml" title="锚点链接">¶</a></h2>
-<p>不是因为你会手算 SVD（你不会，PyTorch 会），而是因为你有了<strong>直觉</strong>。你知道 <code>nn.Linear</code> 在做什么，你知道为什么权重初始化选正交的比随机的收敛更快，你知道 LoRA 的 rank 设太大浪费显存、设太小学不到东西——这些不是调参玄学，是线代告诉你的答案。</p>
-<hr/>
-<h2 id="_3">相关链接<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
+<p>不是因为你学会了手算 SVD（你不需要，PyTorch 需要），而是因为你有了<strong>直觉</strong>。</p>
+<p><strong>你不需要推导就能判断的事</strong>：</p>
 <ul>
-<li><a href="https://math.mit.edu/~gs/linearalgebra/"><strong>《Introduction to Linear Algebra》第 6 版</strong>（Gilbert Strang）</a> — 系统性学习：从向量到 SVD，一条清晰的主线，配有大量习题</li>
-<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"><strong>MIT 18.06 公开课</strong>（Strang 亲授，34 讲）</a> — 不想看书就看视频</li>
-<li><a href="https://www.3blue1brown.com/topics/linear-algebra"><strong>3Blue1Brown「线性代数的本质」</strong></a> — 几何直觉的巅峰。所有公式都会有画面感</li>
-<li><a href="https://www.cambridge.org/9780521548236"><strong>《Matrix Analysis》</strong>（Horn &amp; Johnson）</a> — 进阶：想深挖特征值扰动理论、矩阵不等式时用</li>
+<li>Loss 不降了 → Hessian 可能接近奇异，某些方向的梯度信息消失了 → 换个初始化或调学习率</li>
+<li>权重矩阵的奇异值分布极度不均匀 → 大部分方向没用 → 可以考虑低秩压缩或 LoRA</li>
+<li>输入特征高度相关 → 数据矩阵秩亏 → PCA 前的协方差矩阵条件数差 → 先做标准化</li>
+<li>LoRA 的 rank 设太大浪费显存，设太小学不到东西 → 就是截断 SVD 的 <span class="arithmatex">\(k\)</span> 选多少的问题</li>
+</ul>
+<p>这些不是调参玄学，是线代告诉你的答案。你会因为理解了底层数学而做出更好的工程判断。</p>
+<h2 id="_4">如果你想继续深入<a class="headerlink" href="#_4" title="锚点链接">¶</a></h2>
+<p>线代学到这个程度，已经足够支撑你阅读大多数 ML 论文的数学部分了。但如果还想更深，以下方向值得考虑：</p>
+<ul>
+<li><strong>数值线性代数</strong>：条件数、浮点误差、迭代法（共轭梯度、GMRES）——理解为什么 <code>float32</code> 训练的某些模型会崩溃</li>
+<li><strong>矩阵微积分</strong>：<span class="arithmatex">\(\frac{\partial}{\partial W} \text{tr}(W^T A W)\)</span> 这种——反向传播的本质</li>
+<li><strong>随机矩阵理论</strong>：大随机矩阵的奇异值分布——理解为什么大模型的某些行为是「必然的」而非「玄学的」</li>
+<li><strong>张量分解</strong>：CP 分解、Tucker 分解——卷积层和多模态模型背后的数学</li>
+</ul>
+<hr/>
+<h2 id="_5">相关链接<a class="headerlink" href="#_5" title="锚点链接">¶</a></h2>
+<ul>
+<li><a href="https://math.mit.edu/~gs/linearalgebra/"><strong>《Introduction to Linear Algebra》第 6 版</strong>（Gilbert Strang）</a> —— 系统性学习的最佳选择</li>
+<li><a href="https://ocw.mit.edu/courses/18-06-linear-algebra-spring-2010/"><strong>MIT 18.06 公开课</strong>（Strang 亲授，34 讲）</a> —— 不想看书就看视频，他在黑板前如讲故事般展开</li>
+<li><a href="https://www.3blue1brown.com/topics/linear-algebra"><strong>3Blue1Brown「线性代数的本质」</strong></a> —— 几何直觉的巅峰，所有公式都会有画面感</li>
+<li><a href="https://ocw.mit.edu/courses/18-065-matrix-methods-in-data-analysis-signal-processing-and-machine-learning-spring-2018/"><strong>MIT 18.065 — Matrix Methods in Data Analysis</strong>（Strang 的新课）</a> —— 深度学习时代的矩阵方法，SVD/PCA/随机矩阵/优化</li>
+<li><a href="https://www.cambridge.org/9780521548236"><strong>《Matrix Analysis》</strong>（Horn &amp; Johnson）</a> —— 进阶词典：特征值扰动、矩阵不等式、Kronecker 积</li>
+<li><a href="https://people.maths.ox.ac.uk/trefethen/text.html"><strong>《Numerical Linear Algebra》</strong>（Trefethen &amp; Bau）</a> —— 数值线性代数的经典，读完后不再写出数值灾难</li>
+<li><a href="https://www.janmagnus.nl/misc/matrix-calculus/"><strong>《Matrix Calculus》</strong>（Magnus &amp; Neudecker）</a> —— 矩阵导数百科全书，反向传播的本质</li>
 </ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

@@ -501,16 +501,34 @@
 <a class="md-nav__link" href="#91">
 <span class="md-ellipsis">
       
-        9.1 一句话：体积的缩放因子
+        9.1 核心直觉：体积的缩放因子
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#92-ml">
+<a class="md-nav__link" href="#92-0">
 <span class="md-ellipsis">
       
-        9.2 在 ML 中什么时候出现
+        9.2 行列式 = 0 的含义
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#93">
+<span class="md-ellipsis">
+      
+        9.3 核心性质
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#94-ml">
+<span class="md-ellipsis">
+      
+        9.4 在 ML 中的影子
       
     </span>
 </a>
@@ -541,7 +559,7 @@
 <a class="md-nav__link" href="#102">
 <span class="md-ellipsis">
       
-        10.2 对角化：换个坐标系，矩阵变「简单」
+        10.2 一个具体例子
       
     </span>
 </a>
@@ -550,16 +568,25 @@
 <a class="md-nav__link" href="#103">
 <span class="md-ellipsis">
       
-        10.3 对称矩阵是「好矩阵」
+        10.3 对角化：换个坐标系看
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#104">
+<a class="md-nav__link" href="#104-ml">
 <span class="md-ellipsis">
       
-        10.4 正定 × 负定 × 不定
+        10.4 对称矩阵：ML 中的常客
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#105">
+<span class="md-ellipsis">
+      
+        10.5 正定性——梯度下降的地形
       
     </span>
 </a>
@@ -581,34 +608,43 @@
 <a class="md-nav__link" href="#111-svd">
 <span class="md-ellipsis">
       
-        11.1 为什么 SVD 是「终极武器」
+        11.1 特征值分解的致命限制——和 SVD 如何突破
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#112">
+<a class="md-nav__link" href="#112-svd">
 <span class="md-ellipsis">
       
-        11.2 几何动作：旋转→拉伸→旋转
+        11.2 一个具体的 SVD
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#113-svd">
+<a class="md-nav__link" href="#113">
 <span class="md-ellipsis">
       
-        11.3 截断 SVD：丢掉噪音，保留本质
+        11.3 几何含义：旋转 → 拉伸 → 旋转
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#114-svd-ml">
+<a class="md-nav__link" href="#114-svd-eckart-young">
 <span class="md-ellipsis">
       
-        11.4 SVD 在 ML 中的三个高光时刻
+        11.4 截断 SVD 和 Eckart-Young 定理
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#115-svd-ml">
+<span class="md-ellipsis">
+      
+        11.5 SVD 在 ML 中的三个高光时刻
       
     </span>
 </a>
@@ -1223,16 +1259,34 @@
 <a class="md-nav__link" href="#91">
 <span class="md-ellipsis">
       
-        9.1 一句话：体积的缩放因子
+        9.1 核心直觉：体积的缩放因子
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#92-ml">
+<a class="md-nav__link" href="#92-0">
 <span class="md-ellipsis">
       
-        9.2 在 ML 中什么时候出现
+        9.2 行列式 = 0 的含义
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#93">
+<span class="md-ellipsis">
+      
+        9.3 核心性质
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#94-ml">
+<span class="md-ellipsis">
+      
+        9.4 在 ML 中的影子
       
     </span>
 </a>
@@ -1263,7 +1317,7 @@
 <a class="md-nav__link" href="#102">
 <span class="md-ellipsis">
       
-        10.2 对角化：换个坐标系，矩阵变「简单」
+        10.2 一个具体例子
       
     </span>
 </a>
@@ -1272,16 +1326,25 @@
 <a class="md-nav__link" href="#103">
 <span class="md-ellipsis">
       
-        10.3 对称矩阵是「好矩阵」
+        10.3 对角化：换个坐标系看
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#104">
+<a class="md-nav__link" href="#104-ml">
 <span class="md-ellipsis">
       
-        10.4 正定 × 负定 × 不定
+        10.4 对称矩阵：ML 中的常客
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#105">
+<span class="md-ellipsis">
+      
+        10.5 正定性——梯度下降的地形
       
     </span>
 </a>
@@ -1303,34 +1366,43 @@
 <a class="md-nav__link" href="#111-svd">
 <span class="md-ellipsis">
       
-        11.1 为什么 SVD 是「终极武器」
+        11.1 特征值分解的致命限制——和 SVD 如何突破
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#112">
+<a class="md-nav__link" href="#112-svd">
 <span class="md-ellipsis">
       
-        11.2 几何动作：旋转→拉伸→旋转
+        11.2 一个具体的 SVD
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#113-svd">
+<a class="md-nav__link" href="#113">
 <span class="md-ellipsis">
       
-        11.3 截断 SVD：丢掉噪音，保留本质
+        11.3 几何含义：旋转 → 拉伸 → 旋转
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#114-svd-ml">
+<a class="md-nav__link" href="#114-svd-eckart-young">
 <span class="md-ellipsis">
       
-        11.4 SVD 在 ML 中的三个高光时刻
+        11.4 截断 SVD 和 Eckart-Young 定理
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#115-svd-ml">
+<span class="md-ellipsis">
+      
+        11.5 SVD 在 ML 中的三个高光时刻
       
     </span>
 </a>
@@ -1347,14 +1419,20 @@
 <article class="md-content__inner md-typeset">
 <h1 id="svd">三、行列式、特征值与 SVD<a class="headerlink" href="#svd" title="锚点链接">¶</a></h1>
 <h2 id="9">9. 行列式：一次变换改变多少体积<a class="headerlink" href="#9" title="锚点链接">¶</a></h2>
-<h3 id="91">9.1 一句话：体积的缩放因子<a class="headerlink" href="#91" title="锚点链接">¶</a></h3>
-<p>矩阵 <span class="arithmatex">\(A\)</span> 把空间里的一个单位立方体变成了某个平行多面体。<span class="arithmatex">\(\det(A)\)</span> 就是这个多面体的<strong>有向体积</strong>。</p>
-<ul>
-<li><span class="arithmatex">\(\det(A) &gt; 0\)</span>：空间没有被翻转</li>
-<li><span class="arithmatex">\(\det(A) &lt; 0\)</span>：空间被「镜像」了</li>
-<li><span class="arithmatex">\(\det(A) = 0\)</span>：多面体被压扁了（体积为 0）——矩阵<strong>不可逆</strong>，<strong>秩亏</strong></li>
-</ul>
-<p>几个核心性质：</p>
+<h3 id="91">9.1 核心直觉：体积的缩放因子<a class="headerlink" href="#91" title="锚点链接">¶</a></h3>
+<p>矩阵 <span class="arithmatex">\(A\)</span> 把空间里的单位立方体变成某个平行多面体。<span class="arithmatex">\(\det(A)\)</span> 就是这个多面体的<strong>有向体积</strong>。</p>
+<p>拿二维来看最直观。<span class="arithmatex">\(A = \begin{bmatrix} a &amp; b \\ c &amp; d \end{bmatrix}\)</span> 把单位正方形（顶点 <span class="arithmatex">\((0,0), (1,0), (0,1), (1,1)\)</span>）变成由列向量 <span class="arithmatex">\(\begin{bmatrix} a \\ c \end{bmatrix}\)</span> 和 <span class="arithmatex">\(\begin{bmatrix} b \\ d \end{bmatrix}\)</span> 张成的平行四边形。</p>
+<div class="arithmatex">\[\det(A) = ad - bc\]</div>
+<p>这就是平行四边形的<strong>有向面积</strong>。绝对值 = 面积，符号 = 朝向（正 = 没有翻转，负 = 翻转了）。</p>
+<p>三维：<span class="arithmatex">\(\det(A)\)</span> = 三个列向量张成的平行六面体的有向体积。<span class="arithmatex">\(n\)</span> 维同理。</p>
+<h3 id="92-0">9.2 行列式 = 0 的含义<a class="headerlink" href="#92-0" title="锚点链接">¶</a></h3>
+<p><span class="arithmatex">\(\det(A) = 0\)</span> 意味着多面体被压扁了——体积为 0。</p>
+<p>在二维：两列共线，四边形退化成线段 → 面积 = 0 → 矩阵不可逆。
+在三维：三列共面（或更糟），六面体退化成平面 → 体积 = 0 → 矩阵不可逆。</p>
+<blockquote>
+<p><span class="arithmatex">\(\det(A) = 0 \iff A\)</span> <strong>不可逆</strong> <span class="arithmatex">\(\iff\)</span> <strong>秩亏</strong>。这三个条件等价。</p>
+</blockquote>
+<h3 id="93">9.3 核心性质<a class="headerlink" href="#93" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -1365,7 +1443,7 @@
 <tbody>
 <tr>
 <td><span class="arithmatex">\(\det(AB) = \det(A) \det(B)\)</span></td>
-<td>先变换 <span class="arithmatex">\(B\)</span> 再变换 <span class="arithmatex">\(A\)</span>，体积缩放因子相乘</td>
+<td>先 <span class="arithmatex">\(B\)</span> 后 <span class="arithmatex">\(A\)</span>，体积缩放因子相乘</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\det(A^{-1}) = 1/\det(A)\)</span></td>
@@ -1373,101 +1451,158 @@
 </tr>
 <tr>
 <td><span class="arithmatex">\(\det(A^T) = \det(A)\)</span></td>
-<td>转置不改变体积（列变行，空间「胖瘦」相同）</td>
+<td>转置不改变体积</td>
 </tr>
 <tr>
 <td><span class="arithmatex">\(\det(cA) = c^n \det(A)\)</span></td>
-<td>每个维度各拉伸 <span class="arithmatex">\(c\)</span> 倍</td>
+<td>每个维度各缩放 <span class="arithmatex">\(c\)</span> 倍</td>
+</tr>
+<tr>
+<td>交换两行 → 行列式变号</td>
+<td>翻转了空间</td>
 </tr>
 </tbody>
 </table>
-<h3 id="92-ml">9.2 在 ML 中什么时候出现<a class="headerlink" href="#92-ml" title="锚点链接">¶</a></h3>
-<p>你在 PyTorch 里很少直接算行列式（慢且数值不稳定），但行列式的直觉无处不在：</p>
+<h3 id="94-ml">9.4 在 ML 中的影子<a class="headerlink" href="#94-ml" title="锚点链接">¶</a></h3>
+<p>你不会经常手算行列式，但它的幽灵一直在：</p>
 <ul>
-<li>协方差矩阵的行列式（广义方差）衡量数据分布的「体积」</li>
-<li>行列式为 0 → 矩阵奇异 → 优化困难（Hessian 条件数爆炸）</li>
-<li>概率密度里的归一化常数（多元高斯分布的协方差矩阵行列式）</li>
+<li><strong>协方差矩阵的行列式（广义方差）</strong>：衡量数据分布占据的「体积」。行列式趋于 0 → 特征高度共线 → 数据冗余严重</li>
+<li><strong>概率密度里的归一化常数</strong>：多元高斯分布 <span class="arithmatex">\(\mathcal{N}(\mu, \Sigma)\)</span> 的密度含 <span class="arithmatex">\(|\Sigma|^{-1/2}\)</span>。<span class="arithmatex">\(\det(\Sigma)\)</span> 极小 → 分布极度「扁平」</li>
+<li><strong>Hessian 行列式</strong>：<span class="arithmatex">\(\det(H) \approx 0\)</span> 意味着损失曲面在某个方向几乎平坦 → 梯度下降慢或卡住</li>
 </ul>
 <hr/>
 <h2 id="10">10. 特征值与特征向量：发现矩阵的「天然方向」<a class="headerlink" href="#10" title="锚点链接">¶</a></h2>
 <h3 id="101">10.1 核心直觉<a class="headerlink" href="#101" title="锚点链接">¶</a></h3>
-<p>矩阵在大多数方向上会把向量扭得面目全非。但在某些特殊方向上，矩阵的作用只是<strong>拉伸</strong>——不改变方向，只改变长度：
-$<span class="arithmatex">\(Ax = \lambda x\)</span>$</p>
+<p>矩阵在大多数方向上会把向量扭得面目全非。但在某些<strong>特殊方向</strong>上，矩阵的作用仅仅是拉伸：</p>
+<div class="arithmatex">\[Ax = \lambda x\]</div>
 <ul>
-<li><span class="arithmatex">\(x\)</span> 叫<strong>特征向量</strong>——矩阵的「天然方向」</li>
-<li><span class="arithmatex">\(\lambda\)</span> 叫<strong>特征值</strong>——在这个方向上的拉伸倍数</li>
+<li><span class="arithmatex">\(x\)</span> 叫<strong>特征向量</strong>——矩阵的「天然方向」，「无论怎么变换，方向不变」</li>
+<li><span class="arithmatex">\(\lambda\)</span> 叫<strong>特征值</strong>——这个方向上的拉伸倍数</li>
 </ul>
-<h3 id="102">10.2 对角化：换个坐标系，矩阵变「简单」<a class="headerlink" href="#102" title="锚点链接">¶</a></h3>
-<p>如果矩阵 <span class="arithmatex">\(A\)</span> 有 <span class="arithmatex">\(n\)</span> 个线性独立的特征向量，把它们排成矩阵 <span class="arithmatex">\(S\)</span>：
+<h3 id="102">10.2 一个具体例子<a class="headerlink" href="#102" title="锚点链接">¶</a></h3>
+<div class="arithmatex">\[A = \begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix}\]</div>
+<p>解 <span class="arithmatex">\(\det(A - \lambda I) = 0\)</span>：</p>
+<div class="arithmatex">\[\det\begin{bmatrix} 2-\lambda &amp; 1 \\ 1 &amp; 2-\lambda \end{bmatrix} = (2-\lambda)^2 - 1 = \lambda^2 - 4\lambda + 3 = 0\]</div>
+<p><span class="arithmatex">\(\lambda_1 = 3\)</span>，<span class="arithmatex">\(\lambda_2 = 1\)</span>。</p>
+<p>对应特征向量：
+- <span class="arithmatex">\(\lambda_1 = 3\)</span>：<span class="arithmatex">\((A-3I)x = 0 \implies \begin{bmatrix} -1 &amp; 1 \\ 1 &amp; -1 \end{bmatrix}x = 0 \implies x_1 = c\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>
+- <span class="arithmatex">\(\lambda_2 = 1\)</span>：<span class="arithmatex">\((A-I)x = 0 \implies \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix}x = 0 \implies x_2 = c\begin{bmatrix} -1 \\ 1 \end{bmatrix}\)</span></p>
+<p><strong>解释</strong>：这个矩阵在 <span class="arithmatex">\(\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span> 方向上拉伸 3 倍，在 <span class="arithmatex">\(\begin{bmatrix} -1 \\ 1 \end{bmatrix}\)</span> 方向上拉伸 1 倍（不变）。两个方向恰好<strong>正交</strong>——因为 <span class="arithmatex">\(A\)</span> 是对称矩阵。</p>
+<h3 id="103">10.3 对角化：换个坐标系看<a class="headerlink" href="#103" title="锚点链接">¶</a></h3>
+<p>把特征向量排成列，组成矩阵 <span class="arithmatex">\(S\)</span>：
 $<span class="arithmatex">\(A = S \Lambda S^{-1}\)</span>$</p>
-<p>其中 <span class="arithmatex">\(\Lambda\)</span> 是对角矩阵，对角线上是特征值。这意味着：<strong>在特征向量构成的坐标系下，<span class="arithmatex">\(A\)</span> 就是一个纯拉伸</strong>。复杂的变换只是因为观察的「姿势」不对。</p>
-<h3 id="103">10.3 对称矩阵是「好矩阵」<a class="headerlink" href="#103" title="锚点链接">¶</a></h3>
-<p>对称矩阵（<span class="arithmatex">\(A = A^T\)</span>）在 ML 中随处可见——协方差矩阵、Hessian、Gram 矩阵——它们有绝佳的性质：</p>
-<ul>
-<li>所有特征值都是实数（不是复数）</li>
-<li>特征向量可以选成正交的</li>
-<li>谱分解：<span class="arithmatex">\(A = Q \Lambda Q^T\)</span>，<span class="arithmatex">\(Q\)</span> 是正交阵</li>
-</ul>
-<h3 id="104">10.4 正定 × 负定 × 不定<a class="headerlink" href="#104" title="锚点链接">¶</a></h3>
-<ul>
-<li><strong>正定</strong>：所有特征值 <span class="arithmatex">\(&gt; 0\)</span>。是一个「碗」——梯度下降的乐土</li>
-<li><strong>负定</strong>：所有特征值 <span class="arithmatex">\(&lt; 0\)</span>。是一个「倒扣的碗」</li>
-<li><strong>不定</strong>：有正有负。是一个「马鞍」——梯度下降的噩梦</li>
-</ul>
+<div class="arithmatex">\[\begin{bmatrix} 2 &amp; 1 \\ 1 &amp; 2 \end{bmatrix} = \begin{bmatrix} 1 &amp; -1 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} 3 &amp; 0 \\ 0 &amp; 1 \end{bmatrix} \begin{bmatrix} 1 &amp; -1 \\ 1 &amp; 1 \end{bmatrix}^{-1}\]</div>
+<p>含义：<strong>在特征向量构成的坐标系下，<span class="arithmatex">\(A\)</span> 就是一个纯拉伸（对角矩阵）</strong>。复杂的变换只是因为观察的「姿势」不对。</p>
+<h3 id="104-ml">10.4 对称矩阵：ML 中的常客<a class="headerlink" href="#104-ml" title="锚点链接">¶</a></h3>
+<p>对称矩阵（<span class="arithmatex">\(A = A^T\)</span>）有绝佳的性质：
+- 所有特征值都是<strong>实数</strong>
+- 特征向量可以选为<strong>正交的</strong> → 谱分解 <span class="arithmatex">\(A = Q \Lambda Q^T\)</span>（<span class="arithmatex">\(Q\)</span> 是正交阵）</p>
+<p>协方差矩阵、Gram 矩阵、Hessian、图拉普拉斯——ML 里到处是对称矩阵。</p>
+<h3 id="105">10.5 正定性——梯度下降的地形<a class="headerlink" href="#105" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>特征值</th>
+<th>几何形状</th>
+<th>梯度下降体验</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>正定</strong></td>
+<td>全部 <span class="arithmatex">\(&gt; 0\)</span></td>
+<td>碗 🥣</td>
+<td>一路顺滑到底</td>
+</tr>
+<tr>
+<td><strong>半正定</strong></td>
+<td>全部 <span class="arithmatex">\(\ge 0\)</span></td>
+<td>有平坦方向的碗</td>
+<td>有些方向不提供梯度信息</td>
+</tr>
+<tr>
+<td><strong>不定</strong></td>
+<td>有正有负</td>
+<td>马鞍 🐴</td>
+<td>有的方向要上升，有的要下降——挣扎</td>
+</tr>
+<tr>
+<td><strong>负定</strong></td>
+<td>全部 <span class="arithmatex">\(&lt; 0\)</span></td>
+<td>倒扣的碗 🙃</td>
+<td>梯度下降往「上」走（需要梯度上升）</td>
+</tr>
+</tbody>
+</table>
 <blockquote>
-<p>💡 <strong>在 ML 里</strong>：Hessian 的正定性告诉你是在碗底（收敛了）还是在马鞍上（还在挣扎）。协方差矩阵正定意味着数据在每个方向上都有方差——没有冗余特征。</p>
+<p>💡 <strong>Hessian 正定 <span class="arithmatex">\(\implies\)</span> 你到了局部极小值</strong>（碗底）。Hessian 不定 → 你在马鞍点 → 某些方向还没到达最优。</p>
 </blockquote>
 <hr/>
 <h2 id="11-svd">11. 奇异值分解 SVD：最普适的分解<a class="headerlink" href="#11-svd" title="锚点链接">¶</a></h2>
-<h3 id="111-svd">11.1 为什么 SVD 是「终极武器」<a class="headerlink" href="#111-svd" title="锚点链接">¶</a></h3>
-<p>特征值分解有一个致命限制：要求矩阵是方阵。但现实中的矩阵几乎都是长方形的——1000 个样本 × 768 维特征，你怎么对角化？</p>
-<p>SVD 没有这个限制。<strong>任何 <span class="arithmatex">\(m \times n\)</span> 矩阵 <span class="arithmatex">\(A\)</span></strong>（秩为 <span class="arithmatex">\(r\)</span>）都可以分解为：
-$<span class="arithmatex">\(A = U \Sigma V^T\)</span>$</p>
+<h3 id="111-svd">11.1 特征值分解的致命限制——和 SVD 如何突破<a class="headerlink" href="#111-svd" title="锚点链接">¶</a></h3>
+<p>特征值分解要求方阵。但现实中的矩阵几乎都是长方形——1000 个样本 × 768 维特征。而且非对称矩阵的特征向量不一定正交，对角化可能不存在。</p>
+<p>SVD 没有任何限制。<strong>任何 <span class="arithmatex">\(m \times n\)</span> 矩阵 <span class="arithmatex">\(A\)</span></strong>（秩 <span class="arithmatex">\(r\)</span>）：</p>
+<div class="arithmatex">\[A = U \Sigma V^T\]</div>
 <ul>
-<li><span class="arithmatex">\(U\)</span>（<span class="arithmatex">\(m \times m\)</span>）：前 <span class="arithmatex">\(r\)</span> 列是列空间的标准正交基，剩余 <span class="arithmatex">\(m-r\)</span> 列是左零空间的基</li>
-<li><span class="arithmatex">\(\Sigma\)</span>（<span class="arithmatex">\(m \times n\)</span>）：对角线上是奇异值 <span class="arithmatex">\(\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r &gt; 0\)</span>，再往后全是 0</li>
-<li><span class="arithmatex">\(V\)</span>（<span class="arithmatex">\(n \times n\)</span>）：前 <span class="arithmatex">\(r\)</span> 列是行空间的标准正交基，剩余 <span class="arithmatex">\(n-r\)</span> 列是零空间的基</li>
+<li><span class="arithmatex">\(U\)</span>（<span class="arithmatex">\(m \times m\)</span>）：<strong>正交</strong>。前 <span class="arithmatex">\(r\)</span> 列 = 列空间的标准正交基，后 <span class="arithmatex">\(m-r\)</span> 列 = 左零空间的基</li>
+<li><span class="arithmatex">\(\Sigma\)</span>（<span class="arithmatex">\(m \times n\)</span>）：<strong>对角</strong>。<span class="arithmatex">\(\sigma_1 \ge \sigma_2 \ge \dots \ge \sigma_r &gt; 0\)</span>（奇异值），之后全是 0</li>
+<li><span class="arithmatex">\(V\)</span>（<span class="arithmatex">\(n \times n\)</span>）：<strong>正交</strong>。前 <span class="arithmatex">\(r\)</span> 列 = 行空间的标准正交基，后 <span class="arithmatex">\(n-r\)</span> 列 = 零空间的基</li>
 </ul>
-<p><strong>注意非零奇异值的个数恰好等于秩 <span class="arithmatex">\(r\)</span>。</strong> SVD 一次性给了你秩、四个子空间的基、以及每个方向的重要性排序。</p>
-<h3 id="112">11.2 几何动作：旋转→拉伸→旋转<a class="headerlink" href="#112" title="锚点链接">¶</a></h3>
-<p>把 <span class="arithmatex">\(A\)</span> 作用到一个向量上的三部曲：
-1. <span class="arithmatex">\(V^T\)</span>：旋转（把向量转到 <span class="arithmatex">\(A\)</span> 的「天然坐标系」）
-2. <span class="arithmatex">\(\Sigma\)</span>：沿坐标轴拉伸（每个方向拉伸 <span class="arithmatex">\(\sigma_i\)</span> 倍。如果 <span class="arithmatex">\(i &gt; r\)</span>，拉伸倍数为 0——压扁了）
-3. <span class="arithmatex">\(U\)</span>：再旋转（转回原始坐标系）</p>
-<p>任何线性变换的本质就这三步。没有例外。</p>
-<h3 id="113-svd">11.3 截断 SVD：丢掉噪音，保留本质<a class="headerlink" href="#113-svd" title="锚点链接">¶</a></h3>
-<p>只保留前 <span class="arithmatex">\(k\)</span> 个最大的奇异值（<span class="arithmatex">\(k &lt; r\)</span>）：
-$<span class="arithmatex">\(A_k = U_k \Sigma_k V_k^T\)</span>$</p>
-<p><strong>Eckart-Young 定理</strong>：<span class="arithmatex">\(A_k\)</span> 是所有秩-<span class="arithmatex">\(k\)</span> 矩阵中，在 Frobenius 范数意义下最接近 <span class="arithmatex">\(A\)</span> 的那一个。</p>
-<blockquote>
-<p>💡 <strong>这就是 PCA 的数学本质</strong>。对中心化数据矩阵 <span class="arithmatex">\(X\)</span> 做 SVD，右奇异向量 <span class="arithmatex">\(V\)</span> 的前 <span class="arithmatex">\(k\)</span> 列就是前 <span class="arithmatex">\(k\)</span> 个主成分。PCA 不是一个「算法」，它是 SVD 换了个名字。</p>
-</blockquote>
-<h3 id="114-svd-ml">11.4 SVD 在 ML 中的三个高光时刻<a class="headerlink" href="#114-svd-ml" title="锚点链接">¶</a></h3>
+<p><strong>非零奇异值的个数 = 秩 <span class="arithmatex">\(r\)</span>。</strong> SVD 一次性给你：秩、四个子空间的完美基、每个方向的重要性（奇异值就是重要性评分）。</p>
+<h3 id="112-svd">11.2 一个具体的 SVD<a class="headerlink" href="#112-svd" title="锚点链接">¶</a></h3>
+<div class="arithmatex">\[A = \begin{bmatrix} 1 &amp; 2 \\ 2 &amp; 1 \\ 2 &amp; 2 \end{bmatrix}\]</div>
+<p><span class="arithmatex">\(A^T A = \begin{bmatrix} 9 &amp; 6 \\ 6 &amp; 9 \end{bmatrix}\)</span>。特征值 <span class="arithmatex">\(\lambda_1 = 15, \lambda_2 = 3\)</span>。奇异值 <span class="arithmatex">\(\sigma_1 = \sqrt{15} \approx 3.873, \sigma_2 = \sqrt{3} \approx 1.732\)</span>。</p>
+<ul>
+<li><span class="arithmatex">\(\sigma_1\)</span> 对应的 <span class="arithmatex">\(v_1 = \frac{1}{\sqrt{2}}\begin{bmatrix} 1 \\ 1 \end{bmatrix}\)</span>——<strong><span class="arithmatex">\(A\)</span> 拉伸最多的方向</strong></li>
+<li><span class="arithmatex">\(\sigma_2\)</span> 对应的 <span class="arithmatex">\(v_2 = \frac{1}{\sqrt{2}}\begin{bmatrix} -1 \\ 1 \end{bmatrix}\)</span>——第二个重要方向</li>
+</ul>
+<p>奇异值 3.873 vs 1.732，前者贡献的信息量是后者的 2 倍多。如果做截断（保留第一个），用秩-1 近似：</p>
+<div class="arithmatex">\[A_1 = \sigma_1 u_1 v_1^T\]</div>
+<p>保留了大部分信息，丢掉了 <span class="arithmatex">\(\sigma_2\)</span> 方向的细节。</p>
+<h3 id="113">11.3 几何含义：旋转 → 拉伸 → 旋转<a class="headerlink" href="#113" title="锚点链接">¶</a></h3>
+<p><span class="arithmatex">\(A\)</span> 作用于任何向量的三部曲：</p>
+<ol>
+<li><span class="arithmatex">\(V^T\)</span>：旋转（转到 <span class="arithmatex">\(A\)</span> 的天然坐标系——<span class="arithmatex">\(v_1\)</span> 方向最重要，<span class="arithmatex">\(v_2\)</span> 次之……）</li>
+<li><span class="arithmatex">\(\Sigma\)</span>：沿坐标轴各自拉伸 <span class="arithmatex">\(\sigma_i\)</span> 倍（<span class="arithmatex">\(i &gt; r\)</span> 则拉伸 0 → 压扁）</li>
+<li><span class="arithmatex">\(U\)</span>：再旋转（转到原始输出坐标系）</li>
+</ol>
+<p><strong>任何线性变换的本质就这三步。没有例外。</strong> 这个视角统一了所有矩阵运算。</p>
+<h3 id="114-svd-eckart-young">11.4 截断 SVD 和 Eckart-Young 定理<a class="headerlink" href="#114-svd-eckart-young" title="锚点链接">¶</a></h3>
+<p>只留前 <span class="arithmatex">\(k\)</span> 个奇异值（<span class="arithmatex">\(k &lt; r\)</span>）：</p>
+<div class="arithmatex">\[A_k = U_k \Sigma_k V_k^T\]</div>
+<p><strong>Eckart-Young 定理</strong>：<span class="arithmatex">\(A_k\)</span> 是<strong>所有秩-<span class="arithmatex">\(k\)</span> 矩阵中在 Frobenius 范数下最接近 <span class="arithmatex">\(A\)</span> 的那一个</strong>。丢掉的能量 = <span class="arithmatex">\(\sqrt{\sigma_{k+1}^2 + \dots + \sigma_r^2}\)</span>。</p>
+<p>这定理是 PCA 的数学根基。PCA 就是 SVD 换了个名字——对中心化数据矩阵 <span class="arithmatex">\(X\)</span> 做 SVD，右奇异向量 <span class="arithmatex">\(V_k\)</span> 就是前 <span class="arithmatex">\(k\)</span> 个主成分。</p>
+<h3 id="115-svd-ml">11.5 SVD 在 ML 中的三个高光时刻<a class="headerlink" href="#115-svd-ml" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
 <th>场景</th>
-<th>SVD 怎么用</th>
+<th>SVD 的应用</th>
+<th>怎么理解</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>PCA 降维</strong></td>
-<td><span class="arithmatex">\(X \approx U_k \Sigma_k V_k^T\)</span>，用 <span class="arithmatex">\(U_k \Sigma_k\)</span> 作为降维后的数据</td>
+<td><span class="arithmatex">\(X \approx U_k \Sigma_k V_k^T\)</span></td>
+<td>丢掉小奇异值对应的方向 = 丢掉噪音，保留结构</td>
 </tr>
 <tr>
 <td><strong>LoRA 微调</strong></td>
-<td><span class="arithmatex">\(\Delta W = BA\)</span> 是对原权重矩阵的低秩修正——<span class="arithmatex">\(r\)</span> 的选择本质上决定了「用前几个奇异值来修正」</td>
+<td><span class="arithmatex">\(\Delta W = BA\)</span>，<span class="arithmatex">\(B\)</span> 是 <span class="arithmatex">\(d \times r\)</span>，<span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(r \times k\)</span></td>
+<td><span class="arithmatex">\(r\)</span> 就是你决定保留的「几个最重要的奇异值方向」</td>
 </tr>
 <tr>
-<td><strong>推荐系统</strong></td>
-<td>用户-物品评分矩阵 <span class="arithmatex">\(R \approx U_k \Sigma_k V_k^T\)</span>，用分解后的低秩近似做协同过滤</td>
+<td><strong>协同过滤/推荐</strong></td>
+<td><span class="arithmatex">\(R \approx U_k \Sigma_k V_k^T\)</span></td>
+<td>评分矩阵的低秩近似——用少量的「隐因子」解释用户偏好</td>
 </tr>
 </tbody>
 </table>
 <hr/>
 <blockquote>
-<p><strong>下一步</strong>：<a href="../basis-and-neural-networks/">四、基变换与神经网络</a> — 这些数学和你写的 PyTorch 代码之间到底什么关系？</p>
+<p><strong>下一步</strong>：<a href="../basis-and-neural-networks/">四、基变换与神经网络</a> —— 这些数学和你写的 PyTorch 代码之间到底什么关系？</p>
 </blockquote>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

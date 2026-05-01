@@ -277,6 +277,145 @@ source ~/.bashrc
 - WSL2 无法联网 → 检查防火墙 + 代理 Allow LAN
 - Windows 原生实验性安装：`irm https://raw...install.ps1 | iex`（部分功能受限）
 
+#### 3.4.1 WSL2 代理配置详解
+
+WSL2 的代理配置比普通 Linux 麻烦得多——**它和 Windows 不在同一个网络里**，所以 `127.0.0.1` 在 WSL2 内指向的是 Linux 自己，而不是 Windows 宿主机。这是最常见的坑。
+
+**WSL2 网络架构**
+
+```
+┌──────────────────────────────────────┐
+│           Windows 宿主机              │
+│  ┌────────────────────────────────┐  │
+│  │  代理软件 (Clash / v2ray / etc) │  │
+│  │  HTTP: 127.0.0.1:7890          │  │
+│  │  SOCKS: 127.0.0.1:7891         │  │
+│  └────────────────────────────────┘  │
+│              ↕ NAT                     │
+│  ┌────────────────────────────────┐  │
+│  │        WSL2 虚拟机               │  │
+│  │  127.0.0.1 → 指向 WSL 自己 ❌    │  │
+│  │  需要访问 Windows 宿主机的 IP ✅  │  │
+│  └────────────────────────────────┘  │
+└──────────────────────────────────────┘
+```
+
+**方案一：获取 Windows 宿主机 IP（传统方式）**
+
+WSL2 内部可以通过 `/etc/resolv.conf` 中的 nameserver 拿到宿主机的虚拟 IP：
+
+```bash
+# 查看 Windows 宿主机在 WSL2 中的 IP
+cat /etc/resolv.conf | grep nameserver | awk '{print $2}'
+# 通常是 172.x.x.x
+
+# 手动设置代理
+export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+export https_proxy="http://${host_ip}:7890"
+export http_proxy="http://${host_ip}:7890"
+export all_proxy="socks5://${host_ip}:7891"  # 如果需要 SOCKS5
+```
+
+但 Windows 宿主 IP 每次重启都可能变化。解决方法：把上面的逻辑写进 `~/.bashrc`：
+
+```bash
+# 加入 ~/.bashrc
+export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+export https_proxy="http://${host_ip}:7890"
+export http_proxy="http://${host_ip}:7890"
+```
+
+**方案二：WSL2 镜像网络模式（推荐，需 Windows 11 23H2+）**
+
+这是微软在 2023 年底推出的新特性——让 WSL2 直接**镜像** Windows 的网络栈，两边共享同一个 `localhost`。开启后，WSL2 内的 `127.0.0.1` 直接指向 Windows 宿主机，不需要再手动查 IP。
+
+在 Windows 用户目录下创建/编辑 `C:\Users\<你的用户名>\.wslconfig`：
+
+```ini
+[wsl2]
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+```
+
+然后重启 WSL：
+
+```powershell
+wsl --shutdown
+wsl
+```
+
+配置后：
+- `127.0.0.1:7890` 在 WSL2 内直接指向 Windows 上的代理 ✅
+- 不需要每次查宿主 IP、不需要写进 `.bashrc`
+- `localhost` 在 Windows 和 WSL2 之间完全互通
+
+> **限制**：镜像模式需要 Windows 11 23H2 或更高版本。如果你的 Windows 10 不能升级，用方案一。
+
+**方案三：代理客户端开启 Allow LAN + 防火墙放行**
+
+无论用方案一还是方案二，还需要确保代理客户端本身允许来自「局域网」的连接：
+
+| 代理客户端 | 设置位置 |
+|-----------|---------|
+| **Clash Verge** | 设置 → 允许局域网连接（Allow LAN） |
+| **v2rayN** | 参数设置 → 允许来自局域网的连接 |
+| **Clash for Windows** | General → Allow LAN |
+| **Quantumult X** | 设置 → 代理 → 共享代理 |
+
+同时确保 Windows 防火墙放行代理端口——大多数代理客户端首次开启 Allow LAN 时会自动处理，但如果你手动改了端口，需要去「Windows 防火墙 → 入站规则」确认。
+
+**方案四：一键代理脚本**
+
+不想每次手动配？把下面这段保存为 `~/proxy.sh`：
+
+```bash
+#!/bin/bash
+# WSL2 代理一键切换脚本
+
+PROXY_PORT=${1:-7890}  # 默认 7890，可通过参数覆盖
+
+set_proxy() {
+    local host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
+    export https_proxy="http://${host_ip}:${PROXY_PORT}"
+    export http_proxy="http://${host_ip}:${PROXY_PORT}"
+    export all_proxy="socks5://${host_ip}:7891"
+    echo "✅ 代理已开启: ${host_ip}:${PROXY_PORT}"
+}
+
+unset_proxy() {
+    unset https_proxy http_proxy all_proxy
+    echo "✅ 代理已关闭"
+}
+
+# 使用: source ~/proxy.sh 开启, source ~/proxy.sh off 关闭
+if [ "$1" = "off" ]; then
+    unset_proxy
+else
+    set_proxy
+fi
+```
+
+用法：
+
+```bash
+source ~/proxy.sh        # 开启代理（默认端口 7890）
+source ~/proxy.sh 10809  # 用自定义端口
+source ~/proxy.sh off    # 关闭代理
+```
+
+#### 3.4.2 WSL2 常见网络问题排查
+
+| 现象 | 可能原因 | 排查步骤 |
+|------|---------|---------|
+| `curl` 超时 | 代理没开或 IP 不对 | `echo $https_proxy` 确认变量已设置；`curl -v https://google.com` 看卡在哪一步 |
+| 能 ping 通百度但 git clone 失败 | 代理只配了 http 没配 https | 同时设 `http_proxy` 和 `https_proxy` |
+| 每次重启 WSL 代理失效 | 宿主 IP 变了 | 用镜像模式（方案二）或自动获取 IP（方案一的 `.bashrc` 写法） |
+| 代理端口拒绝连接 | 防火墙或 Allow LAN 未开启 | 检查代理客户端 Allow LAN；Windows 防火墙放行端口 |
+| DNS 解析失败 | WSL2 DNS 配置问题 | `echo "nameserver 8.8.8.8" | sudo tee /etc/resolv.conf`（临时）；或 `dnsTunneling=true`（永久） |
+| 公司 VPN 环境下 WSL 完全无网 | VPN 接管了路由表 | 关闭 VPN 再试；或使用 `wsl --shutdown` 后重启 |
+
 ### 3.5 双系统配置（Mac + Windows）
 
 如果你同时有 Mac（日常开发）和 Windows GPU 机器（训练），推荐**双飞书机器人架构**：

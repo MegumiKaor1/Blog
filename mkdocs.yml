@@ -106,7 +106,13 @@ nav:
       - Autoregressive Models: gen-models/autoregressive.md
   - 📐 AI 数学基础:
       - ai-math/index.md
-      - 必修 · 线性代数: ai-math/linear-algebra.md
+      - 必修 · 线性代数:
+          - ai-math/linear-algebra/index.md
+          - 从向量到秩: ai-math/linear-algebra/vectors-to-rank.md
+          - 方程与子空间: ai-math/linear-algebra/elimination-and-subspaces.md
+          - 行列式、特征值与 SVD: ai-math/linear-algebra/determinant-eigen-svd.md
+          - 基变换与神经网络: ai-math/linear-algebra/basis-and-neural-networks.md
+          - 💭 个人理解与资源: ai-math/linear-algebra/insights-and-resources.md
       - 必修 · 微积分: ai-math/calculus.md
       - 必修 · 概率论与数理统计: ai-math/probability.md
       - 选修 · 最优化理论: ai-math/optimization.md

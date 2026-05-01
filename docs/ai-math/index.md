@@ -10,7 +10,7 @@
 
 | 学科 | 一句话 | 在 ML 中的典型应用 |
 |------|--------|-------------------|
-| [线性代数](linear-algebra.md) | 数据 = 向量，变换 = 矩阵 | 神经网络前向传播、PCA、SVD、Attention |
+| [线性代数](linear-algebra/index.md) | 数据 = 向量，变换 = 矩阵 | 神经网络前向传播、PCA、SVD、Attention |
 | [微积分](calculus.md) | 变化率与累积 | 梯度下降、反向传播、ELBO 推导 |
 | [概率论与数理统计](probability.md) | 不确定性建模 | 生成模型、VAE、最大似然估计、贝叶斯推断 |
 

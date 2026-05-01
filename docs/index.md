@@ -11,11 +11,11 @@
 
 | 研究笔记 | 生活记录 |
 |----------|----------|
-| [🔒 ML Security](ml-security/) | [📸 生活 Blog](life/) |
-| [🧠 Generative Models](gen-models/) | — |
-| [📐 AI 数学基础](ai-math/) | — |
-| [🛠️ 技术实践](tech-practice/) | — |
-| [📝 论文阅读](papers/) | — |
+| [🔒 ML Security](ml-security/index.md) | [📸 生活 Blog](life/index.md) |
+| [🧠 Generative Models](gen-models/index.md) | — |
+| [📐 AI 数学基础](ai-math/index.md) | — |
+| [🛠️ 技术实践](tech-practice/index.md) | — |
+| [📝 论文阅读](papers/index.md) | — |
 
 ---
 

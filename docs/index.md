@@ -1,5 +1,9 @@
 # 🌲 Kaor1's World
 
+<p align="center">
+  <img src="assets/logo.png" alt="Logo" width="128" style="border-radius: 20px;">
+</p>
+
 欢迎！这里是我探索世界的记录——分两半：
 
 - **左半边**：机器学习安全、生成式模型的研究笔记，像一本持续更新的技术手册

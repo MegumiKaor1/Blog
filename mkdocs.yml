@@ -7,8 +7,10 @@ theme:
   name: material
   custom_dir: overrides
   language: zh
+  logo: assets/logo.png
   icon:
-    logo: material/bookshelf
+    repo: fontawesome/brands/github
+  favicon: assets/favicon.png
   features:
     - navigation.tabs          # 顶部标签栏
     - navigation.tabs.sticky   # 标签栏固定

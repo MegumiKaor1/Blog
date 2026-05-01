@@ -2233,14 +2233,15 @@
 </span><span id="__span-10-3"><a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>
 </span><span id="__span-10-4"><a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c"># 重启后打开 Ubuntu，创建 Linux 用户名和密码</span>
 </span><span id="__span-10-5"><a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c"># 配置代理（如果位于中国大陆）</span>
-</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="n">export</span> <span class="n">https_proxy</span><span class="p">=</span><span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
-</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">export</span> <span class="n">http_proxy</span><span class="p">=</span><span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:</span><span class="n">7890</span>
-</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
-</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c"># 一键安装</span>
-</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="nb">curl </span><span class="n">-fsSL</span> <span class="n">https</span><span class="p">://</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">NousResearch</span><span class="p">/</span><span class="n">hermes-agent</span><span class="p">/</span><span class="n">main</span><span class="p">/</span><span class="n">scripts</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span> <span class="p">|</span> <span class="n">bash</span>
-</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a>
-</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="c"># 重载配置</span>
-</span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="n">source</span> <span class="p">~/.</span><span class="n">bashrc</span>
+</span><span id="__span-10-6"><a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c"># 先确认你的代理客户端 HTTP 端口（Clash 通常是 7890，v2rayN 可能是 10809）</span>
+</span><span id="__span-10-7"><a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">export</span> <span class="n">https_proxy</span><span class="p">=</span><span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:&lt;</span><span class="n">代理端口</span><span class="p">&gt;</span>
+</span><span id="__span-10-8"><a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="n">export</span> <span class="n">http_proxy</span><span class="p">=</span><span class="n">http</span><span class="p">://</span><span class="n">127</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">0</span><span class="p">.</span><span class="n">1</span><span class="p">:&lt;</span><span class="n">代理端口</span><span class="p">&gt;</span>
+</span><span id="__span-10-9"><a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="c"># 一键安装</span>
+</span><span id="__span-10-11"><a href="#__codelineno-10-11" id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="nb">curl </span><span class="n">-fsSL</span> <span class="n">https</span><span class="p">://</span><span class="n">raw</span><span class="p">.</span><span class="n">githubusercontent</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">NousResearch</span><span class="p">/</span><span class="n">hermes-agent</span><span class="p">/</span><span class="n">main</span><span class="p">/</span><span class="n">scripts</span><span class="p">/</span><span class="n">install</span><span class="p">.</span><span class="n">sh</span> <span class="p">|</span> <span class="n">bash</span>
+</span><span id="__span-10-12"><a href="#__codelineno-10-12" id="__codelineno-10-12" name="__codelineno-10-12"></a>
+</span><span id="__span-10-13"><a href="#__codelineno-10-13" id="__codelineno-10-13" name="__codelineno-10-13"></a><span class="c"># 重载配置</span>
+</span><span id="__span-10-14"><a href="#__codelineno-10-14" id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="n">source</span> <span class="p">~/.</span><span class="n">bashrc</span>
 </span></code></pre></div>
 <p>此后所有步骤同 Mac。</p>
 <p><strong>常见问题</strong>：
@@ -2250,55 +2251,56 @@
 - Windows 原生实验性安装：<code>irm https://raw...install.ps1 | iex</code>（部分功能受限）</p>
 <h4 id="341-wsl2">3.4.1 WSL2 代理配置详解<a class="headerlink" href="#341-wsl2" title="锚点链接">¶</a></h4>
 <p>WSL2 的代理配置比普通 Linux 麻烦得多——<strong>它和 Windows 不在同一个网络里</strong>，所以 <code>127.0.0.1</code> 在 WSL2 内指向的是 Linux 自己，而不是 Windows 宿主机。这是最常见的坑。</p>
+<blockquote>
+<p>⚠️ <strong>先确认你的代理端口</strong>：打开你的代理客户端（Clash Verge / v2rayN 等），查看 HTTP 代理端口——常见的是 7890、10809、8080 等。下文中的 <code>&lt;代理端口&gt;</code> 请全部替换成你自己的。</p>
+</blockquote>
 <p><strong>WSL2 网络架构</strong></p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>┌──────────────────────────────────────┐
-</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>│           Windows 宿主机              │
-</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>│  ┌────────────────────────────────┐  │
-</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>│  │  代理软件 (Clash / v2ray / etc) │  │
-</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>│  │  HTTP: 127.0.0.1:7890          │  │
-</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>│  │  SOCKS: 127.0.0.1:7891         │  │
-</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>│  └────────────────────────────────┘  │
-</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>│              ↕ NAT                     │
-</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>│  ┌────────────────────────────────┐  │
-</span><span id="__span-11-10"><a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>│  │        WSL2 虚拟机               │  │
-</span><span id="__span-11-11"><a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>│  │  127.0.0.1 → 指向 WSL 自己 ❌    │  │
-</span><span id="__span-11-12"><a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a>│  │  需要访问 Windows 宿主机的 IP ✅  │  │
-</span><span id="__span-11-13"><a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a>│  └────────────────────────────────┘  │
-</span><span id="__span-11-14"><a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a>└──────────────────────────────────────┘
-</span></code></pre></div>
+<pre class="mermaid"><code>flowchart TB
+    subgraph Windows["🖥️ Windows 宿主机"]
+        Proxy["代理软件&lt;br/&gt;Clash / v2ray / …&lt;br/&gt;127.0.0.1:&amp;lt;代理端口&amp;gt;"]
+    end
+    subgraph WSL2["🐧 WSL2 虚拟机"]
+        App["curl / git / pip / …"]
+        Bad["127.0.0.1 → 指向 WSL 自己 ❌"]
+        Good["需要访问 Windows 宿主 IP ✅"]
+    end
+    Windows &lt;-- "NAT 隔离" --&gt; WSL2
+    Bad -.-&gt; App
+    Good -.-&gt; App</code></pre>
+<p>WSL2 和 Windows 之间有 NAT 隔离——WSL2 是独立的虚拟机，拥有自己的 <code>127.0.0.1</code>。直接在 WSL2 里设 <code>export https_proxy=http://127.0.0.1:&lt;代理端口&gt;</code> 会试图连接 WSL2 自己，而不是 Windows 上的代理软件。</p>
 <p><strong>方案一：获取 Windows 宿主机 IP（传统方式）</strong></p>
 <p>WSL2 内部可以通过 <code>/etc/resolv.conf</code> 中的 nameserver 拿到宿主机的虚拟 IP：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># 查看 Windows 宿主机在 WSL2 中的 IP</span>
-</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span>
-</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># 通常是 172.x.x.x</span>
-</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>
-</span><span id="__span-12-5"><a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># 手动设置代理</span>
-</span><span id="__span-12-6"><a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
-</span><span id="__span-12-7"><a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7890"</span>
-</span><span id="__span-12-8"><a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7890"</span>
-</span><span id="__span-12-9"><a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7891"</span><span class="w">  </span><span class="c1"># 如果需要 SOCKS5</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1"># 查看 Windows 宿主机在 WSL2 中的 IP</span>
+</span><span id="__span-11-2"><a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span>
+</span><span id="__span-11-3"><a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># 通常是 172.x.x.x</span>
+</span><span id="__span-11-4"><a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>
+</span><span id="__span-11-5"><a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="c1"># 手动设置代理</span>
+</span><span id="__span-11-6"><a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
+</span><span id="__span-11-7"><a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:&lt;代理端口&gt;"</span>
+</span><span id="__span-11-8"><a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:&lt;代理端口&gt;"</span>
+</span><span id="__span-11-9"><a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:&lt;SOCKS端口&gt;"</span><span class="w">  </span><span class="c1"># 如果需要 SOCKS5</span>
 </span></code></pre></div>
 <p>但 Windows 宿主 IP 每次重启都可能变化。解决方法：把上面的逻辑写进 <code>~/.bashrc</code>：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="c1"># 加入 ~/.bashrc</span>
-</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
-</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7890"</span>
-</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7890"</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># 加入 ~/.bashrc</span>
+</span><span id="__span-12-2"><a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
+</span><span id="__span-12-3"><a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:&lt;代理端口&gt;"</span>
+</span><span id="__span-12-4"><a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:&lt;代理端口&gt;"</span>
 </span></code></pre></div>
 <p><strong>方案二：WSL2 镜像网络模式（推荐，需 Windows 11 23H2+）</strong></p>
 <p>这是微软在 2023 年底推出的新特性——让 WSL2 直接<strong>镜像</strong> Windows 的网络栈，两边共享同一个 <code>localhost</code>。开启后，WSL2 内的 <code>127.0.0.1</code> 直接指向 Windows 宿主机，不需要再手动查 IP。</p>
 <p>在 Windows 用户目录下创建/编辑 <code>C:\Users\&lt;你的用户名&gt;\.wslconfig</code>：</p>
-<div class="language-ini highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="k">[wsl2]</span>
-</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="na">networkingMode</span><span class="o">=</span><span class="s">mirrored</span>
-</span><span id="__span-14-3"><a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="na">dnsTunneling</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-14-4"><a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="na">firewall</span><span class="o">=</span><span class="s">true</span>
-</span><span id="__span-14-5"><a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a><span class="na">autoProxy</span><span class="o">=</span><span class="s">true</span>
+<div class="language-ini highlight"><pre><span></span><code><span id="__span-13-1"><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="k">[wsl2]</span>
+</span><span id="__span-13-2"><a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="na">networkingMode</span><span class="o">=</span><span class="s">mirrored</span>
+</span><span id="__span-13-3"><a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="na">dnsTunneling</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-13-4"><a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="na">firewall</span><span class="o">=</span><span class="s">true</span>
+</span><span id="__span-13-5"><a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="na">autoProxy</span><span class="o">=</span><span class="s">true</span>
 </span></code></pre></div>
 <p>然后重启 WSL：</p>
-<div class="language-powershell highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-shutdown</span>
-</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="n">wsl</span>
+<div class="language-powershell highlight"><pre><span></span><code><span id="__span-14-1"><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-shutdown</span>
+</span><span id="__span-14-2"><a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="n">wsl</span>
 </span></code></pre></div>
 <p>配置后：
-- <code>127.0.0.1:7890</code> 在 WSL2 内直接指向 Windows 上的代理 ✅
+- <code>127.0.0.1:&lt;代理端口&gt;</code> 在 WSL2 内直接指向 Windows 上的代理 ✅
 - 不需要每次查宿主 IP、不需要写进 <code>.bashrc</code>
 - <code>localhost</code> 在 Windows 和 WSL2 之间完全互通</p>
 <blockquote>
@@ -2335,35 +2337,39 @@
 <p>同时确保 Windows 防火墙放行代理端口——大多数代理客户端首次开启 Allow LAN 时会自动处理，但如果你手动改了端口，需要去「Windows 防火墙 → 入站规则」确认。</p>
 <p><strong>方案四：一键代理脚本</strong></p>
 <p>不想每次手动配？把下面这段保存为 <code>~/proxy.sh</code>：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="ch">#!/bin/bash</span>
-</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="c1"># WSL2 代理一键切换脚本</span>
-</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
-</span><span id="__span-16-4"><a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="nv">PROXY_PORT</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="k">:-</span><span class="nv">7890</span><span class="si">}</span><span class="w">  </span><span class="c1"># 默认 7890，可通过参数覆盖</span>
-</span><span id="__span-16-5"><a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>
-</span><span id="__span-16-6"><a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>set_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-16-7"><a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
-</span><span id="__span-16-8"><a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-9"><a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-10"><a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:7891"</span>
-</span><span id="__span-16-11"><a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"✅ 代理已开启: </span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
-</span><span id="__span-16-12"><a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a><span class="o">}</span>
-</span><span id="__span-16-13"><a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a>
-</span><span id="__span-16-14"><a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a>unset_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-</span><span id="__span-16-15"><a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a><span class="w">    </span><span class="nb">unset</span><span class="w"> </span>https_proxy<span class="w"> </span>http_proxy<span class="w"> </span>all_proxy
-</span><span id="__span-16-16"><a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"✅ 代理已关闭"</span>
-</span><span id="__span-16-17"><a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a><span class="o">}</span>
-</span><span id="__span-16-18"><a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>
-</span><span id="__span-16-19"><a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="c1"># 使用: source ~/proxy.sh 开启, source ~/proxy.sh off 关闭</span>
-</span><span id="__span-16-20"><a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"off"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-</span><span id="__span-16-21"><a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="w">    </span>unset_proxy
-</span><span id="__span-16-22"><a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="k">else</span>
-</span><span id="__span-16-23"><a href="#__codelineno-16-23" id="__codelineno-16-23" name="__codelineno-16-23"></a><span class="w">    </span>set_proxy
-</span><span id="__span-16-24"><a href="#__codelineno-16-24" id="__codelineno-16-24" name="__codelineno-16-24"></a><span class="k">fi</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="ch">#!/bin/bash</span>
+</span><span id="__span-15-2"><a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="c1"># WSL2 代理一键切换脚本</span>
+</span><span id="__span-15-3"><a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
+</span><span id="__span-15-4"><a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="nv">PROXY_PORT</span><span class="o">=</span><span class="si">${</span><span class="nv">1</span><span class="si">}</span><span class="w">  </span><span class="c1"># 必传参数：你的代理 HTTP 端口</span>
+</span><span id="__span-15-5"><a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-z<span class="w"> </span><span class="s2">"</span><span class="nv">$PROXY_PORT</span><span class="s2">"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-6"><a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"用法: source ~/proxy.sh &lt;代理端口&gt;  例如: source ~/proxy.sh 7890"</span>
+</span><span id="__span-15-7"><a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+</span><span id="__span-15-8"><a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="k">fi</span>
+</span><span id="__span-15-9"><a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a>
+</span><span id="__span-15-10"><a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a>set_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-11"><a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a><span class="w">    </span><span class="nb">local</span><span class="w"> </span><span class="nv">host_ip</span><span class="o">=</span><span class="k">$(</span>cat<span class="w"> </span>/etc/resolv.conf<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>nameserver<span class="w"> </span><span class="p">|</span><span class="w"> </span>awk<span class="w"> </span><span class="s1">'{print $2}'</span><span class="k">)</span>
+</span><span id="__span-15-12"><a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">https_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-15-13"><a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">http_proxy</span><span class="o">=</span><span class="s2">"http://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-15-14"><a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="w">    </span><span class="nb">export</span><span class="w"> </span><span class="nv">all_proxy</span><span class="o">=</span><span class="s2">"socks5://</span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-15-15"><a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"✅ 代理已开启: </span><span class="si">${</span><span class="nv">host_ip</span><span class="si">}</span><span class="s2">:</span><span class="si">${</span><span class="nv">PROXY_PORT</span><span class="si">}</span><span class="s2">"</span>
+</span><span id="__span-15-16"><a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="o">}</span>
+</span><span id="__span-15-17"><a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a>
+</span><span id="__span-15-18"><a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a>unset_proxy<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+</span><span id="__span-15-19"><a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="w">    </span><span class="nb">unset</span><span class="w"> </span>https_proxy<span class="w"> </span>http_proxy<span class="w"> </span>all_proxy
+</span><span id="__span-15-20"><a href="#__codelineno-15-20" id="__codelineno-15-20" name="__codelineno-15-20"></a><span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"✅ 代理已关闭"</span>
+</span><span id="__span-15-21"><a href="#__codelineno-15-21" id="__codelineno-15-21" name="__codelineno-15-21"></a><span class="o">}</span>
+</span><span id="__span-15-22"><a href="#__codelineno-15-22" id="__codelineno-15-22" name="__codelineno-15-22"></a>
+</span><span id="__span-15-23"><a href="#__codelineno-15-23" id="__codelineno-15-23" name="__codelineno-15-23"></a><span class="c1"># 使用: source ~/proxy.sh 7890 开启, source ~/proxy.sh off 关闭</span>
+</span><span id="__span-15-24"><a href="#__codelineno-15-24" id="__codelineno-15-24" name="__codelineno-15-24"></a><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"off"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+</span><span id="__span-15-25"><a href="#__codelineno-15-25" id="__codelineno-15-25" name="__codelineno-15-25"></a><span class="w">    </span>unset_proxy
+</span><span id="__span-15-26"><a href="#__codelineno-15-26" id="__codelineno-15-26" name="__codelineno-15-26"></a><span class="k">else</span>
+</span><span id="__span-15-27"><a href="#__codelineno-15-27" id="__codelineno-15-27" name="__codelineno-15-27"></a><span class="w">    </span>set_proxy
+</span><span id="__span-15-28"><a href="#__codelineno-15-28" id="__codelineno-15-28" name="__codelineno-15-28"></a><span class="k">fi</span>
 </span></code></pre></div>
 <p>用法：</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w">        </span><span class="c1"># 开启代理（默认端口 7890）</span>
-</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w"> </span><span class="m">10809</span><span class="w">  </span><span class="c1"># 用自定义端口</span>
-</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w"> </span>off<span class="w">    </span><span class="c1"># 关闭代理</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w"> </span><span class="m">7890</span><span class="w">   </span><span class="c1"># 开启代理（用你自己的端口号）</span>
+</span><span id="__span-16-2"><a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w"> </span><span class="m">10809</span><span class="w">  </span><span class="c1"># 不同代理客户端端口不同</span>
+</span><span id="__span-16-3"><a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="nb">source</span><span class="w"> </span>~/proxy.sh<span class="w"> </span>off<span class="w">    </span><span class="c1"># 关闭代理</span>
 </span></code></pre></div>
 <h4 id="342-wsl2">3.4.2 WSL2 常见网络问题排查<a class="headerlink" href="#342-wsl2" title="锚点链接">¶</a></h4>
 <table>
@@ -2409,11 +2415,11 @@
 </table>
 <h3 id="35-mac-windows">3.5 双系统配置（Mac + Windows）<a class="headerlink" href="#35-mac-windows" title="锚点链接">¶</a></h3>
 <p>如果你同时有 Mac（日常开发）和 Windows GPU 机器（训练），推荐<strong>双飞书机器人架构</strong>：</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>飞书用户（你）
-</span><span id="__span-18-2"><a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>    │
-</span><span id="__span-18-3"><a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a>    ├── 日常开发、写作、研究 → Hermes-Mac（Mac 上的飞书机器人）
-</span><span id="__span-18-4"><a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a>    │
-</span><span id="__span-18-5"><a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>    └── GPU 训练、大任务    → Hermes-Win（Windows 上的飞书机器人）
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>飞书用户（你）
+</span><span id="__span-17-2"><a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>    │
+</span><span id="__span-17-3"><a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a>    ├── 日常开发、写作、研究 → Hermes-Mac（Mac 上的飞书机器人）
+</span><span id="__span-17-4"><a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a>    │
+</span><span id="__span-17-5"><a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>    └── GPU 训练、大任务    → Hermes-Win（Windows 上的飞书机器人）
 </span></code></pre></div>
 <p><strong>配置步骤</strong>：</p>
 <p><strong>第 1 步：两台机器分别安装 Hermes</strong></p>
@@ -2465,7 +2471,7 @@
 </ul>
 <p><strong>第 4 步：飞书中分别配对</strong></p>
 <p>向两个机器人都发一条消息，拿到各自的配对码，分别在各自的终端里执行：
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>hermes<span class="w"> </span>pairing<span class="w"> </span>approve<span class="w"> </span>feishu<span class="w"> </span>&lt;配对码&gt;
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>hermes<span class="w"> </span>pairing<span class="w"> </span>approve<span class="w"> </span>feishu<span class="w"> </span>&lt;配对码&gt;
 </span></code></pre></div></p>
 <p><strong>使用策略</strong>：</p>
 <table>
@@ -2497,46 +2503,46 @@
 <h2 id="4-soulmd">4. SOUL.md 配置指南<a class="headerlink" href="#4-soulmd" title="锚点链接">¶</a></h2>
 <p>SOUL.md（<code>~/.hermes/SOUL.md</code>）是 Hermes 的「人格文件」，类似 System Prompt，<strong>每次对话开始时自动注入系统提示</strong>。写得越具体，Agent 越快理解你的需求和风格。</p>
 <h3 id="41">4.1 基础模板<a class="headerlink" href="#41" title="锚点链接">¶</a></h3>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="gh"># 我的 Hermes Agent Persona</span>
-</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
-</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="gu">## 关于我</span>
-</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">-</span><span class="w"> </span>姓名/称呼：Kaor1
-</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a><span class="k">-</span><span class="w"> </span>角色：机器学习研究员 / 博士生
-</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="k">-</span><span class="w"> </span>主要研究方向：ML 安全、模型遗忘、扩散模型、数据投毒
-</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a>
-</span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="gu">## 交流偏好</span>
-</span><span id="__span-20-9"><a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="k">-</span><span class="w"> </span>默认用中文回复
-</span><span id="__span-20-10"><a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="k">-</span><span class="w"> </span>重要结论先说，再解释原因
-</span><span id="__span-20-11"><a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="k">-</span><span class="w"> </span>对技术问题要具体、直接，不要空话
-</span><span id="__span-20-12"><a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="k">-</span><span class="w"> </span>不确定的地方明确说要验证什么
-</span><span id="__span-20-13"><a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a>
-</span><span id="__span-20-14"><a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="gu">## 工作习惯</span>
-</span><span id="__span-20-15"><a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="k">-</span><span class="w"> </span>用 Obsidian 记录科研想法，偏好 Markdown 输出
-</span><span id="__span-20-16"><a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="k">-</span><span class="w"> </span>先快速形成可执行版本，再逐步迭代
-</span><span id="__span-20-17"><a href="#__codelineno-20-17" id="__codelineno-20-17" name="__codelineno-20-17"></a><span class="k">-</span><span class="w"> </span>偏好简洁方案，不要过度设计
-</span><span id="__span-20-18"><a href="#__codelineno-20-18" id="__codelineno-20-18" name="__codelineno-20-18"></a>
-</span><span id="__span-20-19"><a href="#__codelineno-20-19" id="__codelineno-20-19" name="__codelineno-20-19"></a><span class="gu">## 讨厌的行为</span>
-</span><span id="__span-20-20"><a href="#__codelineno-20-20" id="__codelineno-20-20" name="__codelineno-20-20"></a><span class="k">-</span><span class="w"> </span>不要用「这是一个有趣的方向」这类空话
-</span><span id="__span-20-21"><a href="#__codelineno-20-21" id="__codelineno-20-21" name="__codelineno-20-21"></a><span class="k">-</span><span class="w"> </span>不要只罗列概念不建立联系
-</span><span id="__span-20-22"><a href="#__codelineno-20-22" id="__codelineno-20-22" name="__codelineno-20-22"></a><span class="k">-</span><span class="w"> </span>不要在没有证据时做绝对判断
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-19-1"><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="gh"># 我的 Hermes Agent Persona</span>
+</span><span id="__span-19-2"><a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
+</span><span id="__span-19-3"><a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="gu">## 关于我</span>
+</span><span id="__span-19-4"><a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="k">-</span><span class="w"> </span>姓名/称呼：Kaor1
+</span><span id="__span-19-5"><a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a><span class="k">-</span><span class="w"> </span>角色：机器学习研究员 / 博士生
+</span><span id="__span-19-6"><a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="k">-</span><span class="w"> </span>主要研究方向：ML 安全、模型遗忘、扩散模型、数据投毒
+</span><span id="__span-19-7"><a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="gu">## 交流偏好</span>
+</span><span id="__span-19-9"><a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a><span class="k">-</span><span class="w"> </span>默认用中文回复
+</span><span id="__span-19-10"><a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a><span class="k">-</span><span class="w"> </span>重要结论先说，再解释原因
+</span><span id="__span-19-11"><a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a><span class="k">-</span><span class="w"> </span>对技术问题要具体、直接，不要空话
+</span><span id="__span-19-12"><a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a><span class="k">-</span><span class="w"> </span>不确定的地方明确说要验证什么
+</span><span id="__span-19-13"><a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a>
+</span><span id="__span-19-14"><a href="#__codelineno-19-14" id="__codelineno-19-14" name="__codelineno-19-14"></a><span class="gu">## 工作习惯</span>
+</span><span id="__span-19-15"><a href="#__codelineno-19-15" id="__codelineno-19-15" name="__codelineno-19-15"></a><span class="k">-</span><span class="w"> </span>用 Obsidian 记录科研想法，偏好 Markdown 输出
+</span><span id="__span-19-16"><a href="#__codelineno-19-16" id="__codelineno-19-16" name="__codelineno-19-16"></a><span class="k">-</span><span class="w"> </span>先快速形成可执行版本，再逐步迭代
+</span><span id="__span-19-17"><a href="#__codelineno-19-17" id="__codelineno-19-17" name="__codelineno-19-17"></a><span class="k">-</span><span class="w"> </span>偏好简洁方案，不要过度设计
+</span><span id="__span-19-18"><a href="#__codelineno-19-18" id="__codelineno-19-18" name="__codelineno-19-18"></a>
+</span><span id="__span-19-19"><a href="#__codelineno-19-19" id="__codelineno-19-19" name="__codelineno-19-19"></a><span class="gu">## 讨厌的行为</span>
+</span><span id="__span-19-20"><a href="#__codelineno-19-20" id="__codelineno-19-20" name="__codelineno-19-20"></a><span class="k">-</span><span class="w"> </span>不要用「这是一个有趣的方向」这类空话
+</span><span id="__span-19-21"><a href="#__codelineno-19-21" id="__codelineno-19-21" name="__codelineno-19-21"></a><span class="k">-</span><span class="w"> </span>不要只罗列概念不建立联系
+</span><span id="__span-19-22"><a href="#__codelineno-19-22" id="__codelineno-19-22" name="__codelineno-19-22"></a><span class="k">-</span><span class="w"> </span>不要在没有证据时做绝对判断
 </span></code></pre></div>
 <h3 id="42">4.2 进阶：按场景定义行为<a class="headerlink" href="#42" title="锚点链接">¶</a></h3>
-<div class="language-markdown highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="gu">## 科研任务偏好</span>
-</span><span id="__span-21-2"><a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a><span class="k">-</span><span class="w"> </span>讨论论文 idea：先分析研究问题、动机、威胁模型、方法设计
-</span><span id="__span-21-3"><a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="k">-</span><span class="w"> </span>实验设计：说明目的、变量、对照组、指标、预期、可能失败原因
-</span><span id="__span-21-4"><a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="k">-</span><span class="w"> </span>论文写作：给我可以直接放入论文或 Obsidian 的版本
-</span><span id="__span-21-5"><a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>
-</span><span id="__span-21-6"><a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="gu">## 编程任务偏好</span>
-</span><span id="__span-21-7"><a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="k">-</span><span class="w"> </span>优先给出可运行代码
-</span><span id="__span-21-8"><a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a><span class="k">-</span><span class="w"> </span>审查代码重点：bug、方法一致性、实验设置正确性、数据泄漏
-</span><span id="__span-21-9"><a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="k">-</span><span class="w"> </span>调试不要只猜测，给具体检查命令和定位步骤
-</span><span id="__span-21-10"><a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a>
-</span><span id="__span-21-11"><a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a><span class="gu">## 论文阅读输出格式</span>
-</span><span id="__span-21-12"><a href="#__codelineno-21-12" id="__codelineno-21-12" name="__codelineno-21-12"></a><span class="k">1.</span> 一句话核心贡献
-</span><span id="__span-21-13"><a href="#__codelineno-21-13" id="__codelineno-21-13" name="__codelineno-21-13"></a><span class="k">2.</span> 与我的研究方向的关系
-</span><span id="__span-21-14"><a href="#__codelineno-21-14" id="__codelineno-21-14" name="__codelineno-21-14"></a><span class="k">3.</span> 方法论结构（问题→假设→方法→设计）
-</span><span id="__span-21-15"><a href="#__codelineno-21-15" id="__codelineno-21-15" name="__codelineno-21-15"></a><span class="k">4.</span> 关键局限
-</span><span id="__span-21-16"><a href="#__codelineno-21-16" id="__codelineno-21-16" name="__codelineno-21-16"></a><span class="k">5.</span> 对我的研究的启发
+<div class="language-markdown highlight"><pre><span></span><code><span id="__span-20-1"><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="gu">## 科研任务偏好</span>
+</span><span id="__span-20-2"><a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a><span class="k">-</span><span class="w"> </span>讨论论文 idea：先分析研究问题、动机、威胁模型、方法设计
+</span><span id="__span-20-3"><a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="k">-</span><span class="w"> </span>实验设计：说明目的、变量、对照组、指标、预期、可能失败原因
+</span><span id="__span-20-4"><a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="k">-</span><span class="w"> </span>论文写作：给我可以直接放入论文或 Obsidian 的版本
+</span><span id="__span-20-5"><a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
+</span><span id="__span-20-6"><a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="gu">## 编程任务偏好</span>
+</span><span id="__span-20-7"><a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="k">-</span><span class="w"> </span>优先给出可运行代码
+</span><span id="__span-20-8"><a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a><span class="k">-</span><span class="w"> </span>审查代码重点：bug、方法一致性、实验设置正确性、数据泄漏
+</span><span id="__span-20-9"><a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="k">-</span><span class="w"> </span>调试不要只猜测，给具体检查命令和定位步骤
+</span><span id="__span-20-10"><a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a>
+</span><span id="__span-20-11"><a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a><span class="gu">## 论文阅读输出格式</span>
+</span><span id="__span-20-12"><a href="#__codelineno-20-12" id="__codelineno-20-12" name="__codelineno-20-12"></a><span class="k">1.</span> 一句话核心贡献
+</span><span id="__span-20-13"><a href="#__codelineno-20-13" id="__codelineno-20-13" name="__codelineno-20-13"></a><span class="k">2.</span> 与我的研究方向的关系
+</span><span id="__span-20-14"><a href="#__codelineno-20-14" id="__codelineno-20-14" name="__codelineno-20-14"></a><span class="k">3.</span> 方法论结构（问题→假设→方法→设计）
+</span><span id="__span-20-15"><a href="#__codelineno-20-15" id="__codelineno-20-15" name="__codelineno-20-15"></a><span class="k">4.</span> 关键局限
+</span><span id="__span-20-16"><a href="#__codelineno-20-16" id="__codelineno-20-16" name="__codelineno-20-16"></a><span class="k">5.</span> 对我的研究的启发
 </span></code></pre></div>
 <h3 id="43">4.3 核心原则<a class="headerlink" href="#43" title="锚点链接">¶</a></h3>
 <table>
@@ -2572,30 +2578,30 @@
 <h2 id="5">5. 日常使用技巧<a class="headerlink" href="#5" title="锚点链接">¶</a></h2>
 <p>Agent 执行了不满意的操作，<code>/rollback</code> 回退到上一个文件系统检查点，不需要手动 undo。</p>
 <h3 id="43_1">4.3 按任务复杂度切换模型<a class="headerlink" href="#43_1" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>hermes<span class="w"> </span>model<span class="w">  </span><span class="c1"># 随时切换，不需改代码</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>hermes<span class="w"> </span>model<span class="w">  </span><span class="c1"># 随时切换，不需改代码</span>
 </span></code></pre></div>
 <p>Hermes 也支持<strong>智能模型路由</strong>，自动判断当前任务是否需要更强模型。</p>
 <h3 id="44-skills">4.4 Skills 管理<a class="headerlink" href="#44-skills" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a>hermes<span class="w"> </span>skills<span class="w"> </span>list<span class="w">         </span><span class="c1"># 查看已安装技能</span>
-</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>hermes<span class="w"> </span>skills<span class="w"> </span>check<span class="w">        </span><span class="c1"># 检查更新</span>
-</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>hermes<span class="w"> </span>skills<span class="w"> </span>update<span class="w">       </span><span class="c1"># 更新有变动的技能</span>
-</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a>
-</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a><span class="c1"># 对话中</span>
-</span><span id="__span-23-6"><a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a>/skills<span class="w"> </span>browse<span class="w">             </span><span class="c1"># 浏览可用技能</span>
-</span><span id="__span-23-7"><a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a>/skills<span class="w"> </span>search<span class="w"> </span>react<span class="w">       </span><span class="c1"># 搜索特定技能</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>hermes<span class="w"> </span>skills<span class="w"> </span>list<span class="w">         </span><span class="c1"># 查看已安装技能</span>
+</span><span id="__span-22-2"><a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>hermes<span class="w"> </span>skills<span class="w"> </span>check<span class="w">        </span><span class="c1"># 检查更新</span>
+</span><span id="__span-22-3"><a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a>hermes<span class="w"> </span>skills<span class="w"> </span>update<span class="w">       </span><span class="c1"># 更新有变动的技能</span>
+</span><span id="__span-22-4"><a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a>
+</span><span id="__span-22-5"><a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a><span class="c1"># 对话中</span>
+</span><span id="__span-22-6"><a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a>/skills<span class="w"> </span>browse<span class="w">             </span><span class="c1"># 浏览可用技能</span>
+</span><span id="__span-22-7"><a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a>/skills<span class="w"> </span>search<span class="w"> </span>react<span class="w">       </span><span class="c1"># 搜索特定技能</span>
 </span></code></pre></div>
 <h3 id="45">4.5 搜索历史会话<a class="headerlink" href="#45" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="c1"># 对话中</span>
-</span><span id="__span-24-2"><a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>/search<span class="w"> </span>关键词
-</span><span id="__span-24-3"><a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a>
-</span><span id="__span-24-4"><a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="c1"># 终端中</span>
-</span><span id="__span-24-5"><a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a>hermes<span class="w"> </span>memory<span class="w"> </span>search<span class="w"> </span><span class="s2">"关键词"</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="c1"># 对话中</span>
+</span><span id="__span-23-2"><a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>/search<span class="w"> </span>关键词
+</span><span id="__span-23-3"><a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a>
+</span><span id="__span-23-4"><a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="c1"># 终端中</span>
+</span><span id="__span-23-5"><a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>hermes<span class="w"> </span>memory<span class="w"> </span>search<span class="w"> </span><span class="s2">"关键词"</span>
 </span></code></pre></div>
 <h3 id="46-compact">4.6 /compact 压缩上下文<a class="headerlink" href="#46-compact" title="锚点链接">¶</a></h3>
 <p>对话变长后 token 消耗急剧上升，<code>/compact</code> 自动压缩中间部分对话，保留头尾关键内容。</p>
 <h3 id="47-hermes-doctor">4.7 hermes doctor 排查<a class="headerlink" href="#47-hermes-doctor" title="锚点链接">¶</a></h3>
 <p>遇到问题第一反应：
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>hermes<span class="w"> </span>doctor<span class="w">  </span><span class="c1"># 自动检查环境、依赖、API 连通性</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-24-1"><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a>hermes<span class="w"> </span>doctor<span class="w">  </span><span class="c1"># 自动检查环境、依赖、API 连通性</span>
 </span></code></pre></div></p>
 <hr/>
 <h2 id="6">6. 命令速查<a class="headerlink" href="#6" title="锚点链接">¶</a></h2>
@@ -2704,28 +2710,28 @@
 <hr/>
 <h2 id="7">7. 使用案例<a class="headerlink" href="#7" title="锚点链接">¶</a></h2>
 <h3 id="_3">基础用法<a class="headerlink" href="#_3" title="锚点链接">¶</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>帮我上网看看最近很火的 Hermes Agent，然后总结成文档，
-</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>注意文档里需要附上和技术概念有关的重要链接。
-</span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>接着，帮我生成一个静态的博客页面，专门用来展示这些技术文档。
-</span><span id="__span-26-4"><a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a>注意：网页要高级好看点。
-</span><span id="__span-26-5"><a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a>完成之后，帮我本地启动前端页面，给我一个可访问的 URL。
+<div class="language-text highlight"><pre><span></span><code><span id="__span-25-1"><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a>帮我上网看看最近很火的 Hermes Agent，然后总结成文档，
+</span><span id="__span-25-2"><a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>注意文档里需要附上和技术概念有关的重要链接。
+</span><span id="__span-25-3"><a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a>接着，帮我生成一个静态的博客页面，专门用来展示这些技术文档。
+</span><span id="__span-25-4"><a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>注意：网页要高级好看点。
+</span><span id="__span-25-5"><a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a>完成之后，帮我本地启动前端页面，给我一个可访问的 URL。
 </span></code></pre></div>
 <h3 id="_4">创意用法<a class="headerlink" href="#_4" title="锚点链接">¶</a></h3>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a>帮我做一个「测测你是海绵宝宝里的谁」互动测试网页（纯前端）。
-</span><span id="__span-27-2"><a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>⚠ 核心规则：主角只能是极少数天选之人才能测到的隐藏结果。
-</span><span id="__span-27-3"><a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a>绝大多数人（80%+）测出来都应该是比奇堡的路人甲、背景鱼、龙套道具。
+<div class="language-text highlight"><pre><span></span><code><span id="__span-26-1"><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a>帮我做一个「测测你是海绵宝宝里的谁」互动测试网页（纯前端）。
+</span><span id="__span-26-2"><a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>⚠ 核心规则：主角只能是极少数天选之人才能测到的隐藏结果。
+</span><span id="__span-26-3"><a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a>绝大多数人（80%+）测出来都应该是比奇堡的路人甲、背景鱼、龙套道具。
 </span></code></pre></div>
 <hr/>
 <h2 id="8">8. 卸载<a class="headerlink" href="#8" title="锚点链接">¶</a></h2>
 <h3 id="hermes">卸载 Hermes<a class="headerlink" href="#hermes" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>hermes<span class="w"> </span>uninstall
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a>hermes<span class="w"> </span>uninstall
 </span></code></pre></div>
 <p>两种模式：
 - <strong>Keep data</strong>：仅删除程序，保留 <code>~/.hermes/</code> 配置和记忆（推荐）
 - <strong>Full uninstall</strong>：删除所有内容，不可逆</p>
 <h3 id="openclaw">卸载 OpenClaw<a class="headerlink" href="#openclaw" title="锚点链接">¶</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-29-1"><a href="#__codelineno-29-1" id="__codelineno-29-1" name="__codelineno-29-1"></a>openclaw<span class="w"> </span>uninstall<span class="w"> </span>--all<span class="w"> </span>--yes<span class="w"> </span>--non-interactive
-</span><span id="__span-29-2"><a href="#__codelineno-29-2" id="__codelineno-29-2" name="__codelineno-29-2"></a>npm<span class="w"> </span>uninstall<span class="w"> </span>-g<span class="w"> </span>openclaw
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-28-1"><a href="#__codelineno-28-1" id="__codelineno-28-1" name="__codelineno-28-1"></a>openclaw<span class="w"> </span>uninstall<span class="w"> </span>--all<span class="w"> </span>--yes<span class="w"> </span>--non-interactive
+</span><span id="__span-28-2"><a href="#__codelineno-28-2" id="__codelineno-28-2" name="__codelineno-28-2"></a>npm<span class="w"> </span>uninstall<span class="w"> </span>-g<span class="w"> </span>openclaw
 </span></code></pre></div>
 <hr/>
 <h2 id="_5">延伸阅读<a class="headerlink" href="#_5" title="锚点链接">¶</a></h2>

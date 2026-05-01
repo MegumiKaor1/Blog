@@ -259,8 +259,9 @@ wsl --install
 
 # 重启后打开 Ubuntu，创建 Linux 用户名和密码
 # 配置代理（如果位于中国大陆）
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890
+# 先确认你的代理客户端 HTTP 端口（Clash 通常是 7890，v2rayN 可能是 10809）
+export https_proxy=http://127.0.0.1:<代理端口>
+export http_proxy=http://127.0.0.1:<代理端口>
 
 # 一键安装
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
@@ -281,24 +282,26 @@ source ~/.bashrc
 
 WSL2 的代理配置比普通 Linux 麻烦得多——**它和 Windows 不在同一个网络里**，所以 `127.0.0.1` 在 WSL2 内指向的是 Linux 自己，而不是 Windows 宿主机。这是最常见的坑。
 
+> ⚠️ **先确认你的代理端口**：打开你的代理客户端（Clash Verge / v2rayN 等），查看 HTTP 代理端口——常见的是 7890、10809、8080 等。下文中的 `<代理端口>` 请全部替换成你自己的。
+
 **WSL2 网络架构**
 
+```mermaid
+flowchart TB
+    subgraph Windows["🖥️ Windows 宿主机"]
+        Proxy["代理软件<br/>Clash / v2ray / …<br/>127.0.0.1:&lt;代理端口&gt;"]
+    end
+    subgraph WSL2["🐧 WSL2 虚拟机"]
+        App["curl / git / pip / …"]
+        Bad["127.0.0.1 → 指向 WSL 自己 ❌"]
+        Good["需要访问 Windows 宿主 IP ✅"]
+    end
+    Windows <-- "NAT 隔离" --> WSL2
+    Bad -.-> App
+    Good -.-> App
 ```
-┌──────────────────────────────────────┐
-│           Windows 宿主机              │
-│  ┌────────────────────────────────┐  │
-│  │  代理软件 (Clash / v2ray / etc) │  │
-│  │  HTTP: 127.0.0.1:7890          │  │
-│  │  SOCKS: 127.0.0.1:7891         │  │
-│  └────────────────────────────────┘  │
-│              ↕ NAT                     │
-│  ┌────────────────────────────────┐  │
-│  │        WSL2 虚拟机               │  │
-│  │  127.0.0.1 → 指向 WSL 自己 ❌    │  │
-│  │  需要访问 Windows 宿主机的 IP ✅  │  │
-│  └────────────────────────────────┘  │
-└──────────────────────────────────────┘
-```
+
+WSL2 和 Windows 之间有 NAT 隔离——WSL2 是独立的虚拟机，拥有自己的 `127.0.0.1`。直接在 WSL2 里设 `export https_proxy=http://127.0.0.1:<代理端口>` 会试图连接 WSL2 自己，而不是 Windows 上的代理软件。
 
 **方案一：获取 Windows 宿主机 IP（传统方式）**
 
@@ -311,9 +314,9 @@ cat /etc/resolv.conf | grep nameserver | awk '{print $2}'
 
 # 手动设置代理
 export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-export https_proxy="http://${host_ip}:7890"
-export http_proxy="http://${host_ip}:7890"
-export all_proxy="socks5://${host_ip}:7891"  # 如果需要 SOCKS5
+export https_proxy="http://${host_ip}:<代理端口>"
+export http_proxy="http://${host_ip}:<代理端口>"
+export all_proxy="socks5://${host_ip}:<SOCKS端口>"  # 如果需要 SOCKS5
 ```
 
 但 Windows 宿主 IP 每次重启都可能变化。解决方法：把上面的逻辑写进 `~/.bashrc`：
@@ -321,8 +324,8 @@ export all_proxy="socks5://${host_ip}:7891"  # 如果需要 SOCKS5
 ```bash
 # 加入 ~/.bashrc
 export host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
-export https_proxy="http://${host_ip}:7890"
-export http_proxy="http://${host_ip}:7890"
+export https_proxy="http://${host_ip}:<代理端口>"
+export http_proxy="http://${host_ip}:<代理端口>"
 ```
 
 **方案二：WSL2 镜像网络模式（推荐，需 Windows 11 23H2+）**
@@ -347,7 +350,7 @@ wsl
 ```
 
 配置后：
-- `127.0.0.1:7890` 在 WSL2 内直接指向 Windows 上的代理 ✅
+- `127.0.0.1:<代理端口>` 在 WSL2 内直接指向 Windows 上的代理 ✅
 - 不需要每次查宿主 IP、不需要写进 `.bashrc`
 - `localhost` 在 Windows 和 WSL2 之间完全互通
 
@@ -374,13 +377,17 @@ wsl
 #!/bin/bash
 # WSL2 代理一键切换脚本
 
-PROXY_PORT=${1:-7890}  # 默认 7890，可通过参数覆盖
+PROXY_PORT=${1}  # 必传参数：你的代理 HTTP 端口
+if [ -z "$PROXY_PORT" ]; then
+    echo "用法: source ~/proxy.sh <代理端口>  例如: source ~/proxy.sh 7890"
+    return 1
+fi
 
 set_proxy() {
     local host_ip=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}')
     export https_proxy="http://${host_ip}:${PROXY_PORT}"
     export http_proxy="http://${host_ip}:${PROXY_PORT}"
-    export all_proxy="socks5://${host_ip}:7891"
+    export all_proxy="socks5://${host_ip}:${PROXY_PORT}"
     echo "✅ 代理已开启: ${host_ip}:${PROXY_PORT}"
 }
 
@@ -389,7 +396,7 @@ unset_proxy() {
     echo "✅ 代理已关闭"
 }
 
-# 使用: source ~/proxy.sh 开启, source ~/proxy.sh off 关闭
+# 使用: source ~/proxy.sh 7890 开启, source ~/proxy.sh off 关闭
 if [ "$1" = "off" ]; then
     unset_proxy
 else
@@ -400,8 +407,8 @@ fi
 用法：
 
 ```bash
-source ~/proxy.sh        # 开启代理（默认端口 7890）
-source ~/proxy.sh 10809  # 用自定义端口
+source ~/proxy.sh 7890   # 开启代理（用你自己的端口号）
+source ~/proxy.sh 10809  # 不同代理客户端端口不同
 source ~/proxy.sh off    # 关闭代理
 ```
 

@@ -1,8 +1,4 @@
-# 🌲 Kaor1's World
-
-<p align="center">
-  <img src="assets/logo.png" alt="Logo" width="128" style="border-radius: 20px;">
-</p>
+# <img src="assets/logo.png" alt="Logo" width="40" style="vertical-align: middle; border-radius: 8px;"> Kaor1's World
 
 欢迎！这里是我探索世界的记录——分两半：
 

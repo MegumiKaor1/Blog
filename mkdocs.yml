@@ -5,6 +5,7 @@ site_url: https://megumikaor1.github.io/Blog
 
 theme:
   name: material
+  custom_dir: overrides
   language: zh
   icon:
     logo: material/bookshelf
@@ -110,6 +111,39 @@ nav:
       - 必修 · 概率论与数理统计: ai-math/probability.md
       - 选修 · 最优化理论: ai-math/optimization.md
       - 选修 · 信息论: ai-math/information-theory.md
+  - 🛠️ 技术实践:
+      - tech-practice/index.md
+      - ⚙️ 环境基础:
+          - tech-practice/setup/index.md
+          - Python 环境配置 (venv): tech-practice/setup/python.md
+          - Anaconda 配置: tech-practice/setup/anaconda.md
+          - PyTorch 安装与入门: tech-practice/setup/pytorch.md
+          - CUDA 与 GPU 环境: tech-practice/setup/cuda.md
+      - 🤖 AI 工具链:
+          - tech-practice/ai-tools/index.md
+          - Hermes Agent 完全指南: tech-practice/ai-tools/hermes-agent.md
+          - Agent 技术串讲:
+              - tech-practice/ai-tools/agent-tech/index.md
+              - 1. LLM 大语言模型: tech-practice/ai-tools/agent-tech/llm.md
+              - 2. Prompt Engineering: tech-practice/ai-tools/agent-tech/prompt-engineering.md
+              - 3. Fine-tuning 微调: tech-practice/ai-tools/agent-tech/fine-tuning.md
+              - 4. RAG 检索增强生成: tech-practice/ai-tools/agent-tech/rag.md
+              - 5. Function Calling: tech-practice/ai-tools/agent-tech/function-calling.md
+              - 6. MCP 协议: tech-practice/ai-tools/agent-tech/mcp.md
+              - 7. Agent 智能体: tech-practice/ai-tools/agent-tech/agent.md
+              - 8. Multi-Agent: tech-practice/ai-tools/agent-tech/multi-agent.md
+              - 9. Context Engineering: tech-practice/ai-tools/agent-tech/context-engineering.md
+          - Skill 机制与开发: tech-practice/ai-tools/skill-dev.md
+          - OpenClaw 入门: tech-practice/ai-tools/openclaw.md
+          - Harness 评测框架: tech-practice/ai-tools/harness.md
+      - 🏗️ AI Infra:
+          - tech-practice/infra/index.md
+          - 分布式训练: tech-practice/infra/distributed-training.md
+          - 推理优化: tech-practice/infra/inference-optimization.md
+          - 模型服务化: tech-practice/infra/model-serving.md
+          - 存储与数据管线: tech-practice/infra/data-pipeline.md
+      - 📖 优质文档分享:
+          - tech-practice/docs-share/index.md
   - 📝 论文阅读:
       - papers/index.md
   - 📸 生活:

@@ -1809,5 +1809,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 <script src="../../../assets/katex-render.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<!-- 自动为外部链接添加 target="_blank" -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+        // 跳过博客内部链接（当前域名）
+        if (link.hostname === 'megumikaor1.github.io') return;
+        // 跳过已经是 _blank 的链接
+        if (link.getAttribute('target') === '_blank') return;
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener');
+      });
+    });
+  </script>
 </body>
 </html>

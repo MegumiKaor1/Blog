@@ -1410,6 +1410,46 @@ $<span class="arithmatex">\(\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \ma
 <p>(3) ① 原始基 = 784 个像素上的标准基（每个像素一个维度）。② PCA 新基 = 协方差矩阵的特征向量，即「特征脸」（eigenfaces）——它们不是独立的像素，而是像素之间的「相关模式」。③ 保留前 <span class="arithmatex">\(k\)</span> 个特征脸（<span class="arithmatex">\(k \ll 784\)</span>），认为噪声集中在低方差方向（小特征值方向）。重建时只投向这 <span class="arithmatex">\(k\)</span> 个方向，天然滤掉了噪声。</p>
 </blockquote>
 <hr/>
+<p><strong>B6.</strong> Adam 优化器可以理解为在做<strong>对角预处理</strong>——为每个参数自适应调整有效学习率。从线性代数角度解释：</p>
+<p>(1) SGD 更新 <span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta g_t\)</span> 对所有参数使用同一个学习率。当 Hessian 的条件数很大时，为什么这会导致问题？
+(2) Adam 维护了梯度平方的指数移动平均 <span class="arithmatex">\(v_t\)</span>，更新为 <span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}\)</span>。除以 <span class="arithmatex">\(\sqrt{\hat{v}_t}\)</span> 在做什么？从 Hessian 对角近似的角度解释。
+(3) 为什么这种预处理改善了优化问题的条件数？和牛顿法的 <span class="arithmatex">\(H^{-1}g\)</span> 相比，Adam 做了什么近似？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) SGD 在 Hessian 大特征值方向上震荡（步长相对太大），在小特征值方向上蠕动（步长相对太小）。沿不同方向的有效曲率可能差 <span class="arithmatex">\(10^4\)</span> 倍 → 如用统一学习率，总有一个方向遭殃。(2) <span class="arithmatex">\(\sqrt{\hat{v}_t} \approx \sqrt{\mathbb{E}[g^2]}\)</span>。在局部二次近似下，<span class="arithmatex">\(g \approx H(\theta - \theta^*)\)</span>，所以 <span class="arithmatex">\(\mathbb{E}[g^2]\)</span> 近似于 Hessian 对角元的尺度。除以 <span class="arithmatex">\(\sqrt{\hat{v}_t}\)</span> 相当于对角预处理：梯度大的方向（对应大 Hessian 对角元）被缩小，梯度小的方向被放大。(3) 牛顿法用 <span class="arithmatex">\(H^{-1}g\)</span> 做完整的预处理（所有方向归一化到相同曲率），但 <span class="arithmatex">\(O(n^3)\)</span> 不可行。Adam 用对角近似 <span class="arithmatex">\(\text{diag}(H)^{-1/2}\)</span> 代替 <span class="arithmatex">\(H^{-1}\)</span>——捕获了各方向的尺度差异，但忽略了方向间的耦合（非对角元）。这是计算效率和预处理能力之间的经典取舍。</p>
+</blockquote>
+<hr/>
+<p><strong>B7.</strong> 残差连接 <span class="arithmatex">\(h_{l+1} = h_l + F(h_l)\)</span> 是深层网络可训练的关键。从线性代数角度分析：</p>
+<p>(1) 写出残差块反向传播的雅可比矩阵：<span class="arithmatex">\(\frac{\partial h_{l+1}}{\partial h_l}\)</span>。和没有残差的普通层有什么关键区别？
+(2) 解释为什么残差连接可以防止梯度消失。提示：考虑雅可比的特征值。
+(3) 堆叠 <span class="arithmatex">\(L\)</span> 个残差块，从第 <span class="arithmatex">\(L\)</span> 层到第 <span class="arithmatex">\(1\)</span> 层的梯度乘积展开式长什么样？由此解释为什么深层 ResNet 仍然可训练。</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\frac{\partial h_{l+1}}{\partial h_l} = I + \frac{\partial F}{\partial h_l}\)</span>。关键区别是 <span class="arithmatex">\(+I\)</span>：没有残差时雅可比就是 <span class="arithmatex">\(\partial F / \partial h_l\)</span>，其所有特征值可能都 <span class="arithmatex">\(&lt;1\)</span> → 梯度指数消失。有残差后，特征值变为 <span class="arithmatex">\(1 + \varepsilon\)</span>（<span class="arithmatex">\(\varepsilon\)</span> 是 <span class="arithmatex">\(\partial F/\partial h_l\)</span> 的特征值），即使 <span class="arithmatex">\(\varepsilon\)</span> 很小，特征值也接近 <span class="arithmatex">\(1\)</span>——梯度不会衰减。(2) 如果 <span class="arithmatex">\(\partial F/\partial h_l\)</span> 的特征值都在 <span class="arithmatex">\((-0.5, 0.5)\)</span> 范围内，残差连接的雅可比特征值在 <span class="arithmatex">\((0.5, 1.5)\)</span> 范围内——不会出现 <span class="arithmatex">\(&lt;0.1\)</span> 的小值，梯度范数不会指数级坍缩。(3) 乘积 <span class="arithmatex">\(\prod_{l=1}^{L-1}(I + J_l)\)</span> 展开为 <span class="arithmatex">\(I + \sum_l J_l + \sum_{l&lt;m} J_l J_m + \cdots\)</span>。第一项 <span class="arithmatex">\(I\)</span> 给出了梯度的「无损直通路径」；第二项给出每层各自的独立贡献；高阶项给出层间交互。这意味着<strong>每一层的梯度信号都包含来自所有后续层的直接路径</strong>——信息不被压缩。这正是 ResNet-152 可训练的根本原因。</p>
+</blockquote>
+<hr/>
+<p><strong>B8.</strong> Xavier/Glorot 初始化和 He/Kaiming 初始化的核心思想是控制各层激活和梯度的方差。</p>
+<p>(1) 推导：对于一个线性层 <span class="arithmatex">\(h = Wx\)</span>（忽略激活函数），要使前向方差不变（<span class="arithmatex">\(\text{Var}(h) = \text{Var}(x)\)</span>），<span class="arithmatex">\(W\)</span> 各元素的方差应满足什么条件？
+(2) 对于反向传播 <span class="arithmatex">\(\frac{\partial L}{\partial x} = W^{\mathsf T} \frac{\partial L}{\partial h}\)</span>，保持梯度方差不变的条件是什么？
+(3) 为什么 Xavier 取两者的调和平均 <span class="arithmatex">\(\text{Var}(W) = \frac{2}{n_{\text{in}} + n_{\text{out}}}\)</span>？He 为什么把分母从 <span class="arithmatex">\(n_{\text{in}}+n_{\text{out}}\)</span> 改成 <span class="arithmatex">\(n_{\text{in}}\)</span>？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(h_i = \sum_j W_{ij} x_j\)</span>，假设独立同分布且均值为 <span class="arithmatex">\(0\)</span>：<span class="arithmatex">\(\text{Var}(h_i) = \sum_j \text{Var}(W_{ij})\text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\)</span>。要使 <span class="arithmatex">\(\text{Var}(h_i) = \text{Var}(x)\)</span> → <span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{in}}\)</span>。(2) 反向：<span class="arithmatex">\(\text{Var}(\partial L/\partial x_j) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}(\partial L/\partial h)\)</span>。保持方差不变 → <span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{out}}\)</span>。(3) 前向和反向的约束通常冲突（<span class="arithmatex">\(n_{\text{in}} \neq n_{\text{out}}\)</span> 时）→ Xavier 取调和平均 <span class="arithmatex">\(\frac{2}{n_{\text{in}}+n_{\text{out}}}\)</span> 作为折中。He 注意到 ReLU 在前向传播中把一半的激活值置零 → 方差减半 → 需要补偿这个因子：<span class="arithmatex">\(\text{Var}(W) = 2/n_{\text{in}}\)</span>。</p>
+</blockquote>
+<hr/>
+<p><strong>B9.</strong> 1D 卷积 <span class="arithmatex">\(y = w * x\)</span> 可以等价写成矩阵乘法 <span class="arithmatex">\(y = Cx\)</span>，其中 <span class="arithmatex">\(C\)</span> 是一个 <strong>Toeplitz 矩阵</strong>（每条对角线元素相同）。</p>
+<p>(1) 写出卷积核 <span class="arithmatex">\(w = (w_0, w_1, w_2)\)</span>，输入长度 <span class="arithmatex">\(4\)</span>（zero-padding，<span class="arithmatex">\(p=1\)</span>）对应的 Toeplitz 矩阵 <span class="arithmatex">\(C\)</span>（尺寸 <span class="arithmatex">\(4 \times 4\)</span>）。
+(2) 「权重共享」在 Toeplitz 矩阵中如何体现？参数量和对应稠密矩阵差多少？
+(3) 转置卷积（<span class="arithmatex">\(y = C^{\mathsf T} x\)</span>）等价于什么操作？用卷积的语言描述它。</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(C = \begin{bmatrix} w_1 &amp; w_0 &amp; 0 &amp; 0 \\ w_2 &amp; w_1 &amp; w_0 &amp; 0 \\ 0 &amp; w_2 &amp; w_1 &amp; w_0 \\ 0 &amp; 0 &amp; w_2 &amp; w_1 \end{bmatrix}\)</span>。每条对角线上的元素相同——这就是 Toeplitz 结构。(2) 权重共享体现为：同一个 <span class="arithmatex">\(w_0\)</span> 出现在所有对角线位置上，而不是每个位置一个独立参数。参数量 <span class="arithmatex">\(=3\)</span>，而稠密矩阵需要 <span class="arithmatex">\(4 \times 4 = 16\)</span> 个参数——差 <span class="arithmatex">\(5\)</span> 倍。图像上，<span class="arithmatex">\(3 \times 3\)</span> 卷积核在 <span class="arithmatex">\(224 \times 224\)</span> 特征图上等效于参数量数千倍的稠密矩阵。(3) <span class="arithmatex">\(C^{\mathsf T}\)</span> 也是 Toeplitz 矩阵，对应「反卷」操作：转置卷积等价于<strong>用翻转后的卷积核做带空洞的上采样</strong>。<code>nn.ConvTranspose1d</code> 底层就是 <span class="arithmatex">\(C^{\mathsf T}\)</span> 乘以输入。理解这个对应关系是理解 GAN 生成器和语义分割上采样路径的关键。</p>
+</blockquote>
+<hr/>
+<p><strong>B10.</strong> Self-Attention 的核心矩阵是 <span class="arithmatex">\(S = \text{softmax}\!\left(\frac{QK^{\mathsf T}}{\sqrt{d}}\right)\)</span>——一个 <span class="arithmatex">\(n \times n\)</span> 的随机矩阵（每行是概率分布）。</p>
+<p>(1) 若 <span class="arithmatex">\(Q, K \in \mathbb{R}^{n \times d}\)</span>，<span class="arithmatex">\(S\)</span> 的秩最大是多少？
+(2) 为什么在多层 Transformer 中，<span class="arithmatex">\(S\)</span> 的实际秩常常远小于 <span class="arithmatex">\(n\)</span>？这对模型的表达能力意味着什么？
+(3) 从 SVD 的角度：如果 <span class="arithmatex">\(S = U\Sigma V^{\mathsf T}\)</span> 且 <span class="arithmatex">\(\sigma_1 \gg \sigma_2, \sigma_3, \dots\)</span>，attention 模式有什么特点？Multi-head attention 如何缓解这个问题？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(QK^{\mathsf T}\)</span> 的秩 <span class="arithmatex">\(\le \min(\text{rank}(Q), \text{rank}(K)) \le \min(n, d)\)</span>。通常在 <span class="arithmatex">\(d &lt; n\)</span> 时秩 <span class="arithmatex">\(\le d\)</span>。Softmax 不改变秩，所以 <span class="arithmatex">\(S\)</span> 的秩 <span class="arithmatex">\(\le d\)</span>。当 <span class="arithmatex">\(d=64\)</span> 但 <span class="arithmatex">\(n=512\)</span>，<span class="arithmatex">\(S\)</span> 只是 <span class="arithmatex">\(512 \times 512\)</span> 矩阵中秩约 <span class="arithmatex">\(64\)</span> 的低秩近似。(2) 因为 tokens 的 query/key 向量常常高度相关——不同 token 的 attention 分布趋于相似 → <span class="arithmatex">\(QK^{\mathsf T}\)</span> 的有效秩进一步低于 <span class="arithmatex">\(d\)</span>。这导致<strong>attention collapse</strong>：多个 token 几乎关注相同的 context，浪费了序列建模的容量。(3) 若 <span class="arithmatex">\(\sigma_1 \gg\)</span> 其他 <span class="arithmatex">\(\sigma_i\)</span>，<span class="arithmatex">\(S \approx \sigma_1 \mathbf{u}_1 \mathbf{v}_1^{\mathsf T}\)</span>——所有 token 的 attention 分布几乎相同（都接近 <span class="arithmatex">\(\mathbf{v}_1\)</span>），attention 本质上退化成一维的。Multi-head attention 用不同的 <span class="arithmatex">\(W_Q, W_K, W_V\)</span> 投影矩阵产生不同的低秩结构，拼在一起获得秩的多样性。每个 head 可能只关注一种模式（低秩），多个 head 的组合覆盖多种模式。</p>
+</blockquote>
+<hr/>
 <p><a href="../basis-and-neural-networks/">← 返回教程</a>　　　<a href="../exercises/">← 习题总览</a></p>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

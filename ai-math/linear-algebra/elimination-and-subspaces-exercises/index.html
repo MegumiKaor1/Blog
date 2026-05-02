@@ -1397,6 +1397,33 @@
 <p>(3) 条件数就是「误差放大器」的增益。在深度学习中，若 Hessian 的条件数很大（扁平方向 vs 陡峭方向），SGD 在扁平方向上几乎不动，在陡峭方向上上下弹跳。等价地：损失函数对权重的一阶梯度（即 <span class="arithmatex">\(\mathbf{b}\)</span> 的类比）中的微小统计噪声，被 ill-conditioned Hessian 放大为权重更新的巨大方差——表现为 training loss 剧烈震荡。<strong>二阶优化器</strong>（如 K-FAC、Shampoo）和 Adam 的自适应学习率都是在试图「除以」这个条件数，抵消放大效应。</p>
 </blockquote>
 <hr/>
+<p><strong>A7.</strong> 对下列向量组执行 Gram-Schmidt 正交化，产生一组标准正交向量：
+$<span class="arithmatex">\(\mathbf{a}_1 = (1, 1, 0)^{\mathsf T}, \quad \mathbf{a}_2 = (0, 1, 1)^{\mathsf T}, \quad \mathbf{a}_3 = (0, 0, 1)^{\mathsf T}.\)</span>$</p>
+<p>(1) 给出 <span class="arithmatex">\(\mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3\)</span>。
+(2) 验证 <span class="arithmatex">\(\mathbf{q}_i \cdot \mathbf{q}_j = 0\)</span>（<span class="arithmatex">\(i \neq j\)</span>）和 <span class="arithmatex">\(\|\mathbf{q}_i\| = 1\)</span>。
+(3) 这些 <span class="arithmatex">\(\mathbf{q}\)</span> 张成的空间和原始 <span class="arithmatex">\(\mathbf{a}\)</span> 张成的空间是同一个吗？为什么？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\mathbf{q}_1 = \mathbf{a}_1 / \|\mathbf{a}_1\| = (1/\sqrt{2}, 1/\sqrt{2}, 0)^{\mathsf T}\)</span>。<span class="arithmatex">\(\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\mathbf{q}_1 = (0,1,1) - \frac{1}{\sqrt{2}} \cdot (1/\sqrt{2}, 1/\sqrt{2}, 0) = (-1/2, 1/2, 1)^{\mathsf T}\)</span>。<span class="arithmatex">\(\|\mathbf{v}_2\| = \sqrt{1/4+1/4+1} = \sqrt{3/2}\)</span>，<span class="arithmatex">\(\mathbf{q}_2 = \sqrt{2/3} \cdot (-1/2, 1/2, 1)^{\mathsf T} = (-1/\sqrt{6}, 1/\sqrt{6}, \sqrt{2/3})^{\mathsf T}\)</span>。<span class="arithmatex">\(\mathbf{v}_3 = \mathbf{a}_3 - (\mathbf{a}_3 \cdot \mathbf{q}_1)\mathbf{q}_1 - (\mathbf{a}_3 \cdot \mathbf{q}_2)\mathbf{q}_2 = (0,0,1) - 0 - \sqrt{2/3} \cdot \mathbf{q}_2 = \dots\)</span>。结果是 <span class="arithmatex">\(\mathbf{q}_3 = (-1/\sqrt{3}, 1/\sqrt{3}, -1/\sqrt{3})^{\mathsf T}\)</span>（或反向，取决于符号选择）。(2) 手算验证三个内积为 0。(3) <strong>是同一个空间</strong>——Gram-Schmidt 只是把基从「歪斜的」变成「正交的」，没有改变张成的子空间。这是 GS 的核心性质：<span class="arithmatex">\(\text{span}\{\mathbf{q}_1,\dots,\mathbf{q}_k\} = \text{span}\{\mathbf{a}_1,\dots,\mathbf{a}_k\}\)</span>。</p>
+</blockquote>
+<hr/>
+<p><strong>A8.</strong> 判断以下关于正交矩阵 <span class="arithmatex">\(Q\)</span>（<span class="arithmatex">\(Q^{\mathsf T}Q = I\)</span>）的命题的真伪：</p>
+<p>(1) <span class="arithmatex">\(Q\)</span> 的所有列都是单位向量且两两正交。
+(2) <span class="arithmatex">\(Q\)</span> 一定是对称矩阵。
+(3) <span class="arithmatex">\(Q\)</span> 作用于任何向量 <span class="arithmatex">\(\mathbf{x}\)</span>，保持其长度不变：<span class="arithmatex">\(\|Q\mathbf{x}\| = \|\mathbf{x}\|\)</span>。
+(4) <span class="arithmatex">\(Q\)</span> 的特征值的绝对值一定为 <span class="arithmatex">\(1\)</span>。
+(5) （ML）如果一个权重矩阵 <span class="arithmatex">\(W\)</span> 是正交矩阵，前向传播和反向传播中信号的方差都不会衰减或爆炸。为什么？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <strong>对</strong>。这是正交矩阵的定义：<span class="arithmatex">\(Q^{\mathsf T}Q = I\)</span> 等价于各列标准正交。(2) <strong>错</strong>。旋转矩阵 <span class="arithmatex">\(\begin{bmatrix}0&amp;-1\\1&amp;0\end{bmatrix}\)</span> 是正交的但不对称。(3) <strong>对</strong>。<span class="arithmatex">\(\|Q\mathbf{x}\|^2 = (Q\mathbf{x})^{\mathsf T}(Q\mathbf{x}) = \mathbf{x}^{\mathsf T}Q^{\mathsf T}Q\mathbf{x} = \mathbf{x}^{\mathsf T}\mathbf{x} = \|\mathbf{x}\|^2\)</span>。(4) <strong>对</strong>。若 <span class="arithmatex">\(Q\mathbf{x} = \lambda\mathbf{x}\)</span>，则 <span class="arithmatex">\(\|\mathbf{x}\| = \|Q\mathbf{x}\| = |\lambda|\|\mathbf{x}\| \Rightarrow |\lambda|=1\)</span>。(5) 前向：<span class="arithmatex">\(\|W\mathbf{x}\| = \|\mathbf{x}\|\)</span>（等距），信号方差不变。反向：梯度乘 <span class="arithmatex">\(W^{\mathsf T}\)</span>（也是正交的）→ 梯度方差也不变。这正是正交初始化的动机：让深度网络各层之间信号和梯度的尺度保持恒定。</p>
+</blockquote>
+<hr/>
+<p><strong>B5.</strong> 在线性回归 <span class="arithmatex">\(y = X\beta + \varepsilon\)</span> 中，最小二乘估计 <span class="arithmatex">\(\hat{\beta} = (X^{\mathsf T}X)^{-1}X^{\mathsf T}y\)</span> 使得残差向量 <span class="arithmatex">\(\mathbf{e} = y - X\hat{\beta}\)</span> 满足 <span class="arithmatex">\(X^{\mathsf T}\mathbf{e} = \mathbf{0}\)</span>。</p>
+<p>(1) 用线性代数语言解释 <span class="arithmatex">\(X^{\mathsf T}\mathbf{e} = \mathbf{0}\)</span> 的几何含义。
+(2) 如果数据矩阵 <span class="arithmatex">\(X\)</span> 有一列是全 <span class="arithmatex">\(1\)</span> 向量（对应截距项），<span class="arithmatex">\(X^{\mathsf T}\mathbf{e} = \mathbf{0}\)</span> 意味着残差的什么统计性质？
+(3) 证明 <span class="arithmatex">\(\|y - X\hat{\beta}\|^2 = \|y\|^2 - \|X\hat{\beta}\|^2\)</span>。（提示：利用 <span class="arithmatex">\(X^{\mathsf T}\mathbf{e} = \mathbf{0}\)</span>）</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(X^{\mathsf T}\mathbf{e} = \mathbf{0}\)</span> 意味着 <span class="arithmatex">\(\mathbf{e}\)</span> 与 <span class="arithmatex">\(X\)</span> 的每一列都正交 → <span class="arithmatex">\(\mathbf{e}\)</span> 正交于 <span class="arithmatex">\(X\)</span> 的整个列空间。也就是说，<span class="arithmatex">\(X\hat{\beta}\)</span> 是 <span class="arithmatex">\(y\)</span> 在列空间上的正交投影，<span class="arithmatex">\(\mathbf{e}\)</span> 是残差（垂直于投影面）。(2) 当 <span class="arithmatex">\(X\)</span> 有一列全 <span class="arithmatex">\(1\)</span> 时，<span class="arithmatex">\(\sum_i e_i = 0\)</span>——残差之和为 <span class="arithmatex">\(0\)</span>。这正是线性回归中「残差均值为零」的数学根源。(3) <span class="arithmatex">\(\|y\|^2 = \|X\hat{\beta} + \mathbf{e}\|^2 = \|X\hat{\beta}\|^2 + \|\mathbf{e}\|^2 + 2(X\hat{\beta})^{\mathsf T}\mathbf{e}\)</span>。而 <span class="arithmatex">\((X\hat{\beta})^{\mathsf T}\mathbf{e} = \hat{\beta}^{\mathsf T}X^{\mathsf T}\mathbf{e} = 0\)</span>。所以 <span class="arithmatex">\(\|y\|^2 = \|X\hat{\beta}\|^2 + \|\mathbf{e}\|^2\)</span>。这就是总平方和 = 回归平方和 + 残差平方和——方差分析（ANOVA）的几何本质：一个直角三角形的勾股定理。</p>
+</blockquote>
+<hr/>
 <p><a href="../elimination-and-subspaces/">← 返回教程</a>　　　<a href="../determinant-eigen-svd-exercises/">下一章习题 →</a></p>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

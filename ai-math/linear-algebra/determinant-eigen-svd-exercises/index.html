@@ -1358,6 +1358,15 @@
 <p><strong>答案提示：</strong> (1) <strong>对</strong>。对那一行做展开（按该行展开），每项都含 <span class="arithmatex">\(0\)</span> 因子。(2) <strong>对</strong>。成比例意味着行线性相关，高斯消元会产生零行。(3) <strong>错</strong>。<span class="arithmatex">\(\det(A^{-1}) = 1/\det(A) = 1/2\)</span>，不是 <span class="arithmatex">\(-2\)</span>。行列式的倒数，不是相反数。(4) <strong>错</strong>。<span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span> 这种「把一行的倍数加到另一行」<strong>不改变行列式</strong>。只有交换两行才会变号，只有对一行乘以 <span class="arithmatex">\(c\)</span> 才会把行列式乘以 <span class="arithmatex">\(c\)</span>。(5) <strong>对</strong>。这就是特征方程的定义：<span class="arithmatex">\(\det(A - \lambda I)=0 \iff A\mathbf{x} = \lambda\mathbf{x}\)</span> 有非零解。</p>
 </blockquote>
 <hr/>
+<p><strong>A6.</strong> 计算以下 <span class="arithmatex">\(3 \times 3\)</span> 矩阵的行列式，并解释其几何含义（体积缩放因子）：</p>
+<div class="arithmatex">\[A = \begin{bmatrix} 2 &amp; 0 &amp; 1 \\ 0 &amp; 3 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{bmatrix}.\]</div>
+<p>(1) 行列式是多少？<span class="arithmatex">\(A\)</span> 是可逆的吗？
+(2) 如果把 <span class="arithmatex">\(A\)</span> 的第二行乘以 <span class="arithmatex">\(2\)</span>（新矩阵 <span class="arithmatex">\(A'\)</span>），行列式变为多少？
+(3) <span class="arithmatex">\(A\)</span> 把 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位立方体变成了什么形状？体积是多少？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) 按第二行展开最简单（因为有两个 <span class="arithmatex">\(0\)</span>）：<span class="arithmatex">\(\det(A) = 3 \cdot \det\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix} = 3 \cdot (4-1) = 9\)</span>。<span class="arithmatex">\(\det(A) \neq 0\)</span> → 可逆。(2) 新矩阵 <span class="arithmatex">\(A'\)</span> 的第二行是原来的 <span class="arithmatex">\(2\)</span> 倍 → <span class="arithmatex">\(\det(A') = 2 \cdot \det(A) = 18\)</span>。行列式对任意一行的缩放是线性的。(3) <span class="arithmatex">\(A\)</span> 把单位立方体变成一个平行六面体，体积 <span class="arithmatex">\(= |\det(A)| = 9\)</span>。第二列（<span class="arithmatex">\(y\)</span> 方向）拉伸 <span class="arithmatex">\(3\)</span> 倍，第一列和第三列在 <span class="arithmatex">\(xz\)</span> 平面内形成一个面积为 <span class="arithmatex">\(3\)</span> 的平行四边形——总体积 <span class="arithmatex">\(= 3 \times 3 = 9\)</span>。几何直觉成立。</p>
+</blockquote>
+<hr/>
 <h3 id="b">B 档<a class="headerlink" href="#b" title="锚点链接">¶</a></h3>
 <p><strong>B1.</strong> 某深度网络的 Hessian 特征值为 <span class="arithmatex">\(\{125,\; 3.2,\; 0.01,\; -0.5,\; -18\}\)</span>。判断当前点在优化地形中的位置（极小点？鞍点？），并预测 SGD 和 Adam 各自的表现差异。</p>
 <blockquote>
@@ -1402,6 +1411,22 @@
 - 输入维度假高——可以大幅降维而不损失信息；
 - 模型容量不必正比于名义维度——<strong>LoRA</strong>（低秩适配）的核心洞察：大模型的权重更新也可以做低秩约束，因为问题本身就是低秩的；
 - 如果强行在高维空间建模，最小二乘/线性回归的系数会被噪声放大（条件数问题），需要正则化。</p>
+</blockquote>
+<hr/>
+<p><strong>B5.</strong> 设 <span class="arithmatex">\(A\)</span> 是一个 <span class="arithmatex">\(n \times n\)</span> 矩阵，特征值为 <span class="arithmatex">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span>。</p>
+<p>(1) 证明 <span class="arithmatex">\(\det(A) = \prod_{i=1}^n \lambda_i\)</span> 和 <span class="arithmatex">\(\text{tr}(A) = \sum_{i=1}^n \lambda_i\)</span>。（可假设 <span class="arithmatex">\(A\)</span> 可对角化）
+(2) 若 <span class="arithmatex">\(\det(A) = 0\)</span>，关于 <span class="arithmatex">\(A\)</span> 的秩和可逆性能得出什么结论？至少有一个特征值是多少？
+(3) （ML）协方差矩阵的特征值之和（总方差）在 PCA 中有什么意义？协方差矩阵的特征值之积（广义方差）趋近于 <span class="arithmatex">\(0\)</span> 意味着什么？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(A = PDP^{-1}\)</span> → <span class="arithmatex">\(\det(A) = \det(P)\det(D)\det(P^{-1}) = \det(D) = \prod \lambda_i\)</span>；<span class="arithmatex">\(\text{tr}(A) = \text{tr}(PDP^{-1}) = \text{tr}(P^{-1}PD) = \text{tr}(D) = \sum \lambda_i\)</span>。(2) <span class="arithmatex">\(\det(A)=0 \iff\)</span> 至少一个 <span class="arithmatex">\(\lambda_i = 0 \iff A\)</span> 不可逆 <span class="arithmatex">\(\iff\)</span> 秩亏。(3) 总方差 = <span class="arithmatex">\(\sum \lambda_i\)</span> = <span class="arithmatex">\(\text{tr}(\Sigma)\)</span>，衡量数据在所有方向上的总散布量。广义方差 = <span class="arithmatex">\(\prod \lambda_i = \det(\Sigma)\)</span>，趋近于 <span class="arithmatex">\(0\)</span> 意味着至少一个特征值极小 → 数据几乎分布在一个低于 <span class="arithmatex">\(n\)</span> 维的子空间内，存在高度共线性的特征。</p>
+</blockquote>
+<hr/>
+<p><strong>B6.</strong> <strong>Rayleigh 商</strong>定义为 <span class="arithmatex">\(R(\mathbf{x}) = \frac{\mathbf{x}^{\mathsf T} H \mathbf{x}}{\mathbf{x}^{\mathsf T} \mathbf{x}}\)</span>（<span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span>），其中 <span class="arithmatex">\(H\)</span> 是对称矩阵。</p>
+<p>(1) 若 <span class="arithmatex">\(H = \begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 3 \end{bmatrix}\)</span>，计算 <span class="arithmatex">\(R(\mathbf{x})\)</span> 在 <span class="arithmatex">\(\mathbf{x} = (1,1)^{\mathsf T}\)</span> 和 <span class="arithmatex">\(\mathbf{x} = (1,-1)^{\mathsf T}\)</span> 处的值。
+(2) <span class="arithmatex">\(H\)</span> 的最大和最小特征值分别是多少？你算出的两个 Rayleigh 商值和它们有什么关系？
+(3) （ML）在优化中，沿 <span class="arithmatex">\(\mathbf{d} = -\nabla L\)</span>（负梯度方向）走一步，损失的近似减少量为 <span class="arithmatex">\(\eta \cdot \frac{(\nabla L)^{\mathsf T} (\nabla L)}{(\nabla L)^{\mathsf T} H (\nabla L)}\)</span>——这与 Rayleigh 商有什么关系？为什么 <span class="arithmatex">\(H\)</span> 的谱（特征值分布）决定了 SGD 的收敛速度？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{2} = \frac{8}{2} = 4\)</span>。<span class="arithmatex">\(R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{4}{2} = 2\)</span>。(2) <span class="arithmatex">\(H\)</span> 的特征值：<span class="arithmatex">\(\lambda_{\max}=4\)</span>（对应 <span class="arithmatex">\((1,1)\)</span>），<span class="arithmatex">\(\lambda_{\min}=2\)</span>（对应 <span class="arithmatex">\((1,-1)\)</span>）。广义 Rayleigh 商定理：<span class="arithmatex">\(\lambda_{\min} \le R(\mathbf{x}) \le \lambda_{\max}\)</span>，等号在特征向量方向取得。这里 <span class="arithmatex">\(R(1,1)=\lambda_{\max}\)</span>，<span class="arithmatex">\(R(1,-1)=\lambda_{\min}\)</span>——恰好命中。(3) 负梯度方向的 Rayleigh 商 <span class="arithmatex">\(= R(-\nabla L) = \frac{(\nabla L)^{\mathsf T} H (\nabla L)}{(\nabla L)^{\mathsf T} (\nabla L)}\)</span>。若 <span class="arithmatex">\(H\)</span> 的最大特征值 <span class="arithmatex">\(\lambda_{\max}\)</span> 远大于最小特征值 <span class="arithmatex">\(\lambda_{\min}\)</span>（即条件数大），沿负梯度方向的有效曲率可能非常小（若 <span class="arithmatex">\(\nabla L\)</span> 恰好落在 <span class="arithmatex">\(\lambda_{\min}\)</span> 的特征向量方向），导致每步下降极其微小；也可能非常大（若落在 <span class="arithmatex">\(\lambda_{\max}\)</span> 方向），导致震荡。<strong>Rayleigh 商精确度量了「在当前梯度方向上，Hessian 的有效曲率是多少」——这正是 SGD 收敛速度被 Hessian 谱分布决定的原因。</strong></p>
 </blockquote>
 <hr/>
 <p><a href="../determinant-eigen-svd/">← 返回教程</a>　　　<a href="../basis-and-neural-networks-exercises/">下一章习题 →</a></p>

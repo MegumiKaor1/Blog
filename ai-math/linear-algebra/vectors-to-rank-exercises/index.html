@@ -1344,6 +1344,29 @@
 <p><strong>答案提示：</strong> <span class="arithmatex">\(\|\mathbf{x}\|_1=7\)</span>，<span class="arithmatex">\(\|\mathbf{x}\|_2=5\)</span>，<span class="arithmatex">\(\|\mathbf{x}\|_\infty=4\)</span>。<span class="arithmatex">\(L_1\)</span> 最大，因为它对每个分量的绝对值<strong>求和</strong>——零分量不稀释总惩罚；而 <span class="arithmatex">\(L_2\)</span> 的平方会缩小各分量的贡献（<span class="arithmatex">\(9+16=25\)</span>，<span class="arithmatex">\(\sqrt{25}=5\)</span>），<span class="arithmatex">\(L_\infty\)</span> 只取最大值 <span class="arithmatex">\(4\)</span>。这在 LASSO（<span class="arithmatex">\(L_1\)</span> 正则）中体现为更强的稀疏诱导。</p>
 </blockquote>
 <hr/>
+<p><strong>A5.</strong> 设 <span class="arithmatex">\(\mathbf{v}_1=(1,2,1)^{\mathsf T}\)</span>，<span class="arithmatex">\(\mathbf{v}_2=(2,4,2)^{\mathsf T}\)</span>，<span class="arithmatex">\(\mathbf{v}_3=(0,1,0)^{\mathsf T}\)</span>。</p>
+<p>(1) <span class="arithmatex">\(\mathbf{v}_1\)</span> 和 <span class="arithmatex">\(\mathbf{v}_2\)</span> 的所有线性组合构成什么几何对象？（直线 / 平面 / 整个 <span class="arithmatex">\(\mathbb{R}^3\)</span>？）
+(2) <span class="arithmatex">\(\mathbf{v}_1\)</span> 和 <span class="arithmatex">\(\mathbf{v}_3\)</span> 的所有线性组合构成什么几何对象？
+(3) 三个向量一起，能张成整个 <span class="arithmatex">\(\mathbb{R}^3\)</span> 吗？为什么？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\mathbf{v}_2 = 2\mathbf{v}_1\)</span>，两者共线 → 所有线性组合 <span class="arithmatex">\(=c_1\mathbf{v}_1 + c_2(2\mathbf{v}_1) = (c_1+2c_2)\mathbf{v}_1\)</span>，是过原点沿 <span class="arithmatex">\(\mathbf{v}_1\)</span> 方向的一条<strong>直线</strong>。(2) <span class="arithmatex">\(\mathbf{v}_1\)</span> 和 <span class="arithmatex">\(\mathbf{v}_3\)</span> 不共线 → 张成一个过原点的<strong>平面</strong>。(3) 不能。因为 <span class="arithmatex">\(\mathbf{v}_2\)</span> 没有贡献新方向，三个向量实际只张成一个二维平面（秩 = 2），不到 <span class="arithmatex">\(\mathbb{R}^3\)</span>。要张成整个空间，需要 <span class="arithmatex">\(3\)</span> 个线性无关的向量。</p>
+</blockquote>
+<hr/>
+<p><strong>A6.</strong> 判断以下向量组是否线性无关。若相关，找出一个非平凡的线性组合等于零向量。</p>
+<p>(1) <span class="arithmatex">\(\{(1,2,3)^{\mathsf T},\; (4,5,6)^{\mathsf T},\; (7,8,9)^{\mathsf T}\}\)</span>
+(2) <span class="arithmatex">\(\{(1,1,0)^{\mathsf T},\; (0,1,1)^{\mathsf T},\; (1,0,1)^{\mathsf T}\}\)</span></p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) 将三列排成矩阵并做行化简。第三列 = <span class="arithmatex">\(2\times\)</span> 第二列 <span class="arithmatex">\(-\)</span> 第一列（即 <span class="arithmatex">\(2(4,5,6)-(1,2,3) = (7,8,9)\)</span>）→ <strong>线性相关</strong>。一个组合：<span class="arithmatex">\(\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}\)</span>。或者注意到三列之和 <span class="arithmatex">\((12,15,18) = 3\mathbf{v}_1 + 3\mathbf{v}_2 + 3\mathbf{v}_3\)</span> 等等。(2) 矩阵 <span class="arithmatex">\(\begin{bmatrix}1&amp;0&amp;1\\1&amp;1&amp;0\\0&amp;1&amp;1\end{bmatrix}\)</span> 的行列式 <span class="arithmatex">\(= 1(1-0) - 0 + 1(1-0) = 2 \neq 0\)</span> → <strong>线性无关</strong>。三个向量构成 <span class="arithmatex">\(\mathbb{R}^3\)</span> 的一组基。</p>
+</blockquote>
+<hr/>
+<p><strong>A7.</strong> 设矩阵 <span class="arithmatex">\(A = \begin{bmatrix}1&amp;2&amp;0&amp;1\\0&amp;0&amp;1&amp;2\\2&amp;4&amp;1&amp;4\end{bmatrix}\)</span>。</p>
+<p>(1) 求 <span class="arithmatex">\(A\)</span> 的秩。
+(2) 求 <span class="arithmatex">\(A\)</span> 的列空间的一组基。
+(3) 列空间的维数是多少？它和 <span class="arithmatex">\(\mathbb{R}^3\)</span> 的关系是什么？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) 行化简：<span class="arithmatex">\(R_3-2R_1 \to (0,0,1,2)\)</span>，再 <span class="arithmatex">\(R_3-R_2 \to (0,0,0,0)\)</span>。非零行 <span class="arithmatex">\(=2\)</span>，秩 <span class="arithmatex">\(=2\)</span>。(2) 主元列是第 1 列和第 3 列 → 列空间基：<span class="arithmatex">\(\{(1,0,2)^{\mathsf T},\; (0,1,1)^{\mathsf T}\}\)</span>。(3) 列空间维数 <span class="arithmatex">\(=2\)</span>，它是 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的一个二维平面（不是整个 <span class="arithmatex">\(\mathbb{R}^3\)</span>）。任何 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中不在该平面上的向量都无法被 <span class="arithmatex">\(A\)</span> 的列线性表出——这些就是 <span class="arithmatex">\(A\mathbf{x}=\mathbf{b}\)</span> 无解的那些 <span class="arithmatex">\(\mathbf{b}\)</span>。</p>
+</blockquote>
+<hr/>
 <h3 id="b">B 档<a class="headerlink" href="#b" title="锚点链接">¶</a></h3>
 <p><strong>B1.</strong> 一个 <span class="arithmatex">\(1000 \times 768\)</span> 的数据矩阵 <span class="arithmatex">\(X\)</span>，其前 <span class="arithmatex">\(20\)</span> 个奇异值的平方和占总 Frobenius 范数平方的 <span class="arithmatex">\(95\%\)</span>，后 <span class="arithmatex">\(748\)</span> 个奇异值几乎为零。请解释：</p>
 <p>(1) 数据的「真实维度」大约是多少？</p>
@@ -1366,6 +1389,15 @@
 <li><span class="arithmatex">\((5,1,0)\)</span>：<span class="arithmatex">\(\|A\|_F^2 = 25+1+0 = 26\)</span>，<span class="arithmatex">\(\|A\|_* = 5+1+0 = 6\)</span>。</li>
 </ul>
 <p>两组奇异值的<strong>核范数相同</strong>（和都是 <span class="arithmatex">\(6\)</span>），但 Frobenius 范数对 <span class="arithmatex">\((5,1,0)\)</span>（能量集中在一个大奇异值上）惩罚更重（<span class="arithmatex">\(26\)</span> vs <span class="arithmatex">\(18\)</span>）。这意味着：<strong>核范数更偏好「能量分散在多个中等奇异值」的结构</strong>；而作为核范数最小化的「对偶」，实际优化中核范数正则倾向于将能量<strong>集中在少数奇异值</strong>上——即诱导<strong>低秩</strong>解。这正是矩阵补全（matrix completion）中用核范数替代秩函数的原因。</p>
+</blockquote>
+<hr/>
+<p><strong>B4.</strong> 考虑矩阵 <span class="arithmatex">\(A = \begin{bmatrix} 0 &amp; -1 \\ 1 &amp; 0 \end{bmatrix}\)</span> 和 <span class="arithmatex">\(B = \begin{bmatrix} 2 &amp; 0 \\ 0 &amp; 0.5 \end{bmatrix}\)</span>。</p>
+<p>(1) 用几何语言描述 <span class="arithmatex">\(A\)</span> 对平面 <span class="arithmatex">\(\mathbb{R}^2\)</span> 做了什么变换（画草图辅助）。
+(2) <span class="arithmatex">\(B\)</span> 对平面做了什么？
+(3) 你发现 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 对面积的影响有何不同？用行列式解释。
+(4) （ML 扩展）在深度学习中，为什么我们不希望权重矩阵长成 <span class="arithmatex">\(B\)</span> 那样（特征值悬殊）？这和梯度消失/爆炸有什么关系？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(A\)</span> 是<strong>逆时针旋转 <span class="arithmatex">\(90^\circ\)</span></strong>：<span class="arithmatex">\((x,y) \mapsto (-y,x)\)</span>。它<strong>不改变任何向量的长度，也不改变面积</strong>。<span class="arithmatex">\(\det(A)=1\)</span> 验证了这一点。(2) <span class="arithmatex">\(B\)</span> 把 <span class="arithmatex">\(x\)</span> 轴方向拉伸 <span class="arithmatex">\(2\)</span> 倍，<span class="arithmatex">\(y\)</span> 轴方向压缩到 <span class="arithmatex">\(0.5\)</span> 倍。面积变为原来的 <span class="arithmatex">\(2 \times 0.5 = 1\)</span> 倍 → <span class="arithmatex">\(\det(B)=1\)</span>。(3) 有趣的是，虽然 <span class="arithmatex">\(A\)</span> 和 <span class="arithmatex">\(B\)</span> 看起来完全不同，它们的行列式都是 <span class="arithmatex">\(1\)</span>——都保面积。但 <span class="arithmatex">\(A\)</span> 是保长度（正交矩阵）、<span class="arithmatex">\(B\)</span> 在单个方向上极端缩放。(4) <span class="arithmatex">\(B\)</span> 的特征值是 <span class="arithmatex">\(2\)</span> 和 <span class="arithmatex">\(0.5\)</span>，条件数 <span class="arithmatex">\(\kappa=4\)</span>。如果权重矩阵像 <span class="arithmatex">\(B\)</span> 这样特征值悬殊，前向传播中某些方向的信号被放大 <span class="arithmatex">\(2\)</span> 倍，另一些被压缩到 <span class="arithmatex">\(0.5\)</span> 倍；反向传播中梯度经历相反的缩放——连乘多层后，最大方向指数爆炸（<span class="arithmatex">\(2^L\)</span>），最小方向指数消失（<span class="arithmatex">\(0.5^L\)</span>）。Xavier/He 初始化的目标就是让各层权重矩阵的奇异值集中在 <span class="arithmatex">\(1\)</span> 附近，避免这种「信号高速公路 + 信号死胡同」的并存局面。</p>
 </blockquote>
 <hr/>
 <p><a href="../vectors-to-rank/">← 返回教程</a>　　　<a href="../elimination-and-subspaces-exercises/">下一章习题 →</a></p>

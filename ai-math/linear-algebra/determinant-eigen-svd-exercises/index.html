@@ -1348,6 +1348,16 @@
 <p>这个 <span class="arithmatex">\(J\)</span> 是对称且半正定的（秩 <span class="arithmatex">\(=K-1\)</span>，零空间由 <span class="arithmatex">\(\mathbf{1}\)</span> 张成）。它与交叉熵配合使用时会产生优雅的简化——见下一题。</p>
 </blockquote>
 <hr/>
+<p><strong>A5.</strong> 不直接计算行列式，仅用行列式的性质判断以下命题的真伪：</p>
+<p>(1) 若 <span class="arithmatex">\(A\)</span> 的某一行全是 <span class="arithmatex">\(0\)</span>，则 <span class="arithmatex">\(\det(A)=0\)</span>。
+(2) 若 <span class="arithmatex">\(A\)</span> 的两行成比例，则 <span class="arithmatex">\(\det(A)=0\)</span>。
+(3) 若 <span class="arithmatex">\(\det(A)=2\)</span>，则 <span class="arithmatex">\(\det(A^{-1}) = -2\)</span>。
+(4) 若对 <span class="arithmatex">\(A\)</span> 做初等行变换 <span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span>，行列式的值乘以 <span class="arithmatex">\(-3\)</span>。
+(5) 若 <span class="arithmatex">\(\det(A - \lambda I)=0\)</span>，则 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值——等价于 <span class="arithmatex">\(A\)</span> 将某个非零向量拉伸 <span class="arithmatex">\(\lambda\)</span> 倍。</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <strong>对</strong>。对那一行做展开（按该行展开），每项都含 <span class="arithmatex">\(0\)</span> 因子。(2) <strong>对</strong>。成比例意味着行线性相关，高斯消元会产生零行。(3) <strong>错</strong>。<span class="arithmatex">\(\det(A^{-1}) = 1/\det(A) = 1/2\)</span>，不是 <span class="arithmatex">\(-2\)</span>。行列式的倒数，不是相反数。(4) <strong>错</strong>。<span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span> 这种「把一行的倍数加到另一行」<strong>不改变行列式</strong>。只有交换两行才会变号，只有对一行乘以 <span class="arithmatex">\(c\)</span> 才会把行列式乘以 <span class="arithmatex">\(c\)</span>。(5) <strong>对</strong>。这就是特征方程的定义：<span class="arithmatex">\(\det(A - \lambda I)=0 \iff A\mathbf{x} = \lambda\mathbf{x}\)</span> 有非零解。</p>
+</blockquote>
+<hr/>
 <h3 id="b">B 档<a class="headerlink" href="#b" title="锚点链接">¶</a></h3>
 <p><strong>B1.</strong> 某深度网络的 Hessian 特征值为 <span class="arithmatex">\(\{125,\; 3.2,\; 0.01,\; -0.5,\; -18\}\)</span>。判断当前点在优化地形中的位置（极小点？鞍点？），并预测 SGD 和 Adam 各自的表现差异。</p>
 <blockquote>
@@ -1377,6 +1387,21 @@
 - Cholesky 分解失败（要求正定），多元正态采样崩溃；
 - 马氏距离 <span class="arithmatex">\(\sqrt{(\mathbf{x}-\boldsymbol{\mu})^{\mathsf T}\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu})}\)</span> 失去几何解释。</p>
 <p><strong>解决方案：</strong> shrinkage（收缩估计），<span class="arithmatex">\(\Sigma \leftarrow (1-\alpha)\Sigma + \alpha I\)</span>，用一个小 <span class="arithmatex">\(\alpha\)</span>（如 <span class="arithmatex">\(0.01\)</span>）将所有特征值抬升 <span class="arithmatex">\(\alpha\)</span>，强制最小特征值为正。</p>
+</blockquote>
+<hr/>
+<p><strong>B4.</strong> 矩阵 <span class="arithmatex">\(A = \begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}\)</span> 的 SVD 是什么？不用算——它本身就已经是一个「准 SVD」了。但有更一般的情况：设 <span class="arithmatex">\(A\)</span> 的 SVD 为 <span class="arithmatex">\(A = U\Sigma V^{\mathsf T}\)</span>，其中 <span class="arithmatex">\(\Sigma = \text{diag}(5, 2, 0)\)</span>。</p>
+<p>(1) <span class="arithmatex">\(A\)</span> 的秩是多少？
+(2) 描述 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位球做了什么几何变换（用 <span class="arithmatex">\(V^{\mathsf T}\)</span>、<span class="arithmatex">\(\Sigma\)</span>、<span class="arithmatex">\(U\)</span> 三步拆解）。
+(3) <span class="arithmatex">\(\mathbf{v}_3\)</span>（<span class="arithmatex">\(V\)</span> 的第 3 列）对应奇异值 <span class="arithmatex">\(0\)</span>。<span class="arithmatex">\(A\)</span> 把 <span class="arithmatex">\(\mathbf{v}_3\)</span> 映射到了哪里？这说明 <span class="arithmatex">\(\mathbf{v}_3\)</span> 在什么子空间里？
+(4) （ML 扩展）PCA 本质上是对协方差矩阵做 SVD。如果 PCA 后发现最小的若干个奇异值接近 <span class="arithmatex">\(0\)</span>，你对数据有什么判断？对下游模型设计有何指导？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) 秩 <span class="arithmatex">\(=\)</span> 非零奇异值的个数 <span class="arithmatex">\(=2\)</span>。</p>
+<p>(2) <strong>三步拆解：</strong> ① <span class="arithmatex">\(V^{\mathsf T}\)</span> 是正交矩阵 → 旋转/反射单位球，形状不变。② <span class="arithmatex">\(\Sigma\)</span> 把球映射成一个椭球：<span class="arithmatex">\(x\)</span> 轴方向拉伸 <span class="arithmatex">\(5\times\)</span>，<span class="arithmatex">\(y\)</span> 轴方向拉伸 <span class="arithmatex">\(2\times\)</span>，<span class="arithmatex">\(z\)</span> 轴方向压扁到 <span class="arithmatex">\(0\)</span>（坍缩！）。球变成 <span class="arithmatex">\(xy\)</span> 平面内的一个椭圆盘。③ <span class="arithmatex">\(U\)</span> 把这个椭圆盘旋转/反射到输出空间，不改变形状。</p>
+<p>(3) <span class="arithmatex">\(A\mathbf{v}_3 = U\Sigma V^{\mathsf T}\mathbf{v}_3 = U\Sigma (0,0,1)^{\mathsf T} = U(0,0,0)^{\mathsf T} = \mathbf{0}\)</span>。<span class="arithmatex">\(\mathbf{v}_3\)</span> 被 <span class="arithmatex">\(A\)</span> 映射为零向量 → <span class="arithmatex">\(\mathbf{v}_3 \in N(A)\)</span>（零空间）。<strong>SVD 的神奇之处：<span class="arithmatex">\(V\)</span> 的最后 <span class="arithmatex">\(n-r\)</span> 列就是零空间的标准正交基。</strong></p>
+<p>(4) 奇异值接近 <span class="arithmatex">\(0\)</span> → 协方差矩阵有接近 <span class="arithmatex">\(0\)</span> 的特征值 → 数据几乎分布在一个低维子空间内，沿某些方向的方差近乎 <span class="arithmatex">\(0\)</span>。这意味着：
+- 输入维度假高——可以大幅降维而不损失信息；
+- 模型容量不必正比于名义维度——<strong>LoRA</strong>（低秩适配）的核心洞察：大模型的权重更新也可以做低秩约束，因为问题本身就是低秩的；
+- 如果强行在高维空间建模，最小二乘/线性回归的系数会被噪声放大（条件数问题），需要正则化。</p>
 </blockquote>
 <hr/>
 <p><a href="../determinant-eigen-svd/">← 返回教程</a>　　　<a href="../basis-and-neural-networks-exercises/">下一章习题 →</a></p>

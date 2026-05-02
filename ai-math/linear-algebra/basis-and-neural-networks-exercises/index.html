@@ -1325,6 +1325,25 @@
 <p>这就是相似变换：<span class="arithmatex">\(B\)</span> 与 <span class="arithmatex">\(A\)</span> 表示同一个线性变换，只是从不同的「视角」（基）来看。它们有相同的特征值、迹和行列式。</p>
 </blockquote>
 <hr/>
+<p><strong>A2.</strong> 设 <span class="arithmatex">\(A\)</span> 是一个 <span class="arithmatex">\(n \times n\)</span> 矩阵，<span class="arithmatex">\(P\)</span> 是可逆矩阵，<span class="arithmatex">\(B = P^{-1}AP\)</span>。</p>
+<p>(1) 证明 <span class="arithmatex">\(\text{tr}(B) = \text{tr}(A)\)</span>。（提示：<span class="arithmatex">\(\text{tr}(XY) = \text{tr}(YX)\)</span>）
+(2) 证明 <span class="arithmatex">\(\det(B) = \det(A)\)</span>。
+(3) 若 <span class="arithmatex">\(A\mathbf{x} = \lambda\mathbf{x}\)</span>（<span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span>），证明 <span class="arithmatex">\(\lambda\)</span> 也是 <span class="arithmatex">\(B\)</span> 的特征值，并写出对应的特征向量。
+(4) 以上三个结论说明了相似变换的什么核心性质？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\text{tr}(B) = \text{tr}(P^{-1}AP) = \text{tr}(APP^{-1}) = \text{tr}(A)\)</span>。迹的循环不变性。(2) <span class="arithmatex">\(\det(B) = \det(P^{-1})\det(A)\det(P) = (1/\det(P))\cdot\det(A)\cdot\det(P) = \det(A)\)</span>。(3) <span class="arithmatex">\(B(P^{-1}\mathbf{x}) = P^{-1}APP^{-1}\mathbf{x} = P^{-1}A\mathbf{x} = P^{-1}(\lambda\mathbf{x}) = \lambda(P^{-1}\mathbf{x})\)</span>。所以 <span class="arithmatex">\(\lambda\)</span> 也是 <span class="arithmatex">\(B\)</span> 的特征值，对应特征向量 <span class="arithmatex">\(P^{-1}\mathbf{x}\)</span>。(4) <strong>相似变换不改变矩阵的谱（特征值）、迹和行列式</strong>——这些量是线性变换本身的固有属性，不依赖于「坐标系」的选择。这正是基变换的代数本质：换个基，矩阵「长相」变了，但「内在属性」不变。</p>
+</blockquote>
+<hr/>
+<p><strong>A3.</strong> 考虑一个两层的神经网络（无激活函数，纯线性，无偏置）：
+$<span class="arithmatex">\(\mathbf{y} = W_2(W_1 \mathbf{x}).\)</span>$
+其中 <span class="arithmatex">\(W_1 \in \mathbb{R}^{3 \times 4}\)</span>，<span class="arithmatex">\(W_2 \in \mathbb{R}^{2 \times 3}\)</span>，<span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^4\)</span>，<span class="arithmatex">\(\mathbf{y} \in \mathbb{R}^2\)</span>。</p>
+<p>(1) 该网络等效于一个什么样的单矩阵变换 <span class="arithmatex">\(W_{\text{eff}}\)</span>？写出 <span class="arithmatex">\(W_{\text{eff}}\)</span> 的维度。
+(2) <span class="arithmatex">\(W_{\text{eff}}\)</span> 的秩最大是多少？这说明了堆叠纯线性层的什么本质限制？
+(3) 如果我们在两层之间插入一个 ReLU 激活：<span class="arithmatex">\(\mathbf{h} = \text{ReLU}(W_1\mathbf{x})\)</span>，<span class="arithmatex">\(\mathbf{y} = W_2\mathbf{h}\)</span>，还能把整个网络写成一个 <span class="arithmatex">\(W_{\text{eff}}\)</span> 吗？为什么不能？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\mathbf{y} = W_2W_1\mathbf{x} = W_{\text{eff}}\mathbf{x}\)</span>，<span class="arithmatex">\(W_{\text{eff}} \in \mathbb{R}^{2 \times 4}\)</span>。两个线性变换的复合仍是线性变换。(2) <span class="arithmatex">\(W_{\text{eff}}\)</span> 的秩 <span class="arithmatex">\(\le \min(\text{rank}(W_1), \text{rank}(W_2)) \le \min(3, 2) = 2\)</span>。这意味着无论 <span class="arithmatex">\(W_1\)</span> 多大，最终「信息瓶颈」被 <span class="arithmatex">\(W_2\)</span> 的输出维度 <span class="arithmatex">\(2\)</span> 卡死了——堆纯线性层不增加网络的表达能力（表达能力 <span class="arithmatex">\(\le\)</span> 最窄层的秩）。(3) <strong>不能</strong>。ReLU 是分段线性的——它在输入空间的不同区域对应不同的「有效 <span class="arithmatex">\(W_{\text{eff}}\)</span>」：当 <span class="arithmatex">\(W_1\mathbf{x}\)</span> 的某些分量 <span class="arithmatex">\(\le 0\)</span> 时，对应神经元「关掉」，<span class="arithmatex">\(W_2\)</span> 中对应的列被清零。ReLU 把输入空间切成多个线性区域，每个区域里的 <span class="arithmatex">\(W_{\text{eff}}\)</span> 不同——这就是深度网络的「非线性」来源。</p>
+</blockquote>
+<hr/>
 <h3 id="b">B 档<a class="headerlink" href="#b" title="锚点链接">¶</a></h3>
 <p><strong>B1.</strong> 为什么说 Embedding 层本质上是基变换？从线性代数角度解释：预训练学到的 Embedding 矩阵的列向量有什么几何含义？</p>
 <blockquote>
@@ -1342,6 +1361,53 @@
 <li><strong>LN 放在激活后</strong>（Post-LN）：标准化的是非线性变换的结果 <span class="arithmatex">\(\sigma(\mathbf{z})\)</span>。由于激活函数（如 ReLU）已经改变了分布的形状（截断负值、压缩或拉伸），此时再标准化相当于试图恢复被激活函数扭曲的统计特性——效果更差且训练更不稳定。</li>
 </ul>
 <p>从投影几何角度看，LN 将每个样本的特征向量投影到以原点为中心、半径为 <span class="arithmatex">\(\sqrt{d}\)</span>（或经由 <span class="arithmatex">\(\gamma,\beta\)</span> 仿射调整）的超球面上。<strong>Pre-LN 在进入非线性之前统一了所有样本的「尺度」</strong>，确保下一线性层接收到的数据分布稳定——这正是 LN 比 BatchNorm 更适合序列模型的原因：它不依赖 batch 统计量，逐样本独立做投影。</p>
+</blockquote>
+<hr/>
+<p><strong>B3.</strong> 考虑一个两层的 ReLU 网络，输入 <span class="arithmatex">\(\mathbf{x} \in \mathbb{R}^2\)</span>，隐藏层有 <span class="arithmatex">\(3\)</span> 个神经元：
+$<span class="arithmatex">\(\mathbf{h} = \text{ReLU}(W_1 \mathbf{x} + \mathbf{b}_1), \quad \hat{y} = W_2 \mathbf{h} + b_2.\)</span>$
+其中 <span class="arithmatex">\(W_1 \in \mathbb{R}^{3 \times 2}\)</span>。</p>
+<p>(1) 第一个隐藏神经元在什么条件下激活（输出 <span class="arithmatex">\(&gt;0\)</span>）？用 <span class="arithmatex">\(W_1\)</span> 的行和 <span class="arithmatex">\(\mathbf{b}_1\)</span> 的分量写出条件。在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 平面上，这个条件对应什么几何对象？
+(2) 三个神经元各自定义了一条分界线。这些线把整个 <span class="arithmatex">\(\mathbb{R}^2\)</span> 平面最多分成多少个区域？在每个区域内，网络的输出 <span class="arithmatex">\(\hat{y}\)</span> 是什么形式？（提示：在某区域内哪些神经元激活是固定的）
+(3) 这如何说明「深度网络 = 分段线性函数」的直觉？更多的层和更宽的隐藏层如何增加分段数？</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) 第 <span class="arithmatex">\(i\)</span> 个神经元的激活条件：<span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i &gt; 0\)</span>，其中 <span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\)</span> 是 <span class="arithmatex">\(W_1\)</span> 的第 <span class="arithmatex">\(i\)</span> 行。在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 中，这是一条<strong>直线</strong>（超平面）的一侧——直线的方程是 <span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i = 0\)</span>。每个神经元把空间切成两半。</p>
+<p>(2) 3 条直线最多把平面分成 <span class="arithmatex">\(1 + 3 + 3 + 1 = 7\)</span> 个区域（一般地，<span class="arithmatex">\(k\)</span> 条直线最多分成 <span class="arithmatex">\(1 + k(k+1)/2\)</span> 个区域，但这里直线可能不完全相交）。在每个区域内，哪些神经元激活是固定的（某些始终激活，某些始终不激活）→ <span class="arithmatex">\(\hat{y} = W_2^{\text{(该区域的激活模式)}} \cdot \mathbf{x} + \text{const}\)</span> 是一个<strong>线性函数</strong>。从区域 A 走到区域 B 时，激活模式跳变 → <span class="arithmatex">\(\hat{y}\)</span> 的线性函数也跳变。</p>
+<p>(3) 因此一个 ReLU 网络就是<strong>输入空间的一个分段线性函数</strong>。每一层的新超平面与之前的所有超平面相交，在它们的「折痕」上产生新的折痕——这创造了指数级的分段数。深层窄网络可以用很少的神经元产生极多的线性区域（深度 = 分段的指数放大器）；而单层宽网络只是简单地把空间切成均匀的块。</p>
+</blockquote>
+<hr/>
+<p><strong>B4.</strong> 手算反向传播。考虑一个极简的两层网络（无偏置，MSE 损失）：
+$<span class="arithmatex">\(\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \mathbf{h}, \quad L = \frac{1}{2}(\hat{y} - y)^2.\)</span>$
+其中 <span class="arithmatex">\(W_1 = \begin{bmatrix} 1 &amp; 2 \end{bmatrix}\)</span>，<span class="arithmatex">\(W_2 = \begin{bmatrix} 3 \end{bmatrix}\)</span>，<span class="arithmatex">\(\mathbf{x} = (1, 1)^{\mathsf T}\)</span>，<span class="arithmatex">\(y = 5\)</span>。</p>
+<p>(1) 手算前向传播：<span class="arithmatex">\(\mathbf{h}\)</span> 和 <span class="arithmatex">\(\hat{y}\)</span> 各是多少？<span class="arithmatex">\(L\)</span> 是多少？
+(2) 手算 <span class="arithmatex">\(\frac{\partial L}{\partial \hat{y}}\)</span>，然后用链式法则反推 <span class="arithmatex">\(\frac{\partial L}{\partial W_2}\)</span> 和 <span class="arithmatex">\(\frac{\partial L}{\partial W_1}\)</span>。
+(3) 用 PyTorch 验证你的手算结果（写两行伪代码即可）。</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(\mathbf{h} = W_1\mathbf{x} = [1,2]\cdot[1,1]^{\mathsf T} = 3\)</span>。<span class="arithmatex">\(\hat{y} = W_2 \cdot 3 = 9\)</span>。<span class="arithmatex">\(L = \frac{1}{2}(9-5)^2 = 8\)</span>。</p>
+<p>(2) <span class="arithmatex">\(\frac{\partial L}{\partial \hat{y}} = \hat{y} - y = 4\)</span>。
+<span class="arithmatex">\(\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W_2} = 4 \cdot \mathbf{h} = 4 \cdot 3 = 12\)</span>。
+<span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}} = \frac{\partial L}{\partial \hat{y}} \cdot W_2^{\mathsf T} = 4 \cdot 3 = 12\)</span>。
+<span class="arithmatex">\(\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{h}} \cdot \mathbf{x}^{\mathsf T} = 12 \cdot [1, 1] = \begin{bmatrix} 12 &amp; 12 \end{bmatrix}\)</span>。</p>
+<p>直观检查：<span class="arithmatex">\(\hat{y}\)</span> 比 <span class="arithmatex">\(y\)</span> 大 <span class="arithmatex">\(4\)</span>（误差 <span class="arithmatex">\(=4\)</span>）。<span class="arithmatex">\(W_2=3\)</span> 把 <span class="arithmatex">\(\mathbf{h}\)</span> 放大了 3 倍，所以梯度反向流过 <span class="arithmatex">\(W_2\)</span> 时也被放大 3 倍：<span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}} = 12\)</span>。<span class="arithmatex">\(\frac{\partial L}{\partial W_1}\)</span> 的两个分量都是 <span class="arithmatex">\(12\)</span>，因为 <span class="arithmatex">\(\mathbf{x}=(1,1)\)</span> 的两个特征贡献相同。</p>
+<p>(3) 伪代码：
+<div class="language-python highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="n">W1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">]],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">W2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mf">3.</span><span class="p">]],</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">])</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">5.</span><span class="p">])</span>
+</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">h</span> <span class="o">=</span> <span class="n">W1</span> <span class="o">@</span> <span class="n">x</span><span class="p">;</span> <span class="n">y_hat</span> <span class="o">=</span> <span class="n">W2</span> <span class="o">@</span> <span class="n">h</span><span class="p">;</span> <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_hat</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">W1</span><span class="o">.</span><span class="n">grad</span><span class="p">,</span> <span class="n">W2</span><span class="o">.</span><span class="n">grad</span><span class="p">)</span>  <span class="c1"># tensor([[12., 12.]])  tensor([[12.]])</span>
+</span></code></pre></div></p>
+</blockquote>
+<hr/>
+<p><strong>B5.</strong> 以下场景中，PCA 本质上在做一种「基变换」。请为每个场景说明：① 原始基是什么？② PCA 找到的新基由什么向量构成？③ 这个新基的哪几个维度通常被保留？</p>
+<p>(1) 一个 <span class="arithmatex">\(N \times 768\)</span> 的词嵌入矩阵，想降到 256 维。
+(2) LoRA 对大语言模型的权重更新 <span class="arithmatex">\(W \in \mathbb{R}^{d \times d}\)</span> 做低秩分解 <span class="arithmatex">\(W \approx BA\)</span>（<span class="arithmatex">\(B \in \mathbb{R}^{d \times r}\)</span>，<span class="arithmatex">\(A \in \mathbb{R}^{r \times d}\)</span>，<span class="arithmatex">\(r \ll d\)</span>）。
+(3) 图像去噪：对一批 <span class="arithmatex">\(28 \times 28 = 784\)</span> 维的图像向量做 PCA，保留前 <span class="arithmatex">\(k\)</span> 个主成分后重建。</p>
+<blockquote>
+<p><strong>答案提示：</strong> (1) ① 原始基 = 标准基（one-hot），每个 token 是彼此正交的维数 <span class="arithmatex">\(|V|\)</span> 向量。② PCA 找到的新基 = 协方差矩阵 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的前 <span class="arithmatex">\(k\)</span> 个特征向量——即词向量分布方差最大的 <span class="arithmatex">\(k\)</span> 个「语义方向」。③ 保留前 256 个主成分（对应最大特征值的方向）。</p>
+<p>(2) ① 原始基 = 权重空间 <span class="arithmatex">\(\mathbb{R}^{d \times d}\)</span> 的标准基（每个参数一个独立维度）。② LoRA 不做显式的 PCA，但其思想与 PCA 同源：假设权重更新矩阵 <span class="arithmatex">\(W\)</span> 是<strong>低秩</strong>的——它只在少数几个「重要方向」上有显著信息，其余方向接近 <span class="arithmatex">\(0\)</span>。<span class="arithmatex">\(B\)</span> 的 <span class="arithmatex">\(r\)</span> 列就是这 <span class="arithmatex">\(r\)</span> 个方向的基向量，<span class="arithmatex">\(A\)</span> 的每行是对应的「坐标」。③ LoRA 保留前 <span class="arithmatex">\(r\)</span> 个方向（<span class="arithmatex">\(r=8\sim64\)</span>），丢弃 <span class="arithmatex">\(d-r\)</span> 个方向。这等价于假设：大模型微调时只需要在极低维子空间内更新参数——这和 PCA 截断维度的逻辑如出一辙。</p>
+<p>(3) ① 原始基 = 784 个像素上的标准基（每个像素一个维度）。② PCA 新基 = 协方差矩阵的特征向量，即「特征脸」（eigenfaces）——它们不是独立的像素，而是像素之间的「相关模式」。③ 保留前 <span class="arithmatex">\(k\)</span> 个特征脸（<span class="arithmatex">\(k \ll 784\)</span>），认为噪声集中在低方差方向（小特征值方向）。重建时只投向这 <span class="arithmatex">\(k\)</span> 个方向，天然滤掉了噪声。</p>
 </blockquote>
 <hr/>
 <p><a href="../basis-and-neural-networks/">← 返回教程</a>　　　<a href="../exercises/">← 习题总览</a></p>

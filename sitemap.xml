@@ -101,10 +101,6 @@
          <lastmod>2026-05-02</lastmod>
     </url>
     <url>
-         <loc>https://megumikaor1.github.io/Blog/ml-security/adversarial-attacks/</loc>
-         <lastmod>2026-05-02</lastmod>
-    </url>
-    <url>
          <loc>https://megumikaor1.github.io/Blog/ml-security/backdoor-attacks/</loc>
          <lastmod>2026-05-02</lastmod>
     </url>
@@ -122,6 +118,14 @@
     </url>
     <url>
          <loc>https://megumikaor1.github.io/Blog/ml-security/robust-evaluation/</loc>
+         <lastmod>2026-05-02</lastmod>
+    </url>
+    <url>
+         <loc>https://megumikaor1.github.io/Blog/ml-security/adversarial-attacks/</loc>
+         <lastmod>2026-05-02</lastmod>
+    </url>
+    <url>
+         <loc>https://megumikaor1.github.io/Blog/ml-security/adversarial-attacks/fgsm/</loc>
          <lastmod>2026-05-02</lastmod>
     </url>
     <url>

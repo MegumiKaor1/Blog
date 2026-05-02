@@ -9,10 +9,10 @@
 <meta content="Kaor1" name="author"/>
 <link href="https://megumikaor1.github.io/Blog/ml-security/adversarial-attacks/" rel="canonical"/>
 <link href="../model-editing/" rel="prev"/>
-<link href="../robust-evaluation/" rel="next"/>
+<link href="fgsm/" rel="next"/>
 <link href="../../assets/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
-<title>Adversarial Attacks - Kaor1's World</title>
+<title>总览 - Kaor1's World</title>
 <link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -50,7 +50,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Adversarial Attacks
+              总览
             
           </span>
 </div>
@@ -287,19 +287,9 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    Adversarial Attacks
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
@@ -310,37 +300,30 @@
     
   </span>
 </a>
-<nav aria-label="目录" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
+<label class="md-nav__link md-nav__link--active" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
 <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Adversarial Attacks
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_1">
+<a class="md-nav__link" href="fgsm/">
 <span class="md-ellipsis">
-      
-        核心方法
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#machine-unlearning">
-<span class="md-ellipsis">
-      
-        与 Machine Unlearning 的关系
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
-<span class="md-ellipsis">
-      
-        阅读笔记
-      
-    </span>
+    
+  
+    FGSM 实战
+  
+
+    
+  </span>
 </a>
 </li>
 </ul>
@@ -1281,16 +1264,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#machine-unlearning">
+<a class="md-nav__link" href="#_2">
 <span class="md-ellipsis">
       
-        与 Machine Unlearning 的关系
+        与其他方向的关系
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#_2">
+<a class="md-nav__link" href="#_3">
 <span class="md-ellipsis">
       
         阅读笔记
@@ -1309,40 +1292,64 @@
 <blockquote>
 <p>精心构造微小扰动，让模型输出完全错误的预测。</p>
 </blockquote>
+<p>对抗攻击是 ML 安全最核心的研究方向之一。它揭示了神经网络在高维空间中决策边界的脆弱性——人眼无法察觉的像素级扰动，可以完全改变模型的预测结果。</p>
+<hr/>
 <h2 id="_1">核心方法<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
 <table>
 <thead>
 <tr>
 <th>攻击</th>
+<th>类型</th>
 <th>特点</th>
+<th>教程</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>FGSM</strong></td>
-<td>单步梯度符号扰动，速度快</td>
+<td>单步、白盒</td>
+<td>沿梯度符号方向一步攻击，速度最快</td>
+<td><a href="fgsm/">📖 FGSM 实战</a></td>
 </tr>
 <tr>
 <td><strong>PGD</strong></td>
-<td>多步迭代，更强的攻击</td>
+<td>多步、白盒</td>
+<td>FGSM 的迭代版，更强的攻击</td>
+<td>待补充</td>
 </tr>
 <tr>
 <td><strong>C&amp;W</strong></td>
-<td>优化目标函数，最小扰动</td>
+<td>优化、白盒</td>
+<td>最小化扰动，攻击效果极强</td>
+<td>待补充</td>
 </tr>
 <tr>
 <td><strong>AutoAttack</strong></td>
-<td>集成多种攻击，标准评测</td>
+<td>集成、白盒</td>
+<td>组合多种攻击，标准评测基线</td>
+<td>待补充</td>
+</tr>
+<tr>
+<td><strong>黑盒攻击</strong></td>
+<td>查询/迁移</td>
+<td>不依赖模型内部信息</td>
+<td>待补充</td>
 </tr>
 </tbody>
 </table>
-<h2 id="machine-unlearning">与 Machine Unlearning 的关系<a class="headerlink" href="#machine-unlearning" title="锚点链接">¶</a></h2>
+<hr/>
+<h2 id="_2">与其他方向的关系<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
 <ul>
-<li>对抗训练可以增强模型鲁棒性</li>
-<li>unlearning 后模型的对抗鲁棒性如何变化？——开放问题</li>
+<li><strong>Machine Unlearning</strong>：遗忘训练后的模型，对抗鲁棒性如何变化？——开放问题</li>
+<li><strong>Backdoor Attacks</strong>：后门是「植入的漏洞」，对抗样本是「发现的漏洞」</li>
+<li><strong>Data Poisoning</strong>：投毒在训练阶段，对抗攻击在推理阶段</li>
+<li><strong>Model Editing</strong>：编辑模型参数后，是否引入新的对抗脆弱性？</li>
 </ul>
-<h2 id="_2">阅读笔记<a class="headerlink" href="#_2" title="锚点链接">¶</a></h2>
-<p>（待补充）</p>
+<hr/>
+<h2 id="_3">阅读笔记<a class="headerlink" href="#_3" title="锚点链接">¶</a></h2>
+<ul>
+<li><a href="fgsm/">FGSM 实战 — PyTorch 从零实现</a></li>
+</ul>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>

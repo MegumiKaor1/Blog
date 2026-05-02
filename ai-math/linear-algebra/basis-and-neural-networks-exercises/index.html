@@ -1224,354 +1224,354 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1>习题与思考</h1>
-<div class="language-text highlight"><pre><span></span><code> 1|# 习题与思考：基变换与神经网络
- 2|
- 3|A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
- 4|
- 5|---
- 6|
- 7|## 四、基变换与神经网络（§12–§14）
- 8|
- 9|### A 档
-10|
-11|**A1.** 设线性变换 $T$ 在标准基下的矩阵为 $A = \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}$。求 $T$ 在基 $\mathcal{B} = \{(1,1)^{\mathsf T},\; (1,-1)^{\mathsf T}\}$ 下的矩阵表示 $B$。
-12|
-13|&gt; **标准答案：**
-14|&gt; 过渡矩阵 \(P\) 的列就是新基向量（用标准基坐标写出）：
-15|&gt; \\[P = \begin{bmatrix}1 &amp; 1\\1 &amp; -1\end{bmatrix}\\]
-16|&gt; 求逆：\(\det(P) = -2\)。
-17|&gt; \\[P^{-1} = \frac{1}{-2}\begin{bmatrix}-1 &amp; -1\\-1 &amp; 1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}1 &amp; 1\\1 &amp; -1\end{bmatrix}\\]
-18|&gt; 注意这里 \(P^{-1} = \frac{1}{2} P\)！因为 \(P\) 是对合矩阵（\(P^2 = 2I\)）。
-19|&gt; 相似变换：
-20|&gt; \\[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix} \begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\\]
-21|&gt; 先算 \(AP\)：
-22|&gt; \\[AP = \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}3&amp;-1\\7&amp;-1\end{bmatrix}\\]
-23|&gt; 再算 \(P^{-1}(AP)\)：
-24|&gt; \\[B = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}3&amp;-1\\7&amp;-1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}10&amp;-2\\-4&amp;0\end{bmatrix} = \begin{bmatrix}5&amp;-1\\-2&amp;0\end{bmatrix}\\]
-25|&gt; 验证不变量：\(\text{tr}(A) = 1+4 = 5\)，\(\text{tr}(B) = 5+0 = 5\) ✓。\(\det(A) = -2\)，\(\det(B) = 5\cdot0 - (-1)(-2) = -2\) ✓。\(A\) 的特征值：\(\lambda^2 - 5\lambda - 2 = 0\)，\(\lambda = \frac{5 \pm \sqrt{33}}{2}\)。\(B\) 的特征值相同 ✓。相似矩阵有相同的迹、行列式和特征值。
-26|
-27|---
-28|
-29|**A2.** 设 $B = P^{-1}AP$（$P$ 可逆）。证明：
-30|
-31|(1) $\text{tr}(B) = \text{tr}(A)$；
-32|(2) $\det(B) = \det(A)$；
-33|(3) 若 $A\mathbf{x} = \lambda\mathbf{x}$（$\mathbf{x} \neq \mathbf{0}$），则 $\lambda$ 也是 $B$ 的特征值，并写出对应特征向量。
-34|
-35|&gt; **标准答案：**
-36|&gt;
-37|&gt; **(1)** \(\text{tr}(B) = \text{tr}(P^{-1}AP) = \text{tr}(APP^{-1})\)（迹的循环不变性：\(\text{tr}(XYZ) = \text{tr}(YZX)\)）
-38|&gt; \\[= \text{tr}(AI) = \text{tr}(A)\\]
-39|&gt;
-40|&gt; **(2)** \(\det(B) = \det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)（行列式乘法法则）
-41|&gt; \\[= \frac{1}{\det(P)} \cdot \det(A) \cdot \det(P) = \det(A)\\]
-42|&gt;
-43|&gt; **(3)** 构造 \(B\) 的特征向量：
-44|&gt; \\[B(P^{-1}\mathbf{x}) = P^{-1}AP(P^{-1}\mathbf{x}) = P^{-1}A\mathbf{x} = P^{-1}(\lambda\mathbf{x}) = \lambda(P^{-1}\mathbf{x})\\]
-45|&gt; 所以 \(\lambda\) 是 \(B\) 的特征值，\(P^{-1}\mathbf{x}\) 是对应的特征向量。**特征向量被 \(P^{-1}\)「翻译」到了新坐标系中。**
-46|&gt;
-47|&gt; **结论**：相似变换不改变矩阵的谱（特征值）、迹和行列式。这些量是线性变换本身的固有属性，不依赖于「坐标系」的选择。
-48|
-49|---
-50|
-51|**A3.** 考虑纯线性两层网络：$\mathbf{y} = W_2(W_1 \mathbf{x})$，$W_1 \in \mathbb{R}^{3 \times 4}$，$W_2 \in \mathbb{R}^{2 \times 3}$。
-52|
-53|(1) 该网络等效于什么单矩阵变换 $W_{\text{eff}}$？
-54|(2) $W_{\text{eff}}$ 的秩最大是多少？这说明堆纯线性层的本质限制是什么？
-55|(3) 插入 ReLU 后 $\mathbf{y} = W_2 \cdot \text{ReLU}(W_1\mathbf{x})$，还能写成 $W_{\text{eff}}\mathbf{x}$ 吗？为什么？
-56|
-57|&gt; **标准答案：**
-58|&gt;
-59|&gt; **(1)** \(\mathbf{y} = W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x} = W_{\text{eff}}\mathbf{x}\)，其中 \(W_{\text{eff}} \in \mathbb{R}^{2 \times 4}\)。两个线性变换的复合仍是线性变换——这就是「线性」的定义。
-60|&gt;
-61|&gt; **(2)**
-62|&gt; \\[\text{rank}(W_{\text{eff}}) = \text{rank}(W_2 W_1) \le \min(\text{rank}(W_1), \text{rank}(W_2))\\]
-63|&gt; \(\text{rank}(W_1) \le \min(3,4) = 3\)，\(\text{rank}(W_2) \le \min(2,3) = 2\)。所以 \(\text{rank}(W_{\text{eff}}) \le 2\)。
-64|&gt; 本质限制：无论 \(W_1\) 多大（3×4），输出的「信息瓶颈」被 \(W_2\) 的输出维度 \(2\) 卡死——最窄层决定了整个纯线性网络的最大表达能力。堆 100 层纯线性网络，等效于 1 层——**非线性激活函数是深度网络存在意义的唯一理由。**
-65|&gt;
-66|&gt; **(3) 不能。** ReLU 是非线性函数。具体来说，\(\text{ReLU}(z) = \max(0, z)\) 不满足齐次性：\(\text{ReLU}(c z) \neq c \cdot \text{ReLU}(z)\)（当 \(z &lt; 0\) 时左边 \(=0\)，右边可能是负数）。因此 \(\mathbf{y} = W_2 \cdot \text{ReLU}(W_1\mathbf{x})\) 不能表示为 \(\mathbf{x}\) 的线性函数。但它是**分段线性的**——输入空间被 \(W_1\) 的各行切分成多个区域，每个区域内 \(\text{ReLU}\) 的激活模式固定，\(\mathbf{y}\) 在该区域内是一个线性函数（见 B3）。
-67|
-68|---
-69|
-70|**A4.** 对于 $A = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}$ 和 $P = \begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}$，验证 $B = P^{-1}AP$ 与 $A$ 有相同的迹、行列式和特征值。
-71|
-72|&gt; **标准答案：**
-73|&gt; \(A\) 的参数：\(\text{tr}(A) = 10\)，\(\det(A) = 25-4 = 21\)。特征方程 \(\lambda^2 - 10\lambda + 21 = 0\) → \((\lambda-3)(\lambda-7) = 0\) → \(\lambda = 3, 7\)。
-74|&gt; 计算 \(B\)：
-75|&gt; \\[P^{-1} = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\\]
-76|&gt; \\[AP = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix}\\]
-77|&gt; \\[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&amp;0\\0&amp;6\end{bmatrix} = \begin{bmatrix}7&amp;0\\0&amp;3\end{bmatrix}\\]
-78|&gt; \(B\) 恰好是对角矩阵！因为 \(P\) 的列恰好是 \(A\) 的特征向量：\((1,1)^{\mathsf T}\) 对应 \(\lambda=7\)，\((1,-1)^{\mathsf T}\) 对应 \(\lambda=3\)。相似变换把 \(A\) 对角化了。
-79|&gt; 验证：\(\text{tr}(B) = 7+3 = 10\) ✓。\(\det(B) = 7\times3 = 21\) ✓。\(B\) 的特征值正是 \(7, 3\) ✓。
-80|&gt; **ML 洞察**：\(P^{-1}AP\) 和 \(A\) 表示相同的线性变换，只是换了「坐标系」。当新基恰好是特征向量时，矩阵变成对角——这就是 PCA 的本质：找到协方差矩阵的特征向量作为新基，使数据在新基下协方差为对角矩阵（各维度独立）。
-81|
-82|---
-83|
-84|**A5.** 对于两层网络（无偏置，MSE）：
-85|\[\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \mathbf{h}, \quad L = \frac{1}{2}(\hat{y} - y)^2.\]
-86|$W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
-87|
-88|(1) 手算前向传播：$\mathbf{h}, \hat{y}, L$。
-89|(2) 手算 $\frac{\partial L}{\partial W_2}$ 和 $\frac{\partial L}{\partial W_1}$（用链式法则）。
-90|
-91|&gt; **标准答案：**
-92|&gt;
-93|&gt; **(1)** 前向：
-94|&gt; \\[\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3\\]
-95|&gt; \\[\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9\\]
-96|&gt; \\[L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8\\]
-97|&gt;
-98|&gt; **(2)** 反向传播（链式法则）：
-99|&gt; ① \(\frac{\partial L}{\partial \hat{y}} = \hat{y} - y = 9 - 5 = 4\)
+<div class="language-text highlight"><pre><span></span><code> 1|     1|# 习题与思考：基变换与神经网络
+ 2|     2|
+ 3|     3|A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
+ 4|     4|
+ 5|     5|---
+ 6|     6|
+ 7|     7|## 四、基变换与神经网络（§12–§14）
+ 8|     8|
+ 9|     9|### A 档
+10|    10|
+11|    11|**A1.** 设线性变换 $T$ 在标准基下的矩阵为 $A = \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}$。求 $T$ 在基 $\mathcal{B} = \{(1,1)^{\mathsf T},\; (1,-1)^{\mathsf T}\}$ 下的矩阵表示 $B$。
+12|    12|
+13|    13|&gt; **标准答案：**
+14|    14|&gt; 过渡矩阵 \(P\) 的列就是新基向量（用标准基坐标写出）：
+15|    15|&gt; \[P = \begin{bmatrix}1 &amp; 1\\1 &amp; -1\end{bmatrix}\]
+16|    16|&gt; 求逆：\(\det(P) = -2\)。
+17|    17|&gt; \[P^{-1} = \frac{1}{-2}\begin{bmatrix}-1 &amp; -1\\-1 &amp; 1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}1 &amp; 1\\1 &amp; -1\end{bmatrix}\]
+18|    18|&gt; 注意这里 \(P^{-1} = \frac{1}{2} P\)！因为 \(P\) 是对合矩阵（\(P^2 = 2I\)）。
+19|    19|&gt; 相似变换：
+20|    20|&gt; \[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix} \begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\]
+21|    21|&gt; 先算 \(AP\)：
+22|    22|&gt; \[AP = \begin{bmatrix}1&amp;2\\3&amp;4\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}3&amp;-1\\7&amp;-1\end{bmatrix}\]
+23|    23|&gt; 再算 \(P^{-1}(AP)\)：
+24|    24|&gt; \[B = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}3&amp;-1\\7&amp;-1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}10&amp;-2\\-4&amp;0\end{bmatrix} = \begin{bmatrix}5&amp;-1\\-2&amp;0\end{bmatrix}\]
+25|    25|&gt; 验证不变量：\(\text{tr}(A) = 1+4 = 5\)，\(\text{tr}(B) = 5+0 = 5\) ✓。\(\det(A) = -2\)，\(\det(B) = 5\cdot0 - (-1)(-2) = -2\) ✓。\(A\) 的特征值：\(\lambda^2 - 5\lambda - 2 = 0\)，\(\lambda = \frac{5 \pm \sqrt{33}}{2}\)。\(B\) 的特征值相同 ✓。相似矩阵有相同的迹、行列式和特征值。
+26|    26|
+27|    27|---
+28|    28|
+29|    29|**A2.** 设 $B = P^{-1}AP$（$P$ 可逆）。证明：
+30|    30|
+31|    31|(1) $\text{tr}(B) = \text{tr}(A)$；
+32|    32|(2) $\det(B) = \det(A)$；
+33|    33|(3) 若 $A\mathbf{x} = \lambda\mathbf{x}$（$\mathbf{x} \neq \mathbf{0}$），则 $\lambda$ 也是 $B$ 的特征值，并写出对应特征向量。
+34|    34|
+35|    35|&gt; **标准答案：**
+36|    36|&gt;
+37|    37|&gt; **(1)** \(\text{tr}(B) = \text{tr}(P^{-1}AP) = \text{tr}(APP^{-1})\)（迹的循环不变性：\(\text{tr}(XYZ) = \text{tr}(YZX)\)）
+38|    38|&gt; \[= \text{tr}(AI) = \text{tr}(A)\]
+39|    39|&gt;
+40|    40|&gt; **(2)** \(\det(B) = \det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)（行列式乘法法则）
+41|    41|&gt; \[= \frac{1}{\det(P)} \cdot \det(A) \cdot \det(P) = \det(A)\]
+42|    42|&gt;
+43|    43|&gt; **(3)** 构造 \(B\) 的特征向量：
+44|    44|&gt; \[B(P^{-1}\mathbf{x}) = P^{-1}AP(P^{-1}\mathbf{x}) = P^{-1}A\mathbf{x} = P^{-1}(\lambda\mathbf{x}) = \lambda(P^{-1}\mathbf{x})\]
+45|    45|&gt; 所以 \(\lambda\) 是 \(B\) 的特征值，\(P^{-1}\mathbf{x}\) 是对应的特征向量。**特征向量被 \(P^{-1}\)「翻译」到了新坐标系中。**
+46|    46|&gt;
+47|    47|&gt; **结论**：相似变换不改变矩阵的谱（特征值）、迹和行列式。这些量是线性变换本身的固有属性，不依赖于「坐标系」的选择。
+48|    48|
+49|    49|---
+50|    50|
+51|    51|**A3.** 考虑纯线性两层网络：$\mathbf{y} = W_2(W_1 \mathbf{x})$，$W_1 \in \mathbb{R}^{3 \times 4}$，$W_2 \in \mathbb{R}^{2 \times 3}$。
+52|    52|
+53|    53|(1) 该网络等效于什么单矩阵变换 $W_{\text{eff}}$？
+54|    54|(2) $W_{\text{eff}}$ 的秩最大是多少？这说明堆纯线性层的本质限制是什么？
+55|    55|(3) 插入 ReLU 后 $\mathbf{y} = W_2 \cdot \text{ReLU}(W_1\mathbf{x})$，还能写成 $W_{\text{eff}}\mathbf{x}$ 吗？为什么？
+56|    56|
+57|    57|&gt; **标准答案：**
+58|    58|&gt;
+59|    59|&gt; **(1)** \(\mathbf{y} = W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x} = W_{\text{eff}}\mathbf{x}\)，其中 \(W_{\text{eff}} \in \mathbb{R}^{2 \times 4}\)。两个线性变换的复合仍是线性变换——这就是「线性」的定义。
+60|    60|&gt;
+61|    61|&gt; **(2)**
+62|    62|&gt; \[\text{rank}(W_{\text{eff}}) = \text{rank}(W_2 W_1) \le \min(\text{rank}(W_1), \text{rank}(W_2))\]
+63|    63|&gt; \(\text{rank}(W_1) \le \min(3,4) = 3\)，\(\text{rank}(W_2) \le \min(2,3) = 2\)。所以 \(\text{rank}(W_{\text{eff}}) \le 2\)。
+64|    64|&gt; 本质限制：无论 \(W_1\) 多大（3×4），输出的「信息瓶颈」被 \(W_2\) 的输出维度 \(2\) 卡死——最窄层决定了整个纯线性网络的最大表达能力。堆 100 层纯线性网络，等效于 1 层——**非线性激活函数是深度网络存在意义的唯一理由。**
+65|    65|&gt;
+66|    66|&gt; **(3) 不能。** ReLU 是非线性函数。具体来说，\(\text{ReLU}(z) = \max(0, z)\) 不满足齐次性：\(\text{ReLU}(c z) \neq c \cdot \text{ReLU}(z)\)（当 \(z &lt; 0\) 时左边 \(=0\)，右边可能是负数）。因此 \(\mathbf{y} = W_2 \cdot \text{ReLU}(W_1\mathbf{x})\) 不能表示为 \(\mathbf{x}\) 的线性函数。但它是**分段线性的**——输入空间被 \(W_1\) 的各行切分成多个区域，每个区域内 \(\text{ReLU}\) 的激活模式固定，\(\mathbf{y}\) 在该区域内是一个线性函数（见 B3）。
+67|    67|
+68|    68|---
+69|    69|
+70|    70|**A4.** 对于 $A = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}$ 和 $P = \begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}$，验证 $B = P^{-1}AP$ 与 $A$ 有相同的迹、行列式和特征值。
+71|    71|
+72|    72|&gt; **标准答案：**
+73|    73|&gt; \(A\) 的参数：\(\text{tr}(A) = 10\)，\(\det(A) = 25-4 = 21\)。特征方程 \(\lambda^2 - 10\lambda + 21 = 0\) → \((\lambda-3)(\lambda-7) = 0\) → \(\lambda = 3, 7\)。
+74|    74|&gt; 计算 \(B\)：
+75|    75|&gt; \[P^{-1} = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\]
+76|    76|&gt; \[AP = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix}\]
+77|    77|&gt; \[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&amp;0\\0&amp;6\end{bmatrix} = \begin{bmatrix}7&amp;0\\0&amp;3\end{bmatrix}\]
+78|    78|&gt; \(B\) 恰好是对角矩阵！因为 \(P\) 的列恰好是 \(A\) 的特征向量：\((1,1)^{\mathsf T}\) 对应 \(\lambda=7\)，\((1,-1)^{\mathsf T}\) 对应 \(\lambda=3\)。相似变换把 \(A\) 对角化了。
+79|    79|&gt; 验证：\(\text{tr}(B) = 7+3 = 10\) ✓。\(\det(B) = 7\times3 = 21\) ✓。\(B\) 的特征值正是 \(7, 3\) ✓。
+80|    80|&gt; **ML 洞察**：\(P^{-1}AP\) 和 \(A\) 表示相同的线性变换，只是换了「坐标系」。当新基恰好是特征向量时，矩阵变成对角——这就是 PCA 的本质：找到协方差矩阵的特征向量作为新基，使数据在新基下协方差为对角矩阵（各维度独立）。
+81|    81|
+82|    82|---
+83|    83|
+84|    84|**A5.** 对于两层网络（无偏置，MSE）：
+85|    85|\[\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \mathbf{h}, \quad L = \frac{1}{2}(\hat{y} - y)^2.\]
+86|    86|$W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
+87|    87|
+88|    88|(1) 手算前向传播：$\mathbf{h}, \hat{y}, L$。
+89|    89|(2) 手算 $\frac{\partial L}{\partial W_2}$ 和 $\frac{\partial L}{\partial W_1}$（用链式法则）。
+90|    90|
+91|    91|&gt; **标准答案：**
+92|    92|&gt;
+93|    93|&gt; **(1)** 前向：
+94|    94|&gt; \[\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3\]
+95|    95|&gt; \[\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9\]
+96|    96|&gt; \[L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8\]
+97|    97|&gt;
+98|    98|&gt; **(2)** 反向传播（链式法则）：
+99|    99|&gt; ① \(\frac{\partial L}{\partial \hat{y}} = \hat{y} - y = 9 - 5 = 4\)
 </code></pre></div>
-<p>100|&gt; ② <span class="arithmatex">\(\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W_2}\)</span>。<span class="arithmatex">\(\frac{\partial \hat{y}}{\partial W_2} = \mathbf{h} = 3\)</span>。所以：
-   101|&gt; \[\frac{\partial L}{\partial W_2} = 4 \cdot 3 = 12\]
-   102|&gt; ③ <span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial \mathbf{h}}\)</span>。<span class="arithmatex">\(\frac{\partial \hat{y}}{\partial \mathbf{h}} = W_2^{\mathsf T} = 3\)</span>。所以：
-   103|&gt; \[\frac{\partial L}{\partial \mathbf{h}} = 4 \cdot 3 = 12\]
-   104|&gt; ④ <span class="arithmatex">\(\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{h}} \cdot \frac{\partial \mathbf{h}}{\partial W_1}\)</span>。<span class="arithmatex">\(\frac{\partial \mathbf{h}}{\partial W_1} = \mathbf{x}^{\mathsf T}\)</span>（列向量变成行向量外积）。所以：
-   105|&gt; \[\frac{\partial L}{\partial W_1} = 12 \cdot [1, 1] = [12, 12]\]
-   106|&gt; <strong>直观检查</strong>：<span class="arithmatex">\(\hat{y}=9\)</span> 比 <span class="arithmatex">\(y=5\)</span> 大 <span class="arithmatex">\(4\)</span>（误差 <span class="arithmatex">\(=4\)</span>）。<span class="arithmatex">\(W_2=3\)</span> 把 <span class="arithmatex">\(\mathbf{h}\)</span> 放大了 3 倍 → 梯度反向流过时也被放大 3 倍 → <span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}}=12\)</span>。<span class="arithmatex">\(\frac{\partial L}{\partial W_1}\)</span> 的两个分量都是 <span class="arithmatex">\(12\)</span>，因为 <span class="arithmatex">\(\mathbf{x} = (1,1)\)</span> 的两个输入贡献相同。
-   107|&gt; Python 验证：
-   108|&gt; <code>python
-   109|&gt; import torch
-   110|&gt; W1 = torch.tensor([[1., 2.]], requires_grad=True)
-   111|&gt; W2 = torch.tensor([[3.]], requires_grad=True)
-   112|&gt; x = torch.tensor([1., 1.]).unsqueeze(1)
-   113|&gt; loss = 0.5 * (W2 @ (W1 @ x) - 5.).pow(2).sum()
-   114|&gt; loss.backward()
-   115|&gt; print(W1.grad, W2.grad)  # tensor([[12., 12.]])  tensor([[12.]])
-   116|&gt;</code>
-   117|
-   118|---
-   119|
-   120|### B 档
-   121|
-   122|<strong>B1.</strong> 为什么说 Embedding 层本质上是基变换？预训练学到的 Embedding 矩阵的列向量的几何含义是什么？
-   123|
-   124|&gt; <strong>标准答案：</strong>
-   125|&gt; Embedding 矩阵 <span class="arithmatex">\(W \in \mathbb{R}^{d \times |V|}\)</span> 将一个 one-hot 向量 <span class="arithmatex">\(\mathbf{e}_i\)</span>（标准基向量）映射为稠密向量 <span class="arithmatex">\(\mathbf{w}_i = W\mathbf{e}_i\)</span>（<span class="arithmatex">\(W\)</span> 的第 <span class="arithmatex">\(i\)</span> 列）。
-   126|&gt; <strong>基变换视角</strong>：
-   127|&gt; - 标准基（one-hot）中，每个 token 是彼此正交、距离相等的——完全没有语义信息
-   128|&gt; - <span class="arithmatex">\(W\)</span> 的 <span class="arithmatex">\(|V|\)</span> 个列向量定义了一个从 <span class="arithmatex">\(\mathbb{R}^{|V|}\)</span>（one-hot 空间）到 <span class="arithmatex">\(\mathbb{R}^d\)</span>（语义空间）的线性映射
-   129|&gt; - 学到的 <span class="arithmatex">\(W\)</span> 的列是「语义基向量」——在这个基下：
-   130|&gt;   - 语义相近的词向量夹角小（内积大）
-   131|&gt;   - 语义关系的「方向差」是线性的：<span class="arithmatex">\(\mathbf{w}_{\text{国王}} - \mathbf{w}_{\text{男人}} + \mathbf{w}_{\text{女人}} \approx \mathbf{w}_{\text{王后}}\)</span>
-   132|&gt;
-   133|&gt; <strong>几何含义</strong>：每个列向量是该 token 在 <span class="arithmatex">\(d\)</span> 维语义空间中的「坐标」。好的 Embedding 找到了一组基，使得<strong>语义方向在该基下线性可分</strong>。这就是分布式表示（distributed representation）的线性代数本质。
-   134|&gt; 从压缩角度看：<span class="arithmatex">\(W\)</span> 是一个 <span class="arithmatex">\(d \times |V|\)</span> 矩阵（<span class="arithmatex">\(d \ll |V|\)</span>）。它的列秩 <span class="arithmatex">\(\le d \ll |V|\)</span> → 语义信息是低秩的。这也是为什么 Embedding 可以压缩（如从 <span class="arithmatex">\(|V| \times 768\)</span> 降到 <span class="arithmatex">\(|V| \times 256\)</span>）——真正独立的「语义方向」远少于词汇量。
-   135|
-   136|---
-   137|
-   138|<strong>B2.</strong> 为什么 Layer Normalization 放在激活函数<strong>前面</strong>（Pre-LN）比<strong>后面</strong>（Post-LN）效果更好？从投影几何角度解释。
-   139|
-   140|&gt; <strong>标准答案：</strong>
-   141|&gt; 设一层计算为 <span class="arithmatex">\(\mathbf{h} = \sigma(W\mathbf{x} + \mathbf{b})\)</span>。
-   142|&gt; <strong>Pre-LN</strong>（激活前 LN，标准 Transformer 做法）：
-   143|&gt; \[\mathbf{z} = W\mathbf{x} + \mathbf{b}, \quad \tilde{\mathbf{z}} = \frac{\mathbf{z} - \mu}{\sigma} \odot \gamma + \beta, \quad \mathbf{h} = \sigma(\tilde{\mathbf{z}})\]
-   144|&gt; LN 在仿射空间中规范化：消除不同样本间均值和方差的偏移（internal covariate shift），让激活函数接收到「规矩」的输入——分布稳定、尺度统一。
-   145|&gt; <strong>Post-LN</strong>（激活后 LN）：
-   146|&gt; \[\mathbf{h}<em _text_raw="\text{raw">{\text{raw}} = \sigma(W\mathbf{x} + \mathbf{b}), \quad \mathbf{h} = \text{LN}(\mathbf{h}</em>)\]
-   147|&gt; 问题：激活函数（如 ReLU）已经改变了分布的形状（截断负值，正半轴保持）。此时再 LN 试图恢复被激活函数扭曲的统计特性 → 更差的训练稳定性和收敛速度。
-   148|&gt; }<strong>投影几何视角</strong>：LN 将每个样本的特征向量投影到半径为 <span class="arithmatex">\(\sqrt{d}\)</span> 的球面上。<strong>Pre-LN 在进入非线性之前统一了所有样本的「尺度」</strong>，确保无论 <span class="arithmatex">\(W\mathbf{x}\)</span> 多大（或经过多少层累积），下一层的输入始终在球面上。这使各层的有效「操作范围」一致——前向信号和反向梯度都不爆炸或消失。
-   149|&gt; LN 比 BatchNorm 更适合序列模型：BN 沿 batch 维度归一化（假设样本 i.i.d.），LN 沿 feature 维度归一化（逐样本独立）。序列 token 之间不满足 i.i.d. → LN 天然适用。
-   150|
-   151|---
-   152|
-   153|<strong>B3.</strong> 一个两层 ReLU 网络：<span class="arithmatex">\(\mathbf{h} = \text{ReLU}(W_1 \mathbf{x} + \mathbf{b}_1)\)</span>，<span class="arithmatex">\(\hat{y} = W_2 \mathbf{h} + b_2\)</span>。<span class="arithmatex">\(W_1 \in \mathbb{R}^{3 \times 2}\)</span>。
-   154|
-   155|(1) 第一个隐藏神经元在什么条件下激活？在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 中对应什么几何对象？
-   156|(2) 三个神经元定义的线把平面最多分成几个区域？每区域内 <span class="arithmatex">\(\hat{y}\)</span> 的形式是什么？
-   157|(3) 这如何说明「深度网络 = 分段线性函数」？更深 vs 更宽的区别是什么？
-   158|
-   159|&gt; <strong>标准答案：</strong>
-   160|&gt;
-   161|&gt; <strong>(1)</strong> 第 <span class="arithmatex">\(i\)</span> 个神经元的激活条件：
-   162|&gt; \[\mathbf{w}<em l_1="l+1">i^{\mathsf T}\mathbf{x} + b_i &gt; 0\]
-   163|&gt; 其中 <span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\)</span> 是 <span class="arithmatex">\(W_1\)</span> 的第 <span class="arithmatex">\(i\)</span> 行。在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 中，<span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i = 0\)</span> 是一条<strong>直线</strong>，激活条件是直线的一侧。神经元 <span class="arithmatex">\(i\)</span> 把平面切成两个半平面。
-   164|&gt;
-   165|&gt; <strong>(2)</strong> 3 条直线最多把平面分成 <span class="arithmatex">\(1 + 3 + 3 = 7\)</span> 个区域（一般 <span class="arithmatex">\(k\)</span> 条直线最多 <span class="arithmatex">\(1 + k(k+1)/2\)</span> 个区域，这里 <span class="arithmatex">\(1+3+3=7\)</span> 是因为最多交点数为 3 个时成立）。
-   166|&gt; 在每个区域内，哪些神经元激活（输出 <span class="arithmatex">\(&gt;0\)</span>）是<strong>固定的</strong>。设激活模式为 <span class="arithmatex">\(\mathbf{m} \in \{0,1\}^3\)</span>，则：
-   167|&gt; \[\hat{y} = W_2 \cdot \text{diag}(\mathbf{m}) \cdot (W_1\mathbf{x} + \mathbf{b}_1) + b_2 = \tilde{W}\mathbf{x} + \tilde{b}\]
-   168|&gt; 即每个区域内 <span class="arithmatex">\(\hat{y}\)</span> 是一个不同的<strong>线性函数</strong>。穿过边界（神经元开关翻转）时，线性函数跳变。
-   169|&gt;
-   170|&gt; <strong>(3)</strong> ReLU 网络的本质：<strong>输入空间上的分段线性函数</strong>。
-   171|&gt; - <strong>更深</strong>：每增加一层，新的超平面与已存在折痕相交，在折痕上产生新折痕 → 分段数随深度<strong>指数增长</strong>。深层窄网络可以用很少神经元产生极多分段 → 高效表达复杂函数。
-   172|&gt; - <strong>更宽</strong>：单层只是增加超平面数量 → 分段数随宽度<strong>多项式增长</strong>。宽而浅不如深而窄高效。
-   173|&gt; 这就是万能逼近定理的构造性直觉：足够多的线性区域 → 可以以任意精度逼近任何连续函数。
-   174|
-   175|---
-   176|
-   177|<strong>B4.</strong> 以下场景中 PCA 在做一种「基变换」。为每个场景说明原始基、新基、保留哪些维度：
-   178|
-   179|(1) 词嵌入矩阵 <span class="arithmatex">\(N \times 768\)</span> 降到 256 维。
-   180|(2) LoRA 对大模型权重做 <span class="arithmatex">\(W \approx BA\)</span>（<span class="arithmatex">\(B \in \mathbb{R}^{d \times r}\)</span>，<span class="arithmatex">\(A \in \mathbb{R}^{r \times d}\)</span>）。
-   181|(3) 图像去噪：784 维图像 PCA 保留 <span class="arithmatex">\(k\)</span> 个主成分后重建。
-   182|
-   183|&gt; <strong>标准答案：</strong>
-   184|&gt;
-   185|&gt; <strong>(1)</strong>
-   186|&gt; - 原始基：标准基（one-hot），每个 token 是正交的 <span class="arithmatex">\(|V|\)</span> 维向量
-   187|&gt; - 新基：协方差矩阵 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的前 <span class="arithmatex">\(k\)</span> 个特征向量——词向量分布方差最大的 <span class="arithmatex">\(k\)</span> 个「语义方向」
-   188|&gt; - 保留前 256 个主成分（最大特征值），丢弃其余 → 保留 <span class="arithmatex">\(&gt;95\%\)</span> 方差
-   189|&gt;
-   190|&gt; <strong>(2)</strong>
-   191|&gt; - 原始基：权重空间 <span class="arithmatex">\(\mathbb{R}^{d \times d}\)</span> 的标准基（每个参数一个独立维度）
-   192|&gt; - 新基：<span class="arithmatex">\(B\)</span> 的 <span class="arithmatex">\(r\)</span> 列是 <span class="arithmatex">\(r\)</span> 个重要方向的基向量，<span class="arithmatex">\(A\)</span> 的行是 <span class="arithmatex">\(r\)</span> 个方向的「坐标」
-   193|&gt; - LoRA 不做显式 PCA，但思想同源：假设 <span class="arithmatex">\(\Delta W\)</span> 低秩 → 只在 <span class="arithmatex">\(r\)</span> 个最重要方向上更新（<span class="arithmatex">\(r=8\sim64 \ll d\)</span>），丢弃 <span class="arithmatex">\(d-r\)</span> 个方向
-   194|&gt;
-   195|&gt; <strong>(3)</strong>
-   196|&gt; - 原始基：784 个像素的标准基（每个像素一个维度）
-   197|&gt; - 新基：协方差矩阵的特征向量 = 特征脸（eigenfaces）——像素之间的相关模式。前几个特征脸是低频大结构，后面的越来越精细（皱纹、纹理）
-   198|&gt; - 保留前 <span class="arithmatex">\(k\)</span> 个特征脸（<span class="arithmatex">\(k \ll 784\)</span>），后 <span class="arithmatex">\(784-k\)</span> 个丢弃。<strong>噪声集中在高方差方向？不——噪声集中在低方差方向（小特征值方向）。</strong> 保留大方差方向 = 保留结构 + 丢弃噪声（因为噪声在各方向大致等量，结构的信噪比在大方差方向最高）
-   199|
-   200|---
-   201|
-   202|<strong>B5.</strong> Adam 优化器可理解为对角预处理。从线性代数角度解释：
-   203|
-   204|(1) 为什么 SGD 对所有参数用同一个学习率会在 ill-conditioned 问题上失败？
-   205|(2) Adam 的 <span class="arithmatex">\(v_t\)</span> 在做什么？和牛顿法的 <span class="arithmatex">\(H^{-1}g\)</span> 相比做了什么近似？
-   206|
-   207|&gt; <strong>标准答案：</strong>
-   208|&gt;
-   209|&gt; <strong>(1)</strong> SGD：<span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta g_t\)</span>。学习率 <span class="arithmatex">\(\eta\)</span> 受最大 Hessian 特征值 <span class="arithmatex">\(\lambda_{\max}\)</span> 限制（<span class="arithmatex">\(\eta &lt; 2/\lambda_{\max}\)</span> 防震荡）。但在 <span class="arithmatex">\(\lambda_{\min}\)</span> 方向上，每步衰减因子 <span class="arithmatex">\(1 - \eta\lambda_{\min} \approx 1 - \frac{2\lambda_{\min}}{\lambda_{\max}}\)</span>，当 <span class="arithmatex">\(\kappa = \lambda_{\max}/\lambda_{\min}\)</span> 很大时，该方向几乎不动。SGD 被「最陡方向」绑架了学习率，在「最平方向」上寸步难行。
-   210|&gt;
-   211|&gt; <strong>(2)</strong> Adam 维护 <span class="arithmatex">\(v_t \approx \mathbb{E}[g^2]\)</span>（梯度平方的移动平均）。在局部二次近似 <span class="arithmatex">\(g \approx H(\theta - \theta^*)\)</span> 下，<span class="arithmatex">\(v_t\)</span> 每个分量近似对应 Hessian 对角元的尺度。
-   212|&gt; Adam 更新：<span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}\)</span>。除以 <span class="arithmatex">\(\sqrt{\hat{v}_t}\)</span> 是对角预处理：
-   213|&gt; \[\text{有效更新} \approx \eta \cdot \text{diag}(H)^{-1/2} \cdot g\]
-   214|&gt; <strong>与牛顿法对比</strong>：
-   215|&gt; - 牛顿法：<span class="arithmatex">\(\theta \leftarrow \theta - H^{-1}g\)</span>。完整的二阶预处理——所有方向归一化到相同曲率。代价 <span class="arithmatex">\(O(n^3)\)</span>（求逆）。
-   216|&gt; - Adam：用 <span class="arithmatex">\(\text{diag}(H)^{-1/2}\)</span> 近似 <span class="arithmatex">\(H^{-1}\)</span>。捕获了各方向的<strong>尺度差异</strong>（对角元），忽略了方向间的<strong>耦合</strong>（非对角元）。代价 <span class="arithmatex">\(O(n)\)</span>。
-   217|&gt; 这是计算效率和预处理质量之间的经典权衡。Adam 在实践中效果极好，因为大量 ML 优化问题中 Hessian 是对角占优的（参数之间的耦合相对较弱）。
-   218|
-   219|---
-   220|
-   221|<strong>B6.</strong> 残差连接 <span class="arithmatex">\(h_{l+1} = h_l + F(h_l)\)</span> 为什么能训练深层网络？
-   222|
-   223|(1) 写出反向传播的雅可比矩阵，指出和普通层的区别。
-   224|(2) 为什么特征值从 <span class="arithmatex">\(\varepsilon\)</span> 变成 <span class="arithmatex">\(1 + \varepsilon\)</span> 就防止了梯度消失？
-   225|(3) 堆叠 <span class="arithmatex">\(L\)</span> 个残差块后，梯度乘积展开式长什么样？
-   226|
-   227|&gt; <strong>标准答案：</strong>
-   228|&gt;
-   229|&gt; <strong>(1)</strong> 对残差块求导（链式法则）：
-   230|&gt; \[\frac{\partial h</em>\]
-   231|&gt; 普通层：雅可比 }}{\partial h_l} = \frac{\partial}{\partial h_l}(h_l + F(h_l)) = I + \frac{\partial F}{\partial h_l<span class="arithmatex">\(= \partial F/\partial h_l\)</span>。残差层：雅可比 <span class="arithmatex">\(= I + \partial F/\partial h_l\)</span>。
-   232|&gt; 关键：多了 <span class="arithmatex">\(I\)</span> 项。
-   233|&gt;
-   234|&gt; <strong>(2)</strong> 设无残差时雅可比的特征值都 <span class="arithmatex">\(&lt; 1\)</span>（如都在 <span class="arithmatex">\((0, 0.8)\)</span> 内）。连乘 <span class="arithmatex">\(L\)</span> 层后，梯度受最大特征值支配：
-   235|&gt; \[\left|\frac{\partial h_L}{\partial h_1}\right| \approx \lambda_{\max}^L\]
-   236|&gt; 当 <span class="arithmatex">\(\lambda_{\max} = 0.8\)</span>，<span class="arithmatex">\(L=100\)</span>：<span class="arithmatex">\(0.8^{100} \approx 2 \times 10^{-10}\)</span> → 梯度消失。
-   237|&gt; 有残差后，雅可比特征值变为 <span class="arithmatex">\(1 + \varepsilon\)</span>（<span class="arithmatex">\(\varepsilon\)</span> 是 <span class="arithmatex">\(\partial F/\partial h_l\)</span> 的特征值）。即使 <span class="arithmatex">\(\varepsilon = -0.2\)</span>，特征值仍为 <span class="arithmatex">\(0.8\)</span>——但关键是 <span class="arithmatex">\(I\)</span> 保证了<strong>至少有一个特征值为 <span class="arithmatex">\(1\)</span> 的路径</strong>。乘积不指数衰减。
-   238|&gt;
-   239|&gt; <strong>(3)</strong> <span class="arithmatex">\(L\)</span> 层梯度乘积：
-   240|&gt; \[\frac{\partial h_L}{\partial h_1} = \prod_{l=1}^{L-1} \left(I + \frac{\partial F_l}{\partial h_l}\right)\]
-   241|&gt; 展开：
-   242|&gt; \[= I + \sum_{l=1}^{L-1} \frac{\partial F_l}{\partial h_l} + \sum_{l<m} +="" 243|="" \cdots\\]="" \frac{\partial="" f_l}{\partial="" f_m}{\partial="" h_l}\frac{\partial="" h_m}=""> 第一项 <span class="arithmatex">\(I\)</span>：梯度的<strong>无损直通路径</strong>（信息从第 <span class="arithmatex">\(L\)</span> 层直达第 <span class="arithmatex">\(1\)</span> 层）。
-   244|&gt; 第二项：每层的独立贡献（一阶）。
-   245|&gt; 高阶项：跨层交互。
-   246|&gt; <strong>每一层的梯度信号都包含来自所有后续层的直接贡献。</strong> 信息和梯度可以在网络中「无损穿行」。这就是 ResNet-152 和 Transformer 96 层可训练的根本原因。
-   247|
-   248|---
-   249|
-   250|<strong>B7.</strong> 推导 Xavier 初始化和 He 初始化的方差公式。
-   251|
-   252|(1) 对于线性层 <span class="arithmatex">\(h = Wx\)</span>，要使 <span class="arithmatex">\(\text{Var}(h) = \text{Var}(x)\)</span>，推导 <span class="arithmatex">\(\text{Var}(W)\)</span> 的条件。
-   253|(2) 为什么反向传播给出不同的约束？
-   254|(3) Xavier 为什么取调和平均？He 为什么改成 <span class="arithmatex">\(2/n_{\text{in}}\)</span>？
-   255|
-   256|&gt; <strong>标准答案：</strong>
-   257|&gt; 假设：<span class="arithmatex">\(W_{ij}\)</span> 和 <span class="arithmatex">\(x_j\)</span> 独立同分布，均值为 <span class="arithmatex">\(0\)</span>。
-   258|&gt;
-   259|&gt; <strong>(1)</strong> 前向方差：
-   260|&gt; \[h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j\]
-   261|&gt; \[\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\]
-   262|&gt; 要使 <span class="arithmatex">\(\text{Var}(h_i) = \text{Var}(x)\)</span>：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{in}}\)</span>。
-   263|&gt;
-   264|&gt; <strong>(2)</strong> 反向传播：<span class="arithmatex">\(\frac{\partial L}{\partial x} = W^{\mathsf T} \frac{\partial L}{\partial h}\)</span>。
-   265|&gt; \[\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}\]
-   266|&gt; \[\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)\]
-   267|&gt; 保持梯度方差不变：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{out}}\)</span>。
-   268|&gt;
-   269|&gt; <strong>(3)</strong> 前向要求 <span class="arithmatex">\(1/n_{\text{in}}\)</span>，反向要求 <span class="arithmatex">\(1/n_{\text{out}}\)</span>。当 <span class="arithmatex">\(n_{\text{in}} \neq n_{\text{out}}\)</span> 时冲突。
-   270|&gt; <strong>Xavier</strong>：取两者调和平均 → <span class="arithmatex">\(\text{Var}(W) = \frac{2}{n_{\text{in}} + n_{\text{out}}}\)</span>。折中方案，同时近似满足前向和反向的方差约束。
-   271|&gt; <strong>He</strong>：考虑 ReLU。ReLU 在前向传播中把负激活值置零 → 大约一半的神经元输出为 <span class="arithmatex">\(0\)</span> → 前向方差减半：
-   272|&gt; \[\text{Var}(h_i) = \frac{1}{2} \cdot n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\]
-   273|&gt; 补偿 <span class="arithmatex">\(\frac{1}{2}\)</span> 因子 → <span class="arithmatex">\(\text{Var}(W) = 2/n_{\text{in}}\)</span>。
-   274|&gt; 实践中 PyTorch 的 <code>nn.Linear</code> 默认使用 He（Kaiming）uniform 初始化。
-   275|
-   276|---
-   277|
-   278|<strong>B8.</strong> 1D 卷积 <span class="arithmatex">\(y = w * x\)</span> 可写成 <span class="arithmatex">\(y = Cx\)</span>，其中 <span class="arithmatex">\(C\)</span> 是 Toeplitz 矩阵。
-   279|
-   280|(1) 写出 <span class="arithmatex">\(w = (w_0, w_1, w_2)\)</span>，输入长 <span class="arithmatex">\(4\)</span>（zero-padding <span class="arithmatex">\(p=1\)</span>）对应的 Toeplitz 矩阵 <span class="arithmatex">\(C\)</span>。
-   281|(2) 参数共享如何体现在矩阵结构中？参数量的节省有多大？
-   282|(3) 转置卷积等价于什么操作？
-   283|
-   284|&gt; <strong>标准答案：</strong>
-   285|&gt;
-   286|&gt; <strong>(1)</strong> Zero-padding 后输入变为 <span class="arithmatex">\(\tilde{x} = (0, x_1, x_2, x_3, x_4, 0)^{\mathsf T}\)</span>。<span class="arithmatex">\(y = w * x\)</span>（same 模式，输出长 <span class="arithmatex">\(4\)</span>）：
-   287|&gt; \[y_1 = w_1 \cdot 0 + w_0 \cdot x_1 + w_2 \cdot x_2\]
-   288|&gt; 等等——让我理清索引。设 <span class="arithmatex">\(w = (w_0, w_1, w_2)\)</span>。带 padding <span class="arithmatex">\(p=1\)</span> 的卷积对应：
-   289|&gt; \[C = \begin{bmatrix} w_1 &amp; w_0 &amp; 0 &amp; 0 \ w_2 &amp; w_1 &amp; w_0 &amp; 0 \ 0 &amp; w_2 &amp; w_1 &amp; w_0 \ 0 &amp; 0 &amp; w_2 &amp; w_1 \end{bmatrix}\]
-   290|&gt; 验证：<span class="arithmatex">\(y_1 = w_1x_1 + w_0x_2\)</span>（对应 <span class="arithmatex">\(w\)</span> 翻转后滑动：<span class="arithmatex">\(w_2\)</span> 超出，<span class="arithmatex">\(w_1\)</span> 在 <span class="arithmatex">\(x_1\)</span>，<span class="arithmatex">\(w_0\)</span> 在 <span class="arithmatex">\(x_2\)</span>）。
-   291|&gt;
-   292|&gt; <strong>(2)</strong> 参数共享：同一条对角线上的元素全相同。例如 <span class="arithmatex">\(w_0\)</span> 出现在 <span class="arithmatex">\(C_{12}, C_{23}, C_{34}\)</span>——同一个参数被复用了 <span class="arithmatex">\(3\)</span> 次。参数量 <span class="arithmatex">\(=3\)</span>，对应稠密矩阵需要 <span class="arithmatex">\(4 \times 4 = 16\)</span> 个参数 → 节省 <span class="arithmatex">\(&gt;5\times\)</span>。
-   293|&gt; 图像上：<span class="arithmatex">\(3 \times 3\)</span> 卷积核在 <span class="arithmatex">\(224 \times 224\)</span> 特征图上，参数 <span class="arithmatex">\(= C_{\text{in}} \times C_{\text{out}} \times 9\)</span>，等效稠密参数量 <span class="arithmatex">\(= C_{\text{in}} \times C_{\text{out}} \times 224^2\)</span> → 节省 <span class="arithmatex">\(\sim 5500\times\)</span>。
-   294|&gt;
-   295|&gt; <strong>(3)</strong> 转置卷积计算 <span class="arithmatex">\(y = C^{\mathsf T} \mathbf{x}\)</span>。<span class="arithmatex">\(C^{\mathsf T}\)</span> 也是 Toeplitz，但结构对应「反卷」：
-   296|&gt; \[C^{\mathsf T} = \begin{bmatrix} w_1 &amp; w_2 &amp; 0 &amp; 0 \ w_0 &amp; w_1 &amp; w_2 &amp; 0 \ 0 &amp; w_0 &amp; w_1 &amp; w_2 \ 0 &amp; 0 &amp; w_0 &amp; w_1 \end{bmatrix}\]
-   297|&gt; 这等价于<strong>用翻转后的卷积核做带空洞的上采样</strong>。<code>nn.ConvTranspose1d</code> 底层就是 <span class="arithmatex">\(C^{\mathsf T} \mathbf{x}\)</span>。理解和卷积的矩阵对偶关系，是理解 GAN 生成器和语义分割解码器的关键。
-   298|
-   299|---
-   300|
-   301|<strong>B9.</strong> Self-Attention <span class="arithmatex">\(S = \text{softmax}(QK^{\mathsf T}/\sqrt{d})\)</span>，<span class="arithmatex">\(Q,K \in \mathbb{R}^{n \times d}\)</span>。
-   302|
-   303|(1) <span class="arithmatex">\(S\)</span> 的秩最大是多少？当 <span class="arithmatex">\(d=64\)</span>，<span class="arithmatex">\(n=512\)</span>，这意味着什么？
-   304|(2) 为什么实际 Transformer 中 <span class="arithmatex">\(S\)</span> 常常更低秩（attention collapse）？
-   305|(3) Multi-head attention 如何缓解这个问题？
-   306|
-   307|&gt; <strong>标准答案：</strong>
-   308|&gt;
-   309|&gt; <strong>(1)</strong> <span class="arithmatex">\(QK^{\mathsf T}\)</span> 的秩 <span class="arithmatex">\(\le \min(\text{rank}(Q), \text{rank}(K)) \le \min(n, d) = d\)</span>。Softmax 是逐行操作（指数 + 归一化），不改变秩。所以 <span class="arithmatex">\(\text{rank}(S) \le 64\)</span>。
-   310|&gt; <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(512 \times 512\)</span>，但内蕴维度仅 <span class="arithmatex">\(\le 64\)</span>——它是<strong>极度低秩</strong>的。相当于用 <span class="arithmatex">\(64\)</span> 个「注意力模式」去近似 <span class="arithmatex">\(512\)</span> 个 token 的所有 pairwise 关系。
-   311|&gt;
-   312|&gt; <strong>(2) Attention Collapse</strong>：实际秩常远低于 <span class="arithmatex">\(64\)</span>，因为：
-   313|&gt; - token 的 query/key 向量高度相关 → <span class="arithmatex">\(Q\)</span> 和 <span class="arithmatex">\(K\)</span> 自身的有效秩 <span class="arithmatex">\(&lt; d\)</span>
-   314|&gt; - 很多 token 关注相同的 context（如所有 token 都高度关注 CLS token 或分隔符）→ attention 行向量趋于相同
-   315|&gt; - 从 SVD 看：<span class="arithmatex">\(\sigma_1 \gg \sigma_2, \sigma_3, \dots\)</span>，主导奇异值占了绝大部分能量。<span class="arithmatex">\(S \approx \sigma_1 \mathbf{u}_1 \mathbf{v}_1^{\mathsf T}\)</span>（秩-1），所有 token 的关注分布几乎相同
-   316|&gt;
-   317|&gt; <strong>(3)</strong> Multi-head attention：<span class="arithmatex">\(h\)</span> 个 head，每个 head 用不同的投影矩阵 <span class="arithmatex">\(W_Q^{(i)}, W_K^{(i)}, W_V^{(i)}\)</span>：
-   318|&gt; \[\text{head}_i = \text{Attention}(XW_Q^{(i)}, XW_K^{(i)}, XW_V^{(i)})\]
-   319|&gt; 每个 head 的 <span class="arithmatex">\(Q_i K_i^{\mathsf T}\)</span> 可能有不同的低秩结构（rank <span class="arithmatex">\(\le d/h\)</span>）→ 各自关注不同类型的关系。拼接后 <span class="arithmatex">\(\text{rank}(\text{Concat}) \le \sum_i \text{rank}(\text{head}_i)\)</span> → 获得秩的多样性。如果单 head 是秩-1 的，8 heads 组合可达秩-8——大幅提升 attention 模式的丰富度。
-   320|
-   321|---
-   322|
-   323|<strong>B10.</strong> 线性回归 <span class="arithmatex">\(y \approx X\beta\)</span> 的正规方程为 <span class="arithmatex">\(X^{\mathsf T}X\beta = X^{\mathsf T}y\)</span>。
-   324|
-   325|(1) <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的秩和 <span class="arithmatex">\(X\)</span> 的秩有什么关系？什么情况下 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异？
-   326|(2) 当 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异时，正规方程有无穷多解。为什么实际中往往还加 L2 正则？
-   327|(3) 从条件数角度证明：<span class="arithmatex">\((X^{\mathsf T}X + \lambda I)^{-1}\)</span> 比 <span class="arithmatex">\((X^{\mathsf T}X)^{-1}\)</span> 更稳定。
-   328|
-   329|&gt; <strong>标准答案：</strong>
-   330|&gt;
-   331|&gt; <strong>(1)</strong> <span class="arithmatex">\(\text{rank}(X^{\mathsf T}X) = \text{rank}(X)\)</span>。证明：<span class="arithmatex">\(\text{rank}(X^{\mathsf T}X) \le \text{rank}(X)\)</span>（显然），且 <span class="arithmatex">\(X^{\mathsf T}X\mathbf{v} = 0 \Rightarrow \mathbf{v}^{\mathsf T}X^{\mathsf T}X\mathbf{v} = \|X\mathbf{v}\|^2 = 0 \Rightarrow X\mathbf{v} = 0\)</span>，所以零空间相同 → 秩相同。
-   332|&gt; <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异当且仅当 <span class="arithmatex">\(X\)</span> 不满列秩——即特征之间存在线性相关（多重共线性），或样本数 <span class="arithmatex">\(&lt;\)</span> 特征数（经典 <span class="arithmatex">\(p &gt; n\)</span> 问题）。
-   333|&gt;
-   334|&gt; <strong>(2)</strong> 当 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异时，正规方程有无穷多解。L2 正则化（Ridge Regression）：
-   335|&gt; \[\hat{\beta} = (X^{\mathsf T}X + \lambda I)^{-1} X^{\mathsf T}y\]
-   336|&gt; 给 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的对角线上加 <span class="arithmatex">\(\lambda I\)</span> → 所有特征值抬升 <span class="arithmatex">\(\lambda\)</span> → 强制正定 → 唯一解。从贝叶斯角度，这等价于给 <span class="arithmatex">\(\beta\)</span> 加高斯先验 <span class="arithmatex">\(\beta \sim \mathcal{N}(0, \lambda^{-1}I)\)</span>。
-   337|&gt;
-   338|&gt; <strong>(3)</strong> 设 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的特征值为 <span class="arithmatex">\(\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_r &gt; 0\)</span>（可能 <span class="arithmatex">\(\lambda_r\)</span> 接近 <span class="arithmatex">\(0\)</span>）。
-   339|&gt; 无正则化：
-   340|&gt; \[\kappa(X^{\mathsf T}X) = \frac{\lambda_1}{\lambda_r}\]
-   341|&gt; 若 <span class="arithmatex">\(\lambda_r \approx 10^{-6}\)</span>，<span class="arithmatex">\(\kappa \approx 10^6 \lambda_1\)</span> → 极度病态。
-   342|&gt; 加正则化后：
-   343|&gt; \[\kappa(X^{\mathsf T}X + \lambda I) = \frac{\lambda_1 + \lambda}{\lambda_r + \lambda}\]
-   344|&gt; <span class="arithmatex">\(\lambda_r \approx 0\)</span> 时，分母 <span class="arithmatex">\(\approx \lambda\)</span> → <span class="arithmatex">\(\kappa \approx \frac{\lambda_1 + \lambda}{\lambda} \le \frac{\lambda_1}{\lambda} + 1\)</span>。条件数被<strong>有界化</strong>，不再随 <span class="arithmatex">\(\lambda_r \to 0\)</span> 爆炸。这就是 Ridge Regression 数值稳定的线性代数本质。
-   345|
-   346|---
-   347|
-   348|<a href="../basis-and-neural-networks/">← 返回教程</a>　　　<a href="../exercises/">← 习题总览</a></m}></p>
+<p>100|   100|&gt; ② <span class="arithmatex">\(\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W_2}\)</span>。<span class="arithmatex">\(\frac{\partial \hat{y}}{\partial W_2} = \mathbf{h} = 3\)</span>。所以：
+   101|   101|&gt; [\frac{\partial L}{\partial W_2} = 4 \cdot 3 = 12]
+   102|   102|&gt; ③ <span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial \mathbf{h}}\)</span>。<span class="arithmatex">\(\frac{\partial \hat{y}}{\partial \mathbf{h}} = W_2^{\mathsf T} = 3\)</span>。所以：
+   103|   103|&gt; [\frac{\partial L}{\partial \mathbf{h}} = 4 \cdot 3 = 12]
+   104|   104|&gt; ④ <span class="arithmatex">\(\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{h}} \cdot \frac{\partial \mathbf{h}}{\partial W_1}\)</span>。<span class="arithmatex">\(\frac{\partial \mathbf{h}}{\partial W_1} = \mathbf{x}^{\mathsf T}\)</span>（列向量变成行向量外积）。所以：
+   105|   105|&gt; [\frac{\partial L}{\partial W_1} = 12 \cdot [1, 1] = [12, 12]]
+   106|   106|&gt; <strong>直观检查</strong>：<span class="arithmatex">\(\hat{y}=9\)</span> 比 <span class="arithmatex">\(y=5\)</span> 大 <span class="arithmatex">\(4\)</span>（误差 <span class="arithmatex">\(=4\)</span>）。<span class="arithmatex">\(W_2=3\)</span> 把 <span class="arithmatex">\(\mathbf{h}\)</span> 放大了 3 倍 → 梯度反向流过时也被放大 3 倍 → <span class="arithmatex">\(\frac{\partial L}{\partial \mathbf{h}}=12\)</span>。<span class="arithmatex">\(\frac{\partial L}{\partial W_1}\)</span> 的两个分量都是 <span class="arithmatex">\(12\)</span>，因为 <span class="arithmatex">\(\mathbf{x} = (1,1)\)</span> 的两个输入贡献相同。
+   107|   107|&gt; Python 验证：
+   108|   108|&gt; <code>python
+   109|   109|&gt; import torch
+   110|   110|&gt; W1 = torch.tensor([[1., 2.]], requires_grad=True)
+   111|   111|&gt; W2 = torch.tensor([[3.]], requires_grad=True)
+   112|   112|&gt; x = torch.tensor([1., 1.]).unsqueeze(1)
+   113|   113|&gt; loss = 0.5 * (W2 @ (W1 @ x) - 5.).pow(2).sum()
+   114|   114|&gt; loss.backward()
+   115|   115|&gt; print(W1.grad, W2.grad)  # tensor([[12., 12.]])  tensor([[12.]])
+   116|   116|&gt;</code>
+   117|   117|
+   118|   118|---
+   119|   119|
+   120|   120|### B 档
+   121|   121|
+   122|   122|<strong>B1.</strong> 为什么说 Embedding 层本质上是基变换？预训练学到的 Embedding 矩阵的列向量的几何含义是什么？
+   123|   123|
+   124|   124|&gt; <strong>标准答案：</strong>
+   125|   125|&gt; Embedding 矩阵 <span class="arithmatex">\(W \in \mathbb{R}^{d \times |V|}\)</span> 将一个 one-hot 向量 <span class="arithmatex">\(\mathbf{e}_i\)</span>（标准基向量）映射为稠密向量 <span class="arithmatex">\(\mathbf{w}_i = W\mathbf{e}_i\)</span>（<span class="arithmatex">\(W\)</span> 的第 <span class="arithmatex">\(i\)</span> 列）。
+   126|   126|&gt; <strong>基变换视角</strong>：
+   127|   127|&gt; - 标准基（one-hot）中，每个 token 是彼此正交、距离相等的——完全没有语义信息
+   128|   128|&gt; - <span class="arithmatex">\(W\)</span> 的 <span class="arithmatex">\(|V|\)</span> 个列向量定义了一个从 <span class="arithmatex">\(\mathbb{R}^{|V|}\)</span>（one-hot 空间）到 <span class="arithmatex">\(\mathbb{R}^d\)</span>（语义空间）的线性映射
+   129|   129|&gt; - 学到的 <span class="arithmatex">\(W\)</span> 的列是「语义基向量」——在这个基下：
+   130|   130|&gt;   - 语义相近的词向量夹角小（内积大）
+   131|   131|&gt;   - 语义关系的「方向差」是线性的：<span class="arithmatex">\(\mathbf{w}_{\text{国王}} - \mathbf{w}_{\text{男人}} + \mathbf{w}_{\text{女人}} \approx \mathbf{w}_{\text{王后}}\)</span>
+   132|   132|&gt;
+   133|   133|&gt; <strong>几何含义</strong>：每个列向量是该 token 在 <span class="arithmatex">\(d\)</span> 维语义空间中的「坐标」。好的 Embedding 找到了一组基，使得<strong>语义方向在该基下线性可分</strong>。这就是分布式表示（distributed representation）的线性代数本质。
+   134|   134|&gt; 从压缩角度看：<span class="arithmatex">\(W\)</span> 是一个 <span class="arithmatex">\(d \times |V|\)</span> 矩阵（<span class="arithmatex">\(d \ll |V|\)</span>）。它的列秩 <span class="arithmatex">\(\le d \ll |V|\)</span> → 语义信息是低秩的。这也是为什么 Embedding 可以压缩（如从 <span class="arithmatex">\(|V| \times 768\)</span> 降到 <span class="arithmatex">\(|V| \times 256\)</span>）——真正独立的「语义方向」远少于词汇量。
+   135|   135|
+   136|   136|---
+   137|   137|
+   138|   138|<strong>B2.</strong> 为什么 Layer Normalization 放在激活函数<strong>前面</strong>（Pre-LN）比<strong>后面</strong>（Post-LN）效果更好？从投影几何角度解释。
+   139|   139|
+   140|   140|&gt; <strong>标准答案：</strong>
+   141|   141|&gt; 设一层计算为 <span class="arithmatex">\(\mathbf{h} = \sigma(W\mathbf{x} + \mathbf{b})\)</span>。
+   142|   142|&gt; <strong>Pre-LN</strong>（激活前 LN，标准 Transformer 做法）：
+   143|   143|&gt; [\mathbf{z} = W\mathbf{x} + \mathbf{b}, \quad \tilde{\mathbf{z}} = \frac{\mathbf{z} - \mu}{\sigma} \odot \gamma + \beta, \quad \mathbf{h} = \sigma(\tilde{\mathbf{z}})]
+   144|   144|&gt; LN 在仿射空间中规范化：消除不同样本间均值和方差的偏移（internal covariate shift），让激活函数接收到「规矩」的输入——分布稳定、尺度统一。
+   145|   145|&gt; <strong>Post-LN</strong>（激活后 LN）：
+   146|   146|&gt; [\mathbf{h}<em _text_raw="\text{raw">{\text{raw}} = \sigma(W\mathbf{x} + \mathbf{b}), \quad \mathbf{h} = \text{LN}(\mathbf{h}</em>)]
+   147|   147|&gt; 问题：激活函数（如 ReLU）已经改变了分布的形状（截断负值，正半轴保持）。此时再 LN 试图恢复被激活函数扭曲的统计特性 → 更差的训练稳定性和收敛速度。
+   148|   148|&gt; }<strong>投影几何视角</strong>：LN 将每个样本的特征向量投影到半径为 <span class="arithmatex">\(\sqrt{d}\)</span> 的球面上。<strong>Pre-LN 在进入非线性之前统一了所有样本的「尺度」</strong>，确保无论 <span class="arithmatex">\(W\mathbf{x}\)</span> 多大（或经过多少层累积），下一层的输入始终在球面上。这使各层的有效「操作范围」一致——前向信号和反向梯度都不爆炸或消失。
+   149|   149|&gt; LN 比 BatchNorm 更适合序列模型：BN 沿 batch 维度归一化（假设样本 i.i.d.），LN 沿 feature 维度归一化（逐样本独立）。序列 token 之间不满足 i.i.d. → LN 天然适用。
+   150|   150|
+   151|   151|---
+   152|   152|
+   153|   153|<strong>B3.</strong> 一个两层 ReLU 网络：<span class="arithmatex">\(\mathbf{h} = \text{ReLU}(W_1 \mathbf{x} + \mathbf{b}_1)\)</span>，<span class="arithmatex">\(\hat{y} = W_2 \mathbf{h} + b_2\)</span>。<span class="arithmatex">\(W_1 \in \mathbb{R}^{3 \times 2}\)</span>。
+   154|   154|
+   155|   155|(1) 第一个隐藏神经元在什么条件下激活？在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 中对应什么几何对象？
+   156|   156|(2) 三个神经元定义的线把平面最多分成几个区域？每区域内 <span class="arithmatex">\(\hat{y}\)</span> 的形式是什么？
+   157|   157|(3) 这如何说明「深度网络 = 分段线性函数」？更深 vs 更宽的区别是什么？
+   158|   158|
+   159|   159|&gt; <strong>标准答案：</strong>
+   160|   160|&gt;
+   161|   161|&gt; <strong>(1)</strong> 第 <span class="arithmatex">\(i\)</span> 个神经元的激活条件：
+   162|   162|&gt; [\mathbf{w}<em l_1="l+1">i^{\mathsf T}\mathbf{x} + b_i &gt; 0]
+   163|   163|&gt; 其中 <span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\)</span> 是 <span class="arithmatex">\(W_1\)</span> 的第 <span class="arithmatex">\(i\)</span> 行。在 <span class="arithmatex">\(\mathbb{R}^2\)</span> 中，<span class="arithmatex">\(\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i = 0\)</span> 是一条<strong>直线</strong>，激活条件是直线的一侧。神经元 <span class="arithmatex">\(i\)</span> 把平面切成两个半平面。
+   164|   164|&gt;
+   165|   165|&gt; <strong>(2)</strong> 3 条直线最多把平面分成 <span class="arithmatex">\(1 + 3 + 3 = 7\)</span> 个区域（一般 <span class="arithmatex">\(k\)</span> 条直线最多 <span class="arithmatex">\(1 + k(k+1)/2\)</span> 个区域，这里 <span class="arithmatex">\(1+3+3=7\)</span> 是因为最多交点数为 3 个时成立）。
+   166|   166|&gt; 在每个区域内，哪些神经元激活（输出 <span class="arithmatex">\(&gt;0\)</span>）是<strong>固定的</strong>。设激活模式为 <span class="arithmatex">\(\mathbf{m} \in \{0,1\}^3\)</span>，则：
+   167|   167|&gt; [\hat{y} = W_2 \cdot \text{diag}(\mathbf{m}) \cdot (W_1\mathbf{x} + \mathbf{b}_1) + b_2 = \tilde{W}\mathbf{x} + \tilde{b}]
+   168|   168|&gt; 即每个区域内 <span class="arithmatex">\(\hat{y}\)</span> 是一个不同的<strong>线性函数</strong>。穿过边界（神经元开关翻转）时，线性函数跳变。
+   169|   169|&gt;
+   170|   170|&gt; <strong>(3)</strong> ReLU 网络的本质：<strong>输入空间上的分段线性函数</strong>。
+   171|   171|&gt; - <strong>更深</strong>：每增加一层，新的超平面与已存在折痕相交，在折痕上产生新折痕 → 分段数随深度<strong>指数增长</strong>。深层窄网络可以用很少神经元产生极多分段 → 高效表达复杂函数。
+   172|   172|&gt; - <strong>更宽</strong>：单层只是增加超平面数量 → 分段数随宽度<strong>多项式增长</strong>。宽而浅不如深而窄高效。
+   173|   173|&gt; 这就是万能逼近定理的构造性直觉：足够多的线性区域 → 可以以任意精度逼近任何连续函数。
+   174|   174|
+   175|   175|---
+   176|   176|
+   177|   177|<strong>B4.</strong> 以下场景中 PCA 在做一种「基变换」。为每个场景说明原始基、新基、保留哪些维度：
+   178|   178|
+   179|   179|(1) 词嵌入矩阵 <span class="arithmatex">\(N \times 768\)</span> 降到 256 维。
+   180|   180|(2) LoRA 对大模型权重做 <span class="arithmatex">\(W \approx BA\)</span>（<span class="arithmatex">\(B \in \mathbb{R}^{d \times r}\)</span>，<span class="arithmatex">\(A \in \mathbb{R}^{r \times d}\)</span>）。
+   181|   181|(3) 图像去噪：784 维图像 PCA 保留 <span class="arithmatex">\(k\)</span> 个主成分后重建。
+   182|   182|
+   183|   183|&gt; <strong>标准答案：</strong>
+   184|   184|&gt;
+   185|   185|&gt; <strong>(1)</strong>
+   186|   186|&gt; - 原始基：标准基（one-hot），每个 token 是正交的 <span class="arithmatex">\(|V|\)</span> 维向量
+   187|   187|&gt; - 新基：协方差矩阵 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的前 <span class="arithmatex">\(k\)</span> 个特征向量——词向量分布方差最大的 <span class="arithmatex">\(k\)</span> 个「语义方向」
+   188|   188|&gt; - 保留前 256 个主成分（最大特征值），丢弃其余 → 保留 <span class="arithmatex">\(&gt;95\%\)</span> 方差
+   189|   189|&gt;
+   190|   190|&gt; <strong>(2)</strong>
+   191|   191|&gt; - 原始基：权重空间 <span class="arithmatex">\(\mathbb{R}^{d \times d}\)</span> 的标准基（每个参数一个独立维度）
+   192|   192|&gt; - 新基：<span class="arithmatex">\(B\)</span> 的 <span class="arithmatex">\(r\)</span> 列是 <span class="arithmatex">\(r\)</span> 个重要方向的基向量，<span class="arithmatex">\(A\)</span> 的行是 <span class="arithmatex">\(r\)</span> 个方向的「坐标」
+   193|   193|&gt; - LoRA 不做显式 PCA，但思想同源：假设 <span class="arithmatex">\(\Delta W\)</span> 低秩 → 只在 <span class="arithmatex">\(r\)</span> 个最重要方向上更新（<span class="arithmatex">\(r=8\sim64 \ll d\)</span>），丢弃 <span class="arithmatex">\(d-r\)</span> 个方向
+   194|   194|&gt;
+   195|   195|&gt; <strong>(3)</strong>
+   196|   196|&gt; - 原始基：784 个像素的标准基（每个像素一个维度）
+   197|   197|&gt; - 新基：协方差矩阵的特征向量 = 特征脸（eigenfaces）——像素之间的相关模式。前几个特征脸是低频大结构，后面的越来越精细（皱纹、纹理）
+   198|   198|&gt; - 保留前 <span class="arithmatex">\(k\)</span> 个特征脸（<span class="arithmatex">\(k \ll 784\)</span>），后 <span class="arithmatex">\(784-k\)</span> 个丢弃。<strong>噪声集中在高方差方向？不——噪声集中在低方差方向（小特征值方向）。</strong> 保留大方差方向 = 保留结构 + 丢弃噪声（因为噪声在各方向大致等量，结构的信噪比在大方差方向最高）
+   199|   199|
+   200|   200|---
+   201|   201|
+   202|   202|<strong>B5.</strong> Adam 优化器可理解为对角预处理。从线性代数角度解释：
+   203|   203|
+   204|   204|(1) 为什么 SGD 对所有参数用同一个学习率会在 ill-conditioned 问题上失败？
+   205|   205|(2) Adam 的 <span class="arithmatex">\(v_t\)</span> 在做什么？和牛顿法的 <span class="arithmatex">\(H^{-1}g\)</span> 相比做了什么近似？
+   206|   206|
+   207|   207|&gt; <strong>标准答案：</strong>
+   208|   208|&gt;
+   209|   209|&gt; <strong>(1)</strong> SGD：<span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta g_t\)</span>。学习率 <span class="arithmatex">\(\eta\)</span> 受最大 Hessian 特征值 <span class="arithmatex">\(\lambda_{\max}\)</span> 限制（<span class="arithmatex">\(\eta &lt; 2/\lambda_{\max}\)</span> 防震荡）。但在 <span class="arithmatex">\(\lambda_{\min}\)</span> 方向上，每步衰减因子 <span class="arithmatex">\(1 - \eta\lambda_{\min} \approx 1 - \frac{2\lambda_{\min}}{\lambda_{\max}}\)</span>，当 <span class="arithmatex">\(\kappa = \lambda_{\max}/\lambda_{\min}\)</span> 很大时，该方向几乎不动。SGD 被「最陡方向」绑架了学习率，在「最平方向」上寸步难行。
+   210|   210|&gt;
+   211|   211|&gt; <strong>(2)</strong> Adam 维护 <span class="arithmatex">\(v_t \approx \mathbb{E}[g^2]\)</span>（梯度平方的移动平均）。在局部二次近似 <span class="arithmatex">\(g \approx H(\theta - \theta^*)\)</span> 下，<span class="arithmatex">\(v_t\)</span> 每个分量近似对应 Hessian 对角元的尺度。
+   212|   212|&gt; Adam 更新：<span class="arithmatex">\(\theta_{t+1} = \theta_t - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}\)</span>。除以 <span class="arithmatex">\(\sqrt{\hat{v}_t}\)</span> 是对角预处理：
+   213|   213|&gt; [\text{有效更新} \approx \eta \cdot \text{diag}(H)^{-1/2} \cdot g]
+   214|   214|&gt; <strong>与牛顿法对比</strong>：
+   215|   215|&gt; - 牛顿法：<span class="arithmatex">\(\theta \leftarrow \theta - H^{-1}g\)</span>。完整的二阶预处理——所有方向归一化到相同曲率。代价 <span class="arithmatex">\(O(n^3)\)</span>（求逆）。
+   216|   216|&gt; - Adam：用 <span class="arithmatex">\(\text{diag}(H)^{-1/2}\)</span> 近似 <span class="arithmatex">\(H^{-1}\)</span>。捕获了各方向的<strong>尺度差异</strong>（对角元），忽略了方向间的<strong>耦合</strong>（非对角元）。代价 <span class="arithmatex">\(O(n)\)</span>。
+   217|   217|&gt; 这是计算效率和预处理质量之间的经典权衡。Adam 在实践中效果极好，因为大量 ML 优化问题中 Hessian 是对角占优的（参数之间的耦合相对较弱）。
+   218|   218|
+   219|   219|---
+   220|   220|
+   221|   221|<strong>B6.</strong> 残差连接 <span class="arithmatex">\(h_{l+1} = h_l + F(h_l)\)</span> 为什么能训练深层网络？
+   222|   222|
+   223|   223|(1) 写出反向传播的雅可比矩阵，指出和普通层的区别。
+   224|   224|(2) 为什么特征值从 <span class="arithmatex">\(\varepsilon\)</span> 变成 <span class="arithmatex">\(1 + \varepsilon\)</span> 就防止了梯度消失？
+   225|   225|(3) 堆叠 <span class="arithmatex">\(L\)</span> 个残差块后，梯度乘积展开式长什么样？
+   226|   226|
+   227|   227|&gt; <strong>标准答案：</strong>
+   228|   228|&gt;
+   229|   229|&gt; <strong>(1)</strong> 对残差块求导（链式法则）：
+   230|   230|&gt; [\frac{\partial h</em>]
+   231|   231|&gt; 普通层：雅可比 }}{\partial h_l} = \frac{\partial}{\partial h_l}(h_l + F(h_l)) = I + \frac{\partial F}{\partial h_l<span class="arithmatex">\(= \partial F/\partial h_l\)</span>。残差层：雅可比 <span class="arithmatex">\(= I + \partial F/\partial h_l\)</span>。
+   232|   232|&gt; 关键：多了 <span class="arithmatex">\(I\)</span> 项。
+   233|   233|&gt;
+   234|   234|&gt; <strong>(2)</strong> 设无残差时雅可比的特征值都 <span class="arithmatex">\(&lt; 1\)</span>（如都在 <span class="arithmatex">\((0, 0.8)\)</span> 内）。连乘 <span class="arithmatex">\(L\)</span> 层后，梯度受最大特征值支配：
+   235|   235|&gt; [\left|\frac{\partial h_L}{\partial h_1}\right| \approx \lambda_{\max}^L]
+   236|   236|&gt; 当 <span class="arithmatex">\(\lambda_{\max} = 0.8\)</span>，<span class="arithmatex">\(L=100\)</span>：<span class="arithmatex">\(0.8^{100} \approx 2 \times 10^{-10}\)</span> → 梯度消失。
+   237|   237|&gt; 有残差后，雅可比特征值变为 <span class="arithmatex">\(1 + \varepsilon\)</span>（<span class="arithmatex">\(\varepsilon\)</span> 是 <span class="arithmatex">\(\partial F/\partial h_l\)</span> 的特征值）。即使 <span class="arithmatex">\(\varepsilon = -0.2\)</span>，特征值仍为 <span class="arithmatex">\(0.8\)</span>——但关键是 <span class="arithmatex">\(I\)</span> 保证了<strong>至少有一个特征值为 <span class="arithmatex">\(1\)</span> 的路径</strong>。乘积不指数衰减。
+   238|   238|&gt;
+   239|   239|&gt; <strong>(3)</strong> <span class="arithmatex">\(L\)</span> 层梯度乘积：
+   240|   240|&gt; [\frac{\partial h_L}{\partial h_1} = \prod_{l=1}^{L-1} \left(I + \frac{\partial F_l}{\partial h_l}\right)]
+   241|   241|&gt; 展开：
+   242|   242|&gt; [= I + \sum_{l=1}^{L-1} \frac{\partial F_l}{\partial h_l} + \sum_{l<m} +="" 243|="" \cdots\]="" \frac{\partial="" f_l}{\partial="" f_m}{\partial="" h_l}\frac{\partial="" h_m}=""> 第一项 <span class="arithmatex">\(I\)</span>：梯度的<strong>无损直通路径</strong>（信息从第 <span class="arithmatex">\(L\)</span> 层直达第 <span class="arithmatex">\(1\)</span> 层）。
+   244|   244|&gt; 第二项：每层的独立贡献（一阶）。
+   245|   245|&gt; 高阶项：跨层交互。
+   246|   246|&gt; <strong>每一层的梯度信号都包含来自所有后续层的直接贡献。</strong> 信息和梯度可以在网络中「无损穿行」。这就是 ResNet-152 和 Transformer 96 层可训练的根本原因。
+   247|   247|
+   248|   248|---
+   249|   249|
+   250|   250|<strong>B7.</strong> 推导 Xavier 初始化和 He 初始化的方差公式。
+   251|   251|
+   252|   252|(1) 对于线性层 <span class="arithmatex">\(h = Wx\)</span>，要使 <span class="arithmatex">\(\text{Var}(h) = \text{Var}(x)\)</span>，推导 <span class="arithmatex">\(\text{Var}(W)\)</span> 的条件。
+   253|   253|(2) 为什么反向传播给出不同的约束？
+   254|   254|(3) Xavier 为什么取调和平均？He 为什么改成 <span class="arithmatex">\(2/n_{\text{in}}\)</span>？
+   255|   255|
+   256|   256|&gt; <strong>标准答案：</strong>
+   257|   257|&gt; 假设：<span class="arithmatex">\(W_{ij}\)</span> 和 <span class="arithmatex">\(x_j\)</span> 独立同分布，均值为 <span class="arithmatex">\(0\)</span>。
+   258|   258|&gt;
+   259|   259|&gt; <strong>(1)</strong> 前向方差：
+   260|   260|&gt; [h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j]
+   261|   261|&gt; [\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)]
+   262|   262|&gt; 要使 <span class="arithmatex">\(\text{Var}(h_i) = \text{Var}(x)\)</span>：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{in}}\)</span>。
+   263|   263|&gt;
+   264|   264|&gt; <strong>(2)</strong> 反向传播：<span class="arithmatex">\(\frac{\partial L}{\partial x} = W^{\mathsf T} \frac{\partial L}{\partial h}\)</span>。
+   265|   265|&gt; [\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}]
+   266|   266|&gt; [\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)]
+   267|   267|&gt; 保持梯度方差不变：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{out}}\)</span>。
+   268|   268|&gt;
+   269|   269|&gt; <strong>(3)</strong> 前向要求 <span class="arithmatex">\(1/n_{\text{in}}\)</span>，反向要求 <span class="arithmatex">\(1/n_{\text{out}}\)</span>。当 <span class="arithmatex">\(n_{\text{in}} \neq n_{\text{out}}\)</span> 时冲突。
+   270|   270|&gt; <strong>Xavier</strong>：取两者调和平均 → <span class="arithmatex">\(\text{Var}(W) = \frac{2}{n_{\text{in}} + n_{\text{out}}}\)</span>。折中方案，同时近似满足前向和反向的方差约束。
+   271|   271|&gt; <strong>He</strong>：考虑 ReLU。ReLU 在前向传播中把负激活值置零 → 大约一半的神经元输出为 <span class="arithmatex">\(0\)</span> → 前向方差减半：
+   272|   272|&gt; [\text{Var}(h_i) = \frac{1}{2} \cdot n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)]
+   273|   273|&gt; 补偿 <span class="arithmatex">\(\frac{1}{2}\)</span> 因子 → <span class="arithmatex">\(\text{Var}(W) = 2/n_{\text{in}}\)</span>。
+   274|   274|&gt; 实践中 PyTorch 的 <code>nn.Linear</code> 默认使用 He（Kaiming）uniform 初始化。
+   275|   275|
+   276|   276|---
+   277|   277|
+   278|   278|<strong>B8.</strong> 1D 卷积 <span class="arithmatex">\(y = w * x\)</span> 可写成 <span class="arithmatex">\(y = Cx\)</span>，其中 <span class="arithmatex">\(C\)</span> 是 Toeplitz 矩阵。
+   279|   279|
+   280|   280|(1) 写出 <span class="arithmatex">\(w = (w_0, w_1, w_2)\)</span>，输入长 <span class="arithmatex">\(4\)</span>（zero-padding <span class="arithmatex">\(p=1\)</span>）对应的 Toeplitz 矩阵 <span class="arithmatex">\(C\)</span>。
+   281|   281|(2) 参数共享如何体现在矩阵结构中？参数量的节省有多大？
+   282|   282|(3) 转置卷积等价于什么操作？
+   283|   283|
+   284|   284|&gt; <strong>标准答案：</strong>
+   285|   285|&gt;
+   286|   286|&gt; <strong>(1)</strong> Zero-padding 后输入变为 <span class="arithmatex">\(\tilde{x} = (0, x_1, x_2, x_3, x_4, 0)^{\mathsf T}\)</span>。<span class="arithmatex">\(y = w * x\)</span>（same 模式，输出长 <span class="arithmatex">\(4\)</span>）：
+   287|   287|&gt; [y_1 = w_1 \cdot 0 + w_0 \cdot x_1 + w_2 \cdot x_2]
+   288|   288|&gt; 等等——让我理清索引。设 <span class="arithmatex">\(w = (w_0, w_1, w_2)\)</span>。带 padding <span class="arithmatex">\(p=1\)</span> 的卷积对应：
+   289|   289|&gt; [C = \begin{bmatrix} w_1 &amp; w_0 &amp; 0 &amp; 0 \ w_2 &amp; w_1 &amp; w_0 &amp; 0 \ 0 &amp; w_2 &amp; w_1 &amp; w_0 \ 0 &amp; 0 &amp; w_2 &amp; w_1 \end{bmatrix}]
+   290|   290|&gt; 验证：<span class="arithmatex">\(y_1 = w_1x_1 + w_0x_2\)</span>（对应 <span class="arithmatex">\(w\)</span> 翻转后滑动：<span class="arithmatex">\(w_2\)</span> 超出，<span class="arithmatex">\(w_1\)</span> 在 <span class="arithmatex">\(x_1\)</span>，<span class="arithmatex">\(w_0\)</span> 在 <span class="arithmatex">\(x_2\)</span>）。
+   291|   291|&gt;
+   292|   292|&gt; <strong>(2)</strong> 参数共享：同一条对角线上的元素全相同。例如 <span class="arithmatex">\(w_0\)</span> 出现在 <span class="arithmatex">\(C_{12}, C_{23}, C_{34}\)</span>——同一个参数被复用了 <span class="arithmatex">\(3\)</span> 次。参数量 <span class="arithmatex">\(=3\)</span>，对应稠密矩阵需要 <span class="arithmatex">\(4 \times 4 = 16\)</span> 个参数 → 节省 <span class="arithmatex">\(&gt;5\times\)</span>。
+   293|   293|&gt; 图像上：<span class="arithmatex">\(3 \times 3\)</span> 卷积核在 <span class="arithmatex">\(224 \times 224\)</span> 特征图上，参数 <span class="arithmatex">\(= C_{\text{in}} \times C_{\text{out}} \times 9\)</span>，等效稠密参数量 <span class="arithmatex">\(= C_{\text{in}} \times C_{\text{out}} \times 224^2\)</span> → 节省 <span class="arithmatex">\(\sim 5500\times\)</span>。
+   294|   294|&gt;
+   295|   295|&gt; <strong>(3)</strong> 转置卷积计算 <span class="arithmatex">\(y = C^{\mathsf T} \mathbf{x}\)</span>。<span class="arithmatex">\(C^{\mathsf T}\)</span> 也是 Toeplitz，但结构对应「反卷」：
+   296|   296|&gt; [C^{\mathsf T} = \begin{bmatrix} w_1 &amp; w_2 &amp; 0 &amp; 0 \ w_0 &amp; w_1 &amp; w_2 &amp; 0 \ 0 &amp; w_0 &amp; w_1 &amp; w_2 \ 0 &amp; 0 &amp; w_0 &amp; w_1 \end{bmatrix}]
+   297|   297|&gt; 这等价于<strong>用翻转后的卷积核做带空洞的上采样</strong>。<code>nn.ConvTranspose1d</code> 底层就是 <span class="arithmatex">\(C^{\mathsf T} \mathbf{x}\)</span>。理解和卷积的矩阵对偶关系，是理解 GAN 生成器和语义分割解码器的关键。
+   298|   298|
+   299|   299|---
+   300|   300|
+   301|   301|<strong>B9.</strong> Self-Attention <span class="arithmatex">\(S = \text{softmax}(QK^{\mathsf T}/\sqrt{d})\)</span>，<span class="arithmatex">\(Q,K \in \mathbb{R}^{n \times d}\)</span>。
+   302|   302|
+   303|   303|(1) <span class="arithmatex">\(S\)</span> 的秩最大是多少？当 <span class="arithmatex">\(d=64\)</span>，<span class="arithmatex">\(n=512\)</span>，这意味着什么？
+   304|   304|(2) 为什么实际 Transformer 中 <span class="arithmatex">\(S\)</span> 常常更低秩（attention collapse）？
+   305|   305|(3) Multi-head attention 如何缓解这个问题？
+   306|   306|
+   307|   307|&gt; <strong>标准答案：</strong>
+   308|   308|&gt;
+   309|   309|&gt; <strong>(1)</strong> <span class="arithmatex">\(QK^{\mathsf T}\)</span> 的秩 <span class="arithmatex">\(\le \min(\text{rank}(Q), \text{rank}(K)) \le \min(n, d) = d\)</span>。Softmax 是逐行操作（指数 + 归一化），不改变秩。所以 <span class="arithmatex">\(\text{rank}(S) \le 64\)</span>。
+   310|   310|&gt; <span class="arithmatex">\(S\)</span> 是 <span class="arithmatex">\(512 \times 512\)</span>，但内蕴维度仅 <span class="arithmatex">\(\le 64\)</span>——它是<strong>极度低秩</strong>的。相当于用 <span class="arithmatex">\(64\)</span> 个「注意力模式」去近似 <span class="arithmatex">\(512\)</span> 个 token 的所有 pairwise 关系。
+   311|   311|&gt;
+   312|   312|&gt; <strong>(2) Attention Collapse</strong>：实际秩常远低于 <span class="arithmatex">\(64\)</span>，因为：
+   313|   313|&gt; - token 的 query/key 向量高度相关 → <span class="arithmatex">\(Q\)</span> 和 <span class="arithmatex">\(K\)</span> 自身的有效秩 <span class="arithmatex">\(&lt; d\)</span>
+   314|   314|&gt; - 很多 token 关注相同的 context（如所有 token 都高度关注 CLS token 或分隔符）→ attention 行向量趋于相同
+   315|   315|&gt; - 从 SVD 看：<span class="arithmatex">\(\sigma_1 \gg \sigma_2, \sigma_3, \dots\)</span>，主导奇异值占了绝大部分能量。<span class="arithmatex">\(S \approx \sigma_1 \mathbf{u}_1 \mathbf{v}_1^{\mathsf T}\)</span>（秩-1），所有 token 的关注分布几乎相同
+   316|   316|&gt;
+   317|   317|&gt; <strong>(3)</strong> Multi-head attention：<span class="arithmatex">\(h\)</span> 个 head，每个 head 用不同的投影矩阵 <span class="arithmatex">\(W_Q^{(i)}, W_K^{(i)}, W_V^{(i)}\)</span>：
+   318|   318|&gt; [\text{head}_i = \text{Attention}(XW_Q^{(i)}, XW_K^{(i)}, XW_V^{(i)})]
+   319|   319|&gt; 每个 head 的 <span class="arithmatex">\(Q_i K_i^{\mathsf T}\)</span> 可能有不同的低秩结构（rank <span class="arithmatex">\(\le d/h\)</span>）→ 各自关注不同类型的关系。拼接后 <span class="arithmatex">\(\text{rank}(\text{Concat}) \le \sum_i \text{rank}(\text{head}_i)\)</span> → 获得秩的多样性。如果单 head 是秩-1 的，8 heads 组合可达秩-8——大幅提升 attention 模式的丰富度。
+   320|   320|
+   321|   321|---
+   322|   322|
+   323|   323|<strong>B10.</strong> 线性回归 <span class="arithmatex">\(y \approx X\beta\)</span> 的正规方程为 <span class="arithmatex">\(X^{\mathsf T}X\beta = X^{\mathsf T}y\)</span>。
+   324|   324|
+   325|   325|(1) <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的秩和 <span class="arithmatex">\(X\)</span> 的秩有什么关系？什么情况下 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异？
+   326|   326|(2) 当 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异时，正规方程有无穷多解。为什么实际中往往还加 L2 正则？
+   327|   327|(3) 从条件数角度证明：<span class="arithmatex">\((X^{\mathsf T}X + \lambda I)^{-1}\)</span> 比 <span class="arithmatex">\((X^{\mathsf T}X)^{-1}\)</span> 更稳定。
+   328|   328|
+   329|   329|&gt; <strong>标准答案：</strong>
+   330|   330|&gt;
+   331|   331|&gt; <strong>(1)</strong> <span class="arithmatex">\(\text{rank}(X^{\mathsf T}X) = \text{rank}(X)\)</span>。证明：<span class="arithmatex">\(\text{rank}(X^{\mathsf T}X) \le \text{rank}(X)\)</span>（显然），且 <span class="arithmatex">\(X^{\mathsf T}X\mathbf{v} = 0 \Rightarrow \mathbf{v}^{\mathsf T}X^{\mathsf T}X\mathbf{v} = \|X\mathbf{v}\|^2 = 0 \Rightarrow X\mathbf{v} = 0\)</span>，所以零空间相同 → 秩相同。
+   332|   332|&gt; <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异当且仅当 <span class="arithmatex">\(X\)</span> 不满列秩——即特征之间存在线性相关（多重共线性），或样本数 <span class="arithmatex">\(&lt;\)</span> 特征数（经典 <span class="arithmatex">\(p &gt; n\)</span> 问题）。
+   333|   333|&gt;
+   334|   334|&gt; <strong>(2)</strong> 当 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 奇异时，正规方程有无穷多解。L2 正则化（Ridge Regression）：
+   335|   335|&gt; [\hat{\beta} = (X^{\mathsf T}X + \lambda I)^{-1} X^{\mathsf T}y]
+   336|   336|&gt; 给 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的对角线上加 <span class="arithmatex">\(\lambda I\)</span> → 所有特征值抬升 <span class="arithmatex">\(\lambda\)</span> → 强制正定 → 唯一解。从贝叶斯角度，这等价于给 <span class="arithmatex">\(\beta\)</span> 加高斯先验 <span class="arithmatex">\(\beta \sim \mathcal{N}(0, \lambda^{-1}I)\)</span>。
+   337|   337|&gt;
+   338|   338|&gt; <strong>(3)</strong> 设 <span class="arithmatex">\(X^{\mathsf T}X\)</span> 的特征值为 <span class="arithmatex">\(\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_r &gt; 0\)</span>（可能 <span class="arithmatex">\(\lambda_r\)</span> 接近 <span class="arithmatex">\(0\)</span>）。
+   339|   339|&gt; 无正则化：
+   340|   340|&gt; [\kappa(X^{\mathsf T}X) = \frac{\lambda_1}{\lambda_r}]
+   341|   341|&gt; 若 <span class="arithmatex">\(\lambda_r \approx 10^{-6}\)</span>，<span class="arithmatex">\(\kappa \approx 10^6 \lambda_1\)</span> → 极度病态。
+   342|   342|&gt; 加正则化后：
+   343|   343|&gt; [\kappa(X^{\mathsf T}X + \lambda I) = \frac{\lambda_1 + \lambda}{\lambda_r + \lambda}]
+   344|   344|&gt; <span class="arithmatex">\(\lambda_r \approx 0\)</span> 时，分母 <span class="arithmatex">\(\approx \lambda\)</span> → <span class="arithmatex">\(\kappa \approx \frac{\lambda_1 + \lambda}{\lambda} \le \frac{\lambda_1}{\lambda} + 1\)</span>。条件数被<strong>有界化</strong>，不再随 <span class="arithmatex">\(\lambda_r \to 0\)</span> 爆炸。这就是 Ridge Regression 数值稳定的线性代数本质。
+   345|   345|
+   346|   346|---
+   347|   347|
+   348|   348|<a href="../basis-and-neural-networks/">← 返回教程</a>　　　<a href="../exercises/">← 习题总览</a></m}></p>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>
 <h2 id="__comments">💬 评论区</h2>

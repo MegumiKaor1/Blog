@@ -1426,16 +1426,23 @@ VAE 的 ELBO 里每一项都是信息论概念。
 <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
 <!-- 自动为外部链接添加 target="_blank" -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('a[href^="http"]').forEach(function(link) {
-        // 跳过博客内部链接（当前域名）
-        if (link.hostname === 'megumikaor1.github.io') return;
-        // 跳过已经是 _blank 的链接
-        if (link.getAttribute('target') === '_blank') return;
-        link.setAttribute('target', '_blank');
-        link.setAttribute('rel', 'noopener');
-      });
-    });
+    (function() {
+      function fixExternalLinks() {
+        document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+          // 跳过博客内部链接（当前域名）
+          if (link.hostname === 'megumikaor1.github.io') return;
+          // 跳过已经是 _blank 的链接
+          if (link.getAttribute('target') === '_blank') return;
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener');
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', fixExternalLinks);
+      } else {
+        fixExternalLinks();
+      }
+    })();
   </script>
 </body>
 </html>

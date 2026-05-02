@@ -4,5 +4,5 @@
 
 ---
 
-- <a href="https://oigi8odzc5w.feishu.cn/wiki/WBMfwiNkfi6uNFkRtXdcavDzn0" target="_blank" rel="noopener">Hermes Agent 详细讲解 & 本地部署和基于 OpenClaw 迁出的全流程</a>
-- <a href="https://oigi8odzc5w.feishu.cn/wiki/NtOrwxnyWirN3ykWSoncFRr5nGc" target="_blank" rel="noopener">Hermes Agent 详解：特性、本地部署与实用指南</a>
+- [近年 AI 应用技术串讲与优质文档分享｜Agent、Skill、OpenClaw、Harness……](https://oigi8odzc5w.feishu.cn/wiki/WBMfwiNkfi6uNFkRtXdcavDzn0e)
+- [Hermes Agent 详细讲解 & 本地部署和基于 OpenClaw 迁出的全流程](https://oigi8odzc5w.feishu.cn/wiki/NtOrwxnyWirN3ykWSoncFRr5nGc)

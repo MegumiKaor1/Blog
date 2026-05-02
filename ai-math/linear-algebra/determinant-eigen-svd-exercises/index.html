@@ -1411,9 +1411,9 @@ $<span class="arithmatex">\(\det(A) = 3 \cdot (-1)^{2+2} \cdot \det\begin{bmatri
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong> <span class="arithmatex">\(\det(B - \lambda I) = \det\begin{bmatrix}2-\lambda&amp;2&amp;0\\2&amp;5-\lambda&amp;0\\0&amp;0&amp;3-\lambda\end{bmatrix}\)</span>。</p>
 <p>按第三行/列展开：
-$<span class="arithmatex">\(= (3-\lambda) \cdot \det\begin{bmatrix}2-\lambda&amp;2\\2&amp;5-\lambda\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(= (3-\lambda)[(2-\lambda)(5-\lambda) - 4] = (3-\lambda)(\lambda^2 - 7\lambda + 6)\)</span>$
-$<span class="arithmatex">\(= (3-\lambda)(\lambda-1)(\lambda-6) = 0\)</span>$</p>
+$<span class="arithmatex">\(= (3-\lambda) \cdot \det\begin{bmatrix}2-\lambda&amp;2\\2&amp;5-\lambda\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[= (3-\lambda)[(2-\lambda)(5-\lambda) - 4] = (3-\lambda)(\lambda^2 - 7\lambda + 6)\]</div>
+<div class="arithmatex">\[= (3-\lambda)(\lambda-1)(\lambda-6) = 0\]</div>
 <p><span class="arithmatex">\(\lambda_1 = 6\)</span>，<span class="arithmatex">\(\lambda_2 = 3\)</span>，<span class="arithmatex">\(\lambda_3 = 1\)</span>。</p>
 <p><strong>(2)</strong> 分别求特征向量：
 - <span class="arithmatex">\(\lambda_1 = 6\)</span>：<span class="arithmatex">\((B-6I)\mathbf{v} = \begin{bmatrix}-4&amp;2&amp;0\\2&amp;-1&amp;0\\0&amp;0&amp;-3\end{bmatrix}\mathbf{v} = \mathbf{0}\)</span>。前两行给出 <span class="arithmatex">\(v_1 = t, v_2 = 2t\)</span>，第三行 <span class="arithmatex">\(v_3 = 0\)</span>。取 <span class="arithmatex">\(\mathbf{v}_1 = \frac{1}{\sqrt{5}}(1, 2, 0)^{\mathsf T}\)</span>。
@@ -1447,11 +1447,11 @@ $<span class="arithmatex">\(= (3-\lambda)(\lambda-1)(\lambda-6) = 0\)</span>$</p
 $<span class="arithmatex">\(dL = -\sum_k \frac{y_k}{\hat{y}_k} d\hat{y}_k = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} d\hat{\mathbf{y}}\)</span>$</p>
 <p>由 A4：<span class="arithmatex">\(d\hat{\mathbf{y}} = (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>。</p>
 <p>代入：
-$<span class="arithmatex">\(dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>$
-$<span class="arithmatex">\(= -\mathbf{y}^{\mathsf T} (I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \text{diag}(\hat{\mathbf{y}})^{-1}\text{diag}(\hat{\mathbf{y}}) = I\text{）}\)</span>$
-$<span class="arithmatex">\(= (-\mathbf{y}^{\mathsf T} + \mathbf{y}^{\mathsf T}\mathbf{1} \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>$
-$<span class="arithmatex">\(= (-\mathbf{y}^{\mathsf T} + 1 \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \sum_k y_k = 1\text{）}\)</span>$
-$<span class="arithmatex">\(= (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}\)</span>$</p>
+$<span class="arithmatex">\(dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>$</p>
+<div class="arithmatex">\[= -\mathbf{y}^{\mathsf T} (I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \text{diag}(\hat{\mathbf{y}})^{-1}\text{diag}(\hat{\mathbf{y}}) = I\text{）}\]</div>
+<div class="arithmatex">\[= (-\mathbf{y}^{\mathsf T} + \mathbf{y}^{\mathsf T}\mathbf{1} \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\]</div>
+<div class="arithmatex">\[= (-\mathbf{y}^{\mathsf T} + 1 \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \sum_k y_k = 1\text{）}\]</div>
+<div class="arithmatex">\[= (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}\]</div>
 <p>标准形式 <span class="arithmatex">\(dL = (\nabla_{\mathbf{z}} L)^{\mathsf T} d\mathbf{z}\)</span> → <span class="arithmatex">\(\nabla_{\mathbf{z}} L = \hat{\mathbf{y}} - \mathbf{y}\)</span>。</p>
 <p><strong>这是 ML 中最优雅的梯度公式之一。</strong> 最后一层反向传播的「误差信号」就是<strong>预测概率减去真实标签</strong>——极度简洁且数值稳定。无论前面的网络多复杂，softmax + CE 的组合永远给出这个形式。</p>
 </blockquote>
@@ -1517,8 +1517,8 @@ $<span class="arithmatex">\(A\mathbf{v}_3 = U\Sigma (V^{\mathsf T}\mathbf{v}_3) 
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong>
-$<span class="arithmatex">\(R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{1^2+1^2} = \frac{[1,1]\begin{bmatrix}4\\4\end{bmatrix}}{2} = \frac{8}{2} = 4\)</span>$
-$<span class="arithmatex">\(R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{[1,-1]\begin{bmatrix}2\\-2\end{bmatrix}}{2} = \frac{4}{2} = 2\)</span>$</p>
+$<span class="arithmatex">\(R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{1^2+1^2} = \frac{[1,1]\begin{bmatrix}4\\4\end{bmatrix}}{2} = \frac{8}{2} = 4\)</span>$</p>
+<div class="arithmatex">\[R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{[1,-1]\begin{bmatrix}2\\-2\end{bmatrix}}{2} = \frac{4}{2} = 2\]</div>
 <p><strong>(2)</strong> 由 A1/A2，<span class="arithmatex">\(H\)</span> 的特征值为 <span class="arithmatex">\(\lambda_{\max}=4\)</span>（对应 <span class="arithmatex">\((1,1)\)</span>），<span class="arithmatex">\(\lambda_{\min}=2\)</span>（对应 <span class="arithmatex">\((1,-1)\)</span>）。</p>
 <p><strong>Rayleigh 商定理</strong>：对任意 <span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span>，<span class="arithmatex">\(\lambda_{\min} \le R(\mathbf{x}) \le \lambda_{\max}\)</span>，等号在特征向量方向取得。这里：<span class="arithmatex">\(R(1,1) = \lambda_{\max} = 4\)</span>，<span class="arithmatex">\(R(1,-1) = \lambda_{\min} = 2\)</span>——恰好命中 ✓。</p>
 <p><strong>(3)</strong> 在局部二次近似下，沿 <span class="arithmatex">\(\mathbf{d} = -\nabla L\)</span> 走一步的最优学习率的倒数是该方向的 Rayleigh 商：

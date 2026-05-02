@@ -1370,9 +1370,9 @@ $<span class="arithmatex">\(\text{rank}(W_{\text{eff}}) = \text{rank}(W_2 W_1) \
 <p><strong>标准答案：</strong></p>
 <p><span class="arithmatex">\(A\)</span> 的参数：<span class="arithmatex">\(\text{tr}(A) = 10\)</span>，<span class="arithmatex">\(\det(A) = 25-4 = 21\)</span>。特征方程 <span class="arithmatex">\(\lambda^2 - 10\lambda + 21 = 0\)</span> → <span class="arithmatex">\((\lambda-3)(\lambda-7) = 0\)</span> → <span class="arithmatex">\(\lambda = 3, 7\)</span>。</p>
 <p>计算 <span class="arithmatex">\(B\)</span>：
-$<span class="arithmatex">\(P^{-1} = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(AP = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&amp;0\\0&amp;6\end{bmatrix} = \begin{bmatrix}7&amp;0\\0&amp;3\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(P^{-1} = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[AP = \begin{bmatrix}5&amp;2\\2&amp;5\end{bmatrix}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix} = \begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix}\]</div>
+<div class="arithmatex">\[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&amp;1\\1&amp;-1\end{bmatrix}\begin{bmatrix}7&amp;3\\7&amp;-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&amp;0\\0&amp;6\end{bmatrix} = \begin{bmatrix}7&amp;0\\0&amp;3\end{bmatrix}\]</div>
 <p><span class="arithmatex">\(B\)</span> 恰好是对角矩阵！因为 <span class="arithmatex">\(P\)</span> 的列恰好是 <span class="arithmatex">\(A\)</span> 的特征向量：<span class="arithmatex">\((1,1)^{\mathsf T}\)</span> 对应 <span class="arithmatex">\(\lambda=7\)</span>，<span class="arithmatex">\((1,-1)^{\mathsf T}\)</span> 对应 <span class="arithmatex">\(\lambda=3\)</span>。相似变换把 <span class="arithmatex">\(A\)</span> 对角化了。</p>
 <p>验证：<span class="arithmatex">\(\text{tr}(B) = 7+3 = 10\)</span> ✓。<span class="arithmatex">\(\det(B) = 7\times3 = 21\)</span> ✓。<span class="arithmatex">\(B\)</span> 的特征值正是 <span class="arithmatex">\(7, 3\)</span> ✓。</p>
 <p><strong>ML 洞察</strong>：<span class="arithmatex">\(P^{-1}AP\)</span> 和 <span class="arithmatex">\(A\)</span> 表示相同的线性变换，只是换了「坐标系」。当新基恰好是特征向量时，矩阵变成对角——这就是 PCA 的本质：找到协方差矩阵的特征向量作为新基，使数据在新基下协方差为对角矩阵（各维度独立）。</p>
@@ -1386,9 +1386,9 @@ $<span class="arithmatex">\(\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \ma
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong> 前向：
-$<span class="arithmatex">\(\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3\)</span>$
-$<span class="arithmatex">\(\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9\)</span>$
-$<span class="arithmatex">\(L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8\)</span>$</p>
+$<span class="arithmatex">\(\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3\)</span>$</p>
+<div class="arithmatex">\[\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9\]</div>
+<div class="arithmatex">\[L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8\]</div>
 <p><strong>(2)</strong> 反向传播（链式法则）：</p>
 <p>① <span class="arithmatex">\(\frac{\partial L}{\partial \hat{y}} = \hat{y} - y = 9 - 5 = 4\)</span></p>
 <p>② <span class="arithmatex">\(\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W_2}\)</span>。<span class="arithmatex">\(\frac{\partial \hat{y}}{\partial W_2} = \mathbf{h} = 3\)</span>。所以：
@@ -1526,12 +1526,12 @@ $<span class="arithmatex">\(= I + \sum_{l=1}^{L-1} \frac{\partial F_l}{\partial 
 <p><strong>标准答案：</strong></p>
 <p>假设：<span class="arithmatex">\(W_{ij}\)</span> 和 <span class="arithmatex">\(x_j\)</span> 独立同分布，均值为 <span class="arithmatex">\(0\)</span>。</p>
 <p><strong>(1)</strong> 前向方差：
-$<span class="arithmatex">\(h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j\)</span>$
-$<span class="arithmatex">\(\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\)</span>$</p>
+$<span class="arithmatex">\(h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j\)</span>$</p>
+<div class="arithmatex">\[\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\]</div>
 <p>要使 <span class="arithmatex">\(\text{Var}(h_i) = \text{Var}(x)\)</span>：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{in}}\)</span>。</p>
 <p><strong>(2)</strong> 反向传播：<span class="arithmatex">\(\frac{\partial L}{\partial x} = W^{\mathsf T} \frac{\partial L}{\partial h}\)</span>。
-$<span class="arithmatex">\(\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}\)</span>$
-$<span class="arithmatex">\(\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)\)</span>$</p>
+$<span class="arithmatex">\(\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}\)</span>$</p>
+<div class="arithmatex">\[\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)\]</div>
 <p>保持梯度方差不变：<span class="arithmatex">\(\text{Var}(W) = 1/n_{\text{out}}\)</span>。</p>
 <p><strong>(3)</strong> 前向要求 <span class="arithmatex">\(1/n_{\text{in}}\)</span>，反向要求 <span class="arithmatex">\(1/n_{\text{out}}\)</span>。当 <span class="arithmatex">\(n_{\text{in}} \neq n_{\text{out}}\)</span> 时冲突。</p>
 <p><strong>Xavier</strong>：取两者调和平均 → <span class="arithmatex">\(\text{Var}(W) = \frac{2}{n_{\text{in}} + n_{\text{out}}}\)</span>。折中方案，同时近似满足前向和反向的方差约束。</p>

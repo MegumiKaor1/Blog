@@ -1340,8 +1340,8 @@ $<span class="arithmatex">\(\begin{cases} x_1 + 2x_2 = 3 \\ 2x_1 + 4x_2 = 6 \end
 <p><span class="arithmatex">\(\mathbf{a}_1 = (1, 1, 1)^{\mathsf T}\)</span>，<span class="arithmatex">\(\|\mathbf{a}_1\| = \sqrt{3}\)</span>。
 $<span class="arithmatex">\(\mathbf{q}_1 = \frac{1}{\sqrt{3}}(1, 1, 1)^{\mathsf T}, \quad r_{11} = \sqrt{3}\)</span>$</p>
 <p><span class="arithmatex">\(\mathbf{a}_2 = (1, 2, 3)^{\mathsf T}\)</span>。减去在 <span class="arithmatex">\(\mathbf{q}_1\)</span> 上的投影：
-$<span class="arithmatex">\(\mathbf{a}_2 \cdot \mathbf{q}_1 = \frac{1+2+3}{\sqrt{3}} = \frac{6}{\sqrt{3}} = 2\sqrt{3}\)</span>$
-$<span class="arithmatex">\(\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\mathbf{q}_1 = \begin{bmatrix}1\\2\\3\end{bmatrix} - 2\sqrt{3} \cdot \frac{1}{\sqrt{3}}\begin{bmatrix}1\\1\\1\end{bmatrix} = \begin{bmatrix}1\\2\\3\end{bmatrix} - \begin{bmatrix}2\\2\\2\end{bmatrix} = \begin{bmatrix}-1\\0\\1\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(\mathbf{a}_2 \cdot \mathbf{q}_1 = \frac{1+2+3}{\sqrt{3}} = \frac{6}{\sqrt{3}} = 2\sqrt{3}\)</span>$</p>
+<div class="arithmatex">\[\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\mathbf{q}_1 = \begin{bmatrix}1\\2\\3\end{bmatrix} - 2\sqrt{3} \cdot \frac{1}{\sqrt{3}}\begin{bmatrix}1\\1\\1\end{bmatrix} = \begin{bmatrix}1\\2\\3\end{bmatrix} - \begin{bmatrix}2\\2\\2\end{bmatrix} = \begin{bmatrix}-1\\0\\1\end{bmatrix}\]</div>
 <p>注意 <span class="arithmatex">\(\mathbf{v}_2\)</span> 与 <span class="arithmatex">\(\mathbf{q}_1\)</span> 正交（<span class="arithmatex">\((-1,0,1) \cdot (1,1,1) = 0\)</span> ✓）。
 $<span class="arithmatex">\(\|\mathbf{v}_2\| = \sqrt{1+0+1} = \sqrt{2}, \quad \mathbf{q}_2 = \frac{1}{\sqrt{2}}(-1, 0, 1)^{\mathsf T}, \quad r_{22} = \sqrt{2}\)</span>$</p>
 <p><span class="arithmatex">\(r_{12} = \mathbf{a}_2 \cdot \mathbf{q}_1 = 2\sqrt{3}\)</span>。</p>
@@ -1350,8 +1350,8 @@ $<span class="arithmatex">\(Q = \begin{bmatrix} 1/\sqrt{3} &amp; -1/\sqrt{2} \\ 
 <p>验证 <span class="arithmatex">\(QR = A\)</span>：
 第一列：<span class="arithmatex">\(\sqrt{3} \cdot \mathbf{q}_1 = (1,1,1)^{\mathsf T}\)</span> ✓。第二列：<span class="arithmatex">\(2\sqrt{3}\mathbf{q}_1 + \sqrt{2}\mathbf{q}_2 = (2,2,2) + (-1,0,1) = (1,2,3)^{\mathsf T}\)</span> ✓。</p>
 <p><strong>步骤 2：解 <span class="arithmatex">\(R\mathbf{x} = Q^{\mathsf T}\mathbf{b}\)</span>。</strong></p>
-<div class="arithmatex">\[Q^{\mathsf T}\mathbf{b} = \begin{bmatrix} 1/\sqrt{3} &amp; 1/\sqrt{3} &amp; 1/\sqrt{3} \\ -1/\sqrt{2} &amp; 0 &amp; 1/\sqrt{2} \end{bmatrix} \begin{bmatrix}1\\2\\2\end{bmatrix}$$
-$$= \begin{bmatrix}(1+2+2)/\sqrt{3} \\ (-1+0+2)/\sqrt{2}\end{bmatrix} = \begin{bmatrix}5/\sqrt{3} \\ 1/\sqrt{2}\end{bmatrix}\]</div>
+<div class="arithmatex">\[Q^{\mathsf T}\mathbf{b} = \begin{bmatrix} 1/\sqrt{3} &amp; 1/\sqrt{3} &amp; 1/\sqrt{3} \\ -1/\sqrt{2} &amp; 0 &amp; 1/\sqrt{2} \end{bmatrix} \begin{bmatrix}1\\2\\2\end{bmatrix}\]</div>
+<div class="arithmatex">\[= \begin{bmatrix}(1+2+2)/\sqrt{3} \\ (-1+0+2)/\sqrt{2}\end{bmatrix} = \begin{bmatrix}5/\sqrt{3} \\ 1/\sqrt{2}\end{bmatrix}\]</div>
 <p>解上三角方程：
 $<span class="arithmatex">\(\begin{bmatrix}\sqrt{3} &amp; 2\sqrt{3} \\ 0 &amp; \sqrt{2}\end{bmatrix} \begin{bmatrix}x_1\\x_2\end{bmatrix} = \begin{bmatrix}5/\sqrt{3} \\ 1/\sqrt{2}\end{bmatrix}\)</span>$</p>
 <p><span class="arithmatex">\(\sqrt{2} x_2 = 1/\sqrt{2} \Rightarrow x_2 = 1/2\)</span>。
@@ -1367,13 +1367,13 @@ $<span class="arithmatex">\(\begin{bmatrix}\sqrt{3} &amp; 2\sqrt{3} \\ 0 &amp; \
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong> 顺序主子式法：
-$<span class="arithmatex">\(\Delta_1 = 4 &gt; 0\)</span>$
-$<span class="arithmatex">\(\Delta_2 = \det(\Sigma) = 4 \times 3 - 2 \times 2 = 12 - 4 = 8 &gt; 0\)</span>$</p>
+$<span class="arithmatex">\(\Delta_1 = 4 &gt; 0\)</span>$</p>
+<div class="arithmatex">\[\Delta_2 = \det(\Sigma) = 4 \times 3 - 2 \times 2 = 12 - 4 = 8 &gt; 0\]</div>
 <p>所有顺序主子式 <span class="arithmatex">\(&gt;0\)</span> → <span class="arithmatex">\(\Sigma\)</span> 正定 ✓。也可验证特征值：<span class="arithmatex">\(\det(\Sigma - \lambda I) = (4-\lambda)(3-\lambda) - 4 = \lambda^2 - 7\lambda + 8 = 0\)</span>，<span class="arithmatex">\(\lambda = \frac{7 \pm \sqrt{49-32}}{2} = \frac{7 \pm \sqrt{17}}{2} \approx 5.56, 1.44\)</span>，全部 <span class="arithmatex">\(&gt;0\)</span>。</p>
 <p><strong>(2)</strong> Cholesky 分解递推公式：
-$<span class="arithmatex">\(L_{11} = \sqrt{\Sigma_{11}} = \sqrt{4} = 2\)</span>$
-$<span class="arithmatex">\(L_{21} = \frac{\Sigma_{21}}{L_{11}} = \frac{2}{2} = 1\)</span>$
-$<span class="arithmatex">\(L_{22} = \sqrt{\Sigma_{22} - L_{21}^2} = \sqrt{3 - 1} = \sqrt{2}\)</span>$</p>
+$<span class="arithmatex">\(L_{11} = \sqrt{\Sigma_{11}} = \sqrt{4} = 2\)</span>$</p>
+<div class="arithmatex">\[L_{21} = \frac{\Sigma_{21}}{L_{11}} = \frac{2}{2} = 1\]</div>
+<div class="arithmatex">\[L_{22} = \sqrt{\Sigma_{22} - L_{21}^2} = \sqrt{3 - 1} = \sqrt{2}\]</div>
 <div class="arithmatex">\[L = \begin{bmatrix}2 &amp; 0 \\ 1 &amp; \sqrt{2}\end{bmatrix}\]</div>
 <p>验证：<span class="arithmatex">\(LL^{\mathsf T} = \begin{bmatrix}2&amp;0\\1&amp;\sqrt{2}\end{bmatrix}\begin{bmatrix}2&amp;1\\0&amp;\sqrt{2}\end{bmatrix} = \begin{bmatrix}4&amp;2\\2&amp;3\end{bmatrix} = \Sigma\)</span> ✓。</p>
 <p><strong>(3)</strong> 采样公式：<span class="arithmatex">\(\mathbf{x} = L\mathbf{z}\)</span>，<span class="arithmatex">\(\mathbf{z} \sim \mathcal{N}(\mathbf{0}, I_2)\)</span>。</p>
@@ -1403,10 +1403,10 @@ $<span class="arithmatex">\(L = \begin{bmatrix}1&amp;0&amp;0\\\ell_{21}&amp;1&am
 <p>注意 <span class="arithmatex">\(U\)</span> 有零行 → <span class="arithmatex">\(A\)</span> 秩亏（秩 <span class="arithmatex">\(=2\)</span>）。</p>
 <p><strong>用 LU 解方程</strong>：</p>
 <p>① 前向代入 <span class="arithmatex">\(L\mathbf{c} = \mathbf{b}\)</span>：
-$<span class="arithmatex">\(\begin{bmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\-1&amp;3&amp;1\end{bmatrix}\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix} = \begin{bmatrix}1\\3\\7\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(c_1 = 1\)</span>$
-$<span class="arithmatex">\(2c_1 + c_2 = 3 \Rightarrow c_2 = 3 - 2 = 1\)</span>$
-$<span class="arithmatex">\(-c_1 + 3c_2 + c_3 = 7 \Rightarrow -1 + 3 + c_3 = 7 \Rightarrow c_3 = 5\)</span>$</p>
+$<span class="arithmatex">\(\begin{bmatrix}1&amp;0&amp;0\\2&amp;1&amp;0\\-1&amp;3&amp;1\end{bmatrix}\begin{bmatrix}c_1\\c_2\\c_3\end{bmatrix} = \begin{bmatrix}1\\3\\7\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[c_1 = 1\]</div>
+<div class="arithmatex">\[2c_1 + c_2 = 3 \Rightarrow c_2 = 3 - 2 = 1\]</div>
+<div class="arithmatex">\[-c_1 + 3c_2 + c_3 = 7 \Rightarrow -1 + 3 + c_3 = 7 \Rightarrow c_3 = 5\]</div>
 <p>② 回代 <span class="arithmatex">\(U\mathbf{x} = \mathbf{c}\)</span>：
 $<span class="arithmatex">\(\begin{bmatrix}2&amp;1&amp;0\\0&amp;1&amp;1\\0&amp;0&amp;0\end{bmatrix}\begin{bmatrix}x_1\\x_2\\x_3\end{bmatrix} = \begin{bmatrix}1\\1\\5\end{bmatrix}\)</span>$</p>
 <p>第三行：<span class="arithmatex">\(0 \cdot x_3 = 5\)</span> → <strong>矛盾！</strong> 方程组无解。<span class="arithmatex">\(\mathbf{b} = (1,3,7)^{\mathsf T}\)</span> 不在 <span class="arithmatex">\(A\)</span> 的列空间里。</p>
@@ -1473,26 +1473,26 @@ $<span class="arithmatex">\(\mathbf{e} \cdot \mathbf{a} = \frac{8}{3} \cdot 1 + 
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong>
 $<span class="arithmatex">\(\mathbf{q}_1 = \frac{\mathbf{a}_1}{\|\mathbf{a}_1\|} = \frac{1}{\sqrt{2}}(1, 1, 0)^{\mathsf T}\)</span>$</p>
-<div class="arithmatex">\[\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\mathbf{q}_1$$
-$$\mathbf{a}_2 \cdot \mathbf{q}_1 = 0 \cdot \frac{1}{\sqrt{2}} + 1 \cdot \frac{1}{\sqrt{2}} + 1 \cdot 0 = \frac{1}{\sqrt{2}}$$
-$$\mathbf{v}_2 = (0,1,1) - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}(1,1,0) = (0,1,1) - (\tfrac{1}{2},\tfrac{1}{2},0) = (-\tfrac{1}{2}, \tfrac{1}{2}, 1)^{\mathsf T}\]</div>
-<div class="arithmatex">\[\|\mathbf{v}_2\| = \sqrt{\tfrac{1}{4} + \tfrac{1}{4} + 1} = \sqrt{\tfrac{3}{2}} = \frac{\sqrt{3}}{\sqrt{2}}$$
-$$\mathbf{q}_2 = \frac{\sqrt{2}}{\sqrt{3}}(-\tfrac{1}{2}, \tfrac{1}{2}, 1)^{\mathsf T} = \left(-\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{\sqrt{2}}{\sqrt{3}}\right)^{\mathsf T}\]</div>
-<div class="arithmatex">\[\mathbf{v}_3 = \mathbf{a}_3 - (\mathbf{a}_3 \cdot \mathbf{q}_1)\mathbf{q}_1 - (\mathbf{a}_3 \cdot \mathbf{q}_2)\mathbf{q}_2$$
-$$\mathbf{a}_3 \cdot \mathbf{q}_1 = 0$$
-$$\mathbf{a}_3 \cdot \mathbf{q}_2 = 0 \cdot (-\tfrac{1}{\sqrt{6}}) + 0 \cdot \tfrac{1}{\sqrt{6}} + 1 \cdot \tfrac{\sqrt{2}}{\sqrt{3}} = \frac{\sqrt{2}}{\sqrt{3}}$$
-$$\mathbf{v}_3 = (0,0,1) - 0 - \frac{\sqrt{2}}{\sqrt{3}}\left(-\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{\sqrt{2}}{\sqrt{3}}\right)^{\mathsf T}\]</div>
+<div class="arithmatex">\[\mathbf{v}_2 = \mathbf{a}_2 - (\mathbf{a}_2 \cdot \mathbf{q}_1)\mathbf{q}_1\]</div>
+<div class="arithmatex">\[\mathbf{a}_2 \cdot \mathbf{q}_1 = 0 \cdot \frac{1}{\sqrt{2}} + 1 \cdot \frac{1}{\sqrt{2}} + 1 \cdot 0 = \frac{1}{\sqrt{2}}\]</div>
+<div class="arithmatex">\[\mathbf{v}_2 = (0,1,1) - \frac{1}{\sqrt{2}} \cdot \frac{1}{\sqrt{2}}(1,1,0) = (0,1,1) - (\tfrac{1}{2},\tfrac{1}{2},0) = (-\tfrac{1}{2}, \tfrac{1}{2}, 1)^{\mathsf T}\]</div>
+<div class="arithmatex">\[\|\mathbf{v}_2\| = \sqrt{\tfrac{1}{4} + \tfrac{1}{4} + 1} = \sqrt{\tfrac{3}{2}} = \frac{\sqrt{3}}{\sqrt{2}}\]</div>
+<div class="arithmatex">\[\mathbf{q}_2 = \frac{\sqrt{2}}{\sqrt{3}}(-\tfrac{1}{2}, \tfrac{1}{2}, 1)^{\mathsf T} = \left(-\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{\sqrt{2}}{\sqrt{3}}\right)^{\mathsf T}\]</div>
+<div class="arithmatex">\[\mathbf{v}_3 = \mathbf{a}_3 - (\mathbf{a}_3 \cdot \mathbf{q}_1)\mathbf{q}_1 - (\mathbf{a}_3 \cdot \mathbf{q}_2)\mathbf{q}_2\]</div>
+<div class="arithmatex">\[\mathbf{a}_3 \cdot \mathbf{q}_1 = 0\]</div>
+<div class="arithmatex">\[\mathbf{a}_3 \cdot \mathbf{q}_2 = 0 \cdot (-\tfrac{1}{\sqrt{6}}) + 0 \cdot \tfrac{1}{\sqrt{6}} + 1 \cdot \tfrac{\sqrt{2}}{\sqrt{3}} = \frac{\sqrt{2}}{\sqrt{3}}\]</div>
+<div class="arithmatex">\[\mathbf{v}_3 = (0,0,1) - 0 - \frac{\sqrt{2}}{\sqrt{3}}\left(-\frac{1}{\sqrt{6}}, \frac{1}{\sqrt{6}}, \frac{\sqrt{2}}{\sqrt{3}}\right)^{\mathsf T}\]</div>
 <p>计算：
-$<span class="arithmatex">\(\frac{\sqrt{2}}{\sqrt{3}} \cdot \left(-\frac{1}{\sqrt{6}}\right) = -\frac{\sqrt{2}}{\sqrt{18}} = -\frac{1}{3}\)</span>$
-$<span class="arithmatex">\(\frac{\sqrt{2}}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} = \frac{\sqrt{2}}{\sqrt{18}} = \frac{1}{3}\)</span>$
-$<span class="arithmatex">\(\frac{\sqrt{2}}{\sqrt{3}} \cdot \frac{\sqrt{2}}{\sqrt{3}} = \frac{2}{3}\)</span>$</p>
+$<span class="arithmatex">\(\frac{\sqrt{2}}{\sqrt{3}} \cdot \left(-\frac{1}{\sqrt{6}}\right) = -\frac{\sqrt{2}}{\sqrt{18}} = -\frac{1}{3}\)</span>$</p>
+<div class="arithmatex">\[\frac{\sqrt{2}}{\sqrt{3}} \cdot \frac{1}{\sqrt{6}} = \frac{\sqrt{2}}{\sqrt{18}} = \frac{1}{3}\]</div>
+<div class="arithmatex">\[\frac{\sqrt{2}}{\sqrt{3}} \cdot \frac{\sqrt{2}}{\sqrt{3}} = \frac{2}{3}\]</div>
 <div class="arithmatex">\[\mathbf{v}_3 = (0,0,1) - (-\tfrac{1}{3}, \tfrac{1}{3}, \tfrac{2}{3}) = (\tfrac{1}{3}, -\tfrac{1}{3}, \tfrac{1}{3})^{\mathsf T} = \frac{1}{3}(1,-1,1)^{\mathsf T}\]</div>
-<div class="arithmatex">\[\|\mathbf{v}_3\| = \frac{1}{3}\sqrt{1+1+1} = \frac{1}{\sqrt{3}}$$
-$$\mathbf{q}_3 = \left(\frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}\right)^{\mathsf T}\]</div>
+<div class="arithmatex">\[\|\mathbf{v}_3\| = \frac{1}{3}\sqrt{1+1+1} = \frac{1}{\sqrt{3}}\]</div>
+<div class="arithmatex">\[\mathbf{q}_3 = \left(\frac{1}{\sqrt{3}}, -\frac{1}{\sqrt{3}}, \frac{1}{\sqrt{3}}\right)^{\mathsf T}\]</div>
 <p><strong>(2)</strong> 验证正交归一：
-$<span class="arithmatex">\(\mathbf{q}_1 \cdot \mathbf{q}_2 = \frac{1}{\sqrt{2}}\cdot(-\frac{1}{\sqrt{6}}) + \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{6}} + 0 = 0\)</span>$ ✓
-$<span class="arithmatex">\(\mathbf{q}_1 \cdot \mathbf{q}_3 = \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{3}} + \frac{1}{\sqrt{2}}\cdot(-\frac{1}{\sqrt{3}}) + 0 = 0\)</span>$ ✓
-$<span class="arithmatex">\(\mathbf{q}_2 \cdot \mathbf{q}_3 = -\frac{1}{\sqrt{6}}\cdot\frac{1}{\sqrt{3}} + \frac{1}{\sqrt{6}}\cdot(-\frac{1}{\sqrt{3}}) + \frac{\sqrt{2}}{\sqrt{3}}\cdot\frac{1}{\sqrt{3}} = -\frac{1}{\sqrt{18}} - \frac{1}{\sqrt{18}} + \frac{\sqrt{2}}{3}
+$<span class="arithmatex">\(\mathbf{q}_1 \cdot \mathbf{q}_2 = \frac{1}{\sqrt{2}}\cdot(-\frac{1}{\sqrt{6}}) + \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{6}} + 0 = 0\)</span>$ ✓</p>
+<p>$<span class="arithmatex">\(\mathbf{q}_1 \cdot \mathbf{q}_3 = \frac{1}{\sqrt{2}}\cdot\frac{1}{\sqrt{3}} + \frac{1}{\sqrt{2}}\cdot(-\frac{1}{\sqrt{3}}) + 0 = 0\)</span>$ ✓</p>
+<p>$<span class="arithmatex">\(\mathbf{q}_2 \cdot \mathbf{q}_3 = -\frac{1}{\sqrt{6}}\cdot\frac{1}{\sqrt{3}} + \frac{1}{\sqrt{6}}\cdot(-\frac{1}{\sqrt{3}}) + \frac{\sqrt{2}}{\sqrt{3}}\cdot\frac{1}{\sqrt{3}} = -\frac{1}{\sqrt{18}} - \frac{1}{\sqrt{18}} + \frac{\sqrt{2}}{3}
 = -\frac{2}{3\sqrt{2}} + \frac{\sqrt{2}}{3} = -\frac{\sqrt{2}}{3} + \frac{\sqrt{2}}{3} = 0\)</span>$ ✓</p>
 <p>每个 <span class="arithmatex">\(\|\mathbf{q}_i\| = 1\)</span>（手工代公式验证）✓。</p>
 <p><strong>(3)</strong> GS 不改变张成的空间：<span class="arithmatex">\(\text{span}\{\mathbf{q}_1,\mathbf{q}_2,\mathbf{q}_3\} = \text{span}\{\mathbf{a}_1,\mathbf{a}_2,\mathbf{a}_3\}\)</span>。因为每一步 <span class="arithmatex">\(\mathbf{v}_j\)</span> 都是 <span class="arithmatex">\(\mathbf{a}_j\)</span> 与前面 <span class="arithmatex">\(\mathbf{q}_i\)</span> 的线性组合 → <span class="arithmatex">\(\mathbf{q}_j\)</span> 仍在原来的张成空间内。而三维空间中三个无关向量的 GS 结果必张成整个 <span class="arithmatex">\(\mathbb{R}^3\)</span>。</p>
@@ -1526,11 +1526,11 @@ $<span class="arithmatex">\(U = \begin{bmatrix}4&amp;2\\0&amp;4\end{bmatrix}, \q
 <p>注意 <span class="arithmatex">\(LU\)</span> 只需算一次！后续解不同 <span class="arithmatex">\(\mathbf{b}\)</span> 时重复使用。</p>
 <p><strong>解 <span class="arithmatex">\(\mathbf{b}_1 = (6,7)^{\mathsf T}\)</span></strong>：</p>
 <p>前向代入 <span class="arithmatex">\(L\mathbf{c} = \mathbf{b}_1\)</span>：
-$<span class="arithmatex">\(c_1 = 6\)</span>$
-$<span class="arithmatex">\(0.5c_1 + c_2 = 7 \Rightarrow c_2 = 7 - 3 = 4\)</span>$</p>
+$<span class="arithmatex">\(c_1 = 6\)</span>$</p>
+<div class="arithmatex">\[0.5c_1 + c_2 = 7 \Rightarrow c_2 = 7 - 3 = 4\]</div>
 <p>回代 <span class="arithmatex">\(U\mathbf{x} = \mathbf{c}\)</span>：
-$<span class="arithmatex">\(4x_2 = 4 \Rightarrow x_2 = 1\)</span>$
-$<span class="arithmatex">\(4x_1 + 2x_2 = 6 \Rightarrow 4x_1 + 2 = 6 \Rightarrow x_1 = 1\)</span>$</p>
+$<span class="arithmatex">\(4x_2 = 4 \Rightarrow x_2 = 1\)</span>$</p>
+<div class="arithmatex">\[4x_1 + 2x_2 = 6 \Rightarrow 4x_1 + 2 = 6 \Rightarrow x_1 = 1\]</div>
 <p><span class="arithmatex">\(\mathbf{x} = (1, 1)^{\mathsf T}\)</span>。验证：<span class="arithmatex">\(4(1)+2(1)=6\)</span>，<span class="arithmatex">\(2(1)+5(1)=7\)</span> ✓。</p>
 <p><strong>解 <span class="arithmatex">\(\mathbf{b}_2 = (2,9)^{\mathsf T}\)</span></strong>：</p>
 <p>前向代入：<span class="arithmatex">\(c_1 = 2\)</span>，<span class="arithmatex">\(0.5(2) + c_2 = 9 \Rightarrow c_2 = 8\)</span>。
@@ -1569,20 +1569,20 @@ $<span class="arithmatex">\(B^{\mathsf T} = \begin{bmatrix}1&amp;2&amp;0\\3&amp;
 </li>
 </ul>
 <p><strong>(2)</strong> 验证：
-$<span class="arithmatex">\(\dim C(B) + \dim N(B) = 2 + 1 = 3 = n\)</span>$ ✓
-$<span class="arithmatex">\(\dim C(B^{\mathsf T}) + \dim N(B^{\mathsf T}) = 2 + 1 = 3 = m\)</span>$ ✓</p>
+$<span class="arithmatex">\(\dim C(B) + \dim N(B) = 2 + 1 = 3 = n\)</span>$ ✓</p>
+<p>$<span class="arithmatex">\(\dim C(B^{\mathsf T}) + \dim N(B^{\mathsf T}) = 2 + 1 = 3 = m\)</span>$ ✓</p>
 </blockquote>
 <hr/>
 <p><strong>A11.</strong> 求点 <span class="arithmatex">\(\mathbf{b} = (1, 2, 3)^{\mathsf T}\)</span> 到平面 <span class="arithmatex">\(\text{span}\{(1, 0, 1)^{\mathsf T}, (0, 1, 1)^{\mathsf T}\}\)</span> 的正交投影和距离。</p>
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p>令 <span class="arithmatex">\(A = \begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix}\)</span>（两列即平面的基）。投影矩阵：
-$<span class="arithmatex">\(A^{\mathsf T}A = \begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix} = \begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>$
-$<span class="arithmatex">\((A^{\mathsf T}A)^{-1} = \frac{1}{4-1}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix} = \frac{1}{3}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(A^{\mathsf T}A = \begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\begin{bmatrix}1&amp;0\\0&amp;1\\1&amp;1\end{bmatrix} = \begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[(A^{\mathsf T}A)^{-1} = \frac{1}{4-1}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix} = \frac{1}{3}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix}\]</div>
 <p>投影坐标：
-$<span class="arithmatex">\(\hat{\mathbf{x}} = (A^{\mathsf T}A)^{-1}A^{\mathsf T}\mathbf{b}\)</span>$
-$<span class="arithmatex">\(A^{\mathsf T}\mathbf{b} = \begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\begin{bmatrix}1\\2\\3\end{bmatrix} = \begin{bmatrix}4\\5\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(\hat{\mathbf{x}} = \frac{1}{3}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix}\begin{bmatrix}4\\5\end{bmatrix} = \frac{1}{3}\begin{bmatrix}8-5\\-4+10\end{bmatrix} = \frac{1}{3}\begin{bmatrix}3\\6\end{bmatrix} = \begin{bmatrix}1\\2\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(\hat{\mathbf{x}} = (A^{\mathsf T}A)^{-1}A^{\mathsf T}\mathbf{b}\)</span>$</p>
+<div class="arithmatex">\[A^{\mathsf T}\mathbf{b} = \begin{bmatrix}1&amp;0&amp;1\\0&amp;1&amp;1\end{bmatrix}\begin{bmatrix}1\\2\\3\end{bmatrix} = \begin{bmatrix}4\\5\end{bmatrix}\]</div>
+<div class="arithmatex">\[\hat{\mathbf{x}} = \frac{1}{3}\begin{bmatrix}2&amp;-1\\-1&amp;2\end{bmatrix}\begin{bmatrix}4\\5\end{bmatrix} = \frac{1}{3}\begin{bmatrix}8-5\\-4+10\end{bmatrix} = \frac{1}{3}\begin{bmatrix}3\\6\end{bmatrix} = \begin{bmatrix}1\\2\end{bmatrix}\]</div>
 <p>投影点：
 $<span class="arithmatex">\(\mathbf{p} = A\hat{\mathbf{x}} = 1 \cdot \begin{bmatrix}1\\0\\1\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\\1\end{bmatrix} = \begin{bmatrix}1\\2\\3\end{bmatrix}\)</span>$</p>
 <p>恰好 <span class="arithmatex">\(\mathbf{p} = \mathbf{b}\)</span>！这意味着 <span class="arithmatex">\(\mathbf{b}\)</span> 本身就在平面上。验证：<span class="arithmatex">\((1,2,3) \cdot \mathbf{n} = 0\)</span>，其中法向量 <span class="arithmatex">\(\mathbf{n} = (1,0,1) \times (0,1,1) = (-1,-1,1)\)</span>。<span class="arithmatex">\((1,2,3) \cdot (-1,-1,1) = -1-2+3 = 0\)</span> ✓。距离 <span class="arithmatex">\(= 0\)</span>。</p>

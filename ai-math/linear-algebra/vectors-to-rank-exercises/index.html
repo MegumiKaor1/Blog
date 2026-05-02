@@ -1397,8 +1397,8 @@ $<span class="arithmatex">\(\begin{bmatrix} 1 &amp; 4 &amp; 7 \\ 2 &amp; 5 &amp;
 <p><strong>(2)</strong> 矩阵为：
 $<span class="arithmatex">\(\begin{bmatrix} 1 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 0 \\ 0 &amp; 1 &amp; 1 \end{bmatrix}\)</span>$</p>
 <p>计算行列式：按第一行展开：
-$<span class="arithmatex">\(\det = 1 \cdot \det\begin{bmatrix}1 &amp; 0 \\ 1 &amp; 1\end{bmatrix} - 0 + 1 \cdot \det\begin{bmatrix}1 &amp; 1 \\ 0 &amp; 1\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(= 1(1-0) + 1(1-0) = 2 \neq 0\)</span>$</p>
+$<span class="arithmatex">\(\det = 1 \cdot \det\begin{bmatrix}1 &amp; 0 \\ 1 &amp; 1\end{bmatrix} - 0 + 1 \cdot \det\begin{bmatrix}1 &amp; 1 \\ 0 &amp; 1\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[= 1(1-0) + 1(1-0) = 2 \neq 0\]</div>
 <p>行列式非零 → <strong>线性无关</strong>。三个向量构成 <span class="arithmatex">\(\mathbb{R}^3\)</span> 的一组基。</p>
 </blockquote>
 <hr/>
@@ -1430,8 +1430,8 @@ $<span class="arithmatex">\(\left\{\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix},\; 
 $<span class="arithmatex">\(\mathbf{u} \cdot \mathbf{v} = 1 \cdot 2 + 2 \cdot 1 + 2 \cdot (-2) = 2 + 2 - 4 = 0\)</span>$</p>
 <p>内积为 <span class="arithmatex">\(0\)</span> → <strong>直角</strong>（两个向量正交）。由 <span class="arithmatex">\(\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\|\|\mathbf{v}\|\cos\theta = 0\)</span>，且 <span class="arithmatex">\(\|\mathbf{u}\|, \|\mathbf{v}\| &gt; 0\)</span>，故 <span class="arithmatex">\(\cos\theta = 0 \Rightarrow \theta = 90^\circ\)</span>。</p>
 <p><strong>(2)</strong>
-$<span class="arithmatex">\(\|\mathbf{u}\| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3\)</span>$
-$<span class="arithmatex">\(\hat{\mathbf{u}} = \frac{\mathbf{u}}{\|\mathbf{u}\|} = \left(\frac{1}{3}, \frac{2}{3}, \frac{2}{3}\right)^{\mathsf T}\)</span>$</p>
+$<span class="arithmatex">\(\|\mathbf{u}\| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3\)</span>$</p>
+<div class="arithmatex">\[\hat{\mathbf{u}} = \frac{\mathbf{u}}{\|\mathbf{u}\|} = \left(\frac{1}{3}, \frac{2}{3}, \frac{2}{3}\right)^{\mathsf T}\]</div>
 <p><strong>(3)</strong> <span class="arithmatex">\(\mathbf{v}\)</span> 在 <span class="arithmatex">\(\mathbf{u}\)</span> 方向上的投影长度（带符号）为：
 $<span class="arithmatex">\(\text{proj}_{\mathbf{u}}(\mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|} = \frac{0}{3} = 0\)</span>$</p>
 <p>同时 <span class="arithmatex">\(\hat{\mathbf{u}} \cdot \mathbf{v} = (\frac{1}{3})(2) + (\frac{2}{3})(1) + (\frac{2}{3})(-2) = \frac{2+2-4}{3} = 0\)</span>。两者一致。投影长度为 <span class="arithmatex">\(0\)</span> 说明 <span class="arithmatex">\(\mathbf{v}\)</span> 完全垂直于 <span class="arithmatex">\(\mathbf{u}\)</span>——没有「沿 <span class="arithmatex">\(\mathbf{u}\)</span> 方向的分量」。</p>
@@ -1445,16 +1445,16 @@ $<span class="arithmatex">\(\text{proj}_{\mathbf{u}}(\mathbf{v}) = \frac{\mathbf
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong> 列图景——将矩阵乘法视为列的线性组合：
-$<span class="arithmatex">\(A\mathbf{x} = x_1 \cdot \mathbf{a}_1 + x_2 \cdot \mathbf{a}_2 + x_3 \cdot \mathbf{a}_3\)</span>$
-$<span class="arithmatex">\(= 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}1\\3\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-1\\-3\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(A\mathbf{x} = x_1 \cdot \mathbf{a}_1 + x_2 \cdot \mathbf{a}_2 + x_3 \cdot \mathbf{a}_3\)</span>$</p>
+<div class="arithmatex">\[= 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}1\\3\end{bmatrix}\]</div>
+<div class="arithmatex">\[= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-1\\-3\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\]</div>
 <p><strong>(2)</strong> 行图景——每个输出分量是 <span class="arithmatex">\(A\)</span> 的一行与 <span class="arithmatex">\(\mathbf{x}\)</span> 的内积：
-$<span class="arithmatex">\((A\mathbf{x})_1 = 2 \cdot 1 + 0 \cdot 2 + 1 \cdot (-1) = 2 + 0 - 1 = 1\)</span>$
-$<span class="arithmatex">\((A\mathbf{x})_2 = 0 \cdot 1 + 1 \cdot 2 + 3 \cdot (-1) = 0 + 2 - 3 = -1\)</span>$</p>
+$<span class="arithmatex">\((A\mathbf{x})_1 = 2 \cdot 1 + 0 \cdot 2 + 1 \cdot (-1) = 2 + 0 - 1 = 1\)</span>$</p>
+<div class="arithmatex">\[(A\mathbf{x})_2 = 0 \cdot 1 + 1 \cdot 2 + 3 \cdot (-1) = 0 + 2 - 3 = -1\]</div>
 <p>结果一致：<span class="arithmatex">\(\begin{bmatrix}1\\-1\end{bmatrix}\)</span>。</p>
 <p><strong>(3)</strong> 设 <span class="arithmatex">\(A'\)</span> 的第 3 列为 <span class="arithmatex">\((2,6)^{\mathsf T}\)</span>，其余不变。按列图景：
-$<span class="arithmatex">\(A'\mathbf{x} = 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}2\\6\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-2\\-6\end{bmatrix} = \begin{bmatrix}0\\-4\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(A'\mathbf{x} = 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}2\\6\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-2\\-6\end{bmatrix} = \begin{bmatrix}0\\-4\end{bmatrix}\]</div>
 <p>第 3 列的贡献从 <span class="arithmatex">\((-1, -3)^{\mathsf T}\)</span> 加倍为 <span class="arithmatex">\((-2, -6)^{\mathsf T}\)</span>，总结果从 <span class="arithmatex">\((1, -1)^{\mathsf T}\)</span> 变为 <span class="arithmatex">\((0, -4)^{\mathsf T}\)</span>。列图景的优势：只需改动一个列向量，无需重新计算整个矩阵乘法。</p>
 </blockquote>
 <hr/>
@@ -1465,9 +1465,9 @@ $<span class="arithmatex">\(= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong> 矩阵的列就是标准基向量的像（这是列图景的核心结论）：
-$<span class="arithmatex">\(A\mathbf{e}_1 = A\begin{bmatrix}1\\0\\0\end{bmatrix} = \begin{bmatrix}1\\0\\0\end{bmatrix} \quad\text{（第 1 列 = }\mathbf{e}_1\text{，不变）}\)</span>$
-$<span class="arithmatex">\(A\mathbf{e}_2 = \begin{bmatrix}0\\1\\0\end{bmatrix} = \mathbf{e}_2 \quad\text{（第 2 列，不变）}\)</span>$
-$<span class="arithmatex">\(A\mathbf{e}_3 = \begin{bmatrix}2\\3\\0\end{bmatrix} = 2\mathbf{e}_1 + 3\mathbf{e}_2 \quad\text{（第 3 列，投影到 }xy\text{ 平面）}\)</span>$</p>
+$<span class="arithmatex">\(A\mathbf{e}_1 = A\begin{bmatrix}1\\0\\0\end{bmatrix} = \begin{bmatrix}1\\0\\0\end{bmatrix} \quad\text{（第 1 列 = }\mathbf{e}_1\text{，不变）}\)</span>$</p>
+<div class="arithmatex">\[A\mathbf{e}_2 = \begin{bmatrix}0\\1\\0\end{bmatrix} = \mathbf{e}_2 \quad\text{（第 2 列，不变）}\]</div>
+<div class="arithmatex">\[A\mathbf{e}_3 = \begin{bmatrix}2\\3\\0\end{bmatrix} = 2\mathbf{e}_1 + 3\mathbf{e}_2 \quad\text{（第 3 列，投影到 }xy\text{ 平面）}\]</div>
 <p>所以 <span class="arithmatex">\(A\)</span> 保留 <span class="arithmatex">\(x\)</span> 和 <span class="arithmatex">\(y\)</span> 方向不变，把 <span class="arithmatex">\(z\)</span> 方向上的向量「拍平」到 <span class="arithmatex">\(xy\)</span> 平面上。</p>
 <p><strong>(2)</strong> 对于任意 <span class="arithmatex">\((x, y, z)^{\mathsf T}\)</span>：
 $<span class="arithmatex">\(A\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x+2z\\y+3z\\0\end{bmatrix}\)</span>$
@@ -1487,12 +1487,12 @@ $<span class="arithmatex">\(\mathbf{x} = t \begin{bmatrix}-2\\-3\\1\end{bmatrix}
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong>
-$<span class="arithmatex">\(\mathbf{a} + \mathbf{b} = (3+0,\; 0+5,\; 4+0)^{\mathsf T} = (3, 5, 4)^{\mathsf T}\)</span>$
-$<span class="arithmatex">\(2\mathbf{a} - 3\mathbf{b} = (6-0,\; 0-15,\; 8-0)^{\mathsf T} = (6, -15, 8)^{\mathsf T}\)</span>$</p>
+$<span class="arithmatex">\(\mathbf{a} + \mathbf{b} = (3+0,\; 0+5,\; 4+0)^{\mathsf T} = (3, 5, 4)^{\mathsf T}\)</span>$</p>
+<div class="arithmatex">\[2\mathbf{a} - 3\mathbf{b} = (6-0,\; 0-15,\; 8-0)^{\mathsf T} = (6, -15, 8)^{\mathsf T}\]</div>
 <p><strong>(2)</strong>
-$<span class="arithmatex">\(\|\mathbf{a}\| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 0 + 16} = \sqrt{25} = 5\)</span>$
-$<span class="arithmatex">\(\|\mathbf{b}\| = \sqrt{0^2 + 5^2 + 0^2} = 5\)</span>$
-$<span class="arithmatex">\(\mathbf{a} \cdot \mathbf{b} = 3 \cdot 0 + 0 \cdot 5 + 4 \cdot 0 = 0\)</span>$</p>
+$<span class="arithmatex">\(\|\mathbf{a}\| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 0 + 16} = \sqrt{25} = 5\)</span>$</p>
+<div class="arithmatex">\[\|\mathbf{b}\| = \sqrt{0^2 + 5^2 + 0^2} = 5\]</div>
+<div class="arithmatex">\[\mathbf{a} \cdot \mathbf{b} = 3 \cdot 0 + 0 \cdot 5 + 4 \cdot 0 = 0\]</div>
 <p><strong>(3)</strong> 由 <span class="arithmatex">\(\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta\)</span>：
 $<span class="arithmatex">\(0 = 5 \cdot 5 \cdot \cos\theta \Rightarrow \cos\theta = 0 \Rightarrow \theta = 90^\circ\)</span>$</p>
 <p>两个向量正交——这在 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中很自然：<span class="arithmatex">\(\mathbf{a}\)</span> 在 <span class="arithmatex">\(xz\)</span> 平面内，<span class="arithmatex">\(\mathbf{b}\)</span> 沿 <span class="arithmatex">\(y\)</span> 轴。</p>
@@ -1515,21 +1515,21 @@ $<span class="arithmatex">\(\begin{bmatrix}1 &amp; 3 &amp; | &amp; 5 \\ 2 &amp; 
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1) 元素公式</strong>（<span class="arithmatex">\(C_{ij} = \sum_k A_{ik}B_{kj}\)</span>）：
-$<span class="arithmatex">\(C_{11} = 1\cdot5 + 2\cdot7 = 5+14 = 19\)</span>$
-$<span class="arithmatex">\(C_{12} = 1\cdot6 + 2\cdot8 = 6+16 = 22\)</span>$
-$<span class="arithmatex">\(C_{21} = 3\cdot5 + 4\cdot7 = 15+28 = 43\)</span>$
-$<span class="arithmatex">\(C_{22} = 3\cdot6 + 4\cdot8 = 18+32 = 50\)</span>$
-$<span class="arithmatex">\(C = \begin{bmatrix}19&amp;22\\43&amp;50\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(C_{11} = 1\cdot5 + 2\cdot7 = 5+14 = 19\)</span>$</p>
+<div class="arithmatex">\[C_{12} = 1\cdot6 + 2\cdot8 = 6+16 = 22\]</div>
+<div class="arithmatex">\[C_{21} = 3\cdot5 + 4\cdot7 = 15+28 = 43\]</div>
+<div class="arithmatex">\[C_{22} = 3\cdot6 + 4\cdot8 = 18+32 = 50\]</div>
+<div class="arithmatex">\[C = \begin{bmatrix}19&amp;22\\43&amp;50\end{bmatrix}\]</div>
 <p><strong>(2) 列组合</strong>（<span class="arithmatex">\(C\)</span> 的第 <span class="arithmatex">\(j\)</span> 列 = <span class="arithmatex">\(A \times (B\)</span> 的第 <span class="arithmatex">\(j\)</span> 列））：
-$<span class="arithmatex">\(C_{:,1} = A\begin{bmatrix}5\\7\end{bmatrix} = \begin{bmatrix}1\cdot5+2\cdot7\\3\cdot5+4\cdot7\end{bmatrix} = \begin{bmatrix}19\\43\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(C_{:,2} = A\begin{bmatrix}6\\8\end{bmatrix} = \begin{bmatrix}1\cdot6+2\cdot8\\3\cdot6+4\cdot8\end{bmatrix} = \begin{bmatrix}22\\50\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(C_{:,1} = A\begin{bmatrix}5\\7\end{bmatrix} = \begin{bmatrix}1\cdot5+2\cdot7\\3\cdot5+4\cdot7\end{bmatrix} = \begin{bmatrix}19\\43\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[C_{:,2} = A\begin{bmatrix}6\\8\end{bmatrix} = \begin{bmatrix}1\cdot6+2\cdot8\\3\cdot6+4\cdot8\end{bmatrix} = \begin{bmatrix}22\\50\end{bmatrix}\]</div>
 <p><strong>(3) 行组合</strong>（<span class="arithmatex">\(C\)</span> 的第 <span class="arithmatex">\(i\)</span> 行 = <span class="arithmatex">\((A\)</span> 的第 <span class="arithmatex">\(i\)</span> 行）<span class="arithmatex">\(\times B\)</span>）：
-$<span class="arithmatex">\(C_{1,:} = [1,2]B = [1\cdot5+2\cdot7,\; 1\cdot6+2\cdot8] = [19, 22]\)</span>$
-$<span class="arithmatex">\(C_{2,:} = [3,4]B = [3\cdot5+4\cdot7,\; 3\cdot6+4\cdot8] = [43, 50]\)</span>$</p>
+$<span class="arithmatex">\(C_{1,:} = [1,2]B = [1\cdot5+2\cdot7,\; 1\cdot6+2\cdot8] = [19, 22]\)</span>$</p>
+<div class="arithmatex">\[C_{2,:} = [3,4]B = [3\cdot5+4\cdot7,\; 3\cdot6+4\cdot8] = [43, 50]\]</div>
 <p><strong>(4) 外积和</strong>（<span class="arithmatex">\(AB = \sum_k (A\)</span> 的第 <span class="arithmatex">\(k\)</span> 列）<span class="arithmatex">\(\times (B\)</span> 的第 <span class="arithmatex">\(k\)</span> 行））：
-$<span class="arithmatex">\(A_{:,1}B_{1,:} = \begin{bmatrix}1\\3\end{bmatrix}[5,6] = \begin{bmatrix}5&amp;6\\15&amp;18\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(A_{:,2}B_{2,:} = \begin{bmatrix}2\\4\end{bmatrix}[7,8] = \begin{bmatrix}14&amp;16\\28&amp;32\end{bmatrix}\)</span>$
-$<span class="arithmatex">\(C = \begin{bmatrix}5&amp;6\\15&amp;18\end{bmatrix} + \begin{bmatrix}14&amp;16\\28&amp;32\end{bmatrix} = \begin{bmatrix}19&amp;22\\43&amp;50\end{bmatrix}\)</span>$</p>
+$<span class="arithmatex">\(A_{:,1}B_{1,:} = \begin{bmatrix}1\\3\end{bmatrix}[5,6] = \begin{bmatrix}5&amp;6\\15&amp;18\end{bmatrix}\)</span>$</p>
+<div class="arithmatex">\[A_{:,2}B_{2,:} = \begin{bmatrix}2\\4\end{bmatrix}[7,8] = \begin{bmatrix}14&amp;16\\28&amp;32\end{bmatrix}\]</div>
+<div class="arithmatex">\[C = \begin{bmatrix}5&amp;6\\15&amp;18\end{bmatrix} + \begin{bmatrix}14&amp;16\\28&amp;32\end{bmatrix} = \begin{bmatrix}19&amp;22\\43&amp;50\end{bmatrix}\]</div>
 <p>四种方式，同一结果。代码里用元素公式，理论分析用列图景（理解神经网络前向传播）和外积和（理解秩和 SVD）。</p>
 </blockquote>
 <hr/>
@@ -1614,8 +1614,8 @@ $<span class="arithmatex">\(A\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}-
 $<span class="arithmatex">\(B\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}2x\\0.5y\end{bmatrix}\)</span>$
 把 <span class="arithmatex">\(x\)</span> 轴方向拉伸 <span class="arithmatex">\(2\)</span> 倍，<span class="arithmatex">\(y\)</span> 轴方向压缩到 <span class="arithmatex">\(0.5\)</span> 倍。一个单位圆变成以 <span class="arithmatex">\((2,0)\)</span> 和 <span class="arithmatex">\((0,0.5)\)</span> 为半轴的椭圆。</p>
 <p><strong>(3)</strong>
-$<span class="arithmatex">\(\det(A) = 0 \cdot 0 - (-1) \cdot 1 = 1\)</span>$
-$<span class="arithmatex">\(\det(B) = 2 \cdot 0.5 - 0 \cdot 0 = 1\)</span>$</p>
+$<span class="arithmatex">\(\det(A) = 0 \cdot 0 - (-1) \cdot 1 = 1\)</span>$</p>
+<div class="arithmatex">\[\det(B) = 2 \cdot 0.5 - 0 \cdot 0 = 1\]</div>
 <p>有趣的是两者行列式都是 <span class="arithmatex">\(1\)</span>——都保面积。但 <span class="arithmatex">\(A\)</span> 也保长度（正交矩阵），而 <span class="arithmatex">\(B\)</span> 在一个方向上极端拉伸、另一个方向上极端压缩。</p>
 <p><strong>(4)</strong> <span class="arithmatex">\(B\)</span> 的特征值是 <span class="arithmatex">\(2\)</span> 和 <span class="arithmatex">\(0.5\)</span>，条件数 <span class="arithmatex">\(\kappa = 2/0.5 = 4\)</span>。虽然还不算极端，但如果多层权重矩阵都像这样特征值悬殊，连乘 <span class="arithmatex">\(L\)</span> 层后：
 - 前向传播：最大方向信号被放大 <span class="arithmatex">\(2^L\)</span> 倍（指数爆炸），最小方向被压缩到 <span class="arithmatex">\(0.5^L\)</span>（指数消失）
@@ -1691,9 +1691,9 @@ $<span class="arithmatex">\(\|\mathbf{x}\|_1 = \sum_{i=1}^n 1 \cdot |x_i| \le \s
 <blockquote>
 <p><strong>标准答案：</strong></p>
 <p><strong>(1)</strong>
-$<span class="arithmatex">\(\|\mathbf{v}\|_1 = 1+2+3+4+5 = 15\)</span>$
-$<span class="arithmatex">\(\|\mathbf{v}\|_2 = \sqrt{1+4+9+16+25} = \sqrt{55} \approx 7.42\)</span>$
-$<span class="arithmatex">\(\|\mathbf{v}\|_\infty = \max(1,2,3,4,5) = 5\)</span>$</p>
+$<span class="arithmatex">\(\|\mathbf{v}\|_1 = 1+2+3+4+5 = 15\)</span>$</p>
+<div class="arithmatex">\[\|\mathbf{v}\|_2 = \sqrt{1+4+9+16+25} = \sqrt{55} \approx 7.42\]</div>
+<div class="arithmatex">\[\|\mathbf{v}\|_\infty = \max(1,2,3,4,5) = 5\]</div>
 <p><strong>(2)</strong> 验证不等式：
 $<span class="arithmatex">\(5 \le 7.42 \le 15 \le \sqrt{5} \cdot 7.42 \approx 16.58\)</span>$ ✓</p>
 <p><strong>(3)</strong>

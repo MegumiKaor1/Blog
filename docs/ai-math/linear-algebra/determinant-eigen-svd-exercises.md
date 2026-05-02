@@ -13,13 +13,18 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > 写成矩阵形式：\(f(\mathbf{x}) = \mathbf{x}^{\mathsf T}A\mathbf{x}\)，对称矩阵 \(A = \begin{bmatrix} 3 & 1 \\ 1 & 3 \end{bmatrix}\)（注意交叉项 \(2x_1x_2\) 拆成 \(x_1x_2 + x_2x_1\)，各分一半）。
 > 求特征值：
-> \[\det(A - \lambda I) = \det\begin{bmatrix}3-\lambda & 1\\1 & 3-\lambda\end{bmatrix} = (3-\lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = 0\]
-> \[(\lambda - 2)(\lambda - 4) = 0 \Rightarrow \lambda_1 = 4,\; \lambda_2 = 2\]
+>
+> $$\det(A - \lambda I) = \det\begin{bmatrix}3-\lambda & 1\\1 & 3-\lambda\end{bmatrix} = (3-\lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = 0$$
+>
+> $$(\lambda - 2)(\lambda - 4) = 0 \Rightarrow \lambda_1 = 4,\; \lambda_2 = 2$$
+>
 > 对应特征向量：
 > - \(\lambda_1 = 4\)：\((A - 4I)\mathbf{v} = \begin{bmatrix}-1&1\\1&-1\end{bmatrix}\mathbf{v} = \mathbf{0} \Rightarrow \mathbf{v}_1 = \frac{1}{\sqrt{2}}(1, 1)^{\mathsf T}\)
 > - \(\lambda_2 = 2\)：\((A - 2I)\mathbf{v} = \begin{bmatrix}1&1\\1&1\end{bmatrix}\mathbf{v} = \mathbf{0} \Rightarrow \mathbf{v}_2 = \frac{1}{\sqrt{2}}(-1, 1)^{\mathsf T}\)
 > 正交变换 \(\mathbf{x} = Q\mathbf{y}\)（\(Q = [\mathbf{v}_1, \mathbf{v}_2]\)）：
-> \[f = \lambda_1 y_1^2 + \lambda_2 y_2^2 = 4y_1^2 + 2y_2^2\]
+>
+> $$f = \lambda_1 y_1^2 + \lambda_2 y_2^2 = 4y_1^2 + 2y_2^2$$
+>
 > **正定性**：所有特征值 \(> 0\) → 正定。几何上，\(f(\mathbf{x}) = 1\) 是一个倾斜的椭圆，短轴沿 \((1,1)\) 方向（对应 \(\lambda_1=4\)，曲率大），长轴沿 \((-1,1)\) 方向（对应 \(\lambda_2=2\)，曲率小）。
 
 ---
@@ -29,13 +34,20 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > 与 A1 同一个矩阵。特征值 \(\lambda_1 = 4\)，\(\lambda_2 = 2\)。
 > 特征向量（已标准化）：
-> \[\mathbf{v}_1 = \frac{1}{\sqrt{2}}\begin{bmatrix}1\\1\end{bmatrix},\quad \mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{bmatrix}-1\\1\end{bmatrix}\]
+>
+> $$\mathbf{v}_1 = \frac{1}{\sqrt{2}}\begin{bmatrix}1\\1\end{bmatrix},\quad \mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{bmatrix}-1\\1\end{bmatrix}$$
+>
 > 验证正交性：\(\mathbf{v}_1 \cdot \mathbf{v}_2 = \frac{1}{2}(-1+1) = 0\) ✓。\(A\) 对称 → 特征向量正交 → \(Q\) 是正交矩阵（\(Q^{\mathsf T} = Q^{-1}\)）。
 > 对角化：
-> \[A = Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2} & -1/\sqrt{2}\\1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4&0\\0&2\end{bmatrix}\begin{bmatrix}1/\sqrt{2} & 1/\sqrt{2}\\-1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}\]
+>
+> $$A = Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2} & -1/\sqrt{2}\\1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4&0\\0&2\end{bmatrix}\begin{bmatrix}1/\sqrt{2} & 1/\sqrt{2}\\-1/\sqrt{2} & 1/\sqrt{2}\end{bmatrix}$$
+>
 > 验证：
-> \[Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2}&-1/\sqrt{2}\\1/\sqrt{2}&1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4/\sqrt{2}&4/\sqrt{2}\\-2/\sqrt{2}&2/\sqrt{2}\end{bmatrix}
-> = \frac{1}{2}\begin{bmatrix}4+2&4-2\\4-2&4+2\end{bmatrix} = \begin{bmatrix}3&1\\1&3\end{bmatrix} = A\] ✓
+>
+
+$$Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2}&-1/\sqrt{2}\\1/\sqrt{2}&1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4/\sqrt{2}&4/\sqrt{2}\\-2/\sqrt{2}&2/\sqrt{2}\end{bmatrix} = \frac{1}{2}\begin{bmatrix}4+2&4-2\\4-2&4+2\end{bmatrix} = \begin{bmatrix}3&1\\1&3\end{bmatrix} = A$$
+> ✓
+
 
 ---
 
@@ -43,15 +55,25 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > 展开 Frobenius 范数平方：
-> \[L = \frac{1}{2}\text{tr}\big((WX - Y)^{\mathsf T}(WX - Y)\big)\]
+>
+> $$L = \frac{1}{2}\text{tr}\big((WX - Y)^{\mathsf T}(WX - Y)\big)$$
+>
 > 微分：
-> \[dL = \frac{1}{2}\text{tr}\big(d(WX - Y)^{\mathsf T}(WX - Y) + (WX - Y)^{\mathsf T}d(WX - Y)\big)\]
+>
+> $$dL = \frac{1}{2}\text{tr}\big(d(WX - Y)^{\mathsf T}(WX - Y) + (WX - Y)^{\mathsf T}d(WX - Y)\big)$$
+>
 > 由迹的对称性和 \(d(WX) = (dW)X\)（\(X\) 是常数）：
-> \[dL = \text{tr}\big((WX - Y)^{\mathsf T}(dW)X\big)\]
+>
+> $$dL = \text{tr}\big((WX - Y)^{\mathsf T}(dW)X\big)$$
+>
 > 利用 \(\text{tr}(AB) = \text{tr}(BA)\)：
-> \[dL = \text{tr}\big(X(WX - Y)^{\mathsf T} dW\big)\]
+>
+> $$dL = \text{tr}\big(X(WX - Y)^{\mathsf T} dW\big)$$
+>
 > 标准形式 \(dL = \text{tr}(G^{\mathsf T} dW) \Rightarrow \nabla_W L = G\)。所以：
-> \[\nabla_W L = (WX - Y)X^{\mathsf T}\]
+>
+> $$\nabla_W L = (WX - Y)X^{\mathsf T}$$
+>
 > **ML 直觉**：梯度 = 误差矩阵 × 输入的转置。这是线性层反向传播的矩阵形式——每个权重的梯度是「它负责的输出误差」和「它对应的输入」的乘积之和。与 `nn.Linear` 的 `weight.grad` 完全一致。
 
 ---
@@ -60,13 +82,21 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > 对任意 \(i, j\)：
-> \[\frac{\partial s_i}{\partial z_j} = \frac{\partial}{\partial z_j}\left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)\]
+>
+> $$\frac{\partial s_i}{\partial z_j} = \frac{\partial}{\partial z_j}\left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)$$
+>
 > **当 \(i = j\)**（商数法则，分子的指数在分母中）：
-> \[\frac{\partial s_i}{\partial z_i} = \frac{e^{z_i} \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_i}}{(\sum_k e^{z_k})^2} = \frac{e^{z_i}}{\sum_k e^{z_k}} - \left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)^2 = s_i - s_i^2 = s_i(1 - s_i)\]
+>
+> $$\frac{\partial s_i}{\partial z_i} = \frac{e^{z_i} \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_i}}{(\sum_k e^{z_k})^2} = \frac{e^{z_i}}{\sum_k e^{z_k}} - \left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)^2 = s_i - s_i^2 = s_i(1 - s_i)$$
+>
 > **当 \(i \neq j\)**（分子的指数不在分母中）：
-> \[\frac{\partial s_i}{\partial z_j} = \frac{0 \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_j}}{(\sum_k e^{z_k})^2} = -s_i s_j\]
+>
+> $$\frac{\partial s_i}{\partial z_j} = \frac{0 \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_j}}{(\sum_k e^{z_k})^2} = -s_i s_j$$
+>
 > **矩阵形式**：
-> \[J = \text{diag}(\mathbf{s}) - \mathbf{s}\mathbf{s}^{\mathsf T}\]
+>
+> $$J = \text{diag}(\mathbf{s}) - \mathbf{s}\mathbf{s}^{\mathsf T}$$
+>
 > 性质：\(J\) 对称且半正定，\(\text{rank}(J) = K-1\)（零空间由 \(\mathbf{1}\) 张成，因为 \(\sum_i s_i = 1 \Rightarrow \sum_j \frac{\partial s_i}{\partial z_j} = 0\)）。
 > 这个 \(J\) 与交叉熵配合使用时会产生极大的简化——见 B2。
 
@@ -98,7 +128,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > 按第二行展开（因为有两个 \(0\)，计算最简单）：
-> \[\det(A) = 3 \cdot (-1)^{2+2} \cdot \det\begin{bmatrix}2&1\\1&2\end{bmatrix} = 3 \cdot (4 - 1) = 3 \cdot 3 = 9\]
+>
+> $$\det(A) = 3 \cdot (-1)^{2+2} \cdot \det\begin{bmatrix}2&1\\1&2\end{bmatrix} = 3 \cdot (4 - 1) = 3 \cdot 3 = 9$$
+>
 > 也可直接按标准公式计算 \(3 \times 3\) 行列式来验证。
 > \(\det(A) = 9 \neq 0\) → **可逆**。
 >
@@ -116,16 +148,21 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 >
 > **(1)** \(\det(B - \lambda I) = \det\begin{bmatrix}2-\lambda&2&0\\2&5-\lambda&0\\0&0&3-\lambda\end{bmatrix}\)。
 > 按第三行/列展开：
-> \[= (3-\lambda) \cdot \det\begin{bmatrix}2-\lambda&2\\2&5-\lambda\end{bmatrix}\]
-> \[= (3-\lambda)[(2-\lambda)(5-\lambda) - 4] = (3-\lambda)(\lambda^2 - 7\lambda + 6)\]
-> \[= (3-\lambda)(\lambda-1)(\lambda-6) = 0\]
+>
+> $$= (3-\lambda) \cdot \det\begin{bmatrix}2-\lambda&2\\2&5-\lambda\end{bmatrix}$$
+>
+> $$= (3-\lambda)[(2-\lambda)(5-\lambda) - 4] = (3-\lambda)(\lambda^2 - 7\lambda + 6)$$
+>
+> $$= (3-\lambda)(\lambda-1)(\lambda-6) = 0$$
+>
 > \(\lambda_1 = 6\)，\(\lambda_2 = 3\)，\(\lambda_3 = 1\)。
 >
 > **(2)** 分别求特征向量：
 > - \(\lambda_1 = 6\)：\((B-6I)\mathbf{v} = \begin{bmatrix}-4&2&0\\2&-1&0\\0&0&-3\end{bmatrix}\mathbf{v} = \mathbf{0}\)。前两行给出 \(v_1 = t, v_2 = 2t\)，第三行 \(v_3 = 0\)。取 \(\mathbf{v}_1 = \frac{1}{\sqrt{5}}(1, 2, 0)^{\mathsf T}\)。
 > - \(\lambda_2 = 3\)：\((B-3I)\mathbf{v} = \begin{bmatrix}-1&2&0\\2&2&0\\0&0&0\end{bmatrix}\mathbf{v} = \mathbf{0}\)。\(v_1 = 2t, v_2 = t, v_3\) 自由。取 \(\mathbf{v}_2 = (0, 0, 1)^{\mathsf T}\)（与 \(\mathbf{v}_1\) 正交 ✓）。标准化：\(\mathbf{v}_2 = (0, 0, 1)^{\mathsf T}\)（已归一）。
 > - \(\lambda_3 = 1\)：\((B-I)\mathbf{v} = \begin{bmatrix}1&2&0\\2&4&0\\0&0&2\end{bmatrix}\mathbf{v} = \mathbf{0}\)。\(v_1 = -2t, v_2 = t, v_3 = 0\)。取 \(\mathbf{v}_3 = \frac{1}{\sqrt{5}}(-2, 1, 0)^{\mathsf T}\)。
-> \[Q = \begin{bmatrix}1/\sqrt{5}&0&-2/\sqrt{5}\\2/\sqrt{5}&0&1/\sqrt{5}\\0&1&0\end{bmatrix},\quad \Lambda = \text{diag}(6,3,1)\]
+>
+> $$Q = \begin{bmatrix}1/\sqrt{5}&0&-2/\sqrt{5}\\2/\sqrt{5}&0&1/\sqrt{5}\\0&1&0\end{bmatrix},\quad \Lambda = \text{diag}(6,3,1)$$
 >
 > **(3)** 所有特征值 \(>0\) → **正定** ✓。物理直觉：\(x^{\mathsf T}Bx > 0\) 对所有非零 \(\mathbf{x}\) 成立——这是三维空间中的「椭球碗」，任何方向都是上升的。
 
@@ -154,14 +191,22 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > 设 \(\hat{\mathbf{y}} = \text{softmax}(\mathbf{z})\)，损失 \(L = -\sum_{k=1}^K y_k \log \hat{y}_k\)。
 > 微分：
-> \[dL = -\sum_k \frac{y_k}{\hat{y}_k} d\hat{y}_k = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} d\hat{\mathbf{y}}\]
+>
+> $$dL = -\sum_k \frac{y_k}{\hat{y}_k} d\hat{y}_k = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} d\hat{\mathbf{y}}$$
+>
 > 由 A4：\(d\hat{\mathbf{y}} = (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)。
 > 代入：
-> \[dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\]
-> \[= -\mathbf{y}^{\mathsf T} (I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \text{diag}(\hat{\mathbf{y}})^{-1}\text{diag}(\hat{\mathbf{y}}) = I\text{）}\]
-> \[= (-\mathbf{y}^{\mathsf T} + \mathbf{y}^{\mathsf T}\mathbf{1} \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\]
-> \[= (-\mathbf{y}^{\mathsf T} + 1 \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \sum_k y_k = 1\text{）}\]
-> \[= (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}\]
+>
+> $$dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}$$
+>
+> $$= -\mathbf{y}^{\mathsf T} (I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \text{diag}(\hat{\mathbf{y}})^{-1}\text{diag}(\hat{\mathbf{y}}) = I\text{）}$$
+>
+> $$= (-\mathbf{y}^{\mathsf T} + \mathbf{y}^{\mathsf T}\mathbf{1} \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}$$
+>
+> $$= (-\mathbf{y}^{\mathsf T} + 1 \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \sum_k y_k = 1\text{）}$$
+>
+> $$= (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}$$
+>
 > 标准形式 \(dL = (\nabla_{\mathbf{z}} L)^{\mathsf T} d\mathbf{z}\) → \(\nabla_{\mathbf{z}} L = \hat{\mathbf{y}} - \mathbf{y}\)。
 > **这是 ML 中最优雅的梯度公式之一。** 最后一层反向传播的「误差信号」就是**预测概率减去真实标签**——极度简洁且数值稳定。无论前面的网络多复杂，softmax + CE 的组合永远给出这个形式。
 
@@ -172,7 +217,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **证明半正定性**：对任意向量 \(\mathbf{x}\)：
-> \[\mathbf{x}^{\mathsf T}\Sigma \mathbf{x} = \mathbf{x}^{\mathsf T} \mathbb{E}[(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}] \mathbf{x} = \mathbb{E}[(\mathbf{x}^{\mathsf T}(\mathbf{X}-\boldsymbol{\mu}))^2] = \text{Var}(\mathbf{x}^{\mathsf T}\mathbf{X}) \ge 0\]
+>
+> $$\mathbf{x}^{\mathsf T}\Sigma \mathbf{x} = \mathbf{x}^{\mathsf T} \mathbb{E}[(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}] \mathbf{x} = \mathbb{E}[(\mathbf{x}^{\mathsf T}(\mathbf{X}-\boldsymbol{\mu}))^2] = \text{Var}(\mathbf{x}^{\mathsf T}\mathbf{X}) \ge 0$$
+>
 > 方差的期望非负 → \(\Sigma\) 半正定。这是协方差矩阵的数学必然，不是巧合。
 > **负特征值的实际影响**（由于样本量不足或浮点舍入误差）：
 > - **概率密度函数**：在负特征值对应的方向上，\(\mathcal{N}(\boldsymbol{\mu}, \Sigma)\) 的密度含 \(\exp(-\frac{1}{2} \cdot \text{负数})\) → 指数爆炸 → 无意义
@@ -180,7 +227,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > - **多元正态采样崩溃**：\(\mathbf{x} = L\mathbf{z}\) 的 \(L\) 不存在
 > - **马氏距离** \((x-\mu)^{\mathsf T}\Sigma^{-1}(x-\mu)\) 可能为负 → 失去距离度量意义
 > **修复方法**：Shrinkage（收缩估计）：
-> \[\Sigma_{\text{shrunk}} = (1-\alpha)\Sigma_{\text{sample}} + \alpha I, \quad \alpha \in (0, 1)\]
+>
+> $$\Sigma_{\text{shrunk}} = (1-\alpha)\Sigma_{\text{sample}} + \alpha I, \quad \alpha \in (0, 1)$$
+>
 > 给所有特征值加上 \(\alpha\)：\(\lambda_i^{\text{new}} = (1-\alpha)\lambda_i + \alpha\)。最小特征值被抬升至少 \(\alpha\)，强制正定性。典型的 \(\alpha\) 取 \(0.01 \sim 0.1\)。这正是 `sklearn.covariance.ShrunkCovariance` 和 Ledoit-Wolf 估计的核心思想。
 
 ---
@@ -203,7 +252,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > 任何线性变换本质上就是这三步：旋转 → 拉伸/压扁 → 再旋转。没有例外。
 >
 > **(3)** \(V^{\mathsf T}\mathbf{v}_3 = \mathbf{e}_3\)（因为 \(V\) 的列是 \(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\)，\(V^{\mathsf T}\mathbf{v}_i = \mathbf{e}_i\)）。
-> \[A\mathbf{v}_3 = U\Sigma (V^{\mathsf T}\mathbf{v}_3) = U\Sigma \mathbf{e}_3 = U \cdot \mathbf{0} = \mathbf{0}\]
+>
+> $$A\mathbf{v}_3 = U\Sigma (V^{\mathsf T}\mathbf{v}_3) = U\Sigma \mathbf{e}_3 = U \cdot \mathbf{0} = \mathbf{0}$$
+>
 > \(\mathbf{v}_3 \in N(A)\)（零空间）。**SVD 的优雅之处：\(V\) 的最后 \(n-r\) 列直接给出零空间的标准正交基。**
 >
 > **(4)** 奇异值接近 \(0\) → 协方差矩阵有接近 \(0\) 的特征值 → 数据几乎分布在一个低维子空间内：
@@ -243,14 +294,18 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)**
-> \[R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{1^2+1^2} = \frac{[1,1]\begin{bmatrix}4\\4\end{bmatrix}}{2} = \frac{8}{2} = 4\]
-> \[R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{[1,-1]\begin{bmatrix}2\\-2\end{bmatrix}}{2} = \frac{4}{2} = 2\]
+>
+> $$R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{1^2+1^2} = \frac{[1,1]\begin{bmatrix}4\\4\end{bmatrix}}{2} = \frac{8}{2} = 4$$
+>
+> $$R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{[1,-1]\begin{bmatrix}2\\-2\end{bmatrix}}{2} = \frac{4}{2} = 2$$
 >
 > **(2)** 由 A1/A2，\(H\) 的特征值为 \(\lambda_{\max}=4\)（对应 \((1,1)\)），\(\lambda_{\min}=2\)（对应 \((1,-1)\)）。
 > **Rayleigh 商定理**：对任意 \(\mathbf{x} \neq \mathbf{0}\)，\(\lambda_{\min} \le R(\mathbf{x}) \le \lambda_{\max}\)，等号在特征向量方向取得。这里：\(R(1,1) = \lambda_{\max} = 4\)，\(R(1,-1) = \lambda_{\min} = 2\)——恰好命中 ✓。
 >
 > **(3)** 在局部二次近似下，沿 \(\mathbf{d} = -\nabla L\) 走一步的最优学习率的倒数是该方向的 Rayleigh 商：
-> \[R(\mathbf{d}) = \frac{\mathbf{d}^{\mathsf T} H \mathbf{d}}{\mathbf{d}^{\mathsf T} \mathbf{d}}\]
+>
+> $$R(\mathbf{d}) = \frac{\mathbf{d}^{\mathsf T} H \mathbf{d}}{\mathbf{d}^{\mathsf T} \mathbf{d}}$$
+>
 > 这个值度量了「当前梯度方向上 Hessian 的有效曲率」：
 > - 若 \(\nabla L\) 落在 \(\lambda_{\max}\) 方向 → \(R(\mathbf{d})\) 大 → 每步下降快但需要小学习率防震荡
 > - 若 \(\nabla L\) 落在 \(\lambda_{\min}\) 方向 → \(R(\mathbf{d})\) 小 → 每步进展微乎其微

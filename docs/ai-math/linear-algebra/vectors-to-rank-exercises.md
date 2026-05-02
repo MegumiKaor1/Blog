@@ -15,12 +15,16 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > **(a)** 将四个向量按列排成 \(3 \times 4\) 矩阵并做行化简：
-> \[A = \begin{bmatrix} 1 & 2 & 1 & 0 \\ 2 & 4 & 3 & 1 \\ 1 & 2 & 2 & 1 \end{bmatrix}\]
+>
+> $$A = \begin{bmatrix} 1 & 2 & 1 & 0 \\ 2 & 4 & 3 & 1 \\ 1 & 2 & 2 & 1 \end{bmatrix}$$
+>
 > \(R_2 - 2R_1\)：\((0, 0, 1, 1)\)；\(R_3 - R_1\)：\((0, 0, 1, 1)\)；\(R_3 - R_2\)：\((0, 0, 0, 0)\)。
 > 行阶梯形有 \(2\) 个非零行 → **秩 \(=2\)**。
 > **(b)** 主元在第 1 列和第 3 列 → 极大无关组可取 \(\{\mathbf{v}_1, \mathbf{v}_3\}\)。也可以取 \(\{\mathbf{v}_1, \mathbf{v}_4\}\) 等其他组合——极大无关组不唯一，但向量个数恒为 \(2\)。
 > **(c)** \(\mathbf{v}_2 = 2\mathbf{v}_1 + 0\cdot\mathbf{v}_3\)（直接倍数关系）。\(\mathbf{v}_4\)：设 \(\mathbf{v}_4 = c_1\mathbf{v}_1 + c_2\mathbf{v}_3\)，即 \(c_1(1,2,1) + c_2(1,3,2) = (0,1,1)\)。比较分量：
-> \[c_1 + c_2 = 0,\quad 2c_1 + 3c_2 = 1,\quad c_1 + 2c_2 = 1\]
+>
+> $$c_1 + c_2 = 0,\quad 2c_1 + 3c_2 = 1,\quad c_1 + 2c_2 = 1$$
+>
 > 由第一个方程 \(c_2 = -c_1\)。代入第二个：\(2c_1 - 3c_1 = 1 \Rightarrow -c_1 = 1 \Rightarrow c_1 = -1,\; c_2 = 1\)。验证第三个：\((-1) + 2(1) = 1\) ✓。所以 \(\mathbf{v}_4 = -\mathbf{v}_1 + \mathbf{v}_3\)。
 
 ---
@@ -48,9 +52,13 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > 初等行变换：
 > ① \(R_3 - R_1\)：\((0, 2, 2, 4)\)。矩阵变为：
-> \[\begin{bmatrix} 1 & 2 & 0 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 2 & 2 & 4 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 2 & 0 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 2 & 2 & 4 \end{bmatrix}$$
+>
 > ② \(R_3 - 2R_2\)：\((0, 0, 0, 0)\)。矩阵变为：
-> \[\begin{bmatrix} 1 & 2 & 0 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 2 & 0 & 3 \\ 0 & 1 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+>
 > 行阶梯形有 \(2\) 个非零行 → **秩 \(=2\)**。
 > 验证：第 1 列和第 2 列不共线（\(1/0 \neq 2/1\)），第 3 列 \(= 2\times\) 第 2 列 \(-\) 第 1 列（\(2(2,1,4)-(1,0,1) = (3,2,7)\) ✓），确实只有 2 个独立列。
 
@@ -79,7 +87,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** \(\mathbf{v}_2 = 2\mathbf{v}_1\)，两者共线。所有线性组合：
-> \[c_1\mathbf{v}_1 + c_2\mathbf{v}_2 = c_1\mathbf{v}_1 + 2c_2\mathbf{v}_1 = (c_1+2c_2)\mathbf{v}_1\]
+>
+> $$c_1\mathbf{v}_1 + c_2\mathbf{v}_2 = c_1\mathbf{v}_1 + 2c_2\mathbf{v}_1 = (c_1+2c_2)\mathbf{v}_1$$
+>
 > 这是一个标量乘 \(\mathbf{v}_1\) → 构成过原点沿 \(\mathbf{v}_1\) 方向的一条**直线**。
 >
 > **(2)** \(\mathbf{v}_1 = (1,2,1)\) 和 \(\mathbf{v}_3 = (0,1,0)\) 不共线（不存在 \(c\) 使 \((1,2,1) = c(0,1,0)\)）。两个不共线的三维向量张成一个过原点的**平面**——法向量可用叉积求得：\(\mathbf{v}_1 \times \mathbf{v}_3 = (-1, 0, 1)^{\mathsf T}\)。
@@ -96,15 +106,22 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** 将三列排成矩阵并做行化简：
-> \[\begin{bmatrix} 1 & 4 & 7 \\ 2 & 5 & 8 \\ 3 & 6 & 9 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 4 & 7 \\ 2 & 5 & 8 \\ 3 & 6 & 9 \end{bmatrix}$$
+>
 > \(R_2 - 2R_1\)：\((0, -3, -6)\)；\(R_3 - 3R_1\)：\((0, -6, -12)\)。\(R_3 - 2R_2\)：\((0, 0, 0)\)。存在零行 → **线性相关**。
 > 找关系：观察发现 \(\mathbf{v}_3 = 2\mathbf{v}_2 - \mathbf{v}_1\)。验证：\(2(4,5,6) - (1,2,3) = (8-1, 10-2, 12-3) = (7,8,9)\) ✓。因此 \(-\mathbf{v}_1 + 2\mathbf{v}_2 - \mathbf{v}_3 = \mathbf{0}\)（或等价地 \(\mathbf{v}_1 - 2\mathbf{v}_2 + \mathbf{v}_3 = \mathbf{0}\)）。
 >
 > **(2)** 矩阵为：
-> \[\begin{bmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 0 & 1 \\ 1 & 1 & 0 \\ 0 & 1 & 1 \end{bmatrix}$$
+>
 > 计算行列式：按第一行展开：
-> \[\det = 1 \cdot \det\begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix} - 0 + 1 \cdot \det\begin{bmatrix}1 & 1 \\ 0 & 1\end{bmatrix}\]
-> \[= 1(1-0) + 1(1-0) = 2 \neq 0\]
+>
+> $$\det = 1 \cdot \det\begin{bmatrix}1 & 0 \\ 1 & 1\end{bmatrix} - 0 + 1 \cdot \det\begin{bmatrix}1 & 1 \\ 0 & 1\end{bmatrix}$$
+>
+> $$= 1(1-0) + 1(1-0) = 2 \neq 0$$
+>
 > 行列式非零 → **线性无关**。三个向量构成 \(\mathbb{R}^3\) 的一组基。
 
 ---
@@ -121,11 +138,14 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > ① \(R_3 - 2R_1\)：\((0, 0, 1, 2)\)
 > ② \(R_3 - R_2\)：\((0, 0, 0, 0)\)（\(R_2\) 已经是 \((0,0,1,2)\)）
 > 行阶梯形：
-> \[\begin{bmatrix} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 2 & 0 & 1 \\ 0 & 0 & 1 & 2 \\ 0 & 0 & 0 & 0 \end{bmatrix}$$
+>
 > 非零行数 \(=2\) → **秩 \(=2\)**。
 >
 > **(2)** 主元在第 1 列和第 3 列 → 列空间的一组基为 \(A\) 的第 1 列和第 3 列：
-> \[\left\{\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix},\; \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\right\}\]
+>
+> $$\left\{\begin{bmatrix} 1 \\ 0 \\ 2 \end{bmatrix},\; \begin{bmatrix} 0 \\ 1 \\ 1 \end{bmatrix}\right\}$$
 >
 > **(3)** \(\dim C(A) = 2\)。它是 \(\mathbb{R}^3\) 中的一个二维平面（过原点），不是整个 \(\mathbb{R}^3\)。任何不在此平面上的 \(\mathbf{b} \in \mathbb{R}^3\) 都无法写成 \(A\) 各列的线性组合——即 \(A\mathbf{x} = \mathbf{b}\) 无解。
 
@@ -141,15 +161,21 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)**
-> \[\mathbf{u} \cdot \mathbf{v} = 1 \cdot 2 + 2 \cdot 1 + 2 \cdot (-2) = 2 + 2 - 4 = 0\]
+>
+> $$\mathbf{u} \cdot \mathbf{v} = 1 \cdot 2 + 2 \cdot 1 + 2 \cdot (-2) = 2 + 2 - 4 = 0$$
+>
 > 内积为 \(0\) → **直角**（两个向量正交）。由 \(\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\|\|\mathbf{v}\|\cos\theta = 0\)，且 \(\|\mathbf{u}\|, \|\mathbf{v}\| > 0\)，故 \(\cos\theta = 0 \Rightarrow \theta = 90^\circ\)。
 >
 > **(2)**
-> \[\|\mathbf{u}\| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3\]
-> \[\hat{\mathbf{u}} = \frac{\mathbf{u}}{\|\mathbf{u}\|} = \left(\frac{1}{3}, \frac{2}{3}, \frac{2}{3}\right)^{\mathsf T}\]
+>
+> $$\|\mathbf{u}\| = \sqrt{1^2 + 2^2 + 2^2} = \sqrt{1 + 4 + 4} = \sqrt{9} = 3$$
+>
+> $$\hat{\mathbf{u}} = \frac{\mathbf{u}}{\|\mathbf{u}\|} = \left(\frac{1}{3}, \frac{2}{3}, \frac{2}{3}\right)^{\mathsf T}$$
 >
 > **(3)** \(\mathbf{v}\) 在 \(\mathbf{u}\) 方向上的投影长度（带符号）为：
-> \[\text{proj}_{\mathbf{u}}(\mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|} = \frac{0}{3} = 0\]
+>
+> $$\text{proj}_{\mathbf{u}}(\mathbf{v}) = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\|} = \frac{0}{3} = 0$$
+>
 > 同时 \(\hat{\mathbf{u}} \cdot \mathbf{v} = (\frac{1}{3})(2) + (\frac{2}{3})(1) + (\frac{2}{3})(-2) = \frac{2+2-4}{3} = 0\)。两者一致。投影长度为 \(0\) 说明 \(\mathbf{v}\) 完全垂直于 \(\mathbf{u}\)——没有「沿 \(\mathbf{u}\) 方向的分量」。
 >
 > **(4)** 余弦相似度 \(=\) 两向量夹角的余弦。\(0.95\) → \(\theta \approx 18^\circ\)，方向几乎一致——两个词在语义上非常接近（如「猫」和「小猫」）。\(-0.8\) → \(\theta \approx 143^\circ\)，方向几乎相反——语义上强烈对立（如「好」和「坏」）。这正是 Attention 中 \(QK^{\mathsf T}\) 的底层逻辑：内积 = 语义相关性分数。
@@ -165,18 +191,27 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** 列图景——将矩阵乘法视为列的线性组合：
-> \[A\mathbf{x} = x_1 \cdot \mathbf{a}_1 + x_2 \cdot \mathbf{a}_2 + x_3 \cdot \mathbf{a}_3\]
-> \[= 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}1\\3\end{bmatrix}\]
-> \[= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-1\\-3\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}\]
+>
+> $$A\mathbf{x} = x_1 \cdot \mathbf{a}_1 + x_2 \cdot \mathbf{a}_2 + x_3 \cdot \mathbf{a}_3$$
+>
+> $$= 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}1\\3\end{bmatrix}$$
+>
+> $$= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-1\\-3\end{bmatrix} = \begin{bmatrix}1\\-1\end{bmatrix}$$
 >
 > **(2)** 行图景——每个输出分量是 \(A\) 的一行与 \(\mathbf{x}\) 的内积：
-> \[(A\mathbf{x})_1 = 2 \cdot 1 + 0 \cdot 2 + 1 \cdot (-1) = 2 + 0 - 1 = 1\]
-> \[(A\mathbf{x})_2 = 0 \cdot 1 + 1 \cdot 2 + 3 \cdot (-1) = 0 + 2 - 3 = -1\]
+>
+> $$(A\mathbf{x})_1 = 2 \cdot 1 + 0 \cdot 2 + 1 \cdot (-1) = 2 + 0 - 1 = 1$$
+>
+> $$(A\mathbf{x})_2 = 0 \cdot 1 + 1 \cdot 2 + 3 \cdot (-1) = 0 + 2 - 3 = -1$$
+>
 > 结果一致：\(\begin{bmatrix}1\\-1\end{bmatrix}\)。
 >
 > **(3)** 设 \(A'\) 的第 3 列为 \((2,6)^{\mathsf T}\)，其余不变。按列图景：
-> \[A'\mathbf{x} = 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}2\\6\end{bmatrix}\]
-> \[= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-2\\-6\end{bmatrix} = \begin{bmatrix}0\\-4\end{bmatrix}\]
+>
+> $$A'\mathbf{x} = 1 \cdot \begin{bmatrix}2\\0\end{bmatrix} + 2 \cdot \begin{bmatrix}0\\1\end{bmatrix} + (-1) \cdot \begin{bmatrix}2\\6\end{bmatrix}$$
+>
+> $$= \begin{bmatrix}2\\0\end{bmatrix} + \begin{bmatrix}0\\2\end{bmatrix} + \begin{bmatrix}-2\\-6\end{bmatrix} = \begin{bmatrix}0\\-4\end{bmatrix}$$
+>
 > 第 3 列的贡献从 \((-1, -3)^{\mathsf T}\) 加倍为 \((-2, -6)^{\mathsf T}\)，总结果从 \((1, -1)^{\mathsf T}\) 变为 \((0, -4)^{\mathsf T}\)。列图景的优势：只需改动一个列向量，无需重新计算整个矩阵乘法。
 
 ---
@@ -190,19 +225,29 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** 矩阵的列就是标准基向量的像（这是列图景的核心结论）：
-> \[A\mathbf{e}_1 = A\begin{bmatrix}1\\0\\0\end{bmatrix} = \begin{bmatrix}1\\0\\0\end{bmatrix} \quad\text{（第 1 列 = }\mathbf{e}_1\text{，不变）}\]
-> \[A\mathbf{e}_2 = \begin{bmatrix}0\\1\\0\end{bmatrix} = \mathbf{e}_2 \quad\text{（第 2 列，不变）}\]
-> \[A\mathbf{e}_3 = \begin{bmatrix}2\\3\\0\end{bmatrix} = 2\mathbf{e}_1 + 3\mathbf{e}_2 \quad\text{（第 3 列，投影到 }xy\text{ 平面）}\]
+>
+> $$A\mathbf{e}_1 = A\begin{bmatrix}1\\0\\0\end{bmatrix} = \begin{bmatrix}1\\0\\0\end{bmatrix} \quad\text{（第 1 列 = }\mathbf{e}_1\text{，不变）}$$
+>
+> $$A\mathbf{e}_2 = \begin{bmatrix}0\\1\\0\end{bmatrix} = \mathbf{e}_2 \quad\text{（第 2 列，不变）}$$
+>
+> $$A\mathbf{e}_3 = \begin{bmatrix}2\\3\\0\end{bmatrix} = 2\mathbf{e}_1 + 3\mathbf{e}_2 \quad\text{（第 3 列，投影到 }xy\text{ 平面）}$$
+>
 > 所以 \(A\) 保留 \(x\) 和 \(y\) 方向不变，把 \(z\) 方向上的向量「拍平」到 \(xy\) 平面上。
 >
 > **(2)** 对于任意 \((x, y, z)^{\mathsf T}\)：
-> \[A\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x+2z\\y+3z\\0\end{bmatrix}\]
+>
+> $$A\begin{bmatrix}x\\y\\z\end{bmatrix} = \begin{bmatrix}x+2z\\y+3z\\0\end{bmatrix}$$
+>
 > 第三分量始终为 \(0\) → 所有输出都落在 \(xy\) 平面（\(z=0\)）上。\(A\) 把 \(\mathbb{R}^3\) 降维映射到一个二维子空间（\(xy\) 平面），秩 \(=2\)。
 >
 > **(3)** 零空间 = 所有满足 \(A\mathbf{x} = \mathbf{0}\) 的 \(\mathbf{x}\)：
-> \[\begin{bmatrix}x+2z\\y+3z\\0\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix} \Rightarrow \begin{cases} x + 2z = 0 \\ y + 3z = 0 \end{cases}\]
+>
+> $$\begin{bmatrix}x+2z\\y+3z\\0\end{bmatrix} = \begin{bmatrix}0\\0\\0\end{bmatrix} \Rightarrow \begin{cases} x + 2z = 0 \\ y + 3z = 0 \end{cases}$$
+>
 > 自由变量 \(z = t\)，则 \(x = -2t\)，\(y = -3t\)。基础解系：
-> \[\mathbf{x} = t \begin{bmatrix}-2\\-3\\1\end{bmatrix}\]
+>
+> $$\mathbf{x} = t \begin{bmatrix}-2\\-3\\1\end{bmatrix}$$
+>
 > 零空间维数 \(=1 = n - r = 3 - 2\) ✓。几何上，它是垂直于 \(xy\) 平面且指向 \((-2,-3,1)\) 方向的一条直线。
 > 验证：\(A(-2,-3,1)^{\mathsf T} = (-2+2, -3+3, 0)^{\mathsf T} = (0,0,0)^{\mathsf T}\) ✓。
 
@@ -217,16 +262,23 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)**
-> \[\mathbf{a} + \mathbf{b} = (3+0,\; 0+5,\; 4+0)^{\mathsf T} = (3, 5, 4)^{\mathsf T}\]
-> \[2\mathbf{a} - 3\mathbf{b} = (6-0,\; 0-15,\; 8-0)^{\mathsf T} = (6, -15, 8)^{\mathsf T}\]
+>
+> $$\mathbf{a} + \mathbf{b} = (3+0,\; 0+5,\; 4+0)^{\mathsf T} = (3, 5, 4)^{\mathsf T}$$
+>
+> $$2\mathbf{a} - 3\mathbf{b} = (6-0,\; 0-15,\; 8-0)^{\mathsf T} = (6, -15, 8)^{\mathsf T}$$
 >
 > **(2)**
-> \[\|\mathbf{a}\| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 0 + 16} = \sqrt{25} = 5\]
-> \[\|\mathbf{b}\| = \sqrt{0^2 + 5^2 + 0^2} = 5\]
-> \[\mathbf{a} \cdot \mathbf{b} = 3 \cdot 0 + 0 \cdot 5 + 4 \cdot 0 = 0\]
+>
+> $$\|\mathbf{a}\| = \sqrt{3^2 + 0^2 + 4^2} = \sqrt{9 + 0 + 16} = \sqrt{25} = 5$$
+>
+> $$\|\mathbf{b}\| = \sqrt{0^2 + 5^2 + 0^2} = 5$$
+>
+> $$\mathbf{a} \cdot \mathbf{b} = 3 \cdot 0 + 0 \cdot 5 + 4 \cdot 0 = 0$$
 >
 > **(3)** 由 \(\mathbf{a} \cdot \mathbf{b} = \|\mathbf{a}\|\|\mathbf{b}\|\cos\theta\)：
-> \[0 = 5 \cdot 5 \cdot \cos\theta \Rightarrow \cos\theta = 0 \Rightarrow \theta = 90^\circ\]
+>
+> $$0 = 5 \cdot 5 \cdot \cos\theta \Rightarrow \cos\theta = 0 \Rightarrow \theta = 90^\circ$$
+>
 > 两个向量正交——这在 \(\mathbb{R}^3\) 中很自然：\(\mathbf{a}\) 在 \(xz\) 平面内，\(\mathbf{b}\) 沿 \(y\) 轴。
 
 ---
@@ -235,9 +287,13 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > 问题等价于：是否存在 \(c_1, c_2\) 使得 \(c_1\mathbf{v}_1 + c_2\mathbf{v}_2 = \mathbf{b}\)？即解线性方程组：
-> \[\begin{bmatrix}1 & 3 \\ 2 & 4\end{bmatrix} \begin{bmatrix}c_1\\c_2\end{bmatrix} = \begin{bmatrix}5\\7\end{bmatrix}\]
+>
+> $$\begin{bmatrix}1 & 3 \\ 2 & 4\end{bmatrix} \begin{bmatrix}c_1\\c_2\end{bmatrix} = \begin{bmatrix}5\\7\end{bmatrix}$$
+>
 > 增广矩阵：
-> \[\begin{bmatrix}1 & 3 & | & 5 \\ 2 & 4 & | & 7\end{bmatrix}\]
+>
+> $$\begin{bmatrix}1 & 3 & | & 5 \\ 2 & 4 & | & 7\end{bmatrix}$$
+>
 > \(R_2 - 2R_1\)：\((0, -2, |, -3)\)。
 > 回代：\(-2c_2 = -3 \Rightarrow c_2 = \frac{3}{2}\)。\(c_1 + 3 \cdot \frac{3}{2} = 5 \Rightarrow c_1 = 5 - \frac{9}{2} = \frac{1}{2}\)。
 > 验证：\(\frac{1}{2}(1,2) + \frac{3}{2}(3,4) = (\frac{1}{2}+\frac{9}{2}, 1+6) = (5,7)\) ✓。
@@ -250,24 +306,37 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1) 元素公式**（\(C_{ij} = \sum_k A_{ik}B_{kj}\)）：
-> \[C_{11} = 1\cdot5 + 2\cdot7 = 5+14 = 19\]
-> \[C_{12} = 1\cdot6 + 2\cdot8 = 6+16 = 22\]
-> \[C_{21} = 3\cdot5 + 4\cdot7 = 15+28 = 43\]
-> \[C_{22} = 3\cdot6 + 4\cdot8 = 18+32 = 50\]
-> \[C = \begin{bmatrix}19&22\\43&50\end{bmatrix}\]
+>
+> $$C_{11} = 1\cdot5 + 2\cdot7 = 5+14 = 19$$
+>
+> $$C_{12} = 1\cdot6 + 2\cdot8 = 6+16 = 22$$
+>
+> $$C_{21} = 3\cdot5 + 4\cdot7 = 15+28 = 43$$
+>
+> $$C_{22} = 3\cdot6 + 4\cdot8 = 18+32 = 50$$
+>
+> $$C = \begin{bmatrix}19&22\\43&50\end{bmatrix}$$
 >
 > **(2) 列组合**（\(C\) 的第 \(j\) 列 = \(A \times (B\) 的第 \(j\) 列））：
-> \[C_{:,1} = A\begin{bmatrix}5\\7\end{bmatrix} = \begin{bmatrix}1\cdot5+2\cdot7\\3\cdot5+4\cdot7\end{bmatrix} = \begin{bmatrix}19\\43\end{bmatrix}\]
-> \[C_{:,2} = A\begin{bmatrix}6\\8\end{bmatrix} = \begin{bmatrix}1\cdot6+2\cdot8\\3\cdot6+4\cdot8\end{bmatrix} = \begin{bmatrix}22\\50\end{bmatrix}\]
+>
+> $$C_{:,1} = A\begin{bmatrix}5\\7\end{bmatrix} = \begin{bmatrix}1\cdot5+2\cdot7\\3\cdot5+4\cdot7\end{bmatrix} = \begin{bmatrix}19\\43\end{bmatrix}$$
+>
+> $$C_{:,2} = A\begin{bmatrix}6\\8\end{bmatrix} = \begin{bmatrix}1\cdot6+2\cdot8\\3\cdot6+4\cdot8\end{bmatrix} = \begin{bmatrix}22\\50\end{bmatrix}$$
 >
 > **(3) 行组合**（\(C\) 的第 \(i\) 行 = \((A\) 的第 \(i\) 行）\(\times B\)）：
-> \[C_{1,:} = [1,2]B = [1\cdot5+2\cdot7,\; 1\cdot6+2\cdot8] = [19, 22]\]
-> \[C_{2,:} = [3,4]B = [3\cdot5+4\cdot7,\; 3\cdot6+4\cdot8] = [43, 50]\]
+>
+> $$C_{1,:} = [1,2]B = [1\cdot5+2\cdot7,\; 1\cdot6+2\cdot8] = [19, 22]$$
+>
+> $$C_{2,:} = [3,4]B = [3\cdot5+4\cdot7,\; 3\cdot6+4\cdot8] = [43, 50]$$
 >
 > **(4) 外积和**（\(AB = \sum_k (A\) 的第 \(k\) 列）\(\times (B\) 的第 \(k\) 行））：
-> \[A_{:,1}B_{1,:} = \begin{bmatrix}1\\3\end{bmatrix}[5,6] = \begin{bmatrix}5&6\\15&18\end{bmatrix}\]
-> \[A_{:,2}B_{2,:} = \begin{bmatrix}2\\4\end{bmatrix}[7,8] = \begin{bmatrix}14&16\\28&32\end{bmatrix}\]
-> \[C = \begin{bmatrix}5&6\\15&18\end{bmatrix} + \begin{bmatrix}14&16\\28&32\end{bmatrix} = \begin{bmatrix}19&22\\43&50\end{bmatrix}\]
+>
+> $$A_{:,1}B_{1,:} = \begin{bmatrix}1\\3\end{bmatrix}[5,6] = \begin{bmatrix}5&6\\15&18\end{bmatrix}$$
+>
+> $$A_{:,2}B_{2,:} = \begin{bmatrix}2\\4\end{bmatrix}[7,8] = \begin{bmatrix}14&16\\28&32\end{bmatrix}$$
+>
+> $$C = \begin{bmatrix}5&6\\15&18\end{bmatrix} + \begin{bmatrix}14&16\\28&32\end{bmatrix} = \begin{bmatrix}19&22\\43&50\end{bmatrix}$$
+>
 > 四种方式，同一结果。代码里用元素公式，理论分析用列图景（理解神经网络前向传播）和外积和（理解秩和 SVD）。
 
 ---
@@ -280,7 +349,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** 检查 \((1,3,1)\) 是否可被前两个表出。设 \(c_1(1,2,0) + c_2(0,1,1) = (1,3,1)\)：
-> \[\begin{cases} c_1 = 1 \\ 2c_1 + c_2 = 3 \\ 0 + c_2 = 1 \end{cases}\]
+>
+> $$\begin{cases} c_1 = 1 \\ 2c_1 + c_2 = 3 \\ 0 + c_2 = 1 \end{cases}$$
+>
 > \(c_1 = 1\)，\(c_2 = 1\)。验证第二个：\(2(1) + 1 = 3\) ✓。所以 \((1,3,1) = (1,2,0) + (0,1,1)\)，**线性相关**。
 > 极大无关组可取 \(\{(1,2,0)^{\mathsf T}, (0,1,1)^{\mathsf T}\}\)（这两个不共线，线性无关）。
 >
@@ -297,7 +368,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 >
 > **(1)** 行化简：
 > \(R_2 - 3R_1\)：\((0, 0, 0)\)。行阶梯形：
-> \[\begin{bmatrix} 1 & 2 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 5 \end{bmatrix} \rightarrow \text{交换 } R_2,R_3 \rightarrow \begin{bmatrix} 1 & 2 & 0 \\ 0 & 0 & 5 \\ 0 & 0 & 0 \end{bmatrix}\]
+>
+> $$\begin{bmatrix} 1 & 2 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 5 \end{bmatrix} \rightarrow \text{交换 } R_2,R_3 \rightarrow \begin{bmatrix} 1 & 2 & 0 \\ 0 & 0 & 5 \\ 0 & 0 & 0 \end{bmatrix}$$
+>
 > 非零行 \(=2\)。或者直接看列：第 2 列 \(= 2\times\) 第 1 列，但第 3 列独立于前两列 → 秩 \(=2\)。
 >
 > **(2)** \(3 \times 3\) 方阵，秩 \(=2 < 3 = n\) → **不可逆**（不满秩 \(\iff\) 不可逆）。等价地，\(\det(A) = 1 \cdot \det\begin{bmatrix}6&0\\0&5\end{bmatrix} - 2 \cdot \det\begin{bmatrix}3&0\\0&5\end{bmatrix} + 0 = 1(30) - 2(15) = 30 - 30 = 0\) → 行列式为 \(0\) → 不可逆。
@@ -361,16 +434,23 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** \(A\) 对任意 \((x, y)^{\mathsf T}\)：
-> \[A\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}-y\\x\end{bmatrix}\]
+>
+> $$A\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}-y\\x\end{bmatrix}$$
+>
 > 这是**逆时针旋转 \(90^\circ\)**。验证：\((1,0) \to (0,1)\)，\((0,1) \to (-1,0)\)。它不改变任何向量的长度（\(\|A\mathbf{x}\| = \|\mathbf{x}\|\)）且保持面积不变（旋转不改变平行四边形面积）。
 >
 > **(2)** \(B\) 对任意 \((x, y)^{\mathsf T}\)：
-> \[B\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}2x\\0.5y\end{bmatrix}\]
+>
+> $$B\begin{bmatrix}x\\y\end{bmatrix} = \begin{bmatrix}2x\\0.5y\end{bmatrix}$$
+>
 > 把 \(x\) 轴方向拉伸 \(2\) 倍，\(y\) 轴方向压缩到 \(0.5\) 倍。一个单位圆变成以 \((2,0)\) 和 \((0,0.5)\) 为半轴的椭圆。
 >
 > **(3)**
-> \[\det(A) = 0 \cdot 0 - (-1) \cdot 1 = 1\]
-> \[\det(B) = 2 \cdot 0.5 - 0 \cdot 0 = 1\]
+>
+> $$\det(A) = 0 \cdot 0 - (-1) \cdot 1 = 1$$
+>
+> $$\det(B) = 2 \cdot 0.5 - 0 \cdot 0 = 1$$
+>
 > 有趣的是两者行列式都是 \(1\)——都保面积。但 \(A\) 也保长度（正交矩阵），而 \(B\) 在一个方向上极端拉伸、另一个方向上极端压缩。
 >
 > **(4)** \(B\) 的特征值是 \(2\) 和 \(0.5\)，条件数 \(\kappa = 2/0.5 = 4\)。虽然还不算极端，但如果多层权重矩阵都像这样特征值悬殊，连乘 \(L\) 层后：
@@ -409,14 +489,18 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > **(a)** \(\|\mathbf{x}\|_\infty \le \|\mathbf{x}\|_2\)：
 > 设 \(|x_k| = \max_i |x_i| = \|\mathbf{x}\|_\infty\)。则：
-> \[\|\mathbf{x}\|_2 = \sqrt{\sum_i x_i^2} \ge \sqrt{x_k^2} = |x_k| = \|\mathbf{x}\|_\infty\]
+>
+> $$\|\mathbf{x}\|_2 = \sqrt{\sum_i x_i^2} \ge \sqrt{x_k^2} = |x_k| = \|\mathbf{x}\|_\infty$$
+>
 > 等号成立当且仅当只有一个非零分量（其他全为 \(0\)）。
 > **(b)** \(\|\mathbf{x}\|_2 \le \|\mathbf{x}\|_1\)：
 > \(\|\mathbf{x}\|_1^2 = (\sum_i |x_i|)^2 = \sum_i x_i^2 + \sum_{i \neq j} |x_i||x_j| \ge \sum_i x_i^2 = \|\mathbf{x}\|_2^2\)。开方即得。
 > 等号成立当且仅当只有一个非零分量（交叉项全为 \(0\)）。
 > **(c)** \(\|\mathbf{x}\|_1 \le \sqrt{n}\|\mathbf{x}\|_2\)：
 > 由 Cauchy-Schwarz 不等式：
-> \[\|\mathbf{x}\|_1 = \sum_{i=1}^n 1 \cdot |x_i| \le \sqrt{\sum_{i=1}^n 1^2} \cdot \sqrt{\sum_{i=1}^n |x_i|^2} = \sqrt{n} \cdot \|\mathbf{x}\|_2\]
+>
+> $$\|\mathbf{x}\|_1 = \sum_{i=1}^n 1 \cdot |x_i| \le \sqrt{\sum_{i=1}^n 1^2} \cdot \sqrt{\sum_{i=1}^n |x_i|^2} = \sqrt{n} \cdot \|\mathbf{x}\|_2$$
+>
 > 等号成立当且仅当所有 \(|x_i|\) 相等（如 \(\mathbf{x} = (1,1,\ldots,1)^{\mathsf T}\)）。
 >
 > **综合**：\(\|\mathbf{x}\|_\infty \le \|\mathbf{x}\|_2 \le \|\mathbf{x}\|_1 \le \sqrt{n}\|\mathbf{x}\|_2\)。在有限维空间中，所有范数等价——这就是这个不等式链的含义。
@@ -465,12 +549,18 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)**
-> \[\|\mathbf{v}\|_1 = 1+2+3+4+5 = 15\]
-> \[\|\mathbf{v}\|_2 = \sqrt{1+4+9+16+25} = \sqrt{55} \approx 7.42\]
-> \[\|\mathbf{v}\|_\infty = \max(1,2,3,4,5) = 5\]
+>
+> $$\|\mathbf{v}\|_1 = 1+2+3+4+5 = 15$$
+>
+> $$\|\mathbf{v}\|_2 = \sqrt{1+4+9+16+25} = \sqrt{55} \approx 7.42$$
+>
+> $$\|\mathbf{v}\|_\infty = \max(1,2,3,4,5) = 5$$
 >
 > **(2)** 验证不等式：
-> \[5 \le 7.42 \le 15 \le \sqrt{5} \cdot 7.42 \approx 16.58\] ✓
+>
+> $$5 \le 7.42 \le 15 \le \sqrt{5} \cdot 7.42 \approx 16.58$$
+>
+> ✓
 >
 > **(3)**
 > \(L_1\)-归一化：\(\mathbf{v}/15 = (0.0667, 0.1333, 0.2, 0.2667, 0.3333)^{\mathsf T}\)，分量和 \(= 1\)。
@@ -490,11 +580,15 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** 设 \(A\) 的紧 SVD 为 \(A = U_r \Sigma_r V_r^{\mathsf T}\)。则：
-> \[\|A\|_F^2 = \text{tr}(A^{\mathsf T}A) = \text{tr}(V_r\Sigma_r U_r^{\mathsf T} U_r\Sigma_r V_r^{\mathsf T}) = \text{tr}(V_r\Sigma_r^2 V_r^{\mathsf T})\]
+>
+> $$\|A\|_F^2 = \text{tr}(A^{\mathsf T}A) = \text{tr}(V_r\Sigma_r U_r^{\mathsf T} U_r\Sigma_r V_r^{\mathsf T}) = \text{tr}(V_r\Sigma_r^2 V_r^{\mathsf T})$$
+>
 > 由迹的循环不变性：\(\text{tr}(V_r\Sigma_r^2 V_r^{\mathsf T}) = \text{tr}(\Sigma_r^2 V_r^{\mathsf T} V_r) = \text{tr}(\Sigma_r^2) = \sum_{i=1}^r \sigma_i^2\)。
 >
 > **(2)** \(\|A\|_2 = \sup_{\|\mathbf{x}\|=1} \|A\mathbf{x}\|\)。\(U, V\) 是正交矩阵，保持长度：
-> \[\|A\mathbf{x}\|^2 = \|U\Sigma V^{\mathsf T}\mathbf{x}\|^2 = \|\Sigma (V^{\mathsf T}\mathbf{x})\|^2\]
+>
+> $$\|A\mathbf{x}\|^2 = \|U\Sigma V^{\mathsf T}\mathbf{x}\|^2 = \|\Sigma (V^{\mathsf T}\mathbf{x})\|^2$$
+>
 > 令 \(\mathbf{y} = V^{\mathsf T}\mathbf{x}\)，\(\|\mathbf{y}\| = 1\)。则 \(\|\Sigma \mathbf{y}\|^2 = \sum_i \sigma_i^2 y_i^2 \le \sigma_1^2 \sum_i y_i^2 = \sigma_1^2\)。在 \(\mathbf{y} = \mathbf{e}_1\)（即 \(\mathbf{x} = V\mathbf{e}_1 = \mathbf{v}_1\)）处取等号。故 \(\|A\|_2 = \sigma_1\)。
 >
 > **(3)** 核范数定义即为所有奇异值之和。它等于 \(\text{tr}(\sqrt{A^{\mathsf T}A}) = \sum_i \sigma_i\)。

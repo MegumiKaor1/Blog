@@ -12,16 +12,26 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 
 > **标准答案：**
 > 过渡矩阵 \(P\) 的列就是新基向量（用标准基坐标写出）：
-> \[P = \begin{bmatrix}1 & 1\\1 & -1\end{bmatrix}\]
+>
+> $$P = \begin{bmatrix}1 & 1\\1 & -1\end{bmatrix}$$
+>
 > 求逆：\(\det(P) = -2\)。
-> \[P^{-1} = \frac{1}{-2}\begin{bmatrix}-1 & -1\\-1 & 1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}1 & 1\\1 & -1\end{bmatrix}\]
+>
+> $$P^{-1} = \frac{1}{-2}\begin{bmatrix}-1 & -1\\-1 & 1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}1 & 1\\1 & -1\end{bmatrix}$$
+>
 > 注意这里 \(P^{-1} = \frac{1}{2} P\)！因为 \(P\) 是对合矩阵（\(P^2 = 2I\)）。
 > 相似变换：
-> \[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix} \begin{bmatrix}1&2\\3&4\end{bmatrix} \begin{bmatrix}1&1\\1&-1\end{bmatrix}\]
+>
+> $$B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix} \begin{bmatrix}1&2\\3&4\end{bmatrix} \begin{bmatrix}1&1\\1&-1\end{bmatrix}$$
+>
 > 先算 \(AP\)：
-> \[AP = \begin{bmatrix}1&2\\3&4\end{bmatrix}\begin{bmatrix}1&1\\1&-1\end{bmatrix} = \begin{bmatrix}3&-1\\7&-1\end{bmatrix}\]
+>
+> $$AP = \begin{bmatrix}1&2\\3&4\end{bmatrix}\begin{bmatrix}1&1\\1&-1\end{bmatrix} = \begin{bmatrix}3&-1\\7&-1\end{bmatrix}$$
+>
 > 再算 \(P^{-1}(AP)\)：
-> \[B = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}3&-1\\7&-1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}10&-2\\-4&0\end{bmatrix} = \begin{bmatrix}5&-1\\-2&0\end{bmatrix}\]
+>
+> $$B = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}3&-1\\7&-1\end{bmatrix} = \frac{1}{2}\begin{bmatrix}10&-2\\-4&0\end{bmatrix} = \begin{bmatrix}5&-1\\-2&0\end{bmatrix}$$
+>
 > 验证不变量：\(\text{tr}(A) = 1+4 = 5\)，\(\text{tr}(B) = 5+0 = 5\) ✓。\(\det(A) = -2\)，\(\det(B) = 5\cdot0 - (-1)(-2) = -2\) ✓。\(A\) 的特征值：\(\lambda^2 - 5\lambda - 2 = 0\)，\(\lambda = \frac{5 \pm \sqrt{33}}{2}\)。\(B\) 的特征值相同 ✓。相似矩阵有相同的迹、行列式和特征值。
 
 ---
@@ -35,13 +45,17 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 >
 > **(1)** \(\text{tr}(B) = \text{tr}(P^{-1}AP) = \text{tr}(APP^{-1})\)（迹的循环不变性：\(\text{tr}(XYZ) = \text{tr}(YZX)\)）
-> \[= \text{tr}(AI) = \text{tr}(A)\]
+>
+> $$= \text{tr}(AI) = \text{tr}(A)$$
 >
 > **(2)** \(\det(B) = \det(P^{-1}AP) = \det(P^{-1})\det(A)\det(P)\)（行列式乘法法则）
-> \[= \frac{1}{\det(P)} \cdot \det(A) \cdot \det(P) = \det(A)\]
+>
+> $$= \frac{1}{\det(P)} \cdot \det(A) \cdot \det(P) = \det(A)$$
 >
 > **(3)** 构造 \(B\) 的特征向量：
-> \[B(P^{-1}\mathbf{x}) = P^{-1}AP(P^{-1}\mathbf{x}) = P^{-1}A\mathbf{x} = P^{-1}(\lambda\mathbf{x}) = \lambda(P^{-1}\mathbf{x})\]
+>
+> $$B(P^{-1}\mathbf{x}) = P^{-1}AP(P^{-1}\mathbf{x}) = P^{-1}A\mathbf{x} = P^{-1}(\lambda\mathbf{x}) = \lambda(P^{-1}\mathbf{x})$$
+>
 > 所以 \(\lambda\) 是 \(B\) 的特征值，\(P^{-1}\mathbf{x}\) 是对应的特征向量。**特征向量被 \(P^{-1}\)「翻译」到了新坐标系中。**
 >
 > **结论**：相似变换不改变矩阵的谱（特征值）、迹和行列式。这些量是线性变换本身的固有属性，不依赖于「坐标系」的选择。
@@ -59,7 +73,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **(1)** \(\mathbf{y} = W_2(W_1\mathbf{x}) = (W_2 W_1)\mathbf{x} = W_{\text{eff}}\mathbf{x}\)，其中 \(W_{\text{eff}} \in \mathbb{R}^{2 \times 4}\)。两个线性变换的复合仍是线性变换——这就是「线性」的定义。
 >
 > **(2)**
-> \[\text{rank}(W_{\text{eff}}) = \text{rank}(W_2 W_1) \le \min(\text{rank}(W_1), \text{rank}(W_2))\]
+>
+> $$\text{rank}(W_{\text{eff}}) = \text{rank}(W_2 W_1) \le \min(\text{rank}(W_1), \text{rank}(W_2))$$
+>
 > \(\text{rank}(W_1) \le \min(3,4) = 3\)，\(\text{rank}(W_2) \le \min(2,3) = 2\)。所以 \(\text{rank}(W_{\text{eff}}) \le 2\)。
 > 本质限制：无论 \(W_1\) 多大（3×4），输出的「信息瓶颈」被 \(W_2\) 的输出维度 \(2\) 卡死——最窄层决定了整个纯线性网络的最大表达能力。堆 100 层纯线性网络，等效于 1 层——**非线性激活函数是深度网络存在意义的唯一理由。**
 >
@@ -72,9 +88,13 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 > **标准答案：**
 > \(A\) 的参数：\(\text{tr}(A) = 10\)，\(\det(A) = 25-4 = 21\)。特征方程 \(\lambda^2 - 10\lambda + 21 = 0\) → \((\lambda-3)(\lambda-7) = 0\) → \(\lambda = 3, 7\)。
 > 计算 \(B\)：
-> \[P^{-1} = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\]
-> \[AP = \begin{bmatrix}5&2\\2&5\end{bmatrix}\begin{bmatrix}1&1\\1&-1\end{bmatrix} = \begin{bmatrix}7&3\\7&-3\end{bmatrix}\]
-> \[B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}7&3\\7&-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&0\\0&6\end{bmatrix} = \begin{bmatrix}7&0\\0&3\end{bmatrix}\]
+>
+> $$P^{-1} = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}$$
+>
+> $$AP = \begin{bmatrix}5&2\\2&5\end{bmatrix}\begin{bmatrix}1&1\\1&-1\end{bmatrix} = \begin{bmatrix}7&3\\7&-3\end{bmatrix}$$
+>
+> $$B = P^{-1}AP = \frac{1}{2}\begin{bmatrix}1&1\\1&-1\end{bmatrix}\begin{bmatrix}7&3\\7&-3\end{bmatrix} = \frac{1}{2}\begin{bmatrix}14&0\\0&6\end{bmatrix} = \begin{bmatrix}7&0\\0&3\end{bmatrix}$$
+>
 > \(B\) 恰好是对角矩阵！因为 \(P\) 的列恰好是 \(A\) 的特征向量：\((1,1)^{\mathsf T}\) 对应 \(\lambda=7\)，\((1,-1)^{\mathsf T}\) 对应 \(\lambda=3\)。相似变换把 \(A\) 对角化了。
 > 验证：\(\text{tr}(B) = 7+3 = 10\) ✓。\(\det(B) = 7\times3 = 21\) ✓。\(B\) 的特征值正是 \(7, 3\) ✓。
 > **ML 洞察**：\(P^{-1}AP\) 和 \(A\) 表示相同的线性变换，只是换了「坐标系」。当新基恰好是特征向量时，矩阵变成对角——这就是 PCA 的本质：找到协方差矩阵的特征向量作为新基，使数据在新基下协方差为对角矩阵（各维度独立）。
@@ -82,7 +102,9 @@ A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。
 ---
 
 **A5.** 对于两层网络（无偏置，MSE）：
-\[\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \mathbf{h}, \quad L = \frac{1}{2}(\hat{y} - y)^2.\]
+
+$$\mathbf{h} = W_1 \mathbf{x}, \quad \hat{y} = W_2 \mathbf{h}, \quad L = \frac{1}{2}(\hat{y} - y)^2.$$
+
 $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 
 (1) 手算前向传播：$\mathbf{h}, \hat{y}, L$。
@@ -91,18 +113,27 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > **标准答案：**
 >
 > **(1)** 前向：
-> \[\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3\]
-> \[\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9\]
-> \[L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8\]
+>
+> $$\mathbf{h} = W_1\mathbf{x} = [1, 2]\begin{bmatrix}1\\1\end{bmatrix} = 1\cdot1 + 2\cdot1 = 3$$
+>
+> $$\hat{y} = W_2 \cdot \mathbf{h} = 3 \cdot 3 = 9$$
+>
+> $$L = \frac{1}{2}(9 - 5)^2 = \frac{1}{2} \cdot 16 = 8$$
 >
 > **(2)** 反向传播（链式法则）：
 > ① \(\frac{\partial L}{\partial \hat{y}} = \hat{y} - y = 9 - 5 = 4\)
 > ② \(\frac{\partial L}{\partial W_2} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial W_2}\)。\(\frac{\partial \hat{y}}{\partial W_2} = \mathbf{h} = 3\)。所以：
-> \[\frac{\partial L}{\partial W_2} = 4 \cdot 3 = 12\]
+>
+> $$\frac{\partial L}{\partial W_2} = 4 \cdot 3 = 12$$
+>
 > ③ \(\frac{\partial L}{\partial \mathbf{h}} = \frac{\partial L}{\partial \hat{y}} \cdot \frac{\partial \hat{y}}{\partial \mathbf{h}}\)。\(\frac{\partial \hat{y}}{\partial \mathbf{h}} = W_2^{\mathsf T} = 3\)。所以：
-> \[\frac{\partial L}{\partial \mathbf{h}} = 4 \cdot 3 = 12\]
+>
+> $$\frac{\partial L}{\partial \mathbf{h}} = 4 \cdot 3 = 12$$
+>
 > ④ \(\frac{\partial L}{\partial W_1} = \frac{\partial L}{\partial \mathbf{h}} \cdot \frac{\partial \mathbf{h}}{\partial W_1}\)。\(\frac{\partial \mathbf{h}}{\partial W_1} = \mathbf{x}^{\mathsf T}\)（列向量变成行向量外积）。所以：
-> \[\frac{\partial L}{\partial W_1} = 12 \cdot [1, 1] = [12, 12]\]
+>
+> $$\frac{\partial L}{\partial W_1} = 12 \cdot [1, 1] = [12, 12]$$
+>
 > **直观检查**：\(\hat{y}=9\) 比 \(y=5\) 大 \(4\)（误差 \(=4\)）。\(W_2=3\) 把 \(\mathbf{h}\) 放大了 3 倍 → 梯度反向流过时也被放大 3 倍 → \(\frac{\partial L}{\partial \mathbf{h}}=12\)。\(\frac{\partial L}{\partial W_1}\) 的两个分量都是 \(12\)，因为 \(\mathbf{x} = (1,1)\) 的两个输入贡献相同。
 > Python 验证：
 > ```python
@@ -140,10 +171,14 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > **标准答案：**
 > 设一层计算为 \(\mathbf{h} = \sigma(W\mathbf{x} + \mathbf{b})\)。
 > **Pre-LN**（激活前 LN，标准 Transformer 做法）：
-> \[\mathbf{z} = W\mathbf{x} + \mathbf{b}, \quad \tilde{\mathbf{z}} = \frac{\mathbf{z} - \mu}{\sigma} \odot \gamma + \beta, \quad \mathbf{h} = \sigma(\tilde{\mathbf{z}})\]
+>
+> $$\mathbf{z} = W\mathbf{x} + \mathbf{b}, \quad \tilde{\mathbf{z}} = \frac{\mathbf{z} - \mu}{\sigma} \odot \gamma + \beta, \quad \mathbf{h} = \sigma(\tilde{\mathbf{z}})$$
+>
 > LN 在仿射空间中规范化：消除不同样本间均值和方差的偏移（internal covariate shift），让激活函数接收到「规矩」的输入——分布稳定、尺度统一。
 > **Post-LN**（激活后 LN）：
-> \[\mathbf{h}_{\text{raw}} = \sigma(W\mathbf{x} + \mathbf{b}), \quad \mathbf{h} = \text{LN}(\mathbf{h}_{\text{raw}})\]
+>
+> $$\mathbf{h}_{\text{raw}} = \sigma(W\mathbf{x} + \mathbf{b}), \quad \mathbf{h} = \text{LN}(\mathbf{h}_{\text{raw}})$$
+>
 > 问题：激活函数（如 ReLU）已经改变了分布的形状（截断负值，正半轴保持）。此时再 LN 试图恢复被激活函数扭曲的统计特性 → 更差的训练稳定性和收敛速度。
 > **投影几何视角**：LN 将每个样本的特征向量投影到半径为 \(\sqrt{d}\) 的球面上。**Pre-LN 在进入非线性之前统一了所有样本的「尺度」**，确保无论 \(W\mathbf{x}\) 多大（或经过多少层累积），下一层的输入始终在球面上。这使各层的有效「操作范围」一致——前向信号和反向梯度都不爆炸或消失。
 > LN 比 BatchNorm 更适合序列模型：BN 沿 batch 维度归一化（假设样本 i.i.d.），LN 沿 feature 维度归一化（逐样本独立）。序列 token 之间不满足 i.i.d. → LN 天然适用。
@@ -159,12 +194,16 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > **标准答案：**
 >
 > **(1)** 第 \(i\) 个神经元的激活条件：
-> \[\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i > 0\]
+>
+> $$\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i > 0$$
+>
 > 其中 \(\mathbf{w}_i^{\mathsf T}\) 是 \(W_1\) 的第 \(i\) 行。在 \(\mathbb{R}^2\) 中，\(\mathbf{w}_i^{\mathsf T}\mathbf{x} + b_i = 0\) 是一条**直线**，激活条件是直线的一侧。神经元 \(i\) 把平面切成两个半平面。
 >
 > **(2)** 3 条直线最多把平面分成 \(1 + 3 + 3 = 7\) 个区域（一般 \(k\) 条直线最多 \(1 + k(k+1)/2\) 个区域，这里 \(1+3+3=7\) 是因为最多交点数为 3 个时成立）。
 > 在每个区域内，哪些神经元激活（输出 \(>0\)）是**固定的**。设激活模式为 \(\mathbf{m} \in \{0,1\}^3\)，则：
-> \[\hat{y} = W_2 \cdot \text{diag}(\mathbf{m}) \cdot (W_1\mathbf{x} + \mathbf{b}_1) + b_2 = \tilde{W}\mathbf{x} + \tilde{b}\]
+>
+> $$\hat{y} = W_2 \cdot \text{diag}(\mathbf{m}) \cdot (W_1\mathbf{x} + \mathbf{b}_1) + b_2 = \tilde{W}\mathbf{x} + \tilde{b}$$
+>
 > 即每个区域内 \(\hat{y}\) 是一个不同的**线性函数**。穿过边界（神经元开关翻转）时，线性函数跳变。
 >
 > **(3)** ReLU 网络的本质：**输入空间上的分段线性函数**。
@@ -210,7 +249,9 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 >
 > **(2)** Adam 维护 \(v_t \approx \mathbb{E}[g^2]\)（梯度平方的移动平均）。在局部二次近似 \(g \approx H(\theta - \theta^*)\) 下，\(v_t\) 每个分量近似对应 Hessian 对角元的尺度。
 > Adam 更新：\(\theta_{t+1} = \theta_t - \eta \cdot \frac{\hat{m}_t}{\sqrt{\hat{v}_t} + \varepsilon}\)。除以 \(\sqrt{\hat{v}_t}\) 是对角预处理：
-> \[\text{有效更新} \approx \eta \cdot \text{diag}(H)^{-1/2} \cdot g\]
+>
+> $$\text{有效更新} \approx \eta \cdot \text{diag}(H)^{-1/2} \cdot g$$
+>
 > **与牛顿法对比**：
 > - 牛顿法：\(\theta \leftarrow \theta - H^{-1}g\)。完整的二阶预处理——所有方向归一化到相同曲率。代价 \(O(n^3)\)（求逆）。
 > - Adam：用 \(\text{diag}(H)^{-1/2}\) 近似 \(H^{-1}\)。捕获了各方向的**尺度差异**（对角元），忽略了方向间的**耦合**（非对角元）。代价 \(O(n)\)。
@@ -227,19 +268,27 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > **标准答案：**
 >
 > **(1)** 对残差块求导（链式法则）：
-> \[\frac{\partial h_{l+1}}{\partial h_l} = \frac{\partial}{\partial h_l}(h_l + F(h_l)) = I + \frac{\partial F}{\partial h_l}\]
+>
+> $$\frac{\partial h_{l+1}}{\partial h_l} = \frac{\partial}{\partial h_l}(h_l + F(h_l)) = I + \frac{\partial F}{\partial h_l}$$
+>
 > 普通层：雅可比 \(= \partial F/\partial h_l\)。残差层：雅可比 \(= I + \partial F/\partial h_l\)。
 > 关键：多了 \(I\) 项。
 >
 > **(2)** 设无残差时雅可比的特征值都 \(< 1\)（如都在 \((0, 0.8)\) 内）。连乘 \(L\) 层后，梯度受最大特征值支配：
-> \[\left\|\frac{\partial h_L}{\partial h_1}\right\| \approx \lambda_{\max}^L\]
+>
+> $$\left\|\frac{\partial h_L}{\partial h_1}\right\| \approx \lambda_{\max}^L$$
+>
 > 当 \(\lambda_{\max} = 0.8\)，\(L=100\)：\(0.8^{100} \approx 2 \times 10^{-10}\) → 梯度消失。
 > 有残差后，雅可比特征值变为 \(1 + \varepsilon\)（\(\varepsilon\) 是 \(\partial F/\partial h_l\) 的特征值）。即使 \(\varepsilon = -0.2\)，特征值仍为 \(0.8\)——但关键是 \(I\) 保证了**至少有一个特征值为 \(1\) 的路径**。乘积不指数衰减。
 >
 > **(3)** \(L\) 层梯度乘积：
-> \[\frac{\partial h_L}{\partial h_1} = \prod_{l=1}^{L-1} \left(I + \frac{\partial F_l}{\partial h_l}\right)\]
+>
+> $$\frac{\partial h_L}{\partial h_1} = \prod_{l=1}^{L-1} \left(I + \frac{\partial F_l}{\partial h_l}\right)$$
+>
 > 展开：
-> \[= I + \sum_{l=1}^{L-1} \frac{\partial F_l}{\partial h_l} + \sum_{l<m} \frac{\partial F_l}{\partial h_l}\frac{\partial F_m}{\partial h_m} + \cdots\]
+>
+> $$= I + \sum_{l=1}^{L-1} \frac{\partial F_l}{\partial h_l} + \sum_{l<m} \frac{\partial F_l}{\partial h_l}\frac{\partial F_m}{\partial h_m} + \cdots$$
+>
 > 第一项 \(I\)：梯度的**无损直通路径**（信息从第 \(L\) 层直达第 \(1\) 层）。
 > 第二项：每层的独立贡献（一阶）。
 > 高阶项：跨层交互。
@@ -257,19 +306,27 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > 假设：\(W_{ij}\) 和 \(x_j\) 独立同分布，均值为 \(0\)。
 >
 > **(1)** 前向方差：
-> \[h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j\]
-> \[\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\]
+>
+> $$h_i = \sum_{j=1}^{n_{\text{in}}} W_{ij} x_j$$
+>
+> $$\text{Var}(h_i) = \sum_{j=1}^{n_{\text{in}}} \text{Var}(W_{ij}) \cdot \text{Var}(x_j) = n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)$$
+>
 > 要使 \(\text{Var}(h_i) = \text{Var}(x)\)：\(\text{Var}(W) = 1/n_{\text{in}}\)。
 >
 > **(2)** 反向传播：\(\frac{\partial L}{\partial x} = W^{\mathsf T} \frac{\partial L}{\partial h}\)。
-> \[\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}\]
-> \[\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)\]
+>
+> $$\frac{\partial L}{\partial x_j} = \sum_{i=1}^{n_{\text{out}}} W_{ij} \cdot \frac{\partial L}{\partial h_i}$$
+>
+> $$\text{Var}\left(\frac{\partial L}{\partial x_j}\right) = n_{\text{out}} \cdot \text{Var}(W) \cdot \text{Var}\left(\frac{\partial L}{\partial h}\right)$$
+>
 > 保持梯度方差不变：\(\text{Var}(W) = 1/n_{\text{out}}\)。
 >
 > **(3)** 前向要求 \(1/n_{\text{in}}\)，反向要求 \(1/n_{\text{out}}\)。当 \(n_{\text{in}} \neq n_{\text{out}}\) 时冲突。
 > **Xavier**：取两者调和平均 → \(\text{Var}(W) = \frac{2}{n_{\text{in}} + n_{\text{out}}}\)。折中方案，同时近似满足前向和反向的方差约束。
 > **He**：考虑 ReLU。ReLU 在前向传播中把负激活值置零 → 大约一半的神经元输出为 \(0\) → 前向方差减半：
-> \[\text{Var}(h_i) = \frac{1}{2} \cdot n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)\]
+>
+> $$\text{Var}(h_i) = \frac{1}{2} \cdot n_{\text{in}} \cdot \text{Var}(W) \cdot \text{Var}(x)$$
+>
 > 补偿 \(\frac{1}{2}\) 因子 → \(\text{Var}(W) = 2/n_{\text{in}}\)。
 > 实践中 PyTorch 的 `nn.Linear` 默认使用 He（Kaiming）uniform 初始化。
 
@@ -284,16 +341,22 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > **标准答案：**
 >
 > **(1)** Zero-padding 后输入变为 \(\tilde{x} = (0, x_1, x_2, x_3, x_4, 0)^{\mathsf T}\)。\(y = w * x\)（same 模式，输出长 \(4\)）：
-> \[y_1 = w_1 \cdot 0 + w_0 \cdot x_1 + w_2 \cdot x_2\]
+>
+> $$y_1 = w_1 \cdot 0 + w_0 \cdot x_1 + w_2 \cdot x_2$$
+>
 > 等等——让我理清索引。设 \(w = (w_0, w_1, w_2)\)。带 padding \(p=1\) 的卷积对应：
-> \[C = \begin{bmatrix} w_1 & w_0 & 0 & 0 \\ w_2 & w_1 & w_0 & 0 \\ 0 & w_2 & w_1 & w_0 \\ 0 & 0 & w_2 & w_1 \end{bmatrix}\]
+>
+> $$C = \begin{bmatrix} w_1 & w_0 & 0 & 0 \\ w_2 & w_1 & w_0 & 0 \\ 0 & w_2 & w_1 & w_0 \\ 0 & 0 & w_2 & w_1 \end{bmatrix}$$
+>
 > 验证：\(y_1 = w_1x_1 + w_0x_2\)（对应 \(w\) 翻转后滑动：\(w_2\) 超出，\(w_1\) 在 \(x_1\)，\(w_0\) 在 \(x_2\)）。
 >
 > **(2)** 参数共享：同一条对角线上的元素全相同。例如 \(w_0\) 出现在 \(C_{12}, C_{23}, C_{34}\)——同一个参数被复用了 \(3\) 次。参数量 \(=3\)，对应稠密矩阵需要 \(4 \times 4 = 16\) 个参数 → 节省 \(>5\times\)。
 > 图像上：\(3 \times 3\) 卷积核在 \(224 \times 224\) 特征图上，参数 \(= C_{\text{in}} \times C_{\text{out}} \times 9\)，等效稠密参数量 \(= C_{\text{in}} \times C_{\text{out}} \times 224^2\) → 节省 \(\sim 5500\times\)。
 >
 > **(3)** 转置卷积计算 \(y = C^{\mathsf T} \mathbf{x}\)。\(C^{\mathsf T}\) 也是 Toeplitz，但结构对应「反卷」：
-> \[C^{\mathsf T} = \begin{bmatrix} w_1 & w_2 & 0 & 0 \\ w_0 & w_1 & w_2 & 0 \\ 0 & w_0 & w_1 & w_2 \\ 0 & 0 & w_0 & w_1 \end{bmatrix}\]
+>
+> $$C^{\mathsf T} = \begin{bmatrix} w_1 & w_2 & 0 & 0 \\ w_0 & w_1 & w_2 & 0 \\ 0 & w_0 & w_1 & w_2 \\ 0 & 0 & w_0 & w_1 \end{bmatrix}$$
+>
 > 这等价于**用翻转后的卷积核做带空洞的上采样**。`nn.ConvTranspose1d` 底层就是 \(C^{\mathsf T} \mathbf{x}\)。理解和卷积的矩阵对偶关系，是理解 GAN 生成器和语义分割解码器的关键。
 
 ---
@@ -315,7 +378,9 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > - 从 SVD 看：\(\sigma_1 \gg \sigma_2, \sigma_3, \dots\)，主导奇异值占了绝大部分能量。\(S \approx \sigma_1 \mathbf{u}_1 \mathbf{v}_1^{\mathsf T}\)（秩-1），所有 token 的关注分布几乎相同
 >
 > **(3)** Multi-head attention：\(h\) 个 head，每个 head 用不同的投影矩阵 \(W_Q^{(i)}, W_K^{(i)}, W_V^{(i)}\)：
-> \[\text{head}_i = \text{Attention}(XW_Q^{(i)}, XW_K^{(i)}, XW_V^{(i)})\]
+>
+> $$\text{head}_i = \text{Attention}(XW_Q^{(i)}, XW_K^{(i)}, XW_V^{(i)})$$
+>
 > 每个 head 的 \(Q_i K_i^{\mathsf T}\) 可能有不同的低秩结构（rank \(\le d/h\)）→ 各自关注不同类型的关系。拼接后 \(\text{rank}(\text{Concat}) \le \sum_i \text{rank}(\text{head}_i)\) → 获得秩的多样性。如果单 head 是秩-1 的，8 heads 组合可达秩-8——大幅提升 attention 模式的丰富度。
 
 ---
@@ -332,15 +397,21 @@ $W_1 = [1, 2]$，$W_2 = [3]$，$\mathbf{x} = (1, 1)^{\mathsf T}$，$y = 5$。
 > \(X^{\mathsf T}X\) 奇异当且仅当 \(X\) 不满列秩——即特征之间存在线性相关（多重共线性），或样本数 \(<\) 特征数（经典 \(p > n\) 问题）。
 >
 > **(2)** 当 \(X^{\mathsf T}X\) 奇异时，正规方程有无穷多解。L2 正则化（Ridge Regression）：
-> \[\hat{\beta} = (X^{\mathsf T}X + \lambda I)^{-1} X^{\mathsf T}y\]
+>
+> $$\hat{\beta} = (X^{\mathsf T}X + \lambda I)^{-1} X^{\mathsf T}y$$
+>
 > 给 \(X^{\mathsf T}X\) 的对角线上加 \(\lambda I\) → 所有特征值抬升 \(\lambda\) → 强制正定 → 唯一解。从贝叶斯角度，这等价于给 \(\beta\) 加高斯先验 \(\beta \sim \mathcal{N}(0, \lambda^{-1}I)\)。
 >
 > **(3)** 设 \(X^{\mathsf T}X\) 的特征值为 \(\lambda_1 \ge \lambda_2 \ge \dots \ge \lambda_r > 0\)（可能 \(\lambda_r\) 接近 \(0\)）。
 > 无正则化：
-> \[\kappa(X^{\mathsf T}X) = \frac{\lambda_1}{\lambda_r}\]
+>
+> $$\kappa(X^{\mathsf T}X) = \frac{\lambda_1}{\lambda_r}$$
+>
 > 若 \(\lambda_r \approx 10^{-6}\)，\(\kappa \approx 10^6 \lambda_1\) → 极度病态。
 > 加正则化后：
-> \[\kappa(X^{\mathsf T}X + \lambda I) = \frac{\lambda_1 + \lambda}{\lambda_r + \lambda}\]
+>
+> $$\kappa(X^{\mathsf T}X + \lambda I) = \frac{\lambda_1 + \lambda}{\lambda_r + \lambda}$$
+>
 > \(\lambda_r \approx 0\) 时，分母 \(\approx \lambda\) → \(\kappa \approx \frac{\lambda_1 + \lambda}{\lambda} \le \frac{\lambda_1}{\lambda} + 1\)。条件数被**有界化**，不再随 \(\lambda_r \to 0\) 爆炸。这就是 Ridge Regression 数值稳定的线性代数本质。
 
 ---

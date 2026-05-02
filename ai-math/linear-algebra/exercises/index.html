@@ -1227,7 +1227,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="_1">习题总览<a class="headerlink" href="#_1" title="锚点链接">¶</a></h1>
-<p>每章习题分 A 档（巩固基础）和 B 档（培养 ML 直觉），答案提示附在各题末尾。</p>
+<p>每章习题分 A 档（巩固基础）和 B 档（培养 ML 直觉）。每题附<strong>完整标准答案</strong>（含推导步骤，而非简要提示）。</p>
 <table>
 <thead>
 <tr>
@@ -1241,43 +1241,43 @@
 <tbody>
 <tr>
 <td><a href="../vectors-to-rank-exercises/">一、从向量到秩</a></td>
+<td style="text-align: center;">15</td>
 <td style="text-align: center;">10</td>
-<td style="text-align: center;">5</td>
-<td style="text-align: center;"><strong>15</strong></td>
-<td>向量运算、内积几何、线性组合与张成、矩阵列图景、线性无关、基与维数、极大无关组、秩、范数（L1/L2/L∞/Frobenius/谱/核）、正则化、矩阵=变换</td>
+<td style="text-align: center;"><strong>25</strong></td>
+<td>向量运算与内积几何、线性组合与张成、矩阵四种乘法（列/行/外积/元素）、矩阵=线性变换、线性无关/基/维数、极大无关组、秩、六种范数（<span class="arithmatex">\(L_1\)</span>/<span class="arithmatex">\(L_2\)</span>/<span class="arithmatex">\(L_\infty\)</span>/Frobenius/谱/核）、<span class="arithmatex">\(L_1\)</span> vs <span class="arithmatex">\(L_2\)</span> 正则化、范数等价性</td>
 </tr>
 <tr>
 <td><a href="../elimination-and-subspaces-exercises/">二、方程与子空间</a></td>
-<td style="text-align: center;">8</td>
+<td style="text-align: center;">11</td>
 <td style="text-align: center;">5</td>
-<td style="text-align: center;"><strong>13</strong></td>
-<td>LU 分解、四个基本子空间、零空间/基础解系、正交投影、最小二乘、QR 分解、Gram-Schmidt、Cholesky、伪逆、条件数</td>
+<td style="text-align: center;"><strong>16</strong></td>
+<td>LU 分解手算与多右端复用、四个基本子空间识别（含基与维数）、齐次/非齐次解结构、正交投影与最小二乘、QR 分解与 Gram-Schmidt、Cholesky 分解、伪逆与条件数、正交矩阵性质</td>
 </tr>
 <tr>
 <td><a href="../determinant-eigen-svd-exercises/">三、行列式、特征值与 SVD</a></td>
+<td style="text-align: center;">7</td>
 <td style="text-align: center;">6</td>
-<td style="text-align: center;">6</td>
-<td style="text-align: center;"><strong>12</strong></td>
-<td>行列式性质与计算、特征值/特征向量/对角化、谱定理、正定性、二次型→标准形、SVD 几何、矩阵微积分、Rayleigh 商</td>
+<td style="text-align: center;"><strong>13</strong></td>
+<td>行列式性质真伪+<span class="arithmatex">\(3\times3\)</span>手算、特征值/特征向量/对角化/谱分解、正定性五种等价判定、二次型→标准形、矩阵微积分（线性层/softmax/交叉熵梯度）、SVD 几何三部曲、Rayleigh 商与收敛速度</td>
 </tr>
 <tr>
 <td><a href="../basis-and-neural-networks-exercises/">四、基变换与神经网络</a></td>
-<td style="text-align: center;">3</td>
+<td style="text-align: center;">5</td>
 <td style="text-align: center;">10</td>
-<td style="text-align: center;"><strong>13</strong></td>
-<td>基变换/相似不变量、神经网络=线性变换嵌套、ReLU 分段线性、反向传播手算、PCA 与基变换、Adam 预条件、残差连接 Jacobian、Xavier/He 初始化、卷积=Toeplitz、Attention 秩分析</td>
+<td style="text-align: center;"><strong>15</strong></td>
+<td>相似不变量证明、纯线性层坍缩、ReLU 分段线性区域分析、反向传播手算链式法则、Embedding=基变换、LayerNorm 投影几何、Adam 对角预处理、残差连接雅可比 <span class="arithmatex">\(I + \partial F/\partial h\)</span>、Xavier/He 方差推导、卷积=Toeplitz 矩阵、Attention 秩分析、Ridge 回归条件数</td>
 </tr>
 <tr>
 <td><strong>总计</strong></td>
-<td style="text-align: center;"><strong>27</strong></td>
-<td style="text-align: center;"><strong>26</strong></td>
-<td style="text-align: center;"><strong>53</strong></td>
+<td style="text-align: center;"><strong>38</strong></td>
+<td style="text-align: center;"><strong>31</strong></td>
+<td style="text-align: center;"><strong>69</strong></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <blockquote>
-<p>💡 习题覆盖中西主流教材（Strang、Lay、Axler、Deisenroth、同济教材）的核心题型，涵盖手算、真伪判断、几何解释、证明速写和 ML 场景分析。</p>
+<p>💡 习题覆盖中西主流教材（Strang、Lay、Axler、Deisenroth、同济教材）的核心题型。所有答案均为完整推导，不再只是提示。</p>
 </blockquote>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

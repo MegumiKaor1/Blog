@@ -1314,119 +1314,219 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="svd">习题与思考：行列式、特征值与 SVD<a class="headerlink" href="#svd" title="锚点链接">¶</a></h1>
-<p>A 档巩固基础，B 档培养 ML 直觉。答案提示见各题末尾。</p>
+<p>A 档巩固基础，B 档培养 ML 直觉。每题附完整标准答案。</p>
 <hr/>
 <h2 id="svd913">三、行列式、特征值与 SVD（§9–§13）<a class="headerlink" href="#svd913" title="锚点链接">¶</a></h2>
 <h3 id="a">A 档<a class="headerlink" href="#a" title="锚点链接">¶</a></h3>
 <p><strong>A1.</strong> 化二次型 <span class="arithmatex">\(f(x_1,x_2)=3x_1^2+2x_1x_2+3x_2^2\)</span> 为标准形，并判断其正定性。</p>
 <blockquote>
-<p><strong>答案提示：</strong> 对称矩阵 <span class="arithmatex">\(A = \begin{bmatrix}3&amp;1\\1&amp;3\end{bmatrix}\)</span>。特征方程 <span class="arithmatex">\(|\lambda I-A| = (\lambda-3)^2-1=0\)</span>，特征值 <span class="arithmatex">\(\lambda_1=4\)</span>，<span class="arithmatex">\(\lambda_2=2\)</span>。标准形：<span class="arithmatex">\(f = 4y_1^2 + 2y_2^2\)</span>。所有特征值 <span class="arithmatex">\(&gt;0\)</span>，<strong>正定</strong>。几何上，这是一个「拉长的碗」——等高线是同心椭圆，长短轴方向由特征向量给出。</p>
+<p><strong>标准答案：</strong></p>
+<p>写成矩阵形式：<span class="arithmatex">\(f(\mathbf{x}) = \mathbf{x}^{\mathsf T}A\mathbf{x}\)</span>，对称矩阵 <span class="arithmatex">\(A = \begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 3 \end{bmatrix}\)</span>（注意交叉项 <span class="arithmatex">\(2x_1x_2\)</span> 拆成 <span class="arithmatex">\(x_1x_2 + x_2x_1\)</span>，各分一半）。</p>
+<p>求特征值：
+$<span class="arithmatex">\(\det(A - \lambda I) = \det\begin{bmatrix}3-\lambda &amp; 1\\1 &amp; 3-\lambda\end{bmatrix} = (3-\lambda)^2 - 1 = \lambda^2 - 6\lambda + 8 = 0\)</span>$</p>
+<div class="arithmatex">\[(\lambda - 2)(\lambda - 4) = 0 \Rightarrow \lambda_1 = 4,\; \lambda_2 = 2\]</div>
+<p>对应特征向量：
+- <span class="arithmatex">\(\lambda_1 = 4\)</span>：<span class="arithmatex">\((A - 4I)\mathbf{v} = \begin{bmatrix}-1&amp;1\\1&amp;-1\end{bmatrix}\mathbf{v} = \mathbf{0} \Rightarrow \mathbf{v}_1 = \frac{1}{\sqrt{2}}(1, 1)^{\mathsf T}\)</span>
+- <span class="arithmatex">\(\lambda_2 = 2\)</span>：<span class="arithmatex">\((A - 2I)\mathbf{v} = \begin{bmatrix}1&amp;1\\1&amp;1\end{bmatrix}\mathbf{v} = \mathbf{0} \Rightarrow \mathbf{v}_2 = \frac{1}{\sqrt{2}}(-1, 1)^{\mathsf T}\)</span></p>
+<p>正交变换 <span class="arithmatex">\(\mathbf{x} = Q\mathbf{y}\)</span>（<span class="arithmatex">\(Q = [\mathbf{v}_1, \mathbf{v}_2]\)</span>）：
+$<span class="arithmatex">\(f = \lambda_1 y_1^2 + \lambda_2 y_2^2 = 4y_1^2 + 2y_2^2\)</span>$</p>
+<p><strong>正定性</strong>：所有特征值 <span class="arithmatex">\(&gt; 0\)</span> → 正定。几何上，<span class="arithmatex">\(f(\mathbf{x}) = 1\)</span> 是一个倾斜的椭圆，短轴沿 <span class="arithmatex">\((1,1)\)</span> 方向（对应 <span class="arithmatex">\(\lambda_1=4\)</span>，曲率大），长轴沿 <span class="arithmatex">\((-1,1)\)</span> 方向（对应 <span class="arithmatex">\(\lambda_2=2\)</span>，曲率小）。</p>
 </blockquote>
 <hr/>
 <p><strong>A2.</strong> 求 <span class="arithmatex">\(A = \begin{bmatrix}3&amp;1\\1&amp;3\end{bmatrix}\)</span> 的特征值与特征向量，写出对角化形式 <span class="arithmatex">\(A = Q\Lambda Q^{\mathsf T}\)</span>。</p>
 <blockquote>
-<p><strong>答案提示：</strong> <span class="arithmatex">\(\lambda_1=4\)</span>，<span class="arithmatex">\(\mathbf{v}_1 = (1,1)^{\mathsf T}/\sqrt{2}\)</span>；<span class="arithmatex">\(\lambda_2=2\)</span>，<span class="arithmatex">\(\mathbf{v}_2 = (-1,1)^{\mathsf T}/\sqrt{2}\)</span>。<span class="arithmatex">\(Q = \begin{bmatrix}1/\sqrt{2} &amp; -1/\sqrt{2} \\ 1/\sqrt{2} &amp; 1/\sqrt{2}\end{bmatrix}\)</span>（正交矩阵，<span class="arithmatex">\(Q^{\mathsf T}=Q^{-1}\)</span>），<span class="arithmatex">\(\Lambda = \text{diag}(4,2)\)</span>。验证：<span class="arithmatex">\(Q\Lambda Q^{\mathsf T} = A\)</span>。</p>
+<p><strong>标准答案：</strong></p>
+<p>与 A1 同一个矩阵。特征值 <span class="arithmatex">\(\lambda_1 = 4\)</span>，<span class="arithmatex">\(\lambda_2 = 2\)</span>。</p>
+<p>特征向量（已标准化）：
+$<span class="arithmatex">\(\mathbf{v}_1 = \frac{1}{\sqrt{2}}\begin{bmatrix}1\\1\end{bmatrix},\quad \mathbf{v}_2 = \frac{1}{\sqrt{2}}\begin{bmatrix}-1\\1\end{bmatrix}\)</span>$</p>
+<p>验证正交性：<span class="arithmatex">\(\mathbf{v}_1 \cdot \mathbf{v}_2 = \frac{1}{2}(-1+1) = 0\)</span> ✓。<span class="arithmatex">\(A\)</span> 对称 → 特征向量正交 → <span class="arithmatex">\(Q\)</span> 是正交矩阵（<span class="arithmatex">\(Q^{\mathsf T} = Q^{-1}\)</span>）。</p>
+<p>对角化：
+$<span class="arithmatex">\(A = Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2} &amp; -1/\sqrt{2}\\1/\sqrt{2} &amp; 1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4&amp;0\\0&amp;2\end{bmatrix}\begin{bmatrix}1/\sqrt{2} &amp; 1/\sqrt{2}\\-1/\sqrt{2} &amp; 1/\sqrt{2}\end{bmatrix}\)</span>$</p>
+<p>验证：
+$<span class="arithmatex">\(Q\Lambda Q^{\mathsf T} = \begin{bmatrix}1/\sqrt{2}&amp;-1/\sqrt{2}\\1/\sqrt{2}&amp;1/\sqrt{2}\end{bmatrix}\begin{bmatrix}4/\sqrt{2}&amp;4/\sqrt{2}\\-2/\sqrt{2}&amp;2/\sqrt{2}\end{bmatrix}\)</span>$
+$<span class="arithmatex">\(= \frac{1}{2}\begin{bmatrix}4+2&amp;4-2\\4-2&amp;4+2\end{bmatrix} = \begin{bmatrix}3&amp;1\\1&amp;3\end{bmatrix} = A\)</span>$ ✓</p>
 </blockquote>
 <hr/>
-<p><strong>A3.</strong> 用矩阵微积分求梯度。设 <span class="arithmatex">\(L(W) = \frac{1}{2}\|WX - Y\|_F^2\)</span>，其中 <span class="arithmatex">\(X \in \mathbb{R}^{n \times m}\)</span> 为输入矩阵，<span class="arithmatex">\(Y \in \mathbb{R}^{d \times m}\)</span> 为目标矩阵。求 <span class="arithmatex">\(\nabla_W L\)</span>。</p>
+<p><strong>A3.</strong> 用矩阵微积分求梯度。设 <span class="arithmatex">\(L(W) = \frac{1}{2}\|WX - Y\|_F^2\)</span>，其中 <span class="arithmatex">\(W \in \mathbb{R}^{d \times n}\)</span>，<span class="arithmatex">\(X \in \mathbb{R}^{n \times m}\)</span>，<span class="arithmatex">\(Y \in \mathbb{R}^{d \times m}\)</span>。求 <span class="arithmatex">\(\nabla_W L\)</span>。</p>
 <blockquote>
-<p><strong>答案提示：</strong> 展开：</p>
-<div class="arithmatex">\[L = \frac{1}{2}\text{tr}\big((WX-Y)^{\mathsf T}(WX-Y)\big).\]</div>
-<p>对 <span class="arithmatex">\(W\)</span> 求微分：<span class="arithmatex">\(dL = \text{tr}\big((WX-Y)^{\mathsf T} \cdot dW \cdot X\big) = \text{tr}\big(X(WX-Y)^{\mathsf T} \cdot dW\big)\)</span>。因此：</p>
-<div class="arithmatex">\[\nabla_W L = (WX - Y)X^{\mathsf T}.\]</div>
-<p>这就是线性层反向传播中权重梯度的矩阵形式——它告诉你梯度是<strong>误差矩阵右乘输入的转置</strong>。</p>
+<p><strong>标准答案：</strong></p>
+<p>展开 Frobenius 范数平方：
+$<span class="arithmatex">\(L = \frac{1}{2}\text{tr}\big((WX - Y)^{\mathsf T}(WX - Y)\big)\)</span>$</p>
+<p>微分：
+$<span class="arithmatex">\(dL = \frac{1}{2}\text{tr}\big(d(WX - Y)^{\mathsf T}(WX - Y) + (WX - Y)^{\mathsf T}d(WX - Y)\big)\)</span>$</p>
+<p>由迹的对称性和 <span class="arithmatex">\(d(WX) = (dW)X\)</span>（<span class="arithmatex">\(X\)</span> 是常数）：
+$<span class="arithmatex">\(dL = \text{tr}\big((WX - Y)^{\mathsf T}(dW)X\big)\)</span>$</p>
+<p>利用 <span class="arithmatex">\(\text{tr}(AB) = \text{tr}(BA)\)</span>：
+$<span class="arithmatex">\(dL = \text{tr}\big(X(WX - Y)^{\mathsf T} dW\big)\)</span>$</p>
+<p>标准形式 <span class="arithmatex">\(dL = \text{tr}(G^{\mathsf T} dW) \Rightarrow \nabla_W L = G\)</span>。所以：
+$<span class="arithmatex">\(\nabla_W L = (WX - Y)X^{\mathsf T}\)</span>$</p>
+<p><strong>ML 直觉</strong>：梯度 = 误差矩阵 × 输入的转置。这是线性层反向传播的矩阵形式——每个权重的梯度是「它负责的输出误差」和「它对应的输入」的乘积之和。与 <code>nn.Linear</code> 的 <code>weight.grad</code> 完全一致。</p>
 </blockquote>
 <hr/>
-<p><strong>A4.</strong> 求 softmax 函数 <span class="arithmatex">\(\mathbf{s}(\mathbf{z}) = \frac{e^{z_i}}{\sum_j e^{z_j}}\)</span> 的雅可比矩阵 <span class="arithmatex">\(J = \partial \mathbf{s} / \partial \mathbf{z}\)</span>。</p>
+<p><strong>A4.</strong> 求 softmax 函数 <span class="arithmatex">\(\mathbf{s}(\mathbf{z})_i = \frac{e^{z_i}}{\sum_j e^{z_j}}\)</span> 的雅可比矩阵 <span class="arithmatex">\(J = \partial \mathbf{s} / \partial \mathbf{z}\)</span>。</p>
 <blockquote>
-<p><strong>答案提示：</strong> 当 <span class="arithmatex">\(i \neq j\)</span>：</p>
-<div class="arithmatex">\[\frac{\partial s_i}{\partial z_j} = -s_i s_j.\]</div>
-<p>当 <span class="arithmatex">\(i = j\)</span>：</p>
-<div class="arithmatex">\[\frac{\partial s_i}{\partial z_i} = s_i(1-s_i).\]</div>
-<p>矩阵形式：</p>
-<div class="arithmatex">\[J = \text{diag}(\mathbf{s}) - \mathbf{s}\mathbf{s}^{\mathsf T}.\]</div>
-<p>这个 <span class="arithmatex">\(J\)</span> 是对称且半正定的（秩 <span class="arithmatex">\(=K-1\)</span>，零空间由 <span class="arithmatex">\(\mathbf{1}\)</span> 张成）。它与交叉熵配合使用时会产生优雅的简化——见下一题。</p>
+<p><strong>标准答案：</strong></p>
+<p>对任意 <span class="arithmatex">\(i, j\)</span>：
+$<span class="arithmatex">\(\frac{\partial s_i}{\partial z_j} = \frac{\partial}{\partial z_j}\left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)\)</span>$</p>
+<p><strong>当 <span class="arithmatex">\(i = j\)</span></strong>（商数法则，分子的指数在分母中）：
+$<span class="arithmatex">\(\frac{\partial s_i}{\partial z_i} = \frac{e^{z_i} \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_i}}{(\sum_k e^{z_k})^2} = \frac{e^{z_i}}{\sum_k e^{z_k}} - \left(\frac{e^{z_i}}{\sum_k e^{z_k}}\right)^2 = s_i - s_i^2 = s_i(1 - s_i)\)</span>$</p>
+<p><strong>当 <span class="arithmatex">\(i \neq j\)</span></strong>（分子的指数不在分母中）：
+$<span class="arithmatex">\(\frac{\partial s_i}{\partial z_j} = \frac{0 \cdot \sum_k e^{z_k} - e^{z_i} \cdot e^{z_j}}{(\sum_k e^{z_k})^2} = -s_i s_j\)</span>$</p>
+<p><strong>矩阵形式</strong>：
+$<span class="arithmatex">\(J = \text{diag}(\mathbf{s}) - \mathbf{s}\mathbf{s}^{\mathsf T}\)</span>$</p>
+<p>性质：<span class="arithmatex">\(J\)</span> 对称且半正定，<span class="arithmatex">\(\text{rank}(J) = K-1\)</span>（零空间由 <span class="arithmatex">\(\mathbf{1}\)</span> 张成，因为 <span class="arithmatex">\(\sum_i s_i = 1 \Rightarrow \sum_j \frac{\partial s_i}{\partial z_j} = 0\)</span>）。</p>
+<p>这个 <span class="arithmatex">\(J\)</span> 与交叉熵配合使用时会产生极大的简化——见 B2。</p>
 </blockquote>
 <hr/>
 <p><strong>A5.</strong> 不直接计算行列式，仅用行列式的性质判断以下命题的真伪：</p>
-<p>(1) 若 <span class="arithmatex">\(A\)</span> 的某一行全是 <span class="arithmatex">\(0\)</span>，则 <span class="arithmatex">\(\det(A)=0\)</span>。
-(2) 若 <span class="arithmatex">\(A\)</span> 的两行成比例，则 <span class="arithmatex">\(\det(A)=0\)</span>。
-(3) 若 <span class="arithmatex">\(\det(A)=2\)</span>，则 <span class="arithmatex">\(\det(A^{-1}) = -2\)</span>。
-(4) 若对 <span class="arithmatex">\(A\)</span> 做初等行变换 <span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span>，行列式的值乘以 <span class="arithmatex">\(-3\)</span>。
-(5) 若 <span class="arithmatex">\(\det(A - \lambda I)=0\)</span>，则 <span class="arithmatex">\(\lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值——等价于 <span class="arithmatex">\(A\)</span> 将某个非零向量拉伸 <span class="arithmatex">\(\lambda\)</span> 倍。</p>
+<p>(1) <span class="arithmatex">\(A\)</span> 某一行全 <span class="arithmatex">\(0 \Rightarrow \det(A) = 0\)</span>。
+(2) <span class="arithmatex">\(A\)</span> 两行成比例 <span class="arithmatex">\(\Rightarrow \det(A) = 0\)</span>。
+(3) <span class="arithmatex">\(\det(A)=2 \Rightarrow \det(A^{-1}) = -2\)</span>。
+(4) 初等行变换 <span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span> 使行列式乘以 <span class="arithmatex">\(-3\)</span>。
+(5) <span class="arithmatex">\(\det(A - \lambda I)=0 \iff \lambda\)</span> 是 <span class="arithmatex">\(A\)</span> 的特征值。</p>
 <blockquote>
-<p><strong>答案提示：</strong> (1) <strong>对</strong>。对那一行做展开（按该行展开），每项都含 <span class="arithmatex">\(0\)</span> 因子。(2) <strong>对</strong>。成比例意味着行线性相关，高斯消元会产生零行。(3) <strong>错</strong>。<span class="arithmatex">\(\det(A^{-1}) = 1/\det(A) = 1/2\)</span>，不是 <span class="arithmatex">\(-2\)</span>。行列式的倒数，不是相反数。(4) <strong>错</strong>。<span class="arithmatex">\(R_2 \leftarrow R_2 - 3R_1\)</span> 这种「把一行的倍数加到另一行」<strong>不改变行列式</strong>。只有交换两行才会变号，只有对一行乘以 <span class="arithmatex">\(c\)</span> 才会把行列式乘以 <span class="arithmatex">\(c\)</span>。(5) <strong>对</strong>。这就是特征方程的定义：<span class="arithmatex">\(\det(A - \lambda I)=0 \iff A\mathbf{x} = \lambda\mathbf{x}\)</span> 有非零解。</p>
+<p><strong>标准答案：</strong></p>
+<p><strong>(1) 对。</strong> 按该行做 Laplace 展开：每项都含 <span class="arithmatex">\(0\)</span> 因子 → 和为 <span class="arithmatex">\(0\)</span>。几何上：该行对应的维度被完全压扁 → 体积为 <span class="arithmatex">\(0\)</span>。</p>
+<p><strong>(2) 对。</strong> 两行成比例 → 行线性相关 → 高斯消元产生零行 → 行列式为 <span class="arithmatex">\(0\)</span>。几何上：两个「边」平行 → 平行多面体退化 → 体积为 <span class="arithmatex">\(0\)</span>。</p>
+<p><strong>(3) 错。</strong> <span class="arithmatex">\(\det(A^{-1}) = 1/\det(A) = 1/2\)</span>，不是 <span class="arithmatex">\(-2\)</span>。行列式乘积法则：<span class="arithmatex">\(\det(A)\det(A^{-1}) = \det(AA^{-1}) = \det(I) = 1\)</span>。</p>
+<p><strong>(4) 错。</strong> 把一行的倍数加到另一行<strong>不改变行列式</strong>。验证：<span class="arithmatex">\(\det\begin{bmatrix}a&amp;b\\c+3a&amp;d+3b\end{bmatrix} = a(d+3b) - b(c+3a) = ad - bc = \det\begin{bmatrix}a&amp;b\\c&amp;d\end{bmatrix}\)</span>。只有交换两行（变号）和对一行乘以 <span class="arithmatex">\(c\)</span>（乘 <span class="arithmatex">\(c\)</span>）才会改变行列式值。</p>
+<p><strong>(5) 对。</strong> <span class="arithmatex">\(\det(A - \lambda I)=0 \iff A - \lambda I\)</span> 奇异 <span class="arithmatex">\(\iff\)</span> 存在 <span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span> 使 <span class="arithmatex">\((A - \lambda I)\mathbf{x} = \mathbf{0} \iff A\mathbf{x} = \lambda\mathbf{x}\)</span>。这就是特征方程的标准形式。</p>
 </blockquote>
 <hr/>
-<p><strong>A6.</strong> 计算以下 <span class="arithmatex">\(3 \times 3\)</span> 矩阵的行列式，并解释其几何含义（体积缩放因子）：</p>
-<div class="arithmatex">\[A = \begin{bmatrix} 2 &amp; 0 &amp; 1 \\ 0 &amp; 3 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{bmatrix}.\]</div>
-<p>(1) 行列式是多少？<span class="arithmatex">\(A\)</span> 是可逆的吗？
-(2) 如果把 <span class="arithmatex">\(A\)</span> 的第二行乘以 <span class="arithmatex">\(2\)</span>（新矩阵 <span class="arithmatex">\(A'\)</span>），行列式变为多少？
-(3) <span class="arithmatex">\(A\)</span> 把 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位立方体变成了什么形状？体积是多少？</p>
+<p><strong>A6.</strong> 计算矩阵 <span class="arithmatex">\(A = \begin{bmatrix} 2 &amp; 0 &amp; 1 \\ 0 &amp; 3 &amp; 0 \\ 1 &amp; 0 &amp; 2 \end{bmatrix}\)</span> 的行列式，并解释其几何含义。</p>
 <blockquote>
-<p><strong>答案提示：</strong> (1) 按第二行展开最简单（因为有两个 <span class="arithmatex">\(0\)</span>）：<span class="arithmatex">\(\det(A) = 3 \cdot \det\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix} = 3 \cdot (4-1) = 9\)</span>。<span class="arithmatex">\(\det(A) \neq 0\)</span> → 可逆。(2) 新矩阵 <span class="arithmatex">\(A'\)</span> 的第二行是原来的 <span class="arithmatex">\(2\)</span> 倍 → <span class="arithmatex">\(\det(A') = 2 \cdot \det(A) = 18\)</span>。行列式对任意一行的缩放是线性的。(3) <span class="arithmatex">\(A\)</span> 把单位立方体变成一个平行六面体，体积 <span class="arithmatex">\(= |\det(A)| = 9\)</span>。第二列（<span class="arithmatex">\(y\)</span> 方向）拉伸 <span class="arithmatex">\(3\)</span> 倍，第一列和第三列在 <span class="arithmatex">\(xz\)</span> 平面内形成一个面积为 <span class="arithmatex">\(3\)</span> 的平行四边形——总体积 <span class="arithmatex">\(= 3 \times 3 = 9\)</span>。几何直觉成立。</p>
+<p><strong>标准答案：</strong></p>
+<p>按第二行展开（因为有两个 <span class="arithmatex">\(0\)</span>，计算最简单）：
+$<span class="arithmatex">\(\det(A) = 3 \cdot (-1)^{2+2} \cdot \det\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix} = 3 \cdot (4 - 1) = 3 \cdot 3 = 9\)</span>$</p>
+<p>也可直接按标准公式计算 <span class="arithmatex">\(3 \times 3\)</span> 行列式来验证。</p>
+<p><span class="arithmatex">\(\det(A) = 9 \neq 0\)</span> → <strong>可逆</strong>。</p>
+<p><strong>几何含义</strong>：<span class="arithmatex">\(A\)</span> 的列是 <span class="arithmatex">\((2,0,1)^{\mathsf T}\)</span>、<span class="arithmatex">\((0,3,0)^{\mathsf T}\)</span>、<span class="arithmatex">\((1,0,2)^{\mathsf T}\)</span>。<span class="arithmatex">\(A\)</span> 把 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位立方体变换为一个平行六面体，体积 <span class="arithmatex">\(= |\det(A)| = 9\)</span>。具体来说：第二列沿 <span class="arithmatex">\(y\)</span> 轴拉伸 <span class="arithmatex">\(3\)</span> 倍；第一列和第三列在 <span class="arithmatex">\(xz\)</span> 平面内张成一个面积为 <span class="arithmatex">\(\det\begin{bmatrix}2&amp;1\\1&amp;2\end{bmatrix} = 3\)</span> 的平行四边形；总体积 <span class="arithmatex">\(= 3 \times 3 = 9\)</span>。</p>
+</blockquote>
+<hr/>
+<p><strong>A7.</strong> 对称矩阵 <span class="arithmatex">\(B = \begin{bmatrix}2&amp;2&amp;0\\2&amp;5&amp;0\\0&amp;0&amp;3\end{bmatrix}\)</span>。</p>
+<p>(1) 求 <span class="arithmatex">\(B\)</span> 的所有特征值。
+(2) 求一组标准正交的特征向量，写出谱分解 <span class="arithmatex">\(B = Q\Lambda Q^{\mathsf T}\)</span>。
+(3) 利用特征值判断 <span class="arithmatex">\(B\)</span> 的正定性。</p>
+<blockquote>
+<p><strong>标准答案：</strong></p>
+<p><strong>(1)</strong> <span class="arithmatex">\(\det(B - \lambda I) = \det\begin{bmatrix}2-\lambda&amp;2&amp;0\\2&amp;5-\lambda&amp;0\\0&amp;0&amp;3-\lambda\end{bmatrix}\)</span>。</p>
+<p>按第三行/列展开：
+$<span class="arithmatex">\(= (3-\lambda) \cdot \det\begin{bmatrix}2-\lambda&amp;2\\2&amp;5-\lambda\end{bmatrix}\)</span>$
+$<span class="arithmatex">\(= (3-\lambda)[(2-\lambda)(5-\lambda) - 4] = (3-\lambda)(\lambda^2 - 7\lambda + 6)\)</span>$
+$<span class="arithmatex">\(= (3-\lambda)(\lambda-1)(\lambda-6) = 0\)</span>$</p>
+<p><span class="arithmatex">\(\lambda_1 = 6\)</span>，<span class="arithmatex">\(\lambda_2 = 3\)</span>，<span class="arithmatex">\(\lambda_3 = 1\)</span>。</p>
+<p><strong>(2)</strong> 分别求特征向量：
+- <span class="arithmatex">\(\lambda_1 = 6\)</span>：<span class="arithmatex">\((B-6I)\mathbf{v} = \begin{bmatrix}-4&amp;2&amp;0\\2&amp;-1&amp;0\\0&amp;0&amp;-3\end{bmatrix}\mathbf{v} = \mathbf{0}\)</span>。前两行给出 <span class="arithmatex">\(v_1 = t, v_2 = 2t\)</span>，第三行 <span class="arithmatex">\(v_3 = 0\)</span>。取 <span class="arithmatex">\(\mathbf{v}_1 = \frac{1}{\sqrt{5}}(1, 2, 0)^{\mathsf T}\)</span>。
+- <span class="arithmatex">\(\lambda_2 = 3\)</span>：<span class="arithmatex">\((B-3I)\mathbf{v} = \begin{bmatrix}-1&amp;2&amp;0\\2&amp;2&amp;0\\0&amp;0&amp;0\end{bmatrix}\mathbf{v} = \mathbf{0}\)</span>。<span class="arithmatex">\(v_1 = 2t, v_2 = t, v_3\)</span> 自由。取 <span class="arithmatex">\(\mathbf{v}_2 = (0, 0, 1)^{\mathsf T}\)</span>（与 <span class="arithmatex">\(\mathbf{v}_1\)</span> 正交 ✓）。标准化：<span class="arithmatex">\(\mathbf{v}_2 = (0, 0, 1)^{\mathsf T}\)</span>（已归一）。
+- <span class="arithmatex">\(\lambda_3 = 1\)</span>：<span class="arithmatex">\((B-I)\mathbf{v} = \begin{bmatrix}1&amp;2&amp;0\\2&amp;4&amp;0\\0&amp;0&amp;2\end{bmatrix}\mathbf{v} = \mathbf{0}\)</span>。<span class="arithmatex">\(v_1 = -2t, v_2 = t, v_3 = 0\)</span>。取 <span class="arithmatex">\(\mathbf{v}_3 = \frac{1}{\sqrt{5}}(-2, 1, 0)^{\mathsf T}\)</span>。</p>
+<div class="arithmatex">\[Q = \begin{bmatrix}1/\sqrt{5}&amp;0&amp;-2/\sqrt{5}\\2/\sqrt{5}&amp;0&amp;1/\sqrt{5}\\0&amp;1&amp;0\end{bmatrix},\quad \Lambda = \text{diag}(6,3,1)\]</div>
+<p><strong>(3)</strong> 所有特征值 <span class="arithmatex">\(&gt;0\)</span> → <strong>正定</strong> ✓。物理直觉：<span class="arithmatex">\(x^{\mathsf T}Bx &gt; 0\)</span> 对所有非零 <span class="arithmatex">\(\mathbf{x}\)</span> 成立——这是三维空间中的「椭球碗」，任何方向都是上升的。</p>
 </blockquote>
 <hr/>
 <h3 id="b">B 档<a class="headerlink" href="#b" title="锚点链接">¶</a></h3>
-<p><strong>B1.</strong> 某深度网络的 Hessian 特征值为 <span class="arithmatex">\(\{125,\; 3.2,\; 0.01,\; -0.5,\; -18\}\)</span>。判断当前点在优化地形中的位置（极小点？鞍点？），并预测 SGD 和 Adam 各自的表现差异。</p>
+<p><strong>B1.</strong> 某深度网络的 Hessian 特征值为 <span class="arithmatex">\(\{125,\; 3.2,\; 0.01,\; -0.5,\; -18\}\)</span>。判断当前点在优化地形中的位置，预测 SGD 和 Adam 的表现差异。</p>
 <blockquote>
-<p><strong>答案提示：</strong> 同时存在正特征值和负特征值 <span class="arithmatex">\(\Rightarrow\)</span> 当前点是一个<strong>鞍点</strong>（saddle point），而非局部极小。正惯性指数 <span class="arithmatex">\(p=3\)</span>，负惯性指数 <span class="arithmatex">\(q=2\)</span>。条件数 <span class="arithmatex">\(\kappa \approx 125/0.01 = 12500\)</span>（极差）。</p>
-<p><strong>SGD：</strong> 在特征值 <span class="arithmatex">\(125\)</span> 的方向上剧烈震荡（步长稍大即 overshoot），在特征值 <span class="arithmatex">\(0.01\)</span> 的方向上几乎寸步难行；同时沿两个负特征值 <span class="arithmatex">\(-0.5\)</span> 和 <span class="arithmatex">\(-18\)</span> 的方向<strong>逃离鞍点</strong>——这在 SGD 中可能表现为 loss 在鞍点附近「卡住」很久后突然继续下降。<strong>Adam：</strong> 自适应地为每个方向调整有效步长——强曲率方向用微小步、弱曲率方向用大步、负曲率方向也以合适步长下行——<span class="arithmatex">\(3\)</span> 个正方向平稳下降、<span class="arithmatex">\(2\)</span> 个负方向快速逃离鞍点，远优于 SGD。</p>
+<p><strong>标准答案：</strong></p>
+<p>同时存在正特征值和负特征值 → 当前点是<strong>鞍点</strong>（saddle point），而非局部极小。正惯性指数 <span class="arithmatex">\(p = 3\)</span>（<span class="arithmatex">\(125, 3.2, 0.01\)</span>），负惯性指数 <span class="arithmatex">\(q = 2\)</span>（<span class="arithmatex">\(-0.5, -18\)</span>）。</p>
+<p>条件数（对正特征值部分）：<span class="arithmatex">\(\kappa = 125 / 0.01 = 12500\)</span>（极差）。</p>
+<p><strong>SGD 的表现</strong>：
+- 沿 <span class="arithmatex">\(\lambda = 125\)</span> 的方向：曲率极大 → 步长稍大即剧烈震荡（overshoot）
+- 沿 <span class="arithmatex">\(\lambda = 0.01\)</span> 的方向：几乎平坦 → 寸步难行（每步进展约 <span class="arithmatex">\(1/12500\)</span> 的相对量）
+- 沿 <span class="arithmatex">\(\lambda = -18\)</span> 的方向：<strong>负曲率</strong> → 梯度下降实际上在沿此方向「逃离」鞍点（因为负曲率方向上的梯度指向下山方向）
+- 典型现象：loss 在鞍点附近「卡住」很久（等梯度噪声将参数推到负曲率方向），然后突然继续下降</p>
+<p><strong>Adam 的表现</strong>：
+- 自适应学习率处理各方向的不同尺度：<span class="arithmatex">\(\lambda=125\)</span> 方向用小步（<span class="arithmatex">\(\sqrt{v_t}\)</span> 大）→ 不震荡；<span class="arithmatex">\(\lambda=0.01\)</span> 方向用大步（<span class="arithmatex">\(\sqrt{v_t}\)</span> 小）→ 加速前进；<span class="arithmatex">\(\lambda=-18\)</span> 方向也以合适步长下行 → 快速逃离鞍点
+- 所有 <span class="arithmatex">\(5\)</span> 个方向近乎同步收敛，远优于 SGD</p>
 </blockquote>
 <hr/>
-<p><strong>B2.</strong> 证明恒等式 <span class="arithmatex">\(\nabla_{\mathbf{z}}\;\text{CrossEntropy}(\text{softmax}(\mathbf{z}), \mathbf{y}) = \hat{\mathbf{y}} - \mathbf{y}\)</span>（使用微分法）。这是机器学习中最优雅的梯度公式之一——不论用什么模型，只要输出端是 softmax + 交叉熵，最后一层的梯度永远如此简洁。</p>
+<p><strong>B2.</strong> 证明恒等式 <span class="arithmatex">\(\nabla_{\mathbf{z}}\;\text{CrossEntropy}(\text{softmax}(\mathbf{z}), \mathbf{y}) = \hat{\mathbf{y}} - \mathbf{y}\)</span>（使用微分法）。</p>
 <blockquote>
-<p><strong>答案提示：</strong> 设 <span class="arithmatex">\(\hat{\mathbf{y}} = \text{softmax}(\mathbf{z})\)</span>，损失 <span class="arithmatex">\(L = -\sum_k y_k \log \hat{y}_k\)</span>（<span class="arithmatex">\(y\)</span> 为 one-hot 或概率向量）。</p>
-<p>微分：<span class="arithmatex">\(dL = -\sum_k \frac{y_k}{\hat{y}_k} d\hat{y}_k = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} \, d\hat{\mathbf{y}}\)</span>。</p>
-<p>由上题 <span class="arithmatex">\(d\hat{\mathbf{y}} = (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>。</p>
-<p>代入：</p>
-<div class="arithmatex">\[dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} = -\mathbf{y}^{\mathsf T}(I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}.\]</div>
-<p>由于 <span class="arithmatex">\(\sum_k y_k = 1\)</span>，<span class="arithmatex">\(-\mathbf{y}^{\mathsf T} \mathbf{1}\hat{\mathbf{y}}^{\mathsf T} = -\hat{\mathbf{y}}^{\mathsf T}\)</span>，因此 <span class="arithmatex">\(dL = (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}\)</span>。故而：</p>
-<div class="arithmatex">\[\nabla_{\mathbf{z}} L = \hat{\mathbf{y}} - \mathbf{y}.\]</div>
-<p>这个公式意味着反向传播中最后一层的「误差信号」就是<strong>预测概率减去真实标签</strong>——极其简洁，且数值稳定。</p>
+<p><strong>标准答案：</strong></p>
+<p>设 <span class="arithmatex">\(\hat{\mathbf{y}} = \text{softmax}(\mathbf{z})\)</span>，损失 <span class="arithmatex">\(L = -\sum_{k=1}^K y_k \log \hat{y}_k\)</span>。</p>
+<p>微分：
+$<span class="arithmatex">\(dL = -\sum_k \frac{y_k}{\hat{y}_k} d\hat{y}_k = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} d\hat{\mathbf{y}}\)</span>$</p>
+<p>由 A4：<span class="arithmatex">\(d\hat{\mathbf{y}} = (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>。</p>
+<p>代入：
+$<span class="arithmatex">\(dL = -\mathbf{y}^{\mathsf T} \text{diag}(\hat{\mathbf{y}})^{-1} (\text{diag}(\hat{\mathbf{y}}) - \hat{\mathbf{y}}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>$
+$<span class="arithmatex">\(= -\mathbf{y}^{\mathsf T} (I - \mathbf{1}\hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \text{diag}(\hat{\mathbf{y}})^{-1}\text{diag}(\hat{\mathbf{y}}) = I\text{）}\)</span>$
+$<span class="arithmatex">\(= (-\mathbf{y}^{\mathsf T} + \mathbf{y}^{\mathsf T}\mathbf{1} \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z}\)</span>$
+$<span class="arithmatex">\(= (-\mathbf{y}^{\mathsf T} + 1 \cdot \hat{\mathbf{y}}^{\mathsf T}) d\mathbf{z} \quad \text{（因为 } \sum_k y_k = 1\text{）}\)</span>$
+$<span class="arithmatex">\(= (\hat{\mathbf{y}} - \mathbf{y})^{\mathsf T} d\mathbf{z}\)</span>$</p>
+<p>标准形式 <span class="arithmatex">\(dL = (\nabla_{\mathbf{z}} L)^{\mathsf T} d\mathbf{z}\)</span> → <span class="arithmatex">\(\nabla_{\mathbf{z}} L = \hat{\mathbf{y}} - \mathbf{y}\)</span>。</p>
+<p><strong>这是 ML 中最优雅的梯度公式之一。</strong> 最后一层反向传播的「误差信号」就是<strong>预测概率减去真实标签</strong>——极度简洁且数值稳定。无论前面的网络多复杂，softmax + CE 的组合永远给出这个形式。</p>
 </blockquote>
 <hr/>
-<p><strong>B3.</strong> 为什么协方差矩阵必须是半正定的？如果样本协方差矩阵在计算中出现了负特征值（可能由于浮点误差），会有什么实际影响？如何修复？</p>
+<p><strong>B3.</strong> 为什么协方差矩阵必须是半正定的？如果样本协方差矩阵出现负特征值（浮点误差），会有什么实际影响？如何修复？</p>
 <blockquote>
-<p><strong>答案提示：</strong> 对任意向量 <span class="arithmatex">\(\mathbf{x}\)</span>，</p>
-<div class="arithmatex">\[\mathbf{x}^{\mathsf T}\Sigma\mathbf{x} = \mathbf{x}^{\mathsf T}\mathbb{E}[(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}]\mathbf{x} = \mathbb{E}[(\mathbf{x}^{\mathsf T}(\mathbf{X}-\boldsymbol{\mu}))^2] = \text{Var}(\mathbf{x}^{\mathsf T}\mathbf{X}) \ge 0,\]</div>
-<p>故 <span class="arithmatex">\(\Sigma\)</span> <strong>半正定</strong>是协方差矩阵的数学必然。</p>
-<p>实际中，若因浮点舍入误差或样本量不足导致负特征值出现：
-- 概率密度函数在对应方向上为负——<strong>无意义</strong>；
-- Cholesky 分解失败（要求正定），多元正态采样崩溃；
-- 马氏距离 <span class="arithmatex">\(\sqrt{(\mathbf{x}-\boldsymbol{\mu})^{\mathsf T}\Sigma^{-1}(\mathbf{x}-\boldsymbol{\mu})}\)</span> 失去几何解释。</p>
-<p><strong>解决方案：</strong> shrinkage（收缩估计），<span class="arithmatex">\(\Sigma \leftarrow (1-\alpha)\Sigma + \alpha I\)</span>，用一个小 <span class="arithmatex">\(\alpha\)</span>（如 <span class="arithmatex">\(0.01\)</span>）将所有特征值抬升 <span class="arithmatex">\(\alpha\)</span>，强制最小特征值为正。</p>
+<p><strong>标准答案：</strong></p>
+<p><strong>证明半正定性</strong>：对任意向量 <span class="arithmatex">\(\mathbf{x}\)</span>：
+$<span class="arithmatex">\(\mathbf{x}^{\mathsf T}\Sigma \mathbf{x} = \mathbf{x}^{\mathsf T} \mathbb{E}[(\mathbf{X}-\boldsymbol{\mu})(\mathbf{X}-\boldsymbol{\mu})^{\mathsf T}] \mathbf{x} = \mathbb{E}[(\mathbf{x}^{\mathsf T}(\mathbf{X}-\boldsymbol{\mu}))^2] = \text{Var}(\mathbf{x}^{\mathsf T}\mathbf{X}) \ge 0\)</span>$</p>
+<p>方差的期望非负 → <span class="arithmatex">\(\Sigma\)</span> 半正定。这是协方差矩阵的数学必然，不是巧合。</p>
+<p><strong>负特征值的实际影响</strong>（由于样本量不足或浮点舍入误差）：
+- <strong>概率密度函数</strong>：在负特征值对应的方向上，<span class="arithmatex">\(\mathcal{N}(\boldsymbol{\mu}, \Sigma)\)</span> 的密度含 <span class="arithmatex">\(\exp(-\frac{1}{2} \cdot \text{负数})\)</span> → 指数爆炸 → 无意义
+- <strong>Cholesky 分解失败</strong>：<span class="arithmatex">\(\Sigma = LL^{\mathsf T}\)</span> 要求正定；若 <span class="arithmatex">\(\Sigma\)</span> 不定 → <code>np.linalg.cholesky</code> 抛出 <code>LinAlgError</code>
+- <strong>多元正态采样崩溃</strong>：<span class="arithmatex">\(\mathbf{x} = L\mathbf{z}\)</span> 的 <span class="arithmatex">\(L\)</span> 不存在
+- <strong>马氏距离</strong> <span class="arithmatex">\((x-\mu)^{\mathsf T}\Sigma^{-1}(x-\mu)\)</span> 可能为负 → 失去距离度量意义</p>
+<p><strong>修复方法</strong>：Shrinkage（收缩估计）：
+$<span class="arithmatex">\(\Sigma_{\text{shrunk}} = (1-\alpha)\Sigma_{\text{sample}} + \alpha I, \quad \alpha \in (0, 1)\)</span>$</p>
+<p>给所有特征值加上 <span class="arithmatex">\(\alpha\)</span>：<span class="arithmatex">\(\lambda_i^{\text{new}} = (1-\alpha)\lambda_i + \alpha\)</span>。最小特征值被抬升至少 <span class="arithmatex">\(\alpha\)</span>，强制正定性。典型的 <span class="arithmatex">\(\alpha\)</span> 取 <span class="arithmatex">\(0.01 \sim 0.1\)</span>。这正是 <code>sklearn.covariance.ShrunkCovariance</code> 和 Ledoit-Wolf 估计的核心思想。</p>
 </blockquote>
 <hr/>
-<p><strong>B4.</strong> 矩阵 <span class="arithmatex">\(A = \begin{bmatrix}3&amp;0\\0&amp;1\end{bmatrix}\)</span> 的 SVD 是什么？不用算——它本身就已经是一个「准 SVD」了。但有更一般的情况：设 <span class="arithmatex">\(A\)</span> 的 SVD 为 <span class="arithmatex">\(A = U\Sigma V^{\mathsf T}\)</span>，其中 <span class="arithmatex">\(\Sigma = \text{diag}(5, 2, 0)\)</span>。</p>
+<p><strong>B4.</strong> 设 <span class="arithmatex">\(A\)</span> 的 SVD 为 <span class="arithmatex">\(A = U\Sigma V^{\mathsf T}\)</span>，其中 <span class="arithmatex">\(\Sigma = \text{diag}(5, 2, 0)\)</span>。</p>
 <p>(1) <span class="arithmatex">\(A\)</span> 的秩是多少？
-(2) 描述 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中的单位球做了什么几何变换（用 <span class="arithmatex">\(V^{\mathsf T}\)</span>、<span class="arithmatex">\(\Sigma\)</span>、<span class="arithmatex">\(U\)</span> 三步拆解）。
-(3) <span class="arithmatex">\(\mathbf{v}_3\)</span>（<span class="arithmatex">\(V\)</span> 的第 3 列）对应奇异值 <span class="arithmatex">\(0\)</span>。<span class="arithmatex">\(A\)</span> 把 <span class="arithmatex">\(\mathbf{v}_3\)</span> 映射到了哪里？这说明 <span class="arithmatex">\(\mathbf{v}_3\)</span> 在什么子空间里？
-(4) （ML 扩展）PCA 本质上是对协方差矩阵做 SVD。如果 PCA 后发现最小的若干个奇异值接近 <span class="arithmatex">\(0\)</span>，你对数据有什么判断？对下游模型设计有何指导？</p>
+(2) 描述 <span class="arithmatex">\(A\)</span> 对 <span class="arithmatex">\(\mathbb{R}^3\)</span> 中单位球的几何变换（三步拆解）。
+(3) <span class="arithmatex">\(\mathbf{v}_3\)</span> 对应 <span class="arithmatex">\(\sigma_3=0\)</span>。<span class="arithmatex">\(A\mathbf{v}_3 = ?\)</span> <span class="arithmatex">\(\mathbf{v}_3\)</span> 属于什么子空间？
+(4) （ML）PCA 中若出现很多接近 <span class="arithmatex">\(0\)</span> 的奇异值，说明什么？</p>
 <blockquote>
-<p><strong>答案提示：</strong> (1) 秩 <span class="arithmatex">\(=\)</span> 非零奇异值的个数 <span class="arithmatex">\(=2\)</span>。</p>
-<p>(2) <strong>三步拆解：</strong> ① <span class="arithmatex">\(V^{\mathsf T}\)</span> 是正交矩阵 → 旋转/反射单位球，形状不变。② <span class="arithmatex">\(\Sigma\)</span> 把球映射成一个椭球：<span class="arithmatex">\(x\)</span> 轴方向拉伸 <span class="arithmatex">\(5\times\)</span>，<span class="arithmatex">\(y\)</span> 轴方向拉伸 <span class="arithmatex">\(2\times\)</span>，<span class="arithmatex">\(z\)</span> 轴方向压扁到 <span class="arithmatex">\(0\)</span>（坍缩！）。球变成 <span class="arithmatex">\(xy\)</span> 平面内的一个椭圆盘。③ <span class="arithmatex">\(U\)</span> 把这个椭圆盘旋转/反射到输出空间，不改变形状。</p>
-<p>(3) <span class="arithmatex">\(A\mathbf{v}_3 = U\Sigma V^{\mathsf T}\mathbf{v}_3 = U\Sigma (0,0,1)^{\mathsf T} = U(0,0,0)^{\mathsf T} = \mathbf{0}\)</span>。<span class="arithmatex">\(\mathbf{v}_3\)</span> 被 <span class="arithmatex">\(A\)</span> 映射为零向量 → <span class="arithmatex">\(\mathbf{v}_3 \in N(A)\)</span>（零空间）。<strong>SVD 的神奇之处：<span class="arithmatex">\(V\)</span> 的最后 <span class="arithmatex">\(n-r\)</span> 列就是零空间的标准正交基。</strong></p>
-<p>(4) 奇异值接近 <span class="arithmatex">\(0\)</span> → 协方差矩阵有接近 <span class="arithmatex">\(0\)</span> 的特征值 → 数据几乎分布在一个低维子空间内，沿某些方向的方差近乎 <span class="arithmatex">\(0\)</span>。这意味着：
-- 输入维度假高——可以大幅降维而不损失信息；
-- 模型容量不必正比于名义维度——<strong>LoRA</strong>（低秩适配）的核心洞察：大模型的权重更新也可以做低秩约束，因为问题本身就是低秩的；
-- 如果强行在高维空间建模，最小二乘/线性回归的系数会被噪声放大（条件数问题），需要正则化。</p>
+<p><strong>标准答案：</strong></p>
+<p><strong>(1)</strong> 秩 <span class="arithmatex">\(=\)</span> 非零奇异值个数 <span class="arithmatex">\(= 2\)</span>。零奇异值对应被完全压扁的方向。</p>
+<p><strong>(2)</strong> 三步拆解：
+① <span class="arithmatex">\(V^{\mathsf T}\)</span>：正交矩阵 → 旋转/反射单位球（形状不变，仍是单位球）。
+② <span class="arithmatex">\(\Sigma\)</span>：沿三个坐标轴各自缩放 <span class="arithmatex">\(\sigma_i\)</span> 倍。<span class="arithmatex">\(\sigma_1=5\)</span> → <span class="arithmatex">\(x\)</span> 方向拉伸 <span class="arithmatex">\(5\times\)</span>；<span class="arithmatex">\(\sigma_2=2\)</span> → <span class="arithmatex">\(y\)</span> 方向拉伸 <span class="arithmatex">\(2\times\)</span>；<span class="arithmatex">\(\sigma_3=0\)</span> → <span class="arithmatex">\(z\)</span> 方向压扁到 <span class="arithmatex">\(0\)</span>。球变成一个位于 <span class="arithmatex">\(xy\)</span> 平面内的椭圆盘。
+③ <span class="arithmatex">\(U\)</span>：再旋转/反射这个椭圆盘，不改变形状。</p>
+<p>任何线性变换本质上就是这三步：旋转 → 拉伸/压扁 → 再旋转。没有例外。</p>
+<p><strong>(3)</strong> <span class="arithmatex">\(V^{\mathsf T}\mathbf{v}_3 = \mathbf{e}_3\)</span>（因为 <span class="arithmatex">\(V\)</span> 的列是 <span class="arithmatex">\(\mathbf{v}_1, \mathbf{v}_2, \mathbf{v}_3\)</span>，<span class="arithmatex">\(V^{\mathsf T}\mathbf{v}_i = \mathbf{e}_i\)</span>）。
+$<span class="arithmatex">\(A\mathbf{v}_3 = U\Sigma (V^{\mathsf T}\mathbf{v}_3) = U\Sigma \mathbf{e}_3 = U \cdot \mathbf{0} = \mathbf{0}\)</span>$</p>
+<p><span class="arithmatex">\(\mathbf{v}_3 \in N(A)\)</span>（零空间）。<strong>SVD 的优雅之处：<span class="arithmatex">\(V\)</span> 的最后 <span class="arithmatex">\(n-r\)</span> 列直接给出零空间的标准正交基。</strong></p>
+<p><strong>(4)</strong> 奇异值接近 <span class="arithmatex">\(0\)</span> → 协方差矩阵有接近 <span class="arithmatex">\(0\)</span> 的特征值 → 数据几乎分布在一个低维子空间内：
+- 输入维度假高 → 可以大幅降维而不损失信息
+- 模型容量不必正比于名义维度 → <strong>LoRA</strong> 的核心洞察：权重更新做低秩约束，因为问题本身就是低秩的
+- 若强行在高维空间做最小二乘回归 → 极小奇异值在伪逆中变成极大值（<span class="arithmatex">\(1/\sigma\)</span>）→ 系数方差爆炸 → 需要正则化</p>
 </blockquote>
 <hr/>
-<p><strong>B5.</strong> 设 <span class="arithmatex">\(A\)</span> 是一个 <span class="arithmatex">\(n \times n\)</span> 矩阵，特征值为 <span class="arithmatex">\(\lambda_1, \lambda_2, \dots, \lambda_n\)</span>。</p>
-<p>(1) 证明 <span class="arithmatex">\(\det(A) = \prod_{i=1}^n \lambda_i\)</span> 和 <span class="arithmatex">\(\text{tr}(A) = \sum_{i=1}^n \lambda_i\)</span>。（可假设 <span class="arithmatex">\(A\)</span> 可对角化）
-(2) 若 <span class="arithmatex">\(\det(A) = 0\)</span>，关于 <span class="arithmatex">\(A\)</span> 的秩和可逆性能得出什么结论？至少有一个特征值是多少？
-(3) （ML）协方差矩阵的特征值之和（总方差）在 PCA 中有什么意义？协方差矩阵的特征值之积（广义方差）趋近于 <span class="arithmatex">\(0\)</span> 意味着什么？</p>
+<p><strong>B5.</strong> 设 <span class="arithmatex">\(A\)</span> 是 <span class="arithmatex">\(n \times n\)</span> 矩阵，特征值为 <span class="arithmatex">\(\lambda_1, \dots, \lambda_n\)</span>。</p>
+<p>(1) 证明 <span class="arithmatex">\(\det(A) = \prod_{i=1}^n \lambda_i\)</span> 和 <span class="arithmatex">\(\text{tr}(A) = \sum_{i=1}^n \lambda_i\)</span>。
+(2) 推论：<span class="arithmatex">\(\det(A) = 0\)</span> 暗示了什么？
+(3) （ML）协方差矩阵的 <span class="arithmatex">\(\sum \lambda_i\)</span>（总方差）和 <span class="arithmatex">\(\prod \lambda_i\)</span>（广义方差）各有什么意义？</p>
 <blockquote>
-<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(A = PDP^{-1}\)</span> → <span class="arithmatex">\(\det(A) = \det(P)\det(D)\det(P^{-1}) = \det(D) = \prod \lambda_i\)</span>；<span class="arithmatex">\(\text{tr}(A) = \text{tr}(PDP^{-1}) = \text{tr}(P^{-1}PD) = \text{tr}(D) = \sum \lambda_i\)</span>。(2) <span class="arithmatex">\(\det(A)=0 \iff\)</span> 至少一个 <span class="arithmatex">\(\lambda_i = 0 \iff A\)</span> 不可逆 <span class="arithmatex">\(\iff\)</span> 秩亏。(3) 总方差 = <span class="arithmatex">\(\sum \lambda_i\)</span> = <span class="arithmatex">\(\text{tr}(\Sigma)\)</span>，衡量数据在所有方向上的总散布量。广义方差 = <span class="arithmatex">\(\prod \lambda_i = \det(\Sigma)\)</span>，趋近于 <span class="arithmatex">\(0\)</span> 意味着至少一个特征值极小 → 数据几乎分布在一个低于 <span class="arithmatex">\(n\)</span> 维的子空间内，存在高度共线性的特征。</p>
+<p><strong>标准答案：</strong></p>
+<p><strong>(1)</strong> 假设 <span class="arithmatex">\(A\)</span> 可对角化：<span class="arithmatex">\(A = PDP^{-1}\)</span>。</p>
+<p>行列式：<span class="arithmatex">\(\det(A) = \det(PDP^{-1}) = \det(P)\det(D)\det(P^{-1}) = \det(D) = \prod \lambda_i\)</span>。</p>
+<p>迹：<span class="arithmatex">\(\text{tr}(A) = \text{tr}(PDP^{-1}) = \text{tr}(P^{-1}PD) = \text{tr}(D) = \sum \lambda_i\)</span>。</p>
+<p>（即使 <span class="arithmatex">\(A\)</span> 不可对角化，这两个等式对特征值（含代数重数）仍然成立，通过 Jordan 标准型可证。）</p>
+<p><strong>(2)</strong> <span class="arithmatex">\(\det(A) = 0 \iff\)</span> 至少一个 <span class="arithmatex">\(\lambda_i = 0 \iff A\)</span> 奇异（不可逆）<span class="arithmatex">\(\iff\)</span> 秩亏。</p>
+<p><strong>(3)</strong>
+- <strong>总方差</strong> <span class="arithmatex">\(= \sum \lambda_i = \text{tr}(\Sigma)\)</span>：衡量数据在所有方向上的总散布量。PCA 中常看「前 <span class="arithmatex">\(k\)</span> 个特征值之和占比」来判断降维保留的信息量。
+- <strong>广义方差</strong> <span class="arithmatex">\(= \prod \lambda_i = \det(\Sigma)\)</span>：衡量数据占据的「体积」。<span class="arithmatex">\(\det(\Sigma) \approx 0\)</span> 意味着至少一个特征值极小 → 数据几乎分布在一个低于 <span class="arithmatex">\(n\)</span> 维的子空间内 → 特征之间存在高度共线性。</p>
 </blockquote>
 <hr/>
-<p><strong>B6.</strong> <strong>Rayleigh 商</strong>定义为 <span class="arithmatex">\(R(\mathbf{x}) = \frac{\mathbf{x}^{\mathsf T} H \mathbf{x}}{\mathbf{x}^{\mathsf T} \mathbf{x}}\)</span>（<span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span>），其中 <span class="arithmatex">\(H\)</span> 是对称矩阵。</p>
-<p>(1) 若 <span class="arithmatex">\(H = \begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 3 \end{bmatrix}\)</span>，计算 <span class="arithmatex">\(R(\mathbf{x})\)</span> 在 <span class="arithmatex">\(\mathbf{x} = (1,1)^{\mathsf T}\)</span> 和 <span class="arithmatex">\(\mathbf{x} = (1,-1)^{\mathsf T}\)</span> 处的值。
-(2) <span class="arithmatex">\(H\)</span> 的最大和最小特征值分别是多少？你算出的两个 Rayleigh 商值和它们有什么关系？
-(3) （ML）在优化中，沿 <span class="arithmatex">\(\mathbf{d} = -\nabla L\)</span>（负梯度方向）走一步，损失的近似减少量为 <span class="arithmatex">\(\eta \cdot \frac{(\nabla L)^{\mathsf T} (\nabla L)}{(\nabla L)^{\mathsf T} H (\nabla L)}\)</span>——这与 Rayleigh 商有什么关系？为什么 <span class="arithmatex">\(H\)</span> 的谱（特征值分布）决定了 SGD 的收敛速度？</p>
+<p><strong>B6.</strong> <strong>Rayleigh 商</strong> <span class="arithmatex">\(R(\mathbf{x}) = \frac{\mathbf{x}^{\mathsf T} H \mathbf{x}}{\mathbf{x}^{\mathsf T} \mathbf{x}}\)</span>，<span class="arithmatex">\(H\)</span> 对称。</p>
+<p>(1) <span class="arithmatex">\(H = \begin{bmatrix} 3 &amp; 1 \\ 1 &amp; 3 \end{bmatrix}\)</span>，计算 <span class="arithmatex">\(R(1,1)\)</span> 和 <span class="arithmatex">\(R(1,-1)\)</span>。
+(2) 它们和 <span class="arithmatex">\(H\)</span> 的特征值有何关系？
+(3) （ML）沿负梯度方向 <span class="arithmatex">\(\mathbf{d} = -\nabla L\)</span>，Rayleigh 商如何决定 SGD 的收敛速度？</p>
 <blockquote>
-<p><strong>答案提示：</strong> (1) <span class="arithmatex">\(R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{2} = \frac{8}{2} = 4\)</span>。<span class="arithmatex">\(R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{4}{2} = 2\)</span>。(2) <span class="arithmatex">\(H\)</span> 的特征值：<span class="arithmatex">\(\lambda_{\max}=4\)</span>（对应 <span class="arithmatex">\((1,1)\)</span>），<span class="arithmatex">\(\lambda_{\min}=2\)</span>（对应 <span class="arithmatex">\((1,-1)\)</span>）。广义 Rayleigh 商定理：<span class="arithmatex">\(\lambda_{\min} \le R(\mathbf{x}) \le \lambda_{\max}\)</span>，等号在特征向量方向取得。这里 <span class="arithmatex">\(R(1,1)=\lambda_{\max}\)</span>，<span class="arithmatex">\(R(1,-1)=\lambda_{\min}\)</span>——恰好命中。(3) 负梯度方向的 Rayleigh 商 <span class="arithmatex">\(= R(-\nabla L) = \frac{(\nabla L)^{\mathsf T} H (\nabla L)}{(\nabla L)^{\mathsf T} (\nabla L)}\)</span>。若 <span class="arithmatex">\(H\)</span> 的最大特征值 <span class="arithmatex">\(\lambda_{\max}\)</span> 远大于最小特征值 <span class="arithmatex">\(\lambda_{\min}\)</span>（即条件数大），沿负梯度方向的有效曲率可能非常小（若 <span class="arithmatex">\(\nabla L\)</span> 恰好落在 <span class="arithmatex">\(\lambda_{\min}\)</span> 的特征向量方向），导致每步下降极其微小；也可能非常大（若落在 <span class="arithmatex">\(\lambda_{\max}\)</span> 方向），导致震荡。<strong>Rayleigh 商精确度量了「在当前梯度方向上，Hessian 的有效曲率是多少」——这正是 SGD 收敛速度被 Hessian 谱分布决定的原因。</strong></p>
+<p><strong>标准答案：</strong></p>
+<p><strong>(1)</strong>
+$<span class="arithmatex">\(R(1,1) = \frac{[1,1]H[1,1]^{\mathsf T}}{1^2+1^2} = \frac{[1,1]\begin{bmatrix}4\\4\end{bmatrix}}{2} = \frac{8}{2} = 4\)</span>$
+$<span class="arithmatex">\(R(1,-1) = \frac{[1,-1]H[1,-1]^{\mathsf T}}{2} = \frac{[1,-1]\begin{bmatrix}2\\-2\end{bmatrix}}{2} = \frac{4}{2} = 2\)</span>$</p>
+<p><strong>(2)</strong> 由 A1/A2，<span class="arithmatex">\(H\)</span> 的特征值为 <span class="arithmatex">\(\lambda_{\max}=4\)</span>（对应 <span class="arithmatex">\((1,1)\)</span>），<span class="arithmatex">\(\lambda_{\min}=2\)</span>（对应 <span class="arithmatex">\((1,-1)\)</span>）。</p>
+<p><strong>Rayleigh 商定理</strong>：对任意 <span class="arithmatex">\(\mathbf{x} \neq \mathbf{0}\)</span>，<span class="arithmatex">\(\lambda_{\min} \le R(\mathbf{x}) \le \lambda_{\max}\)</span>，等号在特征向量方向取得。这里：<span class="arithmatex">\(R(1,1) = \lambda_{\max} = 4\)</span>，<span class="arithmatex">\(R(1,-1) = \lambda_{\min} = 2\)</span>——恰好命中 ✓。</p>
+<p><strong>(3)</strong> 在局部二次近似下，沿 <span class="arithmatex">\(\mathbf{d} = -\nabla L\)</span> 走一步的最优学习率的倒数是该方向的 Rayleigh 商：
+$<span class="arithmatex">\(R(\mathbf{d}) = \frac{\mathbf{d}^{\mathsf T} H \mathbf{d}}{\mathbf{d}^{\mathsf T} \mathbf{d}}\)</span>$</p>
+<p>这个值度量了「当前梯度方向上 Hessian 的有效曲率」：
+- 若 <span class="arithmatex">\(\nabla L\)</span> 落在 <span class="arithmatex">\(\lambda_{\max}\)</span> 方向 → <span class="arithmatex">\(R(\mathbf{d})\)</span> 大 → 每步下降快但需要小学习率防震荡
+- 若 <span class="arithmatex">\(\nabla L\)</span> 落在 <span class="arithmatex">\(\lambda_{\min}\)</span> 方向 → <span class="arithmatex">\(R(\mathbf{d})\)</span> 小 → 每步进展微乎其微</p>
+<p>Hessian 的<strong>条件数</strong> <span class="arithmatex">\(\kappa = \lambda_{\max}/\lambda_{\min}\)</span> 表征了最不利和最有利方向之间 Rayleigh 商的比值——它直接决定了 SGD 在最坏情况下的收敛速度。</p>
 </blockquote>
 <hr/>
 <p><a href="../determinant-eigen-svd/">← 返回教程</a>　　　<a href="../basis-and-neural-networks-exercises/">下一章习题 →</a></p>

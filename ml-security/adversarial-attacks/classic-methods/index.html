@@ -351,6 +351,37 @@
       
     </span>
 </a>
+<nav aria-label="0. 先统一语言：攻击和防御在干什么" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#01">
+<span class="md-ellipsis">
+      
+        0.1 攻击是什么？
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#02">
+<span class="md-ellipsis">
+      
+        0.2 防御是什么？
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#03">
+<span class="md-ellipsis">
+      
+        0.3 再建一个直觉：决策边界
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1-fgsm">
@@ -384,7 +415,16 @@
 <a class="md-nav__link" href="#13-logistic-regression">
 <span class="md-ellipsis">
       
-        1.3 在 Logistic Regression 上的推导（可选）
+        1.3 在 Logistic Regression 上的完整推导
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#14-fgsm">
+<span class="md-ellipsis">
+      
+        1.4 FGSM 的小结
       
     </span>
 </a>
@@ -406,7 +446,7 @@
 <a class="md-nav__link" href="#21-fgsm">
 <span class="md-ellipsis">
       
-        2.1 FGSM 不够强
+        2.1 为什么 FGSM 不够？
       
     </span>
 </a>
@@ -421,10 +461,10 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#23-bim-iterative-fgsm-i-fgsm">
+<a class="md-nav__link" href="#23-bim-i-fgsm">
 <span class="md-ellipsis">
       
-        2.3 BIM 也被称为 Iterative FGSM (I-FGSM)
+        2.3 BIM 的另一个名字：I-FGSM
       
     </span>
 </a>
@@ -464,25 +504,34 @@
 <a class="md-nav__link" href="#32-pgd">
 <span class="md-ellipsis">
       
-        3.2 PGD 的改进：随机初始化
+        3.2 PGD 的核心改进：随机初始化
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#33-pgd-vs-bim">
+<a class="md-nav__link" href="#33">
 <span class="md-ellipsis">
       
-        3.3 PGD vs BIM 的区别总结
+        3.3 随机初始化为什么关键？
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#34">
+<a class="md-nav__link" href="#34-pgd-vs-bim">
 <span class="md-ellipsis">
       
-        3.4 实验洞察：模型容量越大越鲁棒
+        3.4 PGD vs BIM 区别总结
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#35">
+<span class="md-ellipsis">
+      
+        3.5 实验洞察：模型越大越鲁棒？
       
     </span>
 </a>
@@ -494,11 +543,11 @@
 <a class="md-nav__link" href="#4-cw">
 <span class="md-ellipsis">
       
-        4. C&amp;W：换一种思路——直接优化扰动
+        4. C&amp;W：换一种思路 —— 直接优化扰动
       
     </span>
 </a>
-<nav aria-label="4. C&amp;W：换一种思路——直接优化扰动" class="md-nav">
+<nav aria-label="4. C&amp;W：换一种思路 —— 直接优化扰动" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#41">
@@ -513,25 +562,34 @@
 <a class="md-nav__link" href="#42">
 <span class="md-ellipsis">
       
-        4.2 如何处理约束
+        4.2 问题建模
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#43-box">
+<a class="md-nav__link" href="#43">
 <span class="md-ellipsis">
       
-        4.3 Box 约束的三种处理
+        4.3 把约束变成目标函数
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#44-cw">
+<a class="md-nav__link" href="#44-box-01">
 <span class="md-ellipsis">
       
-        4.4 C&amp;W 和其他方法的本质区别
+        4.4 处理 Box 约束（像素值在 [0,1] 内）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#45-cw-vs">
+<span class="md-ellipsis">
+      
+        4.5 C&amp;W vs 梯度方法：本质区别
       
     </span>
 </a>
@@ -568,28 +626,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#62-pgd">
+<a class="md-nav__link" href="#62-pgd-unlearning">
 <span class="md-ellipsis">
       
-        6.2 PGD 的随机初始化有多关键？
+        6.2 PGD 随机初始化和 Unlearning 的共鸣
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#63-cw-machine-unlearning">
+<a class="md-nav__link" href="#63-vs-vs">
 <span class="md-ellipsis">
       
-        6.3 C&amp;W 为什么对研究 Machine Unlearning 特别相关？
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#64-data-poisoning-backdoor">
-<span class="md-ellipsis">
-      
-        6.4 这些攻击和 Data Poisoning / Backdoor 的区别
+        6.3 对抗攻击 vs 投毒 vs 后门 —— 时机决定一切
       
     </span>
 </a>
@@ -601,10 +650,32 @@
 <a class="md-nav__link" href="#7">
 <span class="md-ellipsis">
       
-        7. 后续阅读
+        7. 后续阅读与下一步
       
     </span>
 </a>
+<nav aria-label="7. 后续阅读与下一步" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71">
+<span class="md-ellipsis">
+      
+        7.1 从本文出发
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72">
+<span class="md-ellipsis">
+      
+        7.2 与我的研究方向的关系
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -1566,6 +1637,37 @@
       
     </span>
 </a>
+<nav aria-label="0. 先统一语言：攻击和防御在干什么" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#01">
+<span class="md-ellipsis">
+      
+        0.1 攻击是什么？
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#02">
+<span class="md-ellipsis">
+      
+        0.2 防御是什么？
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#03">
+<span class="md-ellipsis">
+      
+        0.3 再建一个直觉：决策边界
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#1-fgsm">
@@ -1599,7 +1701,16 @@
 <a class="md-nav__link" href="#13-logistic-regression">
 <span class="md-ellipsis">
       
-        1.3 在 Logistic Regression 上的推导（可选）
+        1.3 在 Logistic Regression 上的完整推导
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#14-fgsm">
+<span class="md-ellipsis">
+      
+        1.4 FGSM 的小结
       
     </span>
 </a>
@@ -1621,7 +1732,7 @@
 <a class="md-nav__link" href="#21-fgsm">
 <span class="md-ellipsis">
       
-        2.1 FGSM 不够强
+        2.1 为什么 FGSM 不够？
       
     </span>
 </a>
@@ -1636,10 +1747,10 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#23-bim-iterative-fgsm-i-fgsm">
+<a class="md-nav__link" href="#23-bim-i-fgsm">
 <span class="md-ellipsis">
       
-        2.3 BIM 也被称为 Iterative FGSM (I-FGSM)
+        2.3 BIM 的另一个名字：I-FGSM
       
     </span>
 </a>
@@ -1679,25 +1790,34 @@
 <a class="md-nav__link" href="#32-pgd">
 <span class="md-ellipsis">
       
-        3.2 PGD 的改进：随机初始化
+        3.2 PGD 的核心改进：随机初始化
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#33-pgd-vs-bim">
+<a class="md-nav__link" href="#33">
 <span class="md-ellipsis">
       
-        3.3 PGD vs BIM 的区别总结
+        3.3 随机初始化为什么关键？
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#34">
+<a class="md-nav__link" href="#34-pgd-vs-bim">
 <span class="md-ellipsis">
       
-        3.4 实验洞察：模型容量越大越鲁棒
+        3.4 PGD vs BIM 区别总结
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#35">
+<span class="md-ellipsis">
+      
+        3.5 实验洞察：模型越大越鲁棒？
       
     </span>
 </a>
@@ -1709,11 +1829,11 @@
 <a class="md-nav__link" href="#4-cw">
 <span class="md-ellipsis">
       
-        4. C&amp;W：换一种思路——直接优化扰动
+        4. C&amp;W：换一种思路 —— 直接优化扰动
       
     </span>
 </a>
-<nav aria-label="4. C&amp;W：换一种思路——直接优化扰动" class="md-nav">
+<nav aria-label="4. C&amp;W：换一种思路 —— 直接优化扰动" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#41">
@@ -1728,25 +1848,34 @@
 <a class="md-nav__link" href="#42">
 <span class="md-ellipsis">
       
-        4.2 如何处理约束
+        4.2 问题建模
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#43-box">
+<a class="md-nav__link" href="#43">
 <span class="md-ellipsis">
       
-        4.3 Box 约束的三种处理
+        4.3 把约束变成目标函数
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#44-cw">
+<a class="md-nav__link" href="#44-box-01">
 <span class="md-ellipsis">
       
-        4.4 C&amp;W 和其他方法的本质区别
+        4.4 处理 Box 约束（像素值在 [0,1] 内）
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#45-cw-vs">
+<span class="md-ellipsis">
+      
+        4.5 C&amp;W vs 梯度方法：本质区别
       
     </span>
 </a>
@@ -1783,28 +1912,19 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#62-pgd">
+<a class="md-nav__link" href="#62-pgd-unlearning">
 <span class="md-ellipsis">
       
-        6.2 PGD 的随机初始化有多关键？
+        6.2 PGD 随机初始化和 Unlearning 的共鸣
       
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#63-cw-machine-unlearning">
+<a class="md-nav__link" href="#63-vs-vs">
 <span class="md-ellipsis">
       
-        6.3 C&amp;W 为什么对研究 Machine Unlearning 特别相关？
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#64-data-poisoning-backdoor">
-<span class="md-ellipsis">
-      
-        6.4 这些攻击和 Data Poisoning / Backdoor 的区别
+        6.3 对抗攻击 vs 投毒 vs 后门 —— 时机决定一切
       
     </span>
 </a>
@@ -1816,10 +1936,32 @@
 <a class="md-nav__link" href="#7">
 <span class="md-ellipsis">
       
-        7. 后续阅读
+        7. 后续阅读与下一步
       
     </span>
 </a>
+<nav aria-label="7. 后续阅读与下一步" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71">
+<span class="md-ellipsis">
+      
+        7.1 从本文出发
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72">
+<span class="md-ellipsis">
+      
+        7.2 与我的研究方向的关系
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#_1">
@@ -1843,127 +1985,330 @@
 </blockquote>
 <hr/>
 <h2 id="0">0. 先统一语言：攻击和防御在干什么<a class="headerlink" href="#0" title="锚点链接">¶</a></h2>
-<p>在进入具体方法之前，把数学框架说清楚。</p>
-<p><strong>攻击</strong>：给定原始样本 <code>x</code> 和标签 <code>y</code>，在扰动约束集合 <code>S</code> 内，找一个扰动 <code>δ</code>，让损失函数最大化：</p>
+<p>在进入具体方法之前，先用大白话把「攻击」和「防御」说清楚。</p>
+<h3 id="01">0.1 攻击是什么？<a class="headerlink" href="#01" title="锚点链接">¶</a></h3>
+<p>你有一张猫的图片 <span class="arithmatex">\(x\)</span>，模型正确地把它分类为「猫」。攻击者的目标是：<strong>给这张图加一个人类看不出来的微小扰动 <span class="arithmatex">\(\delta\)</span>，让模型把它错分成「狗」（或者任何不是猫的东西）。</strong></p>
+<p>数学上：在扰动不能太大的约束下，让损失函数尽可能大：</p>
 <div class="arithmatex">\[
-\max_{\delta \in S} L(\theta, x + \delta, y)
+\max_{\delta \in S}\; L(\theta,\; x + \delta,\; y)
 \]</div>
-<p>约束 <code>S</code> 通常是一个范数球（比如 <code>‖δ‖∞ ≤ ε</code>），保证扰动「人眼看不出」。</p>
-<p><strong>防御</strong>：在这个攻击设定下，训练一个鲁棒模型，让最坏情况下的期望损失最小：</p>
-<div class="arithmatex">\[
-\min_\theta \rho(\theta),\quad \rho(\theta) = \mathbb{E}_{(x,y) \sim D}\left[\max_{\delta \in S} L(\theta, x + \delta, y)\right]
-\]</div>
-<p>这就是 <strong>min-max 框架</strong>——Madry 等人后来把它形式化成对抗机器学习的标准范式。理解这个框架，才能看懂后面四种方法各自的定位。</p>
+<p>逐项解释：</p>
 <table>
 <thead>
 <tr>
-<th></th>
-<th>负责什么</th>
-<th>对应方法</th>
+<th>符号</th>
+<th>含义</th>
+<th>举例</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>内层 <code>max</code></td>
-<td>攻击：找到最强的对抗样本</td>
-<td>FGSM → BIM → PGD → C&amp;W</td>
+<td><span class="arithmatex">\(x\)</span></td>
+<td>原始输入（一张图）</td>
+<td>224×224×3 的像素值</td>
 </tr>
 <tr>
-<td>外层 <code>min</code></td>
-<td>防御：训练鲁棒模型</td>
-<td>对抗训练（用内层攻击生成样本）</td>
+<td><span class="arithmatex">\(y\)</span></td>
+<td>正确标签</td>
+<td>"cat"</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\delta\)</span></td>
+<td>加在 <span class="arithmatex">\(x\)</span> 上的扰动</td>
+<td>每个像素加一点点，人眼看不出来</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(S\)</span></td>
+<td>扰动的允许范围</td>
+<td>每个像素的改动量不超过 ε（比如 0.01）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(L\)</span></td>
+<td>损失函数</td>
+<td>交叉熵——损失越大 = 模型越不确定</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\theta\)</span></td>
+<td>模型参数</td>
+<td>神经网络的权重</td>
 </tr>
 </tbody>
 </table>
+<p><strong>一句话</strong>：在扰动限制内，让模型尽可能「懵圈」。</p>
+<h3 id="02">0.2 防御是什么？<a class="headerlink" href="#02" title="锚点链接">¶</a></h3>
+<p>防御方要在<strong>攻击者已经出手</strong>的情况下，把模型训练得尽可能鲁棒：</p>
+<div class="arithmatex">\[
+\min_\theta\; \mathbb{E}_{(x,y) \sim D}\left[\max_{\delta \in S} L(\theta, x + \delta, y)\right]
+\]</div>
+<p>这就是著名的 <strong>min-max 框架</strong>（Madry 等人 2018 年形式化）：</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>符号</th>
+<th>负责什么</th>
+<th>谁来做</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>内层</td>
+<td><span class="arithmatex">\(\max_{\delta}\)</span></td>
+<td><strong>攻击</strong>：对每个样本找到最强的扰动</td>
+<td>FGSM / BIM / PGD / C&amp;W</td>
+</tr>
+<tr>
+<td>外层</td>
+<td><span class="arithmatex">\(\min_{\theta}\)</span></td>
+<td><strong>防御</strong>：在最坏情况下最小化损失</td>
+<td>对抗训练</td>
+</tr>
+</tbody>
+</table>
+<p><strong>这正是本文的结构</strong>：四种方法都在解决「内层 max」问题——怎么高效地找到最强的对抗样本。找到之后，外层 min 就是对抗训练，本文不展开。</p>
+<h3 id="03">0.3 再建一个直觉：决策边界<a class="headerlink" href="#03" title="锚点链接">¶</a></h3>
+<p>想象分类器在输入空间画了一条线（决策边界），线的一边是「猫」，另一边是「狗」。你的猫图 <span class="arithmatex">\(x\)</span> 在这条线的「猫」这一侧，离边界有一定距离。</p>
+<p>对抗攻击的目标：<strong>沿着最短的方向，把 <span class="arithmatex">\(x\)</span> 推过这条边界</strong>。推的力度控制在 <span class="arithmatex">\(\varepsilon\)</span> 以内，让人眼看不出来。</p>
+<p>后面四种方法的区别，本质上就是<strong>「往哪个方向推」和「推几步」</strong>的不同策略。</p>
 <hr/>
 <h2 id="1-fgsm">1. FGSM：为什么一步就够了？<a class="headerlink" href="#1-fgsm" title="锚点链接">¶</a></h2>
 <blockquote>
 <p>论文：Goodfellow et al., <em>Explaining and Harnessing Adversarial Examples</em> (ICLR 2015)</p>
 </blockquote>
 <h3 id="11">1.1 核心洞察：不是非线性，是线性<a class="headerlink" href="#11" title="锚点链接">¶</a></h3>
-<p>2015 年之前，大家普遍认为对抗样本的存在是因为神经网络的<strong>高度非线性</strong>——函数太复杂、太弯曲，所以在数据点附近出现了意想不到的陡峭区域。</p>
-<p>Goodfellow 说：<strong>不需要非线性，高维空间里的线性行为就足够产生对抗样本。</strong></p>
-<p>直觉是这样的：</p>
-<ul>
-<li>输入 <code>x</code> 是一个高维向量（比如 224×224×3 ≈ 150,000 维）</li>
-<li>扰动 <code>η</code> 的每个分量都很小（比如 <code>‖η‖∞ &lt; ε</code>）</li>
-<li>但 <strong>150,000 个「很小」加起来就是一个不容忽视的量</strong></li>
-</ul>
-<p>具体来说，考虑一个简单的线性模型 <code>f(x) = w^T x + b</code>。加上扰动后：</p>
+<p>2015 年之前，大家普遍认为对抗样本是神经网络的<strong>高度非线性</strong>造成的——函数太复杂，在数据点附近有「悬崖」，轻轻一推就掉下去了。</p>
+<p>Goodfellow 说：<strong>不需要非线性。高维空间里的线性行为就足够产生对抗样本。</strong></p>
+<p>先说清楚什么是「线性」：</p>
 <div class="arithmatex">\[
-w^T(x + η) = w^T x + w^T η
+f(x) = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b = w^T x + b
 \]</div>
-<p>扰动带来的变化量是 <code>w^T η</code>。如果取 <code>η = ε · sign(w)</code>——即扰动方向和权重方向一致——那么：</p>
+<p>这就是一条直线（高维空间里叫超平面）。输出 <span class="arithmatex">\(f(x)\)</span> 等于每个输入分量乘以权重再加起来。</p>
+<p>现在，假设我们对输入加一个微小的扰动 <span class="arithmatex">\(\eta\)</span>：</p>
 <div class="arithmatex">\[
-w^T η = ε · \|w\|_1
+f(x + \eta) = w^T(x + \eta) + b = \underbrace{w^T x + b}_{\text{原始输出}} + \underbrace{w^T \eta}_{\text{扰动带来的变化}}
 \]</div>
-<p>而 <code>‖w‖₁</code> 在高维情况下可以很大（因为它是所有权重绝对值之和，150,000 维累加起来）。所以即使 <code>ε</code> 很小，对输出的影响也可能非常大。</p>
+<p>关键在 <span class="arithmatex">\(w^T \eta\)</span> 这一项。展开看看它有多大：</p>
+<div class="arithmatex">\[
+w^T \eta = w_1 \eta_1 + w_2 \eta_2 + \dots + w_n \eta_n
+\]</div>
+<p><strong>这是 <span class="arithmatex">\(n\)</span> 个数的和。</strong> 在图像任务里，<span class="arithmatex">\(n\)</span> = 224 × 224 × 3 = 150,528 维。</p>
+<p>如果扰动 <span class="arithmatex">\(\eta\)</span> 跟权重 <span class="arithmatex">\(w\)</span> 同方向（即 <span class="arithmatex">\(\eta = \varepsilon \cdot \text{sign}(w)\)</span>），那么：</p>
+<div class="arithmatex">\[
+w^T \eta = \varepsilon \cdot \big(|w_1| + |w_2| + \dots + |w_n|\big) = \varepsilon \cdot \|w\|_1
+\]</div>
+<p><strong><span class="arithmatex">\(\|w\|_1\)</span> 是什么？</strong> 它是所有权重绝对值的和。150,000 个权重，每个就算只有 0.01，加起来也是 1,500。乘以 <span class="arithmatex">\(\varepsilon = 0.007\)</span>，就是约 10.5 的变化量——足够把一个类别翻转到另一个类别了。</p>
+<p><strong>用一个具体数字感受</strong>：假设一个简单的二分类，权重 <span class="arithmatex">\(w = [0.02, -0.01, 0.03, \dots]\)</span> 共 150,000 个分量，每个绝对值平均 0.02。那么 <span class="arithmatex">\(\|w\|_1 \approx 150{,}000 \times 0.02 = 3{,}000\)</span>。<span class="arithmatex">\(\varepsilon = 0.007\)</span> 时，<span class="arithmatex">\(w^T \eta = 0.007 \times 3{,}000 = 21\)</span>。分界线上输出变化 21，足以翻转分类结果。</p>
+<p>这就是线性假设的核心：<strong>不是模型太复杂，而是维度太高。</strong> 高维度下，即使每个分量只动一点点，累加起来就是一个巨大的量。</p>
 <h3 id="12-fgsm">1.2 FGSM 公式<a class="headerlink" href="#12-fgsm" title="锚点链接">¶</a></h3>
-<p>把上面的直觉推广到非线性模型，扰动方向不再用权重 <code>w</code>，而是用<strong>损失函数对输入的梯度</strong>：</p>
+<p>把上面的直觉推广到非线性模型（神经网络）：扰动方向不再用权重 <span class="arithmatex">\(w\)</span>，而是用<strong>损失函数对输入的梯度</strong>。「损失对输入的梯度」告诉你：往哪个方向改像素，loss 涨得最快。</p>
+<p><strong>FGSM 的核心公式</strong>：</p>
 <div class="arithmatex">\[
-\boxed{x' = x + ε \cdot \text{sign}\left(\nabla_x J(\theta, x, y)\right)}
+\boxed{x' = x + \varepsilon \cdot \text{sign}\big(\nabla_x J(\theta, x, y)\big)}
 \]</div>
-<p><strong>逐项解释</strong>：</p>
-<ul>
-<li><code>∇_x J(θ, x, y)</code>：损失对<strong>输入</strong>的梯度——告诉你「往哪个方向动像素，loss 涨最快」</li>
-<li><code>sign(·)</code>：只取符号（+1 或 −1），不关心梯度大小。这保证了每个像素改动量一致，都是 ±ε</li>
-<li><code>ε</code>：扰动强度，控制「攻击力度」</li>
-</ul>
-<p><strong>为什么用符号而不是直接用梯度值？</strong> 两个原因：</p>
+<p><strong>逐项拆解</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+<th>如何得到</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(x\)</span></td>
+<td>原始输入（一张图）</td>
+<td>数据集读取</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y\)</span></td>
+<td>正确标签</td>
+<td>数据集读取</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(J(\theta, x, y)\)</span></td>
+<td>损失函数，衡量模型在 <span class="arithmatex">\((x,y)\)</span> 上表现多差</td>
+<td>模型前向传播 + 交叉熵</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nabla_x J\)</span></td>
+<td>损失对 <strong>输入</strong> 的梯度——每个像素该往哪个方向改</td>
+<td><code>loss.backward()</code> 自动计算</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\text{sign}(\cdot)\)</span></td>
+<td>取符号：正 → +1，负 → −1，零 → 0</td>
+<td>丢弃大小，只保留方向</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\varepsilon\)</span></td>
+<td>扰动强度，控制每步走多远</td>
+<td>人为设定（如 0.01、0.1）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(x'\)</span></td>
+<td>最终对抗样本</td>
+<td><span class="arithmatex">\(x + \varepsilon \cdot \text{sign}(\nabla_x J)\)</span></td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么用 sign 而不是直接用梯度值？</strong></p>
+<p>有两个原因：</p>
 <ol>
-<li><strong>均匀性</strong>：每个像素改动量都是 ±ε，扰动分布均匀，不易被检测</li>
-<li><strong>速度</strong>：一步到位，不需要迭代</li>
+<li><strong>均匀性</strong>：sign 把所有像素的改动量统一为 <span class="arithmatex">\(\pm\varepsilon\)</span>。如果用原始梯度值，有些像素动很多，有些几乎不动，扰动不均匀。</li>
+<li><strong>速度</strong>：一步到位，不需要迭代。这就是 "Fast" 的由来。</li>
 </ol>
-<p>这就是 "Fast Gradient <strong>Sign</strong> Method" 名字的由来——快，且只用梯度的符号。</p>
-<h3 id="13-logistic-regression">1.3 在 Logistic Regression 上的推导（可选）<a class="headerlink" href="#13-logistic-regression" title="锚点链接">¶</a></h3>
-<p>很多人对 FGSM 和逻辑回归的关系没搞清。这里给出完整推导，帮助理解线性假设。</p>
-<p><strong>设定</strong>：二分类，标签 <code>y ∈ {−1, 1}</code>，预测 <code>P(y=1) = σ(w^T x + b)</code>，损失用 softplus：<code>τ(z) = log(1 + e^z)</code>。</p>
-<p>逻辑回归的损失函数：</p>
-<div class="arithmatex">\[
-J(w, x, y) = τ\left(-y(w^T x + b)\right)
-\]</div>
-<p>对 <code>x</code> 求梯度（链式法则，softplus 的导数就是 sigmoid）：</p>
-<div class="arithmatex">\[
-\nabla_x J = τ'\left(-y(w^T x + b)\right) · (-y) · w = \frac{e^{-y(w^T x + b)}}{1 + e^{-y(w^T x + b)}} · (-y) · w
-\]</div>
-<p>代入 FGSM 公式：</p>
-<div class="arithmatex">\[
-η = ε · \text{sign}(\nabla_x J) = ε · \text{sign}\left(\frac{e^{-y(w^T x + b)}}{1 + e^{-y(w^T x + b)}} · (-y) · w\right)
-\]</div>
-<p>关键观察：sigmoid 函数的值在 <code>(0, 1)</code> 之间，前面的系数恒正。所以符号完全由 <code>-y · w</code> 决定：</p>
+<p><strong>"Fast Gradient Sign Method" 名字拆开</strong>：Fast = 一步、Gradient = 用梯度、Sign = 只取符号。</p>
+<h3 id="13-logistic-regression">1.3 在 Logistic Regression 上的完整推导<a class="headerlink" href="#13-logistic-regression" title="锚点链接">¶</a></h3>
+<blockquote>
+<p>这一节的目的是帮你「看到」线性的威力。如果你是第一次读，可以跳过推导看结论。</p>
+</blockquote>
+<p><strong>设定</strong>：</p>
 <ul>
-<li><code>y = 1</code>：<code>η = ε · \text{sign}(-w) = -ε · \text{sign}(w)</code></li>
-<li><code>y = −1</code>：<code>η = ε · \text{sign}(w) = -y · ε · \text{sign}(w)</code></li>
+<li>二分类，标签 <span class="arithmatex">\(y \in \{-1, 1\}\)</span>（不是常见的 <span class="arithmatex">\(\{0,1\}\)</span>，这是为了推导方便）</li>
+<li>模型预测：<span class="arithmatex">\(P(y=1) = \sigma(w^T x + b)\)</span>，其中 <span class="arithmatex">\(\sigma(z) = \frac{1}{1+e^{-z}}\)</span> 是 sigmoid</li>
+<li>损失函数用 softplus：<span class="arithmatex">\(\tau(z) = \log(1 + e^z)\)</span>（它是交叉熵在 <span class="arithmatex">\(\{\pm 1\}\)</span> 标签下的等价形式）</li>
+</ul>
+<p><strong>步骤 1：写出损失函数</strong></p>
+<div class="arithmatex">\[
+J(w, x, y) = \tau\big(-y(w^T x + b)\big)
+\]</div>
+<p>为什么里面有个 <span class="arithmatex">\(-y\)</span>？因为标签是 ±1：当 <span class="arithmatex">\(y=1\)</span> 时我们希望 <span class="arithmatex">\(w^T x + b\)</span> 越大越好（→0 损失），<span class="arithmatex">\(y=-1\)</span> 时我们希望它越小越好（→0 损失）。乘上 <span class="arithmatex">\(-y\)</span> 统一了两者。</p>
+<p><strong>步骤 2：对 <span class="arithmatex">\(x\)</span> 求梯度（链式法则）</strong></p>
+<p>我们需要 <span class="arithmatex">\(\nabla_x J\)</span>。softplus 的导数恰好是 sigmoid：</p>
+<div class="arithmatex">\[
+\tau'(z) = \frac{e^z}{1+e^z} = \sigma(z)
+\]</div>
+<p>应用链式法则：</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\nabla_x J &amp;= \tau'\big(-y(w^T x + b)\big) \cdot \frac{\partial}{\partial x}\big[-y(w^T x + b)\big] \\[4pt]
+&amp;= \underbrace{\frac{e^{-y(w^T x + b)}}{1 + e^{-y(w^T x + b)}}}_{\text{sigmoid ∈ (0,1)}} \cdot (-y) \cdot w
+\end{aligned}
+\]</div>
+<p><strong>步骤 3：代入 FGSM 公式</strong></p>
+<div class="arithmatex">\[
+\eta = \varepsilon \cdot \text{sign}(\nabla_x J) = \varepsilon \cdot \text{sign}\!\left(\frac{e^{-y(w^T x + b)}}{1 + e^{-y(w^T x + b)}} \cdot (-y) \cdot w\right)
+\]</div>
+<p><strong>步骤 4：化简符号</strong></p>
+<p>关键观察：sigmoid 的值永远是正数（在 <span class="arithmatex">\((0, 1)\)</span> 之间），它不影响符号。所以：</p>
+<ul>
+<li><span class="arithmatex">\(\text{sign}(\nabla_x J) = \text{sign}(-y \cdot w)\)</span></li>
+</ul>
+<p>两种情况：</p>
+<ul>
+<li>当 <span class="arithmatex">\(y = 1\)</span>：<span class="arithmatex">\(\eta = \varepsilon \cdot \text{sign}(-w) = -\varepsilon \cdot \text{sign}(w)\)</span></li>
+<li>当 <span class="arithmatex">\(y = -1\)</span>：<span class="arithmatex">\(\eta = \varepsilon \cdot \text{sign}(w)\)</span></li>
 </ul>
 <p>统一写成：</p>
 <div class="arithmatex">\[
-\boxed{η = -y · ε · \text{sign}(w)}
+\boxed{\eta = -y \cdot \varepsilon \cdot \text{sign}(w)}
 \]</div>
-<p><strong>这个结果的直觉</strong>：</p>
+<p><strong>步骤 5：计算扰动对输出的实际影响</strong></p>
+<div class="arithmatex">\[
+\begin{aligned}
+w^T \eta &amp;= w^T\!\big(-y \cdot \varepsilon \cdot \text{sign}(w)\big) \\
+&amp;= -y \cdot \varepsilon \cdot \big(w_1 \cdot \text{sign}(w_1) + w_2 \cdot \text{sign}(w_2) + \dots + w_n \cdot \text{sign}(w_n)\big) \\
+&amp;= -y \cdot \varepsilon \cdot \big(|w_1| + |w_2| + \dots + |w_n|\big) \\
+&amp;= -y \cdot \varepsilon \cdot \|w\|_1
+\end{aligned}
+\]</div>
+<p><strong>结论</strong>：扰动带来的输出变化量是 <span class="arithmatex">\(\varepsilon \cdot \|w\|_1\)</span>。</p>
 <ul>
-<li>因为 <code>sign(w)</code> 就是权重 <code>w</code> 的符号方向</li>
-<li>所以 <code>w^T · sign(w) = \|w\|₁</code></li>
-<li>扰动带来的输出变化量 <code>w^T η = -y · ε · \|w\|₁</code></li>
+<li><span class="arithmatex">\(w^T \cdot \text{sign}(w) = \|w\|_1\)</span> 这一步是整篇推导的精髓——sign 函数把所有负权重翻成正的，所以求和就变成了绝对值之和</li>
+<li>这清晰地展示了：<strong>对抗样本的有效性不依赖于模型的非线性，而依赖于输入维度</strong>。只要维度够高（<span class="arithmatex">\(\|w\|_1\)</span> 够大），再小的 <span class="arithmatex">\(\varepsilon\)</span> 也能产生足够大的影响。</li>
 </ul>
-<p>注意 <code>\|w\|₁</code> 在高维数据（比如图像）上可以非常大！即使 <code>ε</code> 很小（比如 0.007），<code>ε · ‖w‖₁</code> 也足以让样本跨过决策边界。</p>
-<p><strong>这就是线性假设的核心</strong>：对抗样本不是「模型太复杂」造成的，而是「高维空间里 <code>L₁</code> 范数太大」造成的。只要维度够高，一个微小扰动就能累积出巨大影响。</p>
+<h3 id="14-fgsm">1.4 FGSM 的小结<a class="headerlink" href="#14-fgsm" title="锚点链接">¶</a></h3>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>FGSM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>假设</td>
+<td>高维空间的线性行为</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>沿梯度符号方向走一步</td>
+</tr>
+<tr>
+<td>步数</td>
+<td>1</td>
+</tr>
+<tr>
+<td>速度</td>
+<td>极快</td>
+</tr>
+<tr>
+<td>攻击强度</td>
+<td>弱（单步容易被防御）</td>
+</tr>
+<tr>
+<td>适合场景</td>
+<td>快速生成、概念验证、对抗训练</td>
+</tr>
+</tbody>
+</table>
 <hr/>
 <h2 id="2-bim">2. BIM：从一跳到多步<a class="headerlink" href="#2-bim" title="锚点链接">¶</a></h2>
 <blockquote>
 <p>论文：Kurakin et al., <em>Adversarial Machine Learning at Scale</em> (ICLR 2017)</p>
 </blockquote>
-<h3 id="21-fgsm">2.1 FGSM 不够强<a class="headerlink" href="#21-fgsm" title="锚点链接">¶</a></h3>
-<p>Goodfellow 的 FGSM 在 MNIST 上很有效，但在 ImageNet 上成功率只有 63% — 69%。原因很简单：对大图来说，一步跨出去不一定能跨过决策边界。</p>
-<p>Kurakin 等人的改进思路很直接：<strong>多次迭代</strong>。</p>
+<h3 id="21-fgsm">2.1 为什么 FGSM 不够？<a class="headerlink" href="#21-fgsm" title="锚点链接">¶</a></h3>
+<p>FGSM 在 MNIST（28×28 小图）上效果很好，但在 ImageNet（224×224 大图）上成功率只有 63% — 69%。</p>
+<p>直观原因：<strong>一步跨出去不一定能跨过决策边界。</strong> 就好比你站在山谷边，按指南针方向走一步——在小山丘上够用，在大峡谷里不够。</p>
+<p>Kurakin 等人的思路很朴素：<strong>别走一步，走多步。每一步走小一点。</strong></p>
 <h3 id="22-bim">2.2 BIM 公式<a class="headerlink" href="#22-bim" title="锚点链接">¶</a></h3>
-<p>每一步走一小步（步长 <code>α</code>，通常远小于 <code>ε</code>），走完 <code>N</code> 步后总扰动用 <code>ε</code> 裁减：</p>
+<p>从原图 <span class="arithmatex">\(x\)</span> 出发，每一步走 <span class="arithmatex">\(\alpha\)</span>（远小于 <span class="arithmatex">\(\varepsilon\)</span>），走 <span class="arithmatex">\(N\)</span> 步，每步之后把结果「夹」回 <span class="arithmatex">\(\varepsilon\)</span> 半径的球内：</p>
+<p><strong>初始化</strong>：</p>
 <div class="arithmatex">\[
-x_0 = x
+x_0 = x \quad \text{（从原图出发）}
 \]</div>
+<p><strong>迭代</strong>（<span class="arithmatex">\(k = 0, 1, 2, \dots, N-1\)</span>）：</p>
 <div class="arithmatex">\[
-x_{k+1} = \text{Clip}_{x, ε}\left(x_k - α · \text{sign}\left(\nabla_x J(x_k, y_{\text{target}})\right)\right)
+x_{k+1} = \text{Clip}_{x,\varepsilon}\!\Big(x_k - \alpha \cdot \text{sign}\big(\nabla_x J(x_k,\; y_{\text{target}})\big)\Big)
 \]</div>
-<p>和 FGSM 有两个关键区别：</p>
+<p><strong>逐项解释</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(x_k\)</span></td>
+<td>第 <span class="arithmatex">\(k\)</span> 步的对抗样本</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\alpha\)</span></td>
+<td>每步步长，通常设 <span class="arithmatex">\(\alpha = \varepsilon / N\)</span>（如 ε=0.3, N=40 → α=0.0075）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(y_{\text{target}}\)</span></td>
+<td>目标错误类别（选模型置信度最低的类）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\nabla_x J(x_k, y_{\text{target}})\)</span></td>
+<td>在<strong>当前</strong>对抗样本上，对<strong>目标类别</strong>的损失求梯度</td>
+</tr>
+<tr>
+<td><strong>减号</strong>（不是加号）</td>
+<td>因为攻击目标变了：从「推开正确类」变成「拉近目标类」</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\text{Clip}_{x,\varepsilon}\)</span></td>
+<td>把结果夹回 <span class="arithmatex">\(x\)</span> 的 <span class="arithmatex">\(\varepsilon\)</span>-邻域内（每个像素不超过 ±ε）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么用减号？</strong> FGSM 是「让正确类的 loss 变大」→ 加号。BIM 是「让目标类的 loss 变小」→ 减号。目标类 <span class="arithmatex">\(y_{\text{target}}\)</span> 通常取模型输出概率<strong>最低</strong>的那个类——最容易攻破。</p>
+<p><strong>BIM 和 FGSM 的关键区别</strong>：</p>
 <table>
 <thead>
 <tr>
@@ -1976,47 +2321,58 @@ x_{k+1} = \text{Clip}_{x, ε}\left(x_k - α · \text{sign}\left(\nabla_x J(x_k, 
 <tr>
 <td>步数</td>
 <td>1 步</td>
-<td>多步迭代（如 10-40 步）</td>
+<td><span class="arithmatex">\(N\)</span> 步（如 10-40 步）</td>
+</tr>
+<tr>
+<td>步长</td>
+<td><span class="arithmatex">\(\varepsilon\)</span>（一步到位）</td>
+<td><span class="arithmatex">\(\alpha \ll \varepsilon\)</span>（小步迭代）</td>
 </tr>
 <tr>
 <td>攻击目标</td>
-<td>无目标（远离正确类就行）</td>
-<td><strong>有目标</strong>（推向特定错误类）</td>
+<td>无目标（错分就行）</td>
+<td><strong>有目标</strong>（错分成指定类）</td>
+</tr>
+<tr>
+<td>公式符号</td>
+<td>+（推开正确类）</td>
+<td>−（拉近目标类）</td>
 </tr>
 </tbody>
 </table>
-<p>注意 BIM 公式里是 <strong>减号</strong>而不是加号——因为攻击目标从「最大化正确类的 loss」变成了「最小化目标类的 loss」。目标类别通常选模型<strong>最不可能是的那个类</strong>（即模型置信度最低的类）。</p>
-<h3 id="23-bim-iterative-fgsm-i-fgsm">2.3 BIM 也被称为 Iterative FGSM (I-FGSM)<a class="headerlink" href="#23-bim-iterative-fgsm-i-fgsm" title="锚点链接">¶</a></h3>
-<p>BIM 本质上就是 FGSM 的迭代版本，所以也常被称为 <strong>I-FGSM（Iterative FGSM）</strong>。</p>
+<h3 id="23-bim-i-fgsm">2.3 BIM 的另一个名字：I-FGSM<a class="headerlink" href="#23-bim-i-fgsm" title="锚点链接">¶</a></h3>
+<p>BIM 本质上就是「FGSM 的迭代（Iterative）版本」，所以也叫 <strong>I-FGSM（Iterative FGSM）</strong>。论文和代码里两个名字经常混用——指的是同一个东西。</p>
 <h3 id="24">2.4 批量对抗训练<a class="headerlink" href="#24" title="锚点链接">¶</a></h3>
-<p>Kurakin 等人还提出了一个实用的对抗训练方案：在训练时混入对抗样本，用可控的比例：</p>
+<p>Kurakin 等人还提出了一个实用的对抗训练方案：</p>
 <div class="arithmatex">\[
-\tilde{J}(\theta, x, y) = \alpha · J(\theta, x, y) + (1 - \alpha) · J(\theta, x^{\text{adv}}, y)
+\tilde{J}(\theta, x, y) = \alpha \cdot J(\theta, x, y) + (1-\alpha) \cdot J(\theta, x^{\text{adv}}, y)
 \]</div>
-<p>其中 <code>α</code> 控制干净样本和对抗样本的比例。这让对抗训练可以在大规模数据集上高效进行。</p>
-<p><strong>实验中一个有趣的发现</strong>：FGSM 的<strong>可迁移性</strong>远强于 BIM。BIM 生成的对抗样本太「定制化」了——它对当前模型有效，但换个模型就不灵了。FGSM 因为「粗糙」，反而更容易迁移。这对黑盒攻击有启发意义。</p>
+<p><strong>含义</strong>：损失 = 干净样本的损失和对抗样本的损失按比例混合。<span class="arithmatex">\(\alpha\)</span> 控制比例，比如 <span class="arithmatex">\(\alpha=0.5\)</span> 就是一半一半。这比「全用对抗样本训练」更稳定。</p>
+<p><strong>实验中一个反直觉的发现</strong>：FGSM 生成的对抗样本<strong>可迁移性</strong>远强于 BIM。BIM 太「定制化」了——它对当前模型很有效，换个模型就不灵了。FGSM 因为「粗糙」，反而在跨模型迁移时更成功。<strong>这对黑盒攻击有启发意义</strong>：更简单的攻击反而更容易泛化。</p>
 <hr/>
 <h2 id="3-pgd-first-order">3. PGD：目前为止最强的 first-order 攻击<a class="headerlink" href="#3-pgd-first-order" title="锚点链接">¶</a></h2>
 <blockquote>
 <p>论文：Madry et al., <em>Towards Deep Learning Models Resistant to Adversarial Attacks</em> (ICLR 2018)</p>
 </blockquote>
 <h3 id="31-min-max">3.1 Min-Max 框架的形式化<a class="headerlink" href="#31-min-max" title="锚点链接">¶</a></h3>
-<p>Madry 等人做了两件重要的事，一个是形式化，一个是方法改进。</p>
-<p><strong>形式化</strong>：把对抗攻击和防御统一成 min-max 框架（就是本文第 0 节那个公式）。这个框架的影响远超这篇论文本身，后来几乎所有的对抗攻防研究都默认采用这个范式。</p>
-<h3 id="32-pgd">3.2 PGD 的改进：随机初始化<a class="headerlink" href="#32-pgd" title="锚点链接">¶</a></h3>
-<p>PGD 和 BIM 的本质区别就一个：<strong>初始点在随机位置，而不是原图</strong>。</p>
+<p>Madry 等人最重要的贡献不是方法本身，而是<strong>把对抗攻防统一成了一个清晰的数学框架</strong>——就是本文第 0 节的 min-max 公式。这个框架后来成为整个领域的标准语言。</p>
+<h3 id="32-pgd">3.2 PGD 的核心改进：随机初始化<a class="headerlink" href="#32-pgd" title="锚点链接">¶</a></h3>
+<p>PGD 和 BIM 的<strong>唯一本质区别</strong>是初始点：</p>
 <div class="arithmatex">\[
-x_0 = x + U(-\epsilon, \epsilon)
+x_0 = x + U(-\varepsilon, \varepsilon)
 \]</div>
-<p>然后在范数球内迭代：</p>
+<p><span class="arithmatex">\(U(-\varepsilon, \varepsilon)\)</span> 表示从 <span class="arithmatex">\([-\varepsilon, \varepsilon]\)</span> 区间随机取一个值。所以 <span class="arithmatex">\(x_0\)</span> 是原图加上一个随机扰动，而不是原图本身。</p>
+<p>然后在这个随机起点上，做和 BIM 一样的多步迭代（在 <span class="arithmatex">\(\varepsilon\)</span>-球内投影）：</p>
 <div class="arithmatex">\[
-x_{k+1} = \Pi_{B(x, \varepsilon)}\left(x_k + \alpha · \text{sign}\left(\nabla_x J(x_k, y)\right)\right)
+x_{k+1} = \Pi_{B(x,\varepsilon)}\!\Big(x_k + \alpha \cdot \text{sign}\big(\nabla_x J(x_k, y)\big)\Big)
 \]</div>
-<p>其中 <code>Π_{B(x, ε)}</code> 表示投影回 <code>x</code> 的 ε-范数球内。</p>
-<p><strong>为什么要随机初始化？</strong></p>
-<p>BIM 总是从同一个位置（原图）出发，它可能陷入一个局部最优——找到了一个「看起来像是」对抗样本的点，但实际上还有更强的攻击隐藏在附近的某个位置。</p>
-<p>随机初始化 = 每次从不同的地方开始搜索 = 更有可能找到全局最优点。这就好比你想在一张地图上找最低点：从同一个地点出发，你可能每次都走到同一个山谷；从不同地点出发，你可能发现一个更深的盆地。</p>
-<h3 id="33-pgd-vs-bim">3.3 PGD vs BIM 的区别总结<a class="headerlink" href="#33-pgd-vs-bim" title="锚点链接">¶</a></h3>
+<p>这里 <span class="arithmatex">\(\Pi_{B(x,\varepsilon)}\)</span> 表示「投影回以 <span class="arithmatex">\(x\)</span> 为中心、半径 <span class="arithmatex">\(\varepsilon\)</span> 的球内」——如果 <span class="arithmatex">\(x_k\)</span> 跑出界了，就把它拉回来。</p>
+<h3 id="33">3.3 随机初始化为什么关键？<a class="headerlink" href="#33" title="锚点链接">¶</a></h3>
+<p>用一个类比理解 BIM 和 PGD 的区别：</p>
+<p><strong>BIM</strong> = 你站在山脚（原图），每次都沿着同一个方向往上爬。你可能每次都爬到同一个山丘的顶部，以为这是最高点——但其实不远处有一个更高的山峰，你从未探索过。</p>
+<p><strong>PGD</strong> = 你<strong>随机降落</strong>在山脚的任意位置，然后往上爬。多试几次，你很可能发现更高的山峰。</p>
+<p>数学上的原因：损失函数的 landscape（地形）在 <span class="arithmatex">\(\varepsilon\)</span>-球内不是凸的，有很多局部最优点。BIM 的确定性搜索容易陷入局部最优；随机初始化 + 多次重启可以更好地探索全局。</p>
+<h3 id="34-pgd-vs-bim">3.4 PGD vs BIM 区别总结<a class="headerlink" href="#34-pgd-vs-bim" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -2028,13 +2384,13 @@ x_{k+1} = \Pi_{B(x, \varepsilon)}\left(x_k + \alpha · \text{sign}\left(\nabla_x
 <tbody>
 <tr>
 <td>起点</td>
-<td>原图 <code>x</code></td>
-<td>随机扰动后的 <code>x + U(-ε, ε)</code></td>
+<td>原图 <span class="arithmatex">\(x\)</span></td>
+<td><span class="arithmatex">\(x + U(-\varepsilon, \varepsilon)\)</span>（随机扰动）</td>
 </tr>
 <tr>
-<td>迭代</td>
-<td>固定步数</td>
-<td>更多迭代（如 40 步）</td>
+<td>迭代步数</td>
+<td>固定（如 10-20）</td>
+<td>更多（如 40，配合小步长）</td>
 </tr>
 <tr>
 <td>搜索策略</td>
@@ -2044,7 +2400,7 @@ x_{k+1} = \Pi_{B(x, \varepsilon)}\left(x_k + \alpha · \text{sign}\left(\nabla_x
 <tr>
 <td>攻击强度</td>
 <td>强</td>
-<td><strong>更强</strong></td>
+<td><strong>更强</strong>（能攻破更多防御）</td>
 </tr>
 <tr>
 <td>论文</td>
@@ -2053,68 +2409,162 @@ x_{k+1} = \Pi_{B(x, \varepsilon)}\left(x_k + \alpha · \text{sign}\left(\nabla_x
 </tr>
 </tbody>
 </table>
-<p>一句话：<strong>PGD = BIM + 随机初始化 + 更多迭代轮数。</strong></p>
-<h3 id="34">3.4 实验洞察：模型容量越大越鲁棒<a class="headerlink" href="#34" title="锚点链接">¶</a></h3>
-<p>Madry 等人做了一个重要的实验观察：随着模型容量（宽度）增大，<strong>不仅在干净数据上表现更好，对抗训练后的鲁棒性也在持续提升</strong>。这个趋势和对干净数据不同——干净数据上模型大到一定程度后收益递减，但对抗鲁棒性似乎是「越大越好」。</p>
-<p>这暗示了一个可能性：<strong>鲁棒性需要更多的模型容量来「记住」更复杂的决策边界</strong>。</p>
+<p><strong>一句话</strong>：PGD = BIM + 随机初始化 + 更多迭代轮数。</p>
+<h3 id="35">3.5 实验洞察：模型越大越鲁棒？<a class="headerlink" href="#35" title="锚点链接">¶</a></h3>
+<p>Madry 等人做了一个被广泛引用的实验：<strong>逐步增大模型宽度，看鲁棒性的变化。</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型大小</th>
+<th>干净准确率</th>
+<th>对抗训练后的鲁棒准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>小</td>
+<td>~95%</td>
+<td>~45%</td>
+</tr>
+<tr>
+<td>中</td>
+<td>~96%</td>
+<td>~50%</td>
+</tr>
+<tr>
+<td>大</td>
+<td>~96%</td>
+<td>~55%</td>
+</tr>
+<tr>
+<td>更大</td>
+<td>~96%（饱和）</td>
+<td>~60%（继续涨）</td>
+</tr>
+</tbody>
+</table>
+<p>两个关键发现：</p>
+<ol>
+<li><strong>干净准确率很快饱和</strong>：模型大到一定程度后，干净数据上的表现不再提升。</li>
+<li><strong>鲁棒准确率持续提升</strong>：对抗训练下，模型越大鲁棒性越好，看不到饱和迹象。</li>
+</ol>
+<p>这暗示：<strong>鲁棒性需要额外的模型容量来「记住」更复杂的决策边界。</strong> 要想又准又鲁棒，模型得足够大。</p>
 <hr/>
-<h2 id="4-cw">4. C&amp;W：换一种思路——直接优化扰动<a class="headerlink" href="#4-cw" title="锚点链接">¶</a></h2>
+<h2 id="4-cw">4. C&amp;W：换一种思路 —— 直接优化扰动<a class="headerlink" href="#4-cw" title="锚点链接">¶</a></h2>
 <blockquote>
 <p>论文：Carlini &amp; Wagner, <em>Towards Evaluating the Robustness of Neural Networks</em> (IEEE S&amp;P 2017)</p>
 </blockquote>
 <h3 id="41">4.1 告别梯度符号<a class="headerlink" href="#41" title="锚点链接">¶</a></h3>
-<p>前面三种方法（FGSM、BIM、PGD）都是梯度方向的变种。C&amp;W 说：<strong>我们直接求解一个优化问题。</strong></p>
-<p>思路朴素得令人意外：我们想要最小化扰动 <code>δ</code>，同时保证 <code>x + δ</code> 被错分。翻译成数学：</p>
+<p>前面三种方法（FGSM、BIM、PGD）的共同点是：<strong>沿着梯度方向推，推到扰动上限 <span class="arithmatex">\(\varepsilon\)</span> 为止。</strong> 它们不关心「推到边界最薄弱的地方需要多大扰动」——反正推到上限就停。</p>
+<p>C&amp;W 换了一个完全不同的思路：<strong>我不设扰动上限。我直接问——「让模型分错，最少需要多大扰动？」</strong></p>
+<p>这就像一个锁匠不说「我用一把锤子，最多砸 10 下」，而是说「我试试用多细的铁丝能撬开这把锁」。</p>
+<h3 id="42">4.2 问题建模<a class="headerlink" href="#42" title="锚点链接">¶</a></h3>
+<p><strong>原始约束优化问题</strong>：</p>
 <div class="arithmatex">\[
-\min_{\delta} \|\delta\|_p \quad \text{s.t.} \quad C(x + \delta) = t,\quad x + \delta \in [0, 1]^n
+\min_{\delta} \|\delta\|_p \quad \text{在以下条件下：} \quad C(x + \delta) = t,\;\; x + \delta \in [0, 1]^n
+\]</div>
+<p>翻译成人话：</p>
+<table>
+<thead>
+<tr>
+<th>部分</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\min_{\delta} \|\delta\|_p\)</span></td>
+<td>扰动 <strong>尽可能小</strong>（<span class="arithmatex">\(p=2\)</span> 用欧氏距离，<span class="arithmatex">\(p=\infty\)</span> 用最大分量）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(C(x+\delta) = t\)</span></td>
+<td>扰动后的图必须被分到目标类 <span class="arithmatex">\(t\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(x+\delta \in [0,1]^n\)</span></td>
+<td>扰动后的像素值必须在合法范围内</td>
+</tr>
+</tbody>
+</table>
+<h3 id="43">4.3 把约束变成目标函数<a class="headerlink" href="#43" title="锚点链接">¶</a></h3>
+<p>上面那个带约束的问题是<strong>很难直接求解的</strong>——约束太硬了。C&amp;W 的技巧是把约束「软化」成目标函数的一部分：</p>
+<div class="arithmatex">\[
+\min_{\delta}\; \underbrace{\|\delta\|_p}_{\text{扰动越小越好}} \;+\; c \cdot \underbrace{f(x + \delta)}_{\text{错分得越离谱越好}}
 \]</div>
 <ul>
-<li><code>C(·)</code> 是分类器输出的类别</li>
-<li><code>t</code> 是目标错误类别</li>
-<li><code>‖δ‖_p</code> 是扰动的范数（越小越好）</li>
+<li><span class="arithmatex">\(c &gt; 0\)</span> 是平衡系数：<span class="arithmatex">\(c\)</span> 越大，越优先保证攻击成功（哪怕扰动大一点）；<span class="arithmatex">\(c\)</span> 越小，越优先保持扰动小</li>
+<li><span class="arithmatex">\(f(\cdot)\)</span> 是攻击目标函数——当 <span class="arithmatex">\(f(x+\delta) \leq 0\)</span> 时攻击成功</li>
 </ul>
-<h3 id="42">4.2 如何处理约束<a class="headerlink" href="#42" title="锚点链接">¶</a></h3>
-<p>把约束转化成目标函数的一部分，得到无约束优化问题：</p>
+<p>C&amp;W 设计了 7 种 <span class="arithmatex">\(f(\cdot)\)</span> 的候选，最终推荐的是：</p>
 <div class="arithmatex">\[
-\min_{\delta} \|\delta\|_p + c · f(x + \delta)
+f(x') = \max\!\Big(\max_{i \neq t} Z(x')_i - Z(x')_t,\; -\kappa\Big)
 \]</div>
-<p>其中 <code>c &gt; 0</code> 是平衡系数，<code>f(·)</code> 是攻击目标函数。</p>
-<p>Carlini &amp; Wagner 提出了 <strong>7 种</strong> <code>f(·)</code> 的候选形式，最终推荐的是：</p>
-<div class="arithmatex">\[
-f(x') = \max\left(\max_{i \neq t} Z(x')_i - Z(x')_t,\; -\kappa\right)
-\]</div>
-<p>其中 <code>Z(x')</code> 是分类器在 softmax 之前的 logits。<code>κ</code> 控制攻击的置信度（<code>κ</code> 越大，要求错分得越「确信」）。</p>
-<p><strong>直观理解</strong>：这个式子的意思是——让正确类别（或非目标类别）的最大 logit 比目标类别的 logit 小至少 <code>κ</code>。当 <code>κ = 0</code> 时，只要目标类 logit 最高就行；<code>κ &gt; 0</code> 时，要求目标类显著领先。</p>
-<h3 id="43-box">4.3 Box 约束的三种处理<a class="headerlink" href="#43-box" title="锚点链接">¶</a></h3>
-<p>输入像素必须在 <code>[0, 1]</code> 范围内。C&amp;W 讨论了三种方案：</p>
+<p><strong>逐项解释</strong>：</p>
+<ul>
+<li><span class="arithmatex">\(Z(x')\)</span> 是模型在 softmax <strong>之前</strong>的输出（logits），不是概率</li>
+<li><span class="arithmatex">\(Z(x')_t\)</span> 是目标类 <span class="arithmatex">\(t\)</span> 的 logit</li>
+<li><span class="arithmatex">\(\max_{i \neq t} Z(x')_i\)</span> 是所有非目标类中最大的 logit</li>
+<li><span class="arithmatex">\(\max_{i \neq t} Z(x')_i - Z(x')_t\)</span>：目标类的 logit 比最强对手<strong>低</strong>多少。这个值越大 → 攻击越不成功</li>
+<li><span class="arithmatex">\(-\kappa\)</span>：攻击成功的阈值。<span class="arithmatex">\(\kappa\)</span> 控制攻击的「确信度」</li>
+</ul>
+<p><strong>三种 <span class="arithmatex">\(\kappa\)</span> 的直观含义</strong>：</p>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(\kappa\)</span></th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="arithmatex">\(\kappa = 0\)</span></td>
+<td>只要目标类 logit 高于所有其他类就行（刚好错分）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\kappa &gt; 0\)</span></td>
+<td>要求目标类 logit 显著高于其他类（「确信地」错分）</td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(\kappa\)</span> 很大</td>
+<td>攻击要求非常强，但扰动也会更大</td>
+</tr>
+</tbody>
+</table>
+<p><strong>为什么用 logits 而不是 softmax 概率？</strong> 因为 softmax 之后的概率分布太平滑，梯度信息不足。logits 保留了更多「原始信号」，优化效果更好。</p>
+<h3 id="44-box-01">4.4 处理 Box 约束（像素值在 [0,1] 内）<a class="headerlink" href="#44-box-01" title="锚点链接">¶</a></h3>
+<p>输入的像素值必须合法。C&amp;W 讨论了三种方法：</p>
 <table>
 <thead>
 <tr>
 <th>方法</th>
 <th>怎么做</th>
-<th>优缺点</th>
+<th>优点</th>
+<th>缺点</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><strong>Projected GD</strong></td>
-<td>每步梯度下降后投影回 <code>[0,1]</code></td>
-<td>简单，但传入下一步的不是「真实」值</td>
+<td>每步优化后，把超出 [0,1] 的值硬夹回来</td>
+<td>简单直接</td>
+<td>传入下一步的不是「真实」梯度值</td>
 </tr>
 <tr>
 <td><strong>Clipped GD</strong></td>
-<td>把 <code>x+δ</code> 夹到 <code>[0,1]</code> 再算 loss</td>
-<td>梯度信息可能丢失</td>
+<td>先把 <span class="arithmatex">\(x+\delta\)</span> 夹到 [0,1]，再算 loss 和梯度</td>
+<td>梯度是对「合法输入」算的</td>
+<td>梯度信息在边界处可能丢失</td>
 </tr>
 <tr>
 <td><strong>Change of Variable</strong></td>
-<td>令 <code>δ = ½(tanh(w) + 1) - x</code>，优化 <code>w</code></td>
-<td>自然的 <code>[0,1]</code> 约束，扰动通常更小</td>
+<td>令 <span class="arithmatex">\(\delta = \frac{1}{2}(\tanh(w) + 1) - x\)</span>，优化无约束的 <span class="arithmatex">\(w\)</span></td>
+<td><span class="arithmatex">\(w\)</span> 取任意值，<span class="arithmatex">\(\delta\)</span> 自动落在 [0,1]</td>
+<td>优化变量变多了</td>
 </tr>
 </tbody>
 </table>
-<p>实验结果显示 Projected GD 在 box 约束处理上优于其他方法，但 Change of Variable 找到的扰动通常更小。实际使用时通常用 Projected GD（更稳定）。</p>
-<h3 id="44-cw">4.4 C&amp;W 和其他方法的本质区别<a class="headerlink" href="#44-cw" title="锚点链接">¶</a></h3>
+<p>实际使用中，<strong>Projected GD 最稳定</strong>，大部分 C&amp;W 实现都用它。但 Change of Variable 产生的扰动通常最小——因为它在约束内自然优化，不需要硬夹。</p>
+<h3 id="45-cw-vs">4.5 C&amp;W vs 梯度方法：本质区别<a class="headerlink" href="#45-cw-vs" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -2125,33 +2575,38 @@ f(x') = \max\left(\max_{i \neq t} Z(x')_i - Z(x')_t,\; -\kappa\right)
 </thead>
 <tbody>
 <tr>
-<td>思路</td>
-<td>「沿着梯度方向推」</td>
-<td>「最小化扰动到刚好错分」</td>
-</tr>
-<tr>
-<td>攻击目标</td>
-<td>隐式（增大 loss）</td>
-<td>显式（要错分成哪个类）</td>
+<td>核心问题</td>
+<td>「在 <span class="arithmatex">\(\varepsilon\)</span> 限制内，让模型错分」</td>
+<td>「让模型错分，需要多少扰动？」</td>
 </tr>
 <tr>
 <td>扰动大小</td>
-<td>由 <code>ε</code> 决定</td>
-<td>由优化本身决定（尽量小）</td>
+<td>由 <span class="arithmatex">\(\varepsilon\)</span> 控制（固定上限）</td>
+<td><strong>由优化本身决定</strong>（尽量小）</td>
 </tr>
 <tr>
-<td>数学形式</td>
-<td>梯度上升</td>
-<td>约束优化 → 无约束优化</td>
+<td>如果 <span class="arithmatex">\(\varepsilon\)</span> 太小</td>
+<td>攻击失败</td>
+<td>不存在「太小」的问题</td>
 </tr>
 <tr>
-<td>攻击强度</td>
-<td>强</td>
-<td><strong>极强</strong>（曾被用于攻破很多防御）</td>
+<td>如果 <span class="arithmatex">\(\varepsilon\)</span> 太大</td>
+<td>扰动明显，被检测</td>
+<td>自动找到最小扰动</td>
+</tr>
+<tr>
+<td>计算代价</td>
+<td>低</td>
+<td>高（需要优化求解）</td>
+</tr>
+<tr>
+<td>适合场景</td>
+<td>对抗训练（速度快）</td>
+<td>评测模型的极限鲁棒性</td>
 </tr>
 </tbody>
 </table>
-<p>C&amp;W 攻击被视为白盒攻击的「黄金标准」之一。如果能防御 C&amp;W，基本可以声称对白盒攻击是鲁棒的。但代价是：C&amp;W 计算量远大于 FGSM/PGD，不适合用于对抗训练。</p>
+<p><strong>C&amp;W 的地位</strong>：在 AutoAttack 出现之前，C&amp;W 是白盒攻击的黄金标准。如果能顶住 C&amp;W + 大 <span class="arithmatex">\(c\)</span> + 大 <span class="arithmatex">\(\kappa\)</span> 的组合，基本可以声称对白盒攻击鲁棒。代价是<strong>计算量极大</strong>，不适合用于对抗训练。</p>
 <hr/>
 <h2 id="5">5. 四种方法的演化逻辑链<a class="headerlink" href="#5" title="锚点链接">¶</a></h2>
 <p>现在把四篇论文串起来，你会看到一条清晰的演化线：</p>
@@ -2166,33 +2621,60 @@ graph TD
     style C fill:#3BA272,stroke:#2A7D56,color:#fff
     style D fill:#FAC858,stroke:#C99A20,color:#333
     style E fill:#EE6666,stroke:#C74B4B,color:#fff</code></pre>
-<p><strong>演化逻辑</strong>：</p>
+<p><strong>四种方法的演化逻辑</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>解决的痛点</th>
+<th>核心创新</th>
+<th>代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>FGSM</strong></td>
+<td>「对抗样本怎么快速生成？」</td>
+<td>梯度符号 + 一步到位</td>
+<td>攻击力弱</td>
+</tr>
+<tr>
+<td><strong>BIM</strong></td>
+<td>「一步不够，大图上准确率低」</td>
+<td>多步迭代 + 目标攻击</td>
+<td>计算量 ×<span class="arithmatex">\(N\)</span></td>
+</tr>
+<tr>
+<td><strong>PGD</strong></td>
+<td>「BIM 容易陷入局部最优」</td>
+<td>随机初始化 + 更多迭代</td>
+<td>计算量再增大</td>
+</tr>
+<tr>
+<td><strong>C&amp;W</strong></td>
+<td>「梯度方法不保证扰动最小」</td>
+<td>优化视角，直接最小化扰动</td>
+<td>计算量最大</td>
+</tr>
+</tbody>
+</table>
+<p><strong>方法之间的递进关系</strong>：</p>
 <ol>
-<li><strong>FGSM</strong>：揭示了问题的本质（线性假设），但攻击太弱</li>
-<li><strong>BIM</strong>：把一步变成多步，同时引入目标攻击，攻击力大幅提升</li>
-<li><strong>PGD</strong>：BIM 的问题是不够「全局」——加随机初始化 + min-max 框架，让攻击和防御都有了理论基础</li>
-<li><strong>C&amp;W</strong>：完全换了一条路——不用梯度符号，直接求解最优化问题，aim for 最小扰动</li>
+<li><strong>FGSM → BIM</strong>：从「粗」到「细」——把一步拆成多步，从无目标变成有目标</li>
+<li><strong>BIM → PGD</strong>：从「确定」到「随机」——加随机起点，避免局部最优</li>
+<li><strong>PGD → C&amp;W</strong>：从「梯度」到「优化」——换一个完全不同的范式</li>
 </ol>
 <hr/>
 <h2 id="6">6. 💭 个人理解<a class="headerlink" href="#6" title="锚点链接">¶</a></h2>
 <h3 id="61">6.1 为什么线性假设这么重要？<a class="headerlink" href="#61" title="锚点链接">¶</a></h3>
-<p>Goodfellow 的线性假设是整个对抗攻击领域的「第一性原理」。在我看过的很多后续工作中，这个假设被反复引用但很少被质疑。我的理解是：</p>
-<ul>
-<li><strong>它解释了「为什么对抗样本存在」——而不只是「怎么生成」</strong>。这比后面所有攻击方法都更根本。</li>
-<li>高维空间中，<code>L₁</code> 范数爆炸这个现象不是神经网络独有的——任何在高维输入上做内积的模型都会遇到。所以 <strong>对抗样本不是神经网络的 bug，而是高维学习的 feature</strong>。</li>
-<li>这个假设的一个自然推论是：对抗鲁棒性可能和模型在权重空间的范数约束有关。事实上后来 Madry 等人的对抗训练本质上就是在约束这个方向。</li>
-</ul>
-<h3 id="62-pgd">6.2 PGD 的随机初始化有多关键？<a class="headerlink" href="#62-pgd" title="锚点链接">¶</a></h3>
-<p>BIM 到 PGD 的改进看似微小（就加了个随机起点），但背后有一个深刻的道理：<strong>确定性攻击容易过拟合到特定的 loss landscape 局部结构，而随机化帮助你探索更广的区域。</strong></p>
-<p>这和 machine unlearning 中的一个核心难题有共鸣——如果你只是<strong>确定性地</strong>去掉某个数据点的影响，模型可能只忘了「表面的东西」；真正的遗忘需要探索参数空间的不同区域。随机初始化和多步迭代，在思想上是相通的。</p>
-<h3 id="63-cw-machine-unlearning">6.3 C&amp;W 为什么对研究 Machine Unlearning 特别相关？<a class="headerlink" href="#63-cw-machine-unlearning" title="锚点链接">¶</a></h3>
-<p>C&amp;W 的目标是「找到最小的扰动让模型出错」。在 machine unlearning 的语境下，这可以直接转译成：</p>
-<ul>
-<li><strong>验证遗忘效果</strong>：如果一个模型声称「忘记了某个数据」，用 C&amp;W 去攻击它——看它是否仍然对那个数据的对抗版本表现出记忆痕迹。</li>
-<li><strong>遗忘后的鲁棒性</strong>：遗忘训练通常会改变决策边界，C&amp;W 是测试边界变化的最严格工具之一。</li>
-</ul>
-<p>我正在思考一个问题：<strong>遗忘训练后，对抗鲁棒性到底变好还是变差？</strong> 直觉上遗忘可能会「扰乱」决策边界，让模型在某些区域更脆弱；但也可能因为模型容量释放，反而提升了整体鲁棒性。C&amp;W 提供了一个精确的测量工具。</p>
-<h3 id="64-data-poisoning-backdoor">6.4 这些攻击和 Data Poisoning / Backdoor 的区别<a class="headerlink" href="#64-data-poisoning-backdoor" title="锚点链接">¶</a></h3>
+<p>Goodfellow 的线性假设是整个对抗攻击领域的「第一性原理」。它能回答<strong>「为什么对抗样本存在」</strong>而不只是「怎么生成」——这比后面所有攻击方法都更根本。</p>
+<p>一个容易被忽略的推论：<strong>对抗样本不是神经网络的 bug，而是高维学习的 feature。</strong> 任何在高维输入上做内积的模型都会遇到 <span class="arithmatex">\(\|w\|_1\)</span> 爆炸的问题，不只是神经网络。所以这不是架构问题，是维度问题。</p>
+<p>这跟 machine unlearning 有深层联系：遗忘训练本质上是在修改决策边界。如果原始边界本身就对抗脆弱（高维线性效应），遗忘后修改的边界可能更脆弱——因为遗忘过程往往比正常训练更「粗糙」，带来的边界畸变更大。</p>
+<h3 id="62-pgd-unlearning">6.2 PGD 随机初始化和 Unlearning 的共鸣<a class="headerlink" href="#62-pgd-unlearning" title="锚点链接">¶</a></h3>
+<p>BIM → PGD 的改进看似微小（就加了个随机起点），但思想深刻：<strong>确定性搜索容易过拟合到局部的 loss landscape 结构，随机化帮你探索更广的区域。</strong></p>
+<p>Machine unlearning 中有一个完全类似的现象：如果你只是<strong>确定性地</strong>去掉某个数据点的影响（比如直接对那个样本做梯度上升），模型可能只「表面遗忘」了——换一个角度看，记忆痕迹还在。真正的遗忘需要<strong>在参数空间的不同区域探索</strong>，找到「不依赖那个数据点也能做好的」参数配置。</p>
+<p>PGD 的随机初始化和 unlearning 中的随机化探索，在思想上是同一个东西：<strong>不要只在一个点附近打转。</strong></p>
+<h3 id="63-vs-vs">6.3 对抗攻击 vs 投毒 vs 后门 —— 时机决定一切<a class="headerlink" href="#63-vs-vs" title="锚点链接">¶</a></h3>
 <table>
 <thead>
 <tr>
@@ -2210,43 +2692,50 @@ graph TD
 <td><strong>训练阶段</strong></td>
 </tr>
 <tr>
-<td>攻击方式</td>
-<td>修改单个输入</td>
-<td>污染训练数据</td>
-<td>植入触发器</td>
+<td>要改什么</td>
+<td>单个输入</td>
+<td>训练集</td>
+<td>训练集 + 触发器</td>
 </tr>
 <tr>
-<td>持久性</td>
-<td>不持久（每次都要攻击）</td>
-<td>持久（影响模型参数）</td>
+<td>效果持续多久</td>
+<td>每次攻击都要重新生成</td>
+<td>持久（改变了模型参数）</td>
 <td>持久（触发时激活）</td>
 </tr>
 <tr>
-<td>和前者的关系</td>
-<td>—</td>
-<td>可以看作「训练阶段的对抗攻击」</td>
-<td>可以看作「带触发器的投毒」</td>
+<td>和本文方法的关系</td>
+<td>FGSM/BIM/PGD/C&amp;W 直接适用</td>
+<td>可以用更强的对抗样本来投毒</td>
+<td>投毒 + 触发器的组合</td>
 </tr>
 </tbody>
 </table>
-<p>这个对比帮我理清了一个一直困惑的问题：<strong>对抗攻击和投毒攻击的区别不是「方法不同」，而是「时机不同」。</strong> 如果攻击者在训练阶段就有能力污染数据，那他可以用更强的对抗样本来投毒——这就是两者的交叉点。</p>
+<p>这三者的边界经常模糊。投毒攻击可以看作「训练阶段的对抗攻击」——训练时混入精心构造的对抗样本，永久改变模型。<strong>如果你的 unlearning 方案不能区分「被投毒的数据」和「正常但被遗忘的数据」，那遗忘过程本身可能引入新的脆弱性。</strong></p>
 <hr/>
-<h2 id="7">7. 后续阅读<a class="headerlink" href="#7" title="锚点链接">¶</a></h2>
+<h2 id="7">7. 后续阅读与下一步<a class="headerlink" href="#7" title="锚点链接">¶</a></h2>
+<h3 id="71">7.1 从本文出发<a class="headerlink" href="#71" title="锚点链接">¶</a></h3>
 <ul>
-<li>攻击方法不止这四种。<strong>AutoAttack</strong> 是目前最常用的标准评测基线，组合了 APGD + APGD-DLR + FAB + Square Attack</li>
-<li><strong>黑盒攻击</strong>是另一个重要方向——攻击者不知道模型内部，只能查询。方法和白盒完全不同</li>
-<li><strong>对抗训练</strong>作为防御手段，和这四种攻击方法是「攻防螺旋」的两面</li>
+<li><strong>动手实践</strong>：<a href="../fgsm/">FGSM 实战</a> — PyTorch 从零实现，跑代码比看公式理解更深</li>
+<li><strong>后续方法</strong>：AutoAttack（组合多种攻击的评测标准）、Square Attack（黑盒）、BPDA（攻破梯度混淆防御）</li>
+<li><strong>防御视角</strong>：对抗训练是最有效的防御，但具体怎么实现（FreeAT、FastAT、TRADES）又是另一条演化线</li>
+</ul>
+<h3 id="72">7.2 与我的研究方向的关系<a class="headerlink" href="#72" title="锚点链接">¶</a></h3>
+<ul>
+<li><strong>Machine Unlearning</strong>：遗忘后模型的对抗鲁棒性变化？——开放问题，C&amp;W 可以作为评测工具</li>
+<li><strong>Model Editing</strong>：编辑模型参数是否引入新的对抗脆弱性？——用 PGD 扫描编辑点附近的 loss landscape</li>
+<li><strong>Backdoor / Poisoning</strong>：对抗样本是推理阶段攻击，投毒是训练阶段攻击——但二者的生成方法可以互相借鉴</li>
 </ul>
 <blockquote>
-<p><strong>下一步</strong>：<a href="../fgsm/">对抗样本实战 (FGSM)</a> — 如果你还没看过那篇，推荐先看代码再回来读这篇：概念 + 代码 = 真正理解。</p>
+<p><strong>下一步</strong>：<a href="../fgsm/">对抗样本实战 (FGSM)</a> — 概念 + 代码 = 真正理解。</p>
 </blockquote>
 <hr/>
 <h2 id="_1">参考文献<a class="headerlink" href="#_1" title="锚点链接">¶</a></h2>
 <ol>
-<li><strong>Goodfellow, I., Shlens, J., &amp; Szegedy, C.</strong> (2015). <em>Explaining and Harnessing Adversarial Examples.</em> ICLR 2015.</li>
-<li><strong>Kurakin, A., Goodfellow, I., &amp; Bengio, S.</strong> (2017). <em>Adversarial Machine Learning at Scale.</em> ICLR 2017.</li>
-<li><strong>Madry, A., Makelov, A., Schmidt, L., Tsipras, D., &amp; Vladu, A.</strong> (2018). <em>Towards Deep Learning Models Resistant to Adversarial Attacks.</em> ICLR 2018.</li>
-<li><strong>Carlini, N., &amp; Wagner, D.</strong> (2017). <em>Towards Evaluating the Robustness of Neural Networks.</em> IEEE S&amp;P 2017.</li>
+<li><strong>Goodfellow, I., Shlens, J., &amp; Szegedy, C.</strong> (2015). <em>Explaining and Harnessing Adversarial Examples.</em> ICLR 2015. → 线性假设 + FGSM</li>
+<li><strong>Kurakin, A., Goodfellow, I., &amp; Bengio, S.</strong> (2017). <em>Adversarial Machine Learning at Scale.</em> ICLR 2017. → BIM + 批量对抗训练</li>
+<li><strong>Madry, A., Makelov, A., Schmidt, L., Tsipras, D., &amp; Vladu, A.</strong> (2018). <em>Towards Deep Learning Models Resistant to Adversarial Attacks.</em> ICLR 2018. → PGD + min-max 框架</li>
+<li><strong>Carlini, N., &amp; Wagner, D.</strong> (2017). <em>Towards Evaluating the Robustness of Neural Networks.</em> IEEE S&amp;P 2017. → C&amp;W 优化攻击</li>
 </ol>
 <!-- Giscus 评论区 —— GitHub 登录，零配置，无需数据库 -->
 <hr style="margin-top: 3rem;"/>

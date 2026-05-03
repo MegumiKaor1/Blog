@@ -2155,16 +2155,17 @@ f(x') = \max\left(\max_{i \neq t} Z(x')_i - Z(x')_t,\; -\kappa\right)
 <hr/>
 <h2 id="5">5. 四种方法的演化逻辑链<a class="headerlink" href="#5" title="锚点链接">¶</a></h2>
 <p>现在把四篇论文串起来，你会看到一条清晰的演化线：</p>
-<pre class="mermaid"><code>graph TD
+<pre class="mermaid"><code>%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#5470C6', 'primaryTextColor': '#fff', 'lineColor': '#aaa', 'fontSize': '14px'}}}%%
+graph TD
     A["核心问题：对抗样本为什么存在？"] --&gt; B["Goodfellow 2015&lt;br/&gt;线性假设&lt;br/&gt;→ FGSM：单步 sign 梯度"]
     B --&gt; C["问题：ImageNet 上成功率不够&lt;br/&gt;Kurakin 2017&lt;br/&gt;→ BIM：迭代 + 目标攻击"]
     C --&gt; D["问题：BIM 可能陷入局部最优&lt;br/&gt;Madry 2018&lt;br/&gt;→ PGD：随机初始化 + min-max 框架"]
     D --&gt; E["问题：梯度攻击扰动不一定最小&lt;br/&gt;Carlini &amp; Wagner 2017&lt;br/&gt;→ C&amp;W：直接优化最小扰动"]
 
-    style B fill:#e3f2fd
-    style C fill:#e8f5e9
-    style D fill:#fff3e0
-    style E fill:#fce4ec</code></pre>
+    style B fill:#5470C6,stroke:#3A4FA0,color:#fff
+    style C fill:#3BA272,stroke:#2A7D56,color:#fff
+    style D fill:#FAC858,stroke:#C99A20,color:#333
+    style E fill:#EE6666,stroke:#C74B4B,color:#fff</code></pre>
 <p><strong>演化逻辑</strong>：</p>
 <ol>
 <li><strong>FGSM</strong>：揭示了问题的本质（线性假设），但攻击太弱</li>

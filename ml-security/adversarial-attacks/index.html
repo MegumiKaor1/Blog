@@ -9,7 +9,7 @@
 <meta content="Kaor1" name="author"/>
 <link href="https://megumikaor1.github.io/Blog/ml-security/adversarial-attacks/" rel="canonical"/>
 <link href="../model-editing/" rel="prev"/>
-<link href="fgsm/" rel="next"/>
+<link href="classic-methods/" rel="next"/>
 <link href="../../assets/favicon.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
 <title>总览 - Kaor1's World</title>
@@ -314,6 +314,18 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="classic-methods/">
+<span class="md-ellipsis">
+    
+  
+    方法演进 (FGSM→C&amp;W)
+  
+
+    
+  </span>
+</a>
+</li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="fgsm/">
 <span class="md-ellipsis">
@@ -1312,16 +1324,28 @@
 <td><a href="fgsm/">📖 FGSM 实战</a></td>
 </tr>
 <tr>
+<td><strong>BIM</strong></td>
+<td>多步、白盒</td>
+<td>迭代版 FGSM + 目标攻击</td>
+<td>见 <a href="classic-methods/#2-bim">方法演进</a></td>
+</tr>
+<tr>
 <td><strong>PGD</strong></td>
 <td>多步、白盒</td>
-<td>FGSM 的迭代版，更强的攻击</td>
-<td>待补充</td>
+<td>BIM + 随机初始化，最强的 first-order 攻击</td>
+<td>见 <a href="classic-methods/#3-pgd">方法演进</a></td>
 </tr>
 <tr>
 <td><strong>C&amp;W</strong></td>
 <td>优化、白盒</td>
-<td>最小化扰动，攻击效果极强</td>
-<td>待补充</td>
+<td>直接优化最小扰动，攻击效果极强</td>
+<td>见 <a href="classic-methods/#4-cw">方法演进</a></td>
+</tr>
+<tr>
+<td><strong>📖 论文级对比</strong></td>
+<td>—</td>
+<td>四篇经典论文的完整推导与演化逻辑</td>
+<td><a href="classic-methods/">→ 方法演进：从 FGSM 到 C&amp;W</a></td>
 </tr>
 <tr>
 <td><strong>AutoAttack</strong></td>
